@@ -3,7 +3,7 @@ using UnityEngine;
 
 public abstract class Character : MonoBehaviour
 {
-    [SerializeField] protected float maxHealthPoints;
+    [SerializeField, Range(0, 50)] protected float maxHealthPoints;
     [SerializeField] protected float speed;
     [SerializeField] protected AudioSource takeDamageSound;
 
@@ -11,7 +11,11 @@ public abstract class Character : MonoBehaviour
     protected float currentHealthPoints;
     protected int spritesLength;
     protected bool isAlive = true;
+
+    //animations booleans
     protected bool isStatic = true;
+    protected bool isTurnByX = true;
+    protected bool isturnByY = true;
 
     protected void Start()
     {
@@ -25,7 +29,7 @@ public abstract class Character : MonoBehaviour
         if (isAlive)
         {
             currentHealthPoints -= takenDamage;
-            if (currentHealthPoints <= 0)
+            if (currentHealthPoints == 0)
             {
                 Destroy(gameObject);
                 //Destroy(gameObject, spritesLength / 8f / 5f / 2f * spritesLength);

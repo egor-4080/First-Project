@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5327320210927062667}
   - component: {fileID: 5964569782288152339}
   - component: {fileID: -258620457978598700}
+  - component: {fileID: 4034071149698935048}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Enemy
@@ -124,7 +125,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.09
+  m_Radius: 0.07
 --- !u!50 &5964569782288152339
 Rigidbody2D:
   serializedVersion: 4
@@ -167,3 +168,25 @@ MonoBehaviour:
   maxHealthPoints: 50
   speed: 0
   takeDamageSound: {fileID: 0}
+--- !u!95 &4034071149698935048
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4936253070689236506}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d9992542667b1e1468722a840a7f0843, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

@@ -41,15 +41,11 @@ public class PlayerContoller : Character
         }
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawSphere(mousePosition, 1);
-    }
-
     public void SetMoveAnimation()
     {
-        animator.StopPlayback();
         animator.SetBool("IsStatic", isStatic);
+        animator.SetBool("IsTurnByX", isTurnByX);
+        animator.SetBool("IsTurnByY", isturnByY);
     }
 
     public virtual void RotateGun()
@@ -76,6 +72,22 @@ public class PlayerContoller : Character
         if (direction != Vector2.zero)
         {
             isStatic = false;
+            if(direction.x != 0)
+            {
+                isTurnByX = true;
+            }
+            else
+            {
+                isTurnByX = false;
+                if(direction.y > 0)
+                {
+                    isturnByY = true;
+                }
+                else
+                {
+                    isturnByY = false;
+                }
+            }
         }
         else
         {
