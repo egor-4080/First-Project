@@ -626,28 +626,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealthPoints: 100
   speed: 10
-  damagadedSprites:
-  - {fileID: 784450156739352477, guid: 67bab2f1bae99794cb984f92508f4848, type: 3}
-  - {fileID: -7329554966121860841, guid: 67bab2f1bae99794cb984f92508f4848, type: 3}
-  - {fileID: -6424778614128376839, guid: 67bab2f1bae99794cb984f92508f4848, type: 3}
-  - {fileID: -7329554966121860841, guid: 67bab2f1bae99794cb984f92508f4848, type: 3}
-  - {fileID: 784450156739352477, guid: 67bab2f1bae99794cb984f92508f4848, type: 3}
-  staticSprites:
-  - {fileID: 6757282713640645180, guid: 67bab2f1bae99794cb984f92508f4848, type: 3}
-  - {fileID: -6781412095145881161, guid: 67bab2f1bae99794cb984f92508f4848, type: 3}
-  - {fileID: 1755772209161902963, guid: 67bab2f1bae99794cb984f92508f4848, type: 3}
-  - {fileID: 5865078278364869351, guid: 67bab2f1bae99794cb984f92508f4848, type: 3}
-  - {fileID: 1755772209161902963, guid: 67bab2f1bae99794cb984f92508f4848, type: 3}
-  - {fileID: -6781412095145881161, guid: 67bab2f1bae99794cb984f92508f4848, type: 3}
-  - {fileID: 6757282713640645180, guid: 67bab2f1bae99794cb984f92508f4848, type: 3}
-  deadSprites:
-  - {fileID: -6424778614128376839, guid: 67bab2f1bae99794cb984f92508f4848, type: 3}
-  mainSprite: {fileID: 7388399842426930641, guid: 67bab2f1bae99794cb984f92508f4848, type: 3}
   takeDamageSound: {fileID: 0}
   weaponSoket: {fileID: 1850726489}
   weapon: {fileID: 1991576577}
-  burden: 0
   cameraMain: {fileID: 1982703629}
+  burden: 0
+  animator: {fileID: 483750112}
 --- !u!50 &483750110
 Rigidbody2D:
   serializedVersion: 4
@@ -671,9 +655,9 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!70 &483750111
 CapsuleCollider2D:
@@ -13047,7 +13031,7 @@ MonoBehaviour:
   m_Follow: {fileID: 483750107}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 5
+    OrthographicSize: 6
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -13072,13 +13056,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1279748160}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.48991245, y: -0.8729779, z: -10.086523}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1685193979}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1857617452}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1317832162
 GameObject:
@@ -13395,6 +13379,39 @@ Transform:
   - {fileID: 1991576575}
   m_Father: {fileID: 483750107}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1857617451
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1857617452}
+  m_Layer: 0
+  m_Name: Camera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1857617452
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857617451}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.48991245, y: 0.8729779, z: 0.086523265}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1982703630}
+  - {fileID: 1279748162}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1982703626
 GameObject:
   m_ObjectHideFlags: 0
@@ -13491,7 +13508,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -13515,12 +13532,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1982703626}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.48991245, y: -0.8729779, z: -10.086523}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1857617452}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1991576574
 GameObject:
@@ -13532,9 +13549,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1991576575}
   - component: {fileID: 1991576576}
-  - component: {fileID: 1991576577}
-  - component: {fileID: 1991576578}
   - component: {fileID: 1991576579}
+  - component: {fileID: 1991576577}
+  - component: {fileID: 1991576580}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -13632,59 +13649,6 @@ MonoBehaviour:
   bullet: {fileID: 3086629947476232209, guid: 70705314d04a0e74c9a964468e5a0699, type: 3}
   spawnPoint: {fileID: 179361564}
   reloadSpeed: 0.25
---- !u!114 &1991576578
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1991576574}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ImpulseDefinition:
-    m_ImpulseChannel: 1
-    m_ImpulseShape: 1
-    m_CustomImpulseShape:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_ImpulseDuration: 0.2
-    m_ImpulseType: 0
-    m_DissipationRate: 0.25
-    m_RawSignal: {fileID: 0}
-    m_AmplitudeGain: 1
-    m_FrequencyGain: 1
-    m_RepeatMode: 0
-    m_Randomize: 1
-    m_TimeEnvelope:
-      m_AttackShape:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      m_DecayShape:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      m_AttackTime: 0
-      m_SustainTime: 0.2
-      m_DecayTime: 0.7
-      m_ScaleWithImpact: 1
-      m_HoldForever: 0
-    m_ImpactRadius: 100
-    m_DirectionMode: 0
-    m_DissipationMode: 2
-    m_DissipationDistance: 100
-    m_PropagationSpeed: 343
-  m_DefaultVelocity: {x: 0.1, y: -0.2, z: 0}
 --- !u!82 &1991576579
 AudioSource:
   m_ObjectHideFlags: 0
@@ -13782,6 +13746,59 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1991576580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991576574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ImpulseDefinition:
+    m_ImpulseChannel: 1
+    m_ImpulseShape: 1
+    m_CustomImpulseShape:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_ImpulseDuration: 0.2
+    m_ImpulseType: 0
+    m_DissipationRate: 0.25
+    m_RawSignal: {fileID: 0}
+    m_AmplitudeGain: 1
+    m_FrequencyGain: 1
+    m_RepeatMode: 0
+    m_Randomize: 1
+    m_TimeEnvelope:
+      m_AttackShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_DecayShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_AttackTime: 0
+      m_SustainTime: 0.2
+      m_DecayTime: 0.7
+      m_ScaleWithImpact: 1
+      m_HoldForever: 0
+    m_ImpactRadius: 100
+    m_DirectionMode: 0
+    m_DissipationMode: 2
+    m_DissipationDistance: 100
+    m_PropagationSpeed: 343
+  m_DefaultVelocity: {x: 0, y: -1, z: 0}
 --- !u!1 &2036613132
 GameObject:
   m_ObjectHideFlags: 0
@@ -13877,5 +13894,4 @@ SceneRoots:
   - {fileID: 281875091}
   - {fileID: 483750107}
   - {fileID: 231112093}
-  - {fileID: 1982703630}
-  - {fileID: 1279748162}
+  - {fileID: 1857617452}

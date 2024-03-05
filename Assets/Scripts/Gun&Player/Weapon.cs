@@ -8,7 +8,7 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField] protected float fireRate;
     [SerializeField] protected float weight;
     [SerializeField] protected GameObject fireEffect;
-
+    
     protected CinemachineImpulseSource impulseSource;
     protected AudioSource fireAudio;
     protected float lastFireTime;

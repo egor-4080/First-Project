@@ -5,14 +5,18 @@ public class PlayerContoller : Character
 {
     [SerializeField] private Transform weaponSoket;
     [SerializeField] private Weapon weapon;
-    [SerializeField] private float burden;
     [SerializeField] private Camera cameraMain;
+    [SerializeField] private float burden;
+    [SerializeField] private Animator animator;
 
     private bool fireActive;
     private bool isFacingRight;
-    private Vector3 difference;
+
     private Vector2 direction;
+    private Vector3 difference;
     private Vector3 mousePosition;
+    private Vector3 mouseInput;
+
     private Rigidbody2D rigitBody;
 
     private void Awake()
@@ -22,14 +26,14 @@ public class PlayerContoller : Character
 
     private void Update()
     {
-        Vector3 mouseInput = Mouse.current.position.ReadValue();
-        
+        mouseInput = Mouse.current.position.ReadValue(); 
         mousePosition = cameraMain.ScreenToWorldPoint(mouseInput);
         mousePosition.z = 0;
 
         isFacingRight = mousePosition.x > transform.position.x;
         transform.localScale = new Vector3(isFacingRight ? 1 : -1, 1, 1);
         RotateGun();
+        SetMoveAnimation();
 
         if (fireActive)
         {
@@ -40,6 +44,12 @@ public class PlayerContoller : Character
     private void OnDrawGizmos()
     {
         Gizmos.DrawSphere(mousePosition, 1);
+    }
+
+    public void SetMoveAnimation()
+    {
+        animator.StopPlayback();
+        animator.SetBool("IsStatic", isStatic);
     }
 
     public virtual void RotateGun()
@@ -63,6 +73,14 @@ public class PlayerContoller : Character
     public virtual void OnMove(InputAction.CallbackContext context)
     {
         direction = context.ReadValue<Vector2>();
+        if (direction != Vector2.zero)
+        {
+            isStatic = false;
+        }
+        else
+        {
+            isStatic = true;
+        }
     }
 
     public virtual void OnFire(InputAction.CallbackContext context)
