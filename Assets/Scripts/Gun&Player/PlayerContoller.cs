@@ -6,8 +6,8 @@ public class PlayerContoller : Character
     [SerializeField] private Transform weaponSoket;
     [SerializeField] private Weapon weapon;
     [SerializeField] private Camera cameraMain;
-    [SerializeField] private float burden;
     [SerializeField] private Animator animator;
+    [SerializeField] private float burden;
 
     private bool fireActive;
     private bool isFacingRight;
@@ -68,10 +68,12 @@ public class PlayerContoller : Character
 
     public virtual void OnMove(InputAction.CallbackContext context)
     {
+        print("A");
         direction = context.ReadValue<Vector2>();
         if (direction != Vector2.zero)
         {
             isStatic = false;
+
             if(direction.x != 0)
             {
                 isTurnByX = true;
@@ -79,6 +81,7 @@ public class PlayerContoller : Character
             else
             {
                 isTurnByX = false;
+
                 if(direction.y > 0)
                 {
                     isturnByY = true;

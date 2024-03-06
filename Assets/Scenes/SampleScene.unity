@@ -624,14 +624,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59093a6be00d7e849b1e0bd7b48e4ba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealthPoints: 100
+  maxHealthPoints: 50
   speed: 10
   takeDamageSound: {fileID: 0}
   weaponSoket: {fileID: 1850726489}
   weapon: {fileID: 1991576577}
   cameraMain: {fileID: 1982703629}
-  burden: 0
   animator: {fileID: 483750112}
+  burden: 0
 --- !u!50 &483750110
 Rigidbody2D:
   serializedVersion: 4
