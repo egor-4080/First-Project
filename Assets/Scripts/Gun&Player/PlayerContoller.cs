@@ -33,19 +33,11 @@ public class PlayerContoller : Character
         isFacingRight = mousePosition.x > transform.position.x;
         transform.localScale = new Vector3(isFacingRight ? 1 : -1, 1, 1);
         RotateGun();
-        SetMoveAnimation();
 
         if (fireActive)
         {
             weapon.Fire(isFacingRight);
         }
-    }
-
-    public void SetMoveAnimation()
-    {
-        animator.SetBool("IsStatic", isStatic);
-        animator.SetBool("IsTurnByX", isTurnByX);
-        animator.SetBool("IsTurnByY", isturnByY);
     }
 
     public virtual void RotateGun()
@@ -68,33 +60,32 @@ public class PlayerContoller : Character
 
     public virtual void OnMove(InputAction.CallbackContext context)
     {
-        print("A");
         direction = context.ReadValue<Vector2>();
+
         if (direction != Vector2.zero)
         {
-            isStatic = false;
+            animator.SetBool("IsStatic", false);
 
-            if(direction.x != 0)
+            if (direction.x != 0)
             {
-                isTurnByX = true;
+                animator.SetBool("IsTurnByX", true);
             }
             else
             {
-                isTurnByX = false;
-
-                if(direction.y > 0)
+                animator.SetBool("IsTurnByX", false);
+                if (direction.y > 0)
                 {
-                    isturnByY = true;
+                    animator.SetBool("IsTurnByY", true);
                 }
                 else
                 {
-                    isturnByY = false;
+                    animator.SetBool("IsTurnByY", false);
                 }
             }
         }
         else
         {
-            isStatic = true;
+            animator.SetBool("IsStatic", true);
         }
     }
 
