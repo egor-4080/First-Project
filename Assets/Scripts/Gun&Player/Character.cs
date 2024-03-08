@@ -3,10 +3,10 @@ using UnityEngine;
 
 public abstract class Character : MonoBehaviour
 {
-    [SerializeField, Range(0, 50)] protected float maxHealthPoints;
+    [SerializeField, Range(0, 100)] protected float maxHealthPoints;
     [SerializeField] protected float speed;
-    [SerializeField] protected AudioSource takeDamageSound;
-
+    
+    protected AudioSource takeDamageSound;
     protected SpriteRenderer spriteRenderer;
     protected float currentHealthPoints;
     protected int spritesLength;
@@ -21,6 +21,7 @@ public abstract class Character : MonoBehaviour
     {
         Invoke("StartAnimation", 0);
         spriteRenderer = GetComponent<SpriteRenderer>();
+        takeDamageSound = GetComponent<AudioSource>();
         currentHealthPoints = maxHealthPoints;
     }
 
@@ -28,6 +29,7 @@ public abstract class Character : MonoBehaviour
     {
         if (isAlive)
         {
+            takeDamageSound.Play();
             currentHealthPoints -= takenDamage;
             if (currentHealthPoints == 0)
             {

@@ -11,6 +11,9 @@ public class PlayerContoller : Character
 
     private bool fireActive;
     private bool isFacingRight;
+    private bool throwAction;
+
+    private int mathForIsFacing;
 
     private Vector2 direction;
     private Vector3 difference;
@@ -18,10 +21,12 @@ public class PlayerContoller : Character
     private Vector3 mouseInput;
 
     private Rigidbody2D rigitBody;
+    private ThrowAndTake throwAndTake;
 
     private void Awake()
     {
         rigitBody = GetComponent<Rigidbody2D>();
+        throwAndTake = GetComponent<ThrowAndTake>();
     }
 
     private void Update()
@@ -92,5 +97,14 @@ public class PlayerContoller : Character
     public virtual void OnFire(InputAction.CallbackContext context)
     {
         fireActive = context.ReadValueAsButton();
+    }
+
+    public void OnThrow(InputAction.CallbackContext context)
+    {
+        if (isFacingRight) mathForIsFacing = 1;
+        else               mathForIsFacing = -1;
+
+        throwAction = context.ReadValueAsButton();
+        throwAndTake.SetBooleanValues(throwAction, mathForIsFacing);
     }
 }
