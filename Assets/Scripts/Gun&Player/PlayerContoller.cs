@@ -45,6 +45,15 @@ public class PlayerContoller : Character
         }
     }
 
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.TryGetComponent(out BaseComponent trowingObject))
+        {
+            var collider = GetComponent<Collider2D>();
+            collider.isTrigger = true;
+        }
+    }
+
     public virtual void RotateGun()
     {
         difference = (mousePosition - weaponSoket.position).normalized;

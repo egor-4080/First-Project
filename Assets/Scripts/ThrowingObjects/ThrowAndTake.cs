@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class ThrowAndTake : MonoBehaviour
 {
     [SerializeField] private Transform throwingTransformPosition;
-    [SerializeField] private List<GameObject> throwingObjects;
+    [SerializeField] protected List<GameObject> throwingObjects;
     [SerializeField] private AudioSource noAmmoSound;
 
     [SerializeField] protected float damage;
@@ -15,12 +15,12 @@ public class ThrowAndTake : MonoBehaviour
     protected WaitForSeconds wait;
 
     private Rigidbody2D ObjectRigitBody;
-    private Collider2D throwingCollider;
+    protected Collider2D throwingCollider;
     private GameObject throwedObject;
 
     private bool isThrow = true;
     private bool throwAction;
-    private bool isTake;
+    protected bool isTake;
     private int mathForce;
 
     void Start()
@@ -38,7 +38,7 @@ public class ThrowAndTake : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(isTake)
+        if (isTake)
         {
             if (throwingObjects.Count != 5)
             {
@@ -106,7 +106,7 @@ public class ThrowAndTake : MonoBehaviour
         this.throwAction = throwAction;
     }
 
-    public void OnTake(InputAction.CallbackContext context)
+    private void OnTake(InputAction.CallbackContext context)
     {
         isTake = context.ReadValueAsButton();
     }

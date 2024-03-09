@@ -7,7 +7,6 @@ public abstract class Character : MonoBehaviour
     [SerializeField] protected float speed;
     
     protected AudioSource takeDamageSound;
-    protected SpriteRenderer spriteRenderer;
     protected float currentHealthPoints;
     protected int spritesLength;
     protected bool isAlive = true;
@@ -17,10 +16,8 @@ public abstract class Character : MonoBehaviour
     protected bool isTurnByX = true;
     protected bool isturnByY = true;
 
-    protected void Start()
+    private void Start()
     {
-        Invoke("StartAnimation", 0);
-        spriteRenderer = GetComponent<SpriteRenderer>();
         takeDamageSound = GetComponent<AudioSource>();
         currentHealthPoints = maxHealthPoints;
     }
@@ -29,7 +26,7 @@ public abstract class Character : MonoBehaviour
     {
         if (isAlive)
         {
-            takeDamageSound.Play();
+            //takeDamageSound.Play();
             currentHealthPoints -= takenDamage;
             if (currentHealthPoints == 0)
             {
