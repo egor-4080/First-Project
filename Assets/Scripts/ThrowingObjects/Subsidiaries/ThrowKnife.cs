@@ -1,4 +1,4 @@
-public class ThrowKnife : ThrowAndTake
+public class ThrowKnife : BaseComponent
 {
 
 }

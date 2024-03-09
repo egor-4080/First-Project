@@ -39,11 +39,7 @@ public class BaseComponent : ThrowAndTake
         {
             enemyController.TakeDamage(damage);
             currentCollider = GetComponent<Collider2D>();
-            currentCollider.isTrigger = true;
         }
-        if(collision.gameObject.TryGetComponent(out PlayerContoller playerController))
-        {
-            currentCollider.isTrigger = true;
-        }
+        currentCollider.isTrigger = true;
     }
 }

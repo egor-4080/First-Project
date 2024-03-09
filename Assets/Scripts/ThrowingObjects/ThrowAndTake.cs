@@ -15,6 +15,7 @@ public class ThrowAndTake : MonoBehaviour
     private Rigidbody2D ObjectRigitBody;
     protected Collider2D throwingCollider;
     private GameObject throwedObject;
+    private Transform throwingTransform;
 
     protected bool isTake;
     private bool isReload;
@@ -42,14 +43,21 @@ public class ThrowAndTake : MonoBehaviour
             isReload = false;
             throws = 0;
 
-            throwedObject = Instantiate(throwingObjects[0], throwingTransformPosition.position, throwingTransformPosition.rotation);
+            //throwedObject = Instantiate(throwingObjects[0], throwingTransformPosition.position, throwingTransformPosition.rotation);
+
+            throwedObject = throwingObjects[0];
+            throwingTransform = throwedObject.transform;
+
+            throwingTransform.position = throwingTransformPosition.position;
+            throwingTransform.rotation = throwingTransformPosition.rotation;
+
             ObjectRigitBody = throwedObject.GetComponent<Rigidbody2D>();
             throwingCollider = throwedObject.GetComponent<Collider2D>();
 
             throwingCollider.isTrigger = false;
             ObjectRigitBody.drag = 0;
 
-            Destroy(throwingObjects[0]);
+            //Destroy(throwingObjects[0]);
             throwingObjects.RemoveAt(0);
 
             StartCoroutine(GetMaxDrag());

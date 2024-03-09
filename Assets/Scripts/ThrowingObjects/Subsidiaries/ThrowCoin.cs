@@ -1,4 +1,4 @@
-public class ThrowCoin : ThrowAndTake
+public class ThrowCoin : BaseComponent
 {
 
 }
