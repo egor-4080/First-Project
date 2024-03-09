@@ -15,13 +15,11 @@ public abstract class Character : MonoBehaviour
     protected int TurnByX;
     protected int TurnByY;
 
-    protected void Start()
+    protected virtual void Start()
     {
         takeDamageSound = GetComponent<AudioSource>();
         currentHealthPoints = maxHealthPoints;
-        DoAnotherStart();
     }
-    abstract public void DoAnotherStart();
 
     public void TakeDamage(float takenDamage)
     {

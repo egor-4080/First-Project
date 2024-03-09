@@ -12,8 +12,10 @@ public class EnemyController : Character
         player = FindFirstObjectByType<PlayerContoller>().transform;
     }
 
-    override public void DoAnotherStart()
+    protected override void Start()
     {
+        base.Start();
+
         agent.updateRotation = false;
         agent.updateUpAxis = false;
     }

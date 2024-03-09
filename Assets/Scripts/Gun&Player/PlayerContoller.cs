@@ -30,8 +30,6 @@ public class PlayerContoller : Character
         throwAndTake = GetComponent<ThrowAndTake>();
     }
 
-    override public void DoAnotherStart() { }
-
     private void Update()
     {
         mouseInput = Mouse.current.position.ReadValue(); 
