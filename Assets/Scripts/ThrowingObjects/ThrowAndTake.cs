@@ -18,7 +18,8 @@ public class ThrowAndTake : MonoBehaviour
 
     protected bool isTake;
     private bool isReload;
-    private int mathForce;
+    private int lookRotation;
+    protected int throws;
 
     protected virtual void Start()
     {
@@ -39,6 +40,7 @@ public class ThrowAndTake : MonoBehaviour
         if (throwingObjects.Count != 0)
         {
             isReload = false;
+            throws = 0;
 
             throwedObject = Instantiate(throwingObjects[0], throwingTransformPosition.position, throwingTransformPosition.rotation);
             ObjectRigitBody = throwedObject.GetComponent<Rigidbody2D>();
@@ -47,7 +49,6 @@ public class ThrowAndTake : MonoBehaviour
             throwingCollider.isTrigger = false;
             ObjectRigitBody.drag = 0;
 
-            ObjectRigitBody.AddForce(throwedObject.gameObject.transform.right * mathForce);
             Destroy(throwingObjects[0]);
             throwingObjects.RemoveAt(0);
 
@@ -71,7 +72,7 @@ public class ThrowAndTake : MonoBehaviour
 
     public void SetValues(int i, List<GameObject> throwingObjects)
     {
-        mathForce = 125 * i;
+        lookRotation *= i;
         this.throwingObjects = throwingObjects;
     }
 

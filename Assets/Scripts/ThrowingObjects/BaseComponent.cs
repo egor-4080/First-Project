@@ -3,6 +3,7 @@ using UnityEngine;
 public class BaseComponent : ThrowAndTake
 {
     [SerializeField] private float damage;
+    [SerializeField] private float forceSpeed;
 
     private Collider2D currentCollider;
     private Rigidbody2D rigitBody;
@@ -18,6 +19,18 @@ public class BaseComponent : ThrowAndTake
         base.Start();
 
         rigitBody.drag = 0;
+    }
+
+    private void FixedUpdate()
+    {
+        if (!currentCollider.isTrigger)
+        {
+            rigitBody.velocity = transform.right * forceSpeed;
+        }
+        else
+        {
+            rigitBody.velocity = Vector2.zero;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

@@ -169,7 +169,8 @@ MonoBehaviour:
   throwingTransformPosition: {fileID: 0}
   throwingObjects: []
   throwRate: 0
-  damage: 25
+  damage: 50
+  forceSpeed: 15
 --- !u!114 &-6172773912319155031
 MonoBehaviour:
   m_ObjectHideFlags: 0

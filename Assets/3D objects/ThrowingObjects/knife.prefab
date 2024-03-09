@@ -167,6 +167,7 @@ MonoBehaviour:
   throwingObjects: []
   throwRate: 0
   damage: 25
+  forceSpeed: 15
 --- !u!114 &8884406676913816504
 MonoBehaviour:
   m_ObjectHideFlags: 0
