@@ -12,9 +12,8 @@ public abstract class Character : MonoBehaviour
     protected bool isAlive = true;
 
     //animations booleans
-    protected bool isStatic = true;
-    protected bool isTurnByX = true;
-    protected bool isturnByY = true;
+    protected int TurnByX;
+    protected int TurnByY;
 
     protected void Start()
     {

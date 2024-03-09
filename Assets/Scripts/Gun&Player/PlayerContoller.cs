@@ -12,7 +12,6 @@ public class PlayerContoller : Character
 
     private bool fireActive;
     private bool isFacingRight;
-    private bool throwAction;
     private bool isTake;
 
     private int mathForIsFacing;
@@ -78,37 +77,17 @@ public class PlayerContoller : Character
     private void FixedUpdate()
     {
         rigitBody.velocity = direction * speed;
+
+        TurnByX = (int)rigitBody.velocity.x;
+        TurnByY = (int)rigitBody.velocity.y;
+
+        animator.SetInteger("TurnX", TurnByX);
+        animator.SetInteger("TurnY", TurnByY);
     }
 
     public virtual void OnMove(InputAction.CallbackContext context)
     {
         direction = context.ReadValue<Vector2>();
-
-        if (direction != Vector2.zero)
-        {
-            animator.SetBool("IsStatic", false);
-
-            if (direction.x != 0)
-            {
-                animator.SetBool("IsTurnByX", true);
-            }
-            else
-            {
-                animator.SetBool("IsTurnByX", false);
-                if (direction.y > 0)
-                {
-                    animator.SetBool("IsTurnByY", true);
-                }
-                else
-                {
-                    animator.SetBool("IsTurnByY", false);
-                }
-            }
-        }
-        else
-        {
-            animator.SetBool("IsStatic", true);
-        }
     }
 
     public virtual void OnFire(InputAction.CallbackContext context)
@@ -126,7 +105,6 @@ public class PlayerContoller : Character
         if (isFacingRight) mathForIsFacing = 1;
         else               mathForIsFacing = -1;
 
-        throwAction = context.ReadValueAsButton();;
         throwAndTake.SetValues(mathForIsFacing, throwingObjects);
         throwAndTake.StartCoroutines();
     }
