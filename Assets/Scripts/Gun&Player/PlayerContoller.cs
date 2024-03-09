@@ -7,7 +7,6 @@ public class PlayerContoller : Character
     [SerializeField] private Weapon weapon;
     [SerializeField] private Camera cameraMain;
     [SerializeField] private Animator animator;
-    [SerializeField] private float burden;
 
     private bool fireActive;
     private bool isFacingRight;
@@ -28,6 +27,8 @@ public class PlayerContoller : Character
         rigitBody = GetComponent<Rigidbody2D>();
         throwAndTake = GetComponent<ThrowAndTake>();
     }
+
+    override public void DoAnotherStart() { }
 
     private void Update()
     {

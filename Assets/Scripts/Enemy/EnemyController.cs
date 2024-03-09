@@ -12,7 +12,7 @@ public class EnemyController : Character
         player = FindFirstObjectByType<PlayerContoller>().transform;
     }
 
-    private void Start()
+    override public void DoAnotherStart()
     {
         agent.updateRotation = false;
         agent.updateUpAxis = false;
