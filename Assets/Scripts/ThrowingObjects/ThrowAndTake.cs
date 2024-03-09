@@ -9,7 +9,6 @@ public class ThrowAndTake : MonoBehaviour
     [SerializeField] protected List<GameObject> throwingObjects;
     [SerializeField] private AudioSource noAmmoSound;
 
-    [SerializeField] protected float damage;
     [SerializeField] private float throwRate;
 
     protected WaitForSeconds wait;
@@ -32,36 +31,16 @@ public class ThrowAndTake : MonoBehaviour
     {
         if (isThrow && throwAction)
         {
-            StartCoroutine(SpawnWithRate());
+            StartCoroutines();
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    public void StartCoroutines()
     {
-        if (isTake)
-        {
-            if (throwingObjects.Count != 5)
-            {
-                collision.isTrigger = false;
-                collision.transform.position = new Vector3(1000, 1000, 0);
-                throwingObjects.Add(collision.gameObject);
-            }
-        }
+        StartCoroutine(SpawnWithRate());
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.TryGetComponent(out EnemyController enemyController))
-        {
-            enemyController.TakeDamage(damage);
-        }
-        if (throwingCollider != null)
-        {
-            throwingCollider.isTrigger = true;
-        }
-    }
-
-    private IEnumerator SpawnWithRate()
+    public IEnumerator SpawnWithRate()
     {
         if (throwingObjects.Count != 0)
         {
@@ -100,13 +79,14 @@ public class ThrowAndTake : MonoBehaviour
         throwingCollider.isTrigger = true;
     }
 
-    public void SetBooleanValues(bool throwAction, int i)
+    public void SetValues(bool throwAction, int i, List<GameObject> throwingObjects)
     {
         mathForce = 125 * i;
+        this.throwingObjects = throwingObjects;
         this.throwAction = throwAction;
     }
 
-    private void OnTake(InputAction.CallbackContext context)
+    public void OnTake(InputAction.CallbackContext context)
     {
         isTake = context.ReadValueAsButton();
     }

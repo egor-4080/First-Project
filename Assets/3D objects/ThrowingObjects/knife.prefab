@@ -93,8 +93,8 @@ MonoBehaviour:
   throwingTransformPosition: {fileID: 0}
   throwingObjects: []
   noAmmoSound: {fileID: 0}
-  damage: 0
   throwRate: 0
+  damage: 25
 --- !u!61 &4693257856771355244
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -183,5 +183,4 @@ MonoBehaviour:
   throwingTransformPosition: {fileID: 0}
   throwingObjects: []
   noAmmoSound: {fileID: 0}
-  damage: 12.5
   throwRate: 0

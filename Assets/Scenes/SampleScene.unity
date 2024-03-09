@@ -129,7 +129,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4693257856771355244, guid: 599c2e7ff68f8cf46a57542fbeaf0e0c, type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8102979722521301123, guid: 599c2e7ff68f8cf46a57542fbeaf0e0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -292,7 +292,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5200554273453090050, guid: cd5201fa95d888d40807a302bfbb970e, type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7335634873492395119, guid: cd5201fa95d888d40807a302bfbb970e, type: 3}
       propertyPath: m_Name
@@ -738,9 +738,9 @@ MonoBehaviour:
     m_ActionName: 'Player/ThrowObject[/Mouse/rightButton]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 483750114}
-        m_TargetAssemblyTypeName: ThrowAndTake, Assembly-CSharp
-        m_MethodName: OnTake
+      - m_Target: {fileID: 483750109}
+        m_TargetAssemblyTypeName: PlayerContoller, Assembly-CSharp
+        m_MethodName: OnTake2
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -771,11 +771,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealthPoints: 100
   speed: 10
+  throwingObjects: []
   weaponSoket: {fileID: 1850726489}
   weapon: {fileID: 1991576577}
   cameraMain: {fileID: 1982703629}
   animator: {fileID: 483750112}
-  burden: 0
 --- !u!50 &483750110
 Rigidbody2D:
   serializedVersion: 4
@@ -966,7 +966,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 483750104}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 160f370e1bdc42e4191d5c92e6bea47b, type: 3}
   m_Name: 
@@ -974,8 +974,8 @@ MonoBehaviour:
   throwingTransformPosition: {fileID: 179361564}
   throwingObjects: []
   noAmmoSound: {fileID: 1850726490}
-  damage: 0
-  throwRate: 0
+  damage: 50
+  throwRate: 1
 --- !u!1 &521927267
 GameObject:
   m_ObjectHideFlags: 0

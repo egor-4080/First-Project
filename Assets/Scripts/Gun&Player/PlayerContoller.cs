@@ -1,8 +1,10 @@
 using UnityEngine.InputSystem;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class PlayerContoller : Character
 {
+    [SerializeField] private List<GameObject> throwingObjects;
     [SerializeField] private Transform weaponSoket;
     [SerializeField] private Weapon weapon;
     [SerializeField] private Camera cameraMain;
@@ -11,6 +13,7 @@ public class PlayerContoller : Character
     private bool fireActive;
     private bool isFacingRight;
     private bool throwAction;
+    private bool isTake;
 
     private int mathForIsFacing;
 
@@ -46,12 +49,16 @@ public class PlayerContoller : Character
         }
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.TryGetComponent(out BaseComponent trowingObject))
+        if (isTake)
         {
-            var collider = GetComponent<Collider2D>();
-            collider.isTrigger = true;
+            if (throwingObjects.Count != 5 && TryGetComponent(out Rigidbody2D isThrow))
+            {
+                collision.isTrigger = false;
+                collision.transform.position = new Vector3(1000, 1000, 0);
+                throwingObjects.Add(collision.gameObject);
+            }
         }
     }
 
@@ -109,12 +116,18 @@ public class PlayerContoller : Character
         fireActive = context.ReadValueAsButton();
     }
 
+    public void OnTake2(InputAction.CallbackContext context)
+    {
+        isTake = context.ReadValueAsButton();
+    }
+
     public void OnThrow(InputAction.CallbackContext context)
     {
         if (isFacingRight) mathForIsFacing = 1;
         else               mathForIsFacing = -1;
 
-        throwAction = context.ReadValueAsButton();
-        throwAndTake.SetBooleanValues(throwAction, mathForIsFacing);
+        throwAction = context.ReadValueAsButton();;
+        throwAndTake.SetValues(throwAction, mathForIsFacing, throwingObjects);
+        throwAndTake.StartCoroutines();
     }
 }
