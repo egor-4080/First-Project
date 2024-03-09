@@ -7,7 +7,6 @@ public class ThrowAndTake : MonoBehaviour
 {
     [SerializeField] private Transform throwingTransformPosition;
     [SerializeField] protected List<GameObject> throwingObjects;
-    [SerializeField] private AudioSource noAmmoSound;
 
     [SerializeField] private float throwRate;
 
@@ -17,33 +16,30 @@ public class ThrowAndTake : MonoBehaviour
     protected Collider2D throwingCollider;
     private GameObject throwedObject;
 
-    private bool isThrow = true;
-    private bool throwAction;
     protected bool isTake;
+    private bool isReload;
     private int mathForce;
 
     void Start()
     {
+        isReload = true;
         wait = new WaitForSeconds(0.1f);
-    }
-
-    private void FixedUpdate()
-    {
-        if (isThrow && throwAction)
-        {
-            StartCoroutines();
-        }
     }
 
     public void StartCoroutines()
     {
-        StartCoroutine(SpawnWithRate());
+        if (isReload)
+        {
+            StartCoroutine(SpawnWithRate());
+        }
     }
 
     public IEnumerator SpawnWithRate()
     {
         if (throwingObjects.Count != 0)
         {
+            isReload = false;
+
             throwedObject = Instantiate(throwingObjects[0], throwingTransformPosition.position, throwingTransformPosition.rotation);
             ObjectRigitBody = throwedObject.GetComponent<Rigidbody2D>();
             throwingCollider = throwedObject.GetComponent<Collider2D>();
@@ -57,14 +53,8 @@ public class ThrowAndTake : MonoBehaviour
 
             StartCoroutine(GetMaxDrag());
 
-            isThrow = false;
             yield return new WaitForSeconds(throwRate);
-            isThrow = true;
-        }
-        else
-        {
-            noAmmoSound.Play();
-            yield return new WaitForSeconds(throwRate);
+            isReload = true;
         }
     }
 
@@ -79,11 +69,10 @@ public class ThrowAndTake : MonoBehaviour
         throwingCollider.isTrigger = true;
     }
 
-    public void SetValues(bool throwAction, int i, List<GameObject> throwingObjects)
+    public void SetValues(int i, List<GameObject> throwingObjects)
     {
         mathForce = 125 * i;
         this.throwingObjects = throwingObjects;
-        this.throwAction = throwAction;
     }
 
     public void OnTake(InputAction.CallbackContext context)

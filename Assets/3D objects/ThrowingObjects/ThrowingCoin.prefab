@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 521546520673135196}
   - component: {fileID: 1448941933428562882}
-  - component: {fileID: -3761039424317090557}
   - component: {fileID: 1931975849256864259}
   - component: {fileID: 5200554273453090050}
+  - component: {fileID: -3761039424317090557}
   - component: {fileID: -6172773912319155031}
   m_Layer: 0
   m_Name: ThrowingCoin
@@ -90,23 +90,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-3761039424317090557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7335634873492395119}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b688d069c6006da489d695dbada189f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  throwingTransformPosition: {fileID: 0}
-  throwingObjects: []
-  noAmmoSound: {fileID: 0}
-  throwRate: 0
-  damage: 25
 --- !u!50 &1931975849256864259
 Rigidbody2D:
   serializedVersion: 4
@@ -171,6 +154,22 @@ CapsuleCollider2D:
   m_Offset: {x: -0.024, y: 0}
   m_Size: {x: 0.33, y: 0.51}
   m_Direction: 0
+--- !u!114 &-3761039424317090557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7335634873492395119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b688d069c6006da489d695dbada189f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  throwingTransformPosition: {fileID: 0}
+  throwingObjects: []
+  throwRate: 0
+  damage: 25
 --- !u!114 &-6172773912319155031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,5 +184,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   throwingTransformPosition: {fileID: 0}
   throwingObjects: []
-  noAmmoSound: {fileID: 0}
   throwRate: 0

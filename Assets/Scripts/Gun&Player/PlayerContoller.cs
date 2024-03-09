@@ -127,7 +127,7 @@ public class PlayerContoller : Character
         else               mathForIsFacing = -1;
 
         throwAction = context.ReadValueAsButton();;
-        throwAndTake.SetValues(throwAction, mathForIsFacing, throwingObjects);
+        throwAndTake.SetValues(mathForIsFacing, throwingObjects);
         throwAndTake.StartCoroutines();
     }
 }
