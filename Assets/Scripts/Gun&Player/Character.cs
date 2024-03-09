@@ -11,7 +11,7 @@ public abstract class Character : MonoBehaviour
     protected int spritesLength;
     protected bool isAlive = true;
 
-    //animations booleans
+    //animations integers
     protected int TurnByX;
     protected int TurnByY;
 

@@ -5,10 +5,19 @@ public class BaseComponent : ThrowAndTake
     [SerializeField] private float damage;
 
     private Collider2D currentCollider;
+    private Rigidbody2D rigitBody;
 
     private void Awake()
     {
         currentCollider = GetComponent<Collider2D>();
+        rigitBody = GetComponent<Rigidbody2D>();
+    }
+
+    protected override void Start()
+    {
+        base.Start();
+
+        rigitBody.drag = 0;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

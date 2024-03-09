@@ -20,7 +20,7 @@ public class ThrowAndTake : MonoBehaviour
     private bool isReload;
     private int mathForce;
 
-    void Start()
+    protected virtual void Start()
     {
         isReload = true;
         wait = new WaitForSeconds(0.1f);
