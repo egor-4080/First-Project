@@ -8,10 +8,17 @@ public class BaseComponent : ThrowAndTake
     private Collider2D currentCollider;
     private Rigidbody2D rigitBody;
 
+    private int throwRotation;
+
     private void Awake()
     {
         currentCollider = GetComponent<Collider2D>();
         rigitBody = GetComponent<Rigidbody2D>();
+    }
+
+    public void SetRotation(int i)
+    {
+        throwRotation = i;
     }
 
     protected override void Start()
@@ -25,7 +32,7 @@ public class BaseComponent : ThrowAndTake
     {
         if (!currentCollider.isTrigger)
         {
-            rigitBody.velocity = transform.right * forceSpeed;
+            rigitBody.velocity = transform.right * forceSpeed * throwRotation;
         }
         else
         {

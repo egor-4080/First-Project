@@ -11,7 +11,6 @@ public abstract class Weapon : MonoBehaviour
     
     protected CinemachineImpulseSource impulseSource;
     protected AudioSource fireAudio;
-    protected float lastFireTime;
 
     private void Awake()
     {

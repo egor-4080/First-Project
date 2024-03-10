@@ -1,26 +1,24 @@
 using System.Collections;
-using UnityEngine.InputSystem;
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class ThrowAndTake : MonoBehaviour
 {
     [SerializeField] private Transform throwingTransformPosition;
-    [SerializeField] protected List<GameObject> throwingObjects;
+    [SerializeField] private List<GameObject> throwingObjects;
 
     [SerializeField] private float throwRate;
 
-    protected WaitForSeconds wait;
+    private WaitForSeconds wait;
 
     private Rigidbody2D ObjectRigitBody;
-    protected Collider2D throwingCollider;
+    private Collider2D throwingCollider;
+    private BaseComponent throwingObjectBaseComponent;
     private GameObject throwedObject;
     private Transform throwingTransform;
 
-    protected bool isTake;
     private bool isReload;
     private int lookRotation;
-    protected int throws;
 
     protected virtual void Start()
     {
@@ -41,7 +39,6 @@ public class ThrowAndTake : MonoBehaviour
         if (throwingObjects.Count != 0)
         {
             isReload = false;
-            throws = 0;
 
             //throwedObject = Instantiate(throwingObjects[0], throwingTransformPosition.position, throwingTransformPosition.rotation);
 
@@ -51,11 +48,12 @@ public class ThrowAndTake : MonoBehaviour
             throwingTransform.position = throwingTransformPosition.position;
             throwingTransform.rotation = throwingTransformPosition.rotation;
 
+            throwingObjectBaseComponent = throwedObject.GetComponent<BaseComponent>();
             ObjectRigitBody = throwedObject.GetComponent<Rigidbody2D>();
             throwingCollider = throwedObject.GetComponent<Collider2D>();
 
+            throwingObjectBaseComponent.SetRotation(lookRotation);
             throwingCollider.isTrigger = false;
-            ObjectRigitBody.drag = 0;
 
             //Destroy(throwingObjects[0]);
             throwingObjects.RemoveAt(0);
@@ -80,12 +78,7 @@ public class ThrowAndTake : MonoBehaviour
 
     public void SetValues(int i, List<GameObject> throwingObjects)
     {
-        lookRotation *= i;
+        lookRotation = i;
         this.throwingObjects = throwingObjects;
-    }
-
-    public void OnTake(InputAction.CallbackContext context)
-    {
-        isTake = context.ReadValueAsButton();
     }
 }

@@ -27,14 +27,16 @@ public class Gun : Weapon
 
     private IEnumerator SpawnBullet(bool isFacingRight)
     {
+        isReloaded = false;
+
         BulletController bulletController = Instantiate(bullet, spawnPoint.transform.position, spawnPoint.transform.rotation)
             .GetComponent<BulletController>();
 
         bulletController.inDamage = damage;
         bulletController.isFacing = isFacingRight;
 
-        isReloaded = false;
         yield return wait;
+
         isReloaded = true;
     }
 }

@@ -1,6 +1,6 @@
-using UnityEngine.InputSystem;
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerContoller : Character
 {
@@ -15,6 +15,7 @@ public class PlayerContoller : Character
     private bool isTake;
 
     private int mathForIsFacing;
+    private float angle;
 
     private Vector2 direction;
     private Vector3 difference;
@@ -32,7 +33,7 @@ public class PlayerContoller : Character
 
     private void Update()
     {
-        mouseInput = Mouse.current.position.ReadValue(); 
+        mouseInput = Mouse.current.position.ReadValue();
         mousePosition = cameraMain.ScreenToWorldPoint(mouseInput);
         mousePosition.z = 0;
 
@@ -62,19 +63,18 @@ public class PlayerContoller : Character
     public virtual void RotateGun()
     {
         difference = (mousePosition - weaponSoket.position).normalized;
-        float angle = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+        angle = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
 
         if (isFacingRight == false)
         {
             angle += 180;
         }
-
         weaponSoket.rotation = Quaternion.Euler(0f, 0f, angle);
     }
 
     private void FixedUpdate()
     {
-        rigitBody.velocity = direction * speed;
+        rigitBody.velocity = direction * speedForce;
 
         TurnByX = (int)rigitBody.velocity.x;
         TurnByY = (int)rigitBody.velocity.y;
@@ -93,7 +93,7 @@ public class PlayerContoller : Character
         fireActive = context.ReadValueAsButton();
     }
 
-    public void OnTake2(InputAction.CallbackContext context)
+    public void OnTake(InputAction.CallbackContext context)
     {
         isTake = context.ReadValueAsButton();
     }
@@ -101,7 +101,7 @@ public class PlayerContoller : Character
     public void OnThrow(InputAction.CallbackContext context)
     {
         if (isFacingRight) mathForIsFacing = 1;
-        else               mathForIsFacing = -1;
+        else mathForIsFacing = -1;
 
         throwAndTake.SetValues(mathForIsFacing, throwingObjects);
         throwAndTake.StartCoroutines();

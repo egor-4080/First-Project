@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 4034071149698935048}
   - component: {fileID: 53063475916696596}
   m_Layer: 0
-  m_Name: Slime
+  m_Name: RedSlime
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_Sprite: {fileID: 368543389579951487, guid: a0763c1a9c56f2f4d85a1533367170c4, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -165,9 +165,9 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.1
-  m_Speed: 3.5
+  m_Speed: 2
   m_Acceleration: 8
-  avoidancePriority: 10
+  avoidancePriority: 15
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
@@ -189,7 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37230459c72b1f54ab18c5eec3b255ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealthPoints: 500
+  maxHealthPoints: 1000
   speedForce: 3.5
 --- !u!95 &4034071149698935048
 Animator:

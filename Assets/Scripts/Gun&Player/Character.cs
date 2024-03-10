@@ -3,13 +3,14 @@ using UnityEngine;
 
 public abstract class Character : MonoBehaviour
 {
-    [SerializeField, Range(0, 100)] protected float maxHealthPoints;
-    [SerializeField] protected float speed;
-    
-    protected AudioSource takeDamageSound;
-    protected float currentHealthPoints;
-    protected int spritesLength;
-    protected bool isAlive = true;
+    [SerializeField, Range(0, 5000)] protected float maxHealthPoints;
+    [SerializeField] protected float speedForce;
+
+    private AudioSource takeDamageSound;
+    private float currentHealthPoints;
+    private WaitForSeconds wait;
+    private bool isAlive = true;
+    protected float kill = 1;
 
     //animations integers
     protected int TurnByX;
@@ -19,6 +20,7 @@ public abstract class Character : MonoBehaviour
     {
         takeDamageSound = GetComponent<AudioSource>();
         currentHealthPoints = maxHealthPoints;
+        wait = new WaitForSeconds(1);
     }
 
     public void TakeDamage(float takenDamage)
@@ -33,5 +35,12 @@ public abstract class Character : MonoBehaviour
                 isAlive = false;
             }
         }
+    }
+
+    private IEnumerator Killing()
+    {
+        kill = 2;
+        yield return wait;
+        kill = 1;
     }
 }

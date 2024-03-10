@@ -425,6 +425,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1931975849256864259, guid: cd5201fa95d888d40807a302bfbb970e, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5200554273453090050, guid: cd5201fa95d888d40807a302bfbb970e, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -1212,7 +1216,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 483750109}
         m_TargetAssemblyTypeName: PlayerContoller, Assembly-CSharp
-        m_MethodName: OnTake2
+        m_MethodName: OnTake
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1241,8 +1245,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59093a6be00d7e849b1e0bd7b48e4ba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealthPoints: 100
-  speed: 10
+  maxHealthPoints: 1000
+  speedForce: 15
   throwingObjects: []
   weaponSoket: {fileID: 1850726489}
   weapon: {fileID: 1991576577}
@@ -2123,7 +2127,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8063284415403322033, guid: 915cfadd5a304934583252ab1e4808e5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.76
+      value: -8.5
       objectReference: {fileID: 0}
     - target: {fileID: 8063284415403322033, guid: 915cfadd5a304934583252ab1e4808e5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2624,7 +2628,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1191608815}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4774a33fb045c8c40bcc09db0138f644, type: 3}
   m_Name: 
@@ -2635,7 +2639,10 @@ MonoBehaviour:
   - {fileID: 1807974490}
   - {fileID: 49254304}
   - {fileID: 1317832163}
-  enemy: {fileID: 4936253070689236506, guid: 5bc013ecec46f2c47a0da05e70106ae5, type: 3}
+  enemy:
+  - {fileID: 4936253070689236506, guid: 5bc013ecec46f2c47a0da05e70106ae5, type: 3}
+  - {fileID: 4936253070689236506, guid: 34f1544773e26bc49ae0125b0a61dca5, type: 3}
+  - {fileID: 5631848422494404281, guid: b1cec41295570424ca506ab992c67ce5, type: 3}
   spawnTime: 5
 --- !u!4 &1191608817
 Transform:
@@ -13149,7 +13156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65eecbb41774d104c99cdbec9968df8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 90
   fireRate: 0
   weight: 0
   fireEffect: {fileID: 2036613132}
@@ -13610,5 +13617,5 @@ SceneRoots:
   - {fileID: 483750107}
   - {fileID: 1857617452}
   - {fileID: 1246673890}
-  - {fileID: 135077396}
   - {fileID: 37988679}
+  - {fileID: 135077396}
