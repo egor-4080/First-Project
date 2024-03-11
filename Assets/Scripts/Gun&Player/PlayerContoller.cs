@@ -9,10 +9,10 @@ public class PlayerContoller : Character
     [SerializeField] private Weapon weapon;
     [SerializeField] private Camera cameraMain;
     [SerializeField] private Animator animator;
+    [SerializeField] private Transform throwStartPoint;
 
     private bool fireActive;
     private bool isFacingRight;
-    private bool isTake;
 
     private int mathForIsFacing;
     private float angle;
@@ -22,14 +22,18 @@ public class PlayerContoller : Character
     private Vector3 mousePosition;
     private Vector3 mouseInput;
 
-    private Rigidbody2D rigitBody;
-    private ThrowAndTake throwAndTake;
+    private Throw throwAndTake;
+    private Collider2D[] takingObjects;
+    private GameObject currentTakeObject;
 
-    private void Awake()
+    protected override void Awake()
     {
-        rigitBody = GetComponent<Rigidbody2D>();
-        throwAndTake = GetComponent<ThrowAndTake>();
+        base.Awake();
+
+        throwAndTake = GetComponent<Throw>();
     }
+
+    protected override void OnCollisionEnter2D(Collision2D collision) { }
 
     private void Update()
     {
@@ -47,15 +51,22 @@ public class PlayerContoller : Character
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void FindAllTakeObjectsAroundPlayer()
     {
-        if (isTake)
+        takingObjects = Physics2D.OverlapCircleAll(transform.position, 1);
+        if (takingObjects != null)
         {
-            if (throwingObjects.Count != 5 && TryGetComponent(out Rigidbody2D isThrow))
+            foreach (var takingObject in takingObjects)
             {
-                collision.isTrigger = false;
-                collision.transform.position = new Vector3(1000, 1000, 0);
-                throwingObjects.Add(collision.gameObject);
+                currentTakeObject = takingObject.gameObject;
+                if (currentTakeObject.TryGetComponent(out BaseComponent couldThrow))
+                {
+                    takingObject.isTrigger = false;
+                    takingObject.gameObject.SetActive(false);
+                    throwingObjects.Add(currentTakeObject);
+                    takingObject.transform.SetParent(throwStartPoint);
+                    takingObject.transform.localPosition = Vector3.zero;
+                }
             }
         }
     }
@@ -95,7 +106,7 @@ public class PlayerContoller : Character
 
     public void OnTake(InputAction.CallbackContext context)
     {
-        isTake = context.ReadValueAsButton();
+        FindAllTakeObjectsAroundPlayer();
     }
 
     public void OnThrow(InputAction.CallbackContext context)
@@ -103,7 +114,7 @@ public class PlayerContoller : Character
         if (isFacingRight) mathForIsFacing = 1;
         else mathForIsFacing = -1;
 
-        throwAndTake.SetValues(mathForIsFacing, throwingObjects);
+        throwAndTake.SetValues(mathForIsFacing, throwingObjects, difference);
         throwAndTake.StartCoroutines();
     }
 }

@@ -191,6 +191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealthPoints: 1000
   speedForce: 3.5
+  damage: 75
 --- !u!95 &4034071149698935048
 Animator:
   serializedVersion: 7

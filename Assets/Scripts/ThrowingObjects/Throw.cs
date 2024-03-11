@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ThrowAndTake : MonoBehaviour
+public class Throw : MonoBehaviour
 {
     [SerializeField] private Transform throwingTransformPosition;
     [SerializeField] private List<GameObject> throwingObjects;
@@ -15,10 +15,9 @@ public class ThrowAndTake : MonoBehaviour
     private Collider2D throwingCollider;
     private BaseComponent throwingObjectBaseComponent;
     private GameObject throwedObject;
-    private Transform throwingTransform;
 
     private bool isReload;
-    private int lookRotation;
+    private Vector2 direction;
 
     private void Start()
     {
@@ -41,16 +40,14 @@ public class ThrowAndTake : MonoBehaviour
             isReload = false;
 
             throwedObject = throwingObjects[0];
-            throwingTransform = throwedObject.transform;
-
-            throwingTransform.position = throwingTransformPosition.position;
-            throwingTransform.rotation = throwingTransformPosition.rotation;
+            throwedObject.SetActive(true);
+            throwedObject.transform.SetParent(null);
 
             throwingObjectBaseComponent = throwedObject.GetComponent<BaseComponent>();
             ObjectRigitBody = throwedObject.GetComponent<Rigidbody2D>();
             throwingCollider = throwedObject.GetComponent<Collider2D>();
 
-            throwingObjectBaseComponent.SetRotation(lookRotation);
+            throwingObjectBaseComponent.Throw(direction);
             throwingCollider.isTrigger = false;
 
             throwingObjects.RemoveAt(0);
@@ -73,9 +70,9 @@ public class ThrowAndTake : MonoBehaviour
         throwingCollider.isTrigger = true;
     }
 
-    public void SetValues(int i, List<GameObject> throwingObjects)
+    public void SetValues(int i, List<GameObject> throwingObjects, Vector3 direction)
     {
-        lookRotation = i;
+        this.direction = direction;
         this.throwingObjects = throwingObjects;
     }
 }
