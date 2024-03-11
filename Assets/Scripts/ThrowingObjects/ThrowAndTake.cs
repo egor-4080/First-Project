@@ -20,7 +20,7 @@ public class ThrowAndTake : MonoBehaviour
     private bool isReload;
     private int lookRotation;
 
-    protected virtual void Start()
+    private void Start()
     {
         isReload = true;
         wait = new WaitForSeconds(0.1f);
@@ -34,13 +34,11 @@ public class ThrowAndTake : MonoBehaviour
         }
     }
 
-    public IEnumerator SpawnWithRate()
+    private IEnumerator SpawnWithRate()
     {
         if (throwingObjects.Count != 0)
         {
             isReload = false;
-
-            //throwedObject = Instantiate(throwingObjects[0], throwingTransformPosition.position, throwingTransformPosition.rotation);
 
             throwedObject = throwingObjects[0];
             throwingTransform = throwedObject.transform;
@@ -55,7 +53,6 @@ public class ThrowAndTake : MonoBehaviour
             throwingObjectBaseComponent.SetRotation(lookRotation);
             throwingCollider.isTrigger = false;
 
-            //Destroy(throwingObjects[0]);
             throwingObjects.RemoveAt(0);
 
             StartCoroutine(GetMaxDrag());

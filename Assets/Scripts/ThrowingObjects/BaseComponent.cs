@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BaseComponent : ThrowAndTake
+public class BaseComponent : MonoBehaviour
 {
     [SerializeField] private float damage;
     [SerializeField] private float forceSpeed;
@@ -21,10 +21,8 @@ public class BaseComponent : ThrowAndTake
         throwRotation = i;
     }
 
-    protected override void Start()
+    private void Start()
     {
-        base.Start();
-
         rigitBody.drag = 0;
     }
 
