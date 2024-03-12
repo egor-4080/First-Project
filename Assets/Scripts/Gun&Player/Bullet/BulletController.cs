@@ -3,11 +3,10 @@ using UnityEngine;
 public class BulletController : MonoBehaviour
 {
     [SerializeField] private float speed;
-    [HideInInspector] public bool isFacing;
-    [HideInInspector] public float inDamage;
 
     private Rigidbody2D rigitbody;
-    private float outDamage;
+    private bool isFacing;
+    private float damage;
 
     private void Awake()
     {
@@ -16,7 +15,6 @@ public class BulletController : MonoBehaviour
 
     private void Start()
     {
-        outDamage = inDamage;
         if (!isFacing)
         {
             gameObject.transform.localScale = new Vector3(isFacing ? 1 : -1, 1, 1);
@@ -26,12 +24,23 @@ public class BulletController : MonoBehaviour
         Destroy(gameObject, 2);
     }
 
+    public void Initializing(float damage, bool isFacing)
+    {
+        this.damage = damage;
+        this.isFacing = isFacing;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.TryGetComponent(out EnemyController enemyController))
+        if (collision.TryGetComponent(out EnemyController enemyController))
         {
-            enemyController.TakeDamage(outDamage);
+            enemyController.TakeDamage(damage);
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
+        if (collision.TryGetComponent(out BaseComponent throwObject)) { }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }

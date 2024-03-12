@@ -29,14 +29,11 @@ public class Gun : Weapon
     {
         isReloaded = false;
 
-        BulletController bulletController = Instantiate(bullet, spawnPoint.transform.position, spawnPoint.transform.rotation)
-            .GetComponent<BulletController>();
-
-        bulletController.inDamage = damage;
-        bulletController.isFacing = isFacingRight;
+        Instantiate(bullet, spawnPoint.transform.position, spawnPoint.transform.rotation)
+            .GetComponent<BulletController>()
+            .Initializing(damage, isFacingRight);
 
         yield return wait;
-
         isReloaded = true;
     }
 }
