@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public abstract class Barrel : MonoBehaviour
@@ -7,6 +8,9 @@ public abstract class Barrel : MonoBehaviour
     
     private Collider2D[] blownedUpObjects;
     private GameObject exploison;
+    private WaitForSeconds waitForAnotherExploison = new WaitForSeconds(0.5f);
+
+    private bool isExplosive = true;
 
     private void Start()
     {
@@ -19,17 +23,33 @@ public abstract class Barrel : MonoBehaviour
         Instantiate(exploison, transform.position, Quaternion.Euler(0, 0, 0));
         foreach (var blownedUpObject in blownedUpObjects)
         {
-            if(blownedUpObject.gameObject.TryGetComponent(out EnemyController enemy))
+            if(blownedUpObject.TryGetComponent(out EnemyController enemy))
             {
                 enemy.TakeDamage(damage);
             }
-            if(blownedUpObject.gameObject.TryGetComponent(out PlayerContoller player))
+            if(blownedUpObject.TryGetComponent(out PlayerContoller player))
             {
                 player.TakeDamage(damage);
+            }
+            if(blownedUpObject.TryGetComponent(out RedBarrel redBarrel))
+            {
+                if(redBarrel.gameObject != gameObject && isExplosive)
+                {
+                    StartCoroutine(WaitForAnotherBOOM(redBarrel));
+                }
             }
         }
         blownedUpObjects = null;
         gameObject.SetActive(false);
+    }
+
+    private IEnumerator WaitForAnotherBOOM(RedBarrel redBarrel)
+    {
+        isExplosive = false;
+        print(redBarrel);
+        yield return waitForAnotherExploison;
+        redBarrel.Initializing(exploison);
+        isExplosive = true;
     }
 
     public void Initializing(GameObject exploison)
