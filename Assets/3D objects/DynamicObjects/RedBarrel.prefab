@@ -221,4 +221,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionRadius: 4
-  damage: 1000
+  damage: 500

@@ -4,6 +4,7 @@ using UnityEngine;
 public class Gun : Weapon
 {
     [SerializeField] private GameObject bullet;
+    [SerializeField] private GameObject exploison;
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private float reloadSpeed;
 
@@ -31,7 +32,7 @@ public class Gun : Weapon
 
         Instantiate(bullet, spawnPoint.transform.position, spawnPoint.transform.rotation)
             .GetComponent<BulletController>()
-            .Initializing(damage, isFacingRight);
+            .Initializing(damage, isFacingRight, exploison);
 
         yield return wait;
         isReloaded = true;

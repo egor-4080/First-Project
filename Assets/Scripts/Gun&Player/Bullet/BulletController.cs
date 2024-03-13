@@ -5,6 +5,8 @@ public class BulletController : MonoBehaviour
     [SerializeField] private float speed;
 
     private Rigidbody2D rigitbody;
+    private GameObject exploison;
+
     private bool isFacing;
     private float damage;
 
@@ -24,22 +26,26 @@ public class BulletController : MonoBehaviour
         Destroy(gameObject, 2);
     }
 
-    public void Initializing(float damage, bool isFacing)
+    public void Initializing(float damage, bool isFacing, GameObject exploison)
     {
+        this.exploison = exploison;
         this.damage = damage;
         this.isFacing = isFacing;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out EnemyController enemyController))
-        {
-            enemyController.TakeDamage(damage);
-            Destroy(gameObject);
-        }
         if (collision.TryGetComponent(out BaseComponent throwObject)) { }
         else
         {
+            if (collision.TryGetComponent(out RedBarrel redBarrel))
+            {
+                redBarrel.Initializing(exploison);
+            }
+            if (collision.TryGetComponent(out EnemyController enemyController))
+            {
+                enemyController.TakeDamage(damage);
+            }
             Destroy(gameObject);
         }
     }

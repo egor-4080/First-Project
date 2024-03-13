@@ -6,17 +6,17 @@ public abstract class Barrel : MonoBehaviour
     [SerializeField] private float damage;
     
     private Collider2D[] blownedUpObjects;
-    private ExploisonController exploison;
+    private GameObject exploison;
 
     private void Start()
     {
-        exploison = GetComponentInChildren<ExploisonController>();
         gameObject.SetActive(true);
     }
 
-    private void OnTriggerEnter2D()
+    public void GetExploison()
     {
         blownedUpObjects = Physics2D.OverlapCircleAll(transform.position ,explosionRadius);
+        Instantiate(exploison, transform.position, Quaternion.Euler(0, 0, 0));
         foreach (var blownedUpObject in blownedUpObjects)
         {
             if(blownedUpObject.gameObject.TryGetComponent(out EnemyController enemy))
@@ -29,12 +29,12 @@ public abstract class Barrel : MonoBehaviour
             }
         }
         blownedUpObjects = null;
-        exploison.SetExploisenStatus();
+        gameObject.SetActive(false);
     }
 
-    public void SetBarrelStatus()
+    public void Initializing(GameObject exploison)
     {
-        exploison.gameObject.SetActive(false);
-        gameObject.SetActive(false);
+        this.exploison = exploison;
+        GetExploison();
     }
 }
