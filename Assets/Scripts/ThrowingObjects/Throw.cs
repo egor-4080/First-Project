@@ -52,22 +52,23 @@ public class Throw : MonoBehaviour
 
             throwingObjects.RemoveAt(0);
 
-            StartCoroutine(GetMaxDrag());
+            StartCoroutine(GetMaxDrag(throwingObjectBaseComponent));
 
             yield return new WaitForSeconds(throwRate);
             isReload = true;
         }
     }
 
-    private IEnumerator GetMaxDrag()
+    private IEnumerator GetMaxDrag(BaseComponent throwingObjectBaseComponent)
     {
-        for (int i = 0; i < 100000; i++)
+        for (int i = 0; i < 1000; i++)
         {
             i *= 2;
             ObjectRigitBody.drag = i;
             yield return wait;
         }
         throwingCollider.isTrigger = true;
+        throwingObjectBaseComponent.DoWhenObjectBreak();
     }
 
     public void SetValues(int i, List<GameObject> throwingObjects, Vector3 direction)

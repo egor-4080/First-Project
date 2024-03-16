@@ -8,6 +8,8 @@ public class BaseComponent : MonoBehaviour
     private Collider2D currentCollider;
     private Rigidbody2D rigitBody;
 
+    protected bool isBreak;
+
     private void Awake()
     {
         currentCollider = GetComponent<Collider2D>();
@@ -19,12 +21,21 @@ public class BaseComponent : MonoBehaviour
         rigitBody.velocity = direction * forceSpeed;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
+        DoWhenObjectBreak();
         if (collision.gameObject.TryGetComponent(out EnemyController enemyController))
         {
             enemyController.TakeDamage(damage);
         }
         currentCollider.isTrigger = true;
+    }
+
+    public void DoWhenObjectBreak()
+    {
+        if (!isBreak)
+        {
+            isBreak = true;
+        }
     }
 }

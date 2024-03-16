@@ -46,7 +46,6 @@ public abstract class Barrel : MonoBehaviour
     private IEnumerator WaitForAnotherBOOM(RedBarrel redBarrel)
     {
         isExplosive = false;
-        print(redBarrel);
         yield return waitForAnotherExploison;
         redBarrel.Initializing(exploison);
         isExplosive = true;
@@ -54,6 +53,7 @@ public abstract class Barrel : MonoBehaviour
 
     public void Initializing(GameObject exploison)
     {
+        print(gameObject.name);
         this.exploison = exploison;
         GetExploison();
     }

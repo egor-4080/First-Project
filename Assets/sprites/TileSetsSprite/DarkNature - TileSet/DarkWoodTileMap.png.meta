@@ -1,0 +1,989 @@
+fileFormatVersion: 2
+guid: 09e37be6db4e6d24a95ef89f8ee6b819
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 926456547786616343
+    second: DarkWoodTileMap_0
+  - first:
+      213: -3324173380562133014
+    second: DarkWoodTileMap_1
+  - first:
+      213: -4971856697274173889
+    second: DarkWoodTileMap_2
+  - first:
+      213: 4825947126882661588
+    second: DarkWoodTileMap_3
+  - first:
+      213: 1154148559500695111
+    second: DarkWoodTileMap_4
+  - first:
+      213: 6540409287311096575
+    second: DarkWoodTileMap_5
+  - first:
+      213: -5483131411998323416
+    second: DarkWoodTileMap_6
+  - first:
+      213: 4144444425897095248
+    second: DarkWoodTileMap_7
+  - first:
+      213: -4135988547308731999
+    second: DarkWoodTileMap_8
+  - first:
+      213: 7391855509056305857
+    second: DarkWoodTileMap_9
+  - first:
+      213: 5820020802050444143
+    second: DarkWoodTileMap_10
+  - first:
+      213: 5561354872154300122
+    second: DarkWoodTileMap_11
+  - first:
+      213: 9149376310855309221
+    second: DarkWoodTileMap_12
+  - first:
+      213: 7105816189984474134
+    second: DarkWoodTileMap_13
+  - first:
+      213: 5528738793257967522
+    second: DarkWoodTileMap_14
+  - first:
+      213: -1991761553617285397
+    second: DarkWoodTileMap_15
+  - first:
+      213: -2041328830349033393
+    second: DarkWoodTileMap_16
+  - first:
+      213: -2150474024131224021
+    second: DarkWoodTileMap_17
+  - first:
+      213: 2340347348109945658
+    second: DarkWoodTileMap_18
+  - first:
+      213: -5590037748458010354
+    second: DarkWoodTileMap_19
+  - first:
+      213: -2899509610156266892
+    second: DarkWoodTileMap_20
+  - first:
+      213: -1829669747358722804
+    second: DarkWoodTileMap_21
+  - first:
+      213: -5277785734693846235
+    second: DarkWoodTileMap_22
+  - first:
+      213: -4146612020789554770
+    second: DarkWoodTileMap_23
+  - first:
+      213: 9055537280313587944
+    second: DarkWoodTileMap_24
+  - first:
+      213: -1501754924574322706
+    second: DarkWoodTileMap_25
+  - first:
+      213: -6889230465072392849
+    second: DarkWoodTileMap_26
+  - first:
+      213: 8224391325176078449
+    second: DarkWoodTileMap_27
+  - first:
+      213: -7383654961058634868
+    second: DarkWoodTileMap_28
+  - first:
+      213: 3321709338988377357
+    second: DarkWoodTileMap_29
+  - first:
+      213: -1031968751223209220
+    second: DarkWoodTileMap_30
+  - first:
+      213: 9107827878322095654
+    second: DarkWoodTileMap_31
+  - first:
+      213: 4199489487438589461
+    second: DarkWoodTileMap_32
+  - first:
+      213: -6992813176954527356
+    second: DarkWoodTileMap_33
+  - first:
+      213: 4941855442933856327
+    second: DarkWoodTileMap_34
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: DarkWoodTileMap_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 33
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71ee7a6525f6bdc00800000000000000
+      internalID: 926456547786616343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkWoodTileMap_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aefd8cf2ce92ed1d0800000000000000
+      internalID: -3324173380562133014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkWoodTileMap_2
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3673d40daa600bb0800000000000000
+      internalID: -4971856697274173889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkWoodTileMap_3
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d478aac75539f240800000000000000
+      internalID: 4825947126882661588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkWoodTileMap_4
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 746511bfffb540010800000000000000
+      internalID: 1154148559500695111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkWoodTileMap_5
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffaf7df189334ca50800000000000000
+      internalID: 6540409287311096575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkWoodTileMap_6
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82dcd0b180108e3b0800000000000000
+      internalID: -5483131411998323416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkWoodTileMap_7
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 050b1f44f36048930800000000000000
+      internalID: 4144444425897095248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkWoodTileMap_8
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a1449264540a96c0800000000000000
+      internalID: -4135988547308731999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkWoodTileMap_9
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cab058fb65259660800000000000000
+      internalID: 7391855509056305857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkWoodTileMap_10
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6bc99b651ed4c050800000000000000
+      internalID: 5820020802050444143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkWoodTileMap_11
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ade15a87ac6ed2d40800000000000000
+      internalID: 5561354872154300122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkWoodTileMap_12
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a797ec774d19fe70800000000000000
+      internalID: 9149376310855309221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkWoodTileMap_13
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6148e333d2eec9260800000000000000
+      internalID: 7105816189984474134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkWoodTileMap_14
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2af1014d3a60abc40800000000000000
+      internalID: 5528738793257967522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkWoodTileMap_15
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bee8c577b67db54e0800000000000000
+      internalID: -1991761553617285397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkWoodTileMap_16
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4048458e3ebba3e0800000000000000
+      internalID: -2041328830349033393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkWoodTileMap_17
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2e14fcc44bf722e0800000000000000
+      internalID: -2150474024131224021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkWoodTileMap_18
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3bee1f63859a7020800000000000000
+      internalID: 2340347348109945658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkWoodTileMap_19
+      rect:
+        serializedVersion: 2
+        x: 626
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e09c22af8423c62b0800000000000000
+      internalID: -5590037748458010354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkWoodTileMap_20
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47aedcf2f5fd2c7d0800000000000000
+      internalID: -2899509610156266892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkWoodTileMap_21
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c05976c0f05bb96e0800000000000000
+      internalID: -1829669747358722804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkWoodTileMap_22
+      rect:
+        serializedVersion: 2
+        x: 725
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52303f256d981c6b0800000000000000
+      internalID: -5277785734693846235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkWoodTileMap_23
+      rect:
+        serializedVersion: 2
+        x: 758
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea1597736564476c0800000000000000
+      internalID: -4146612020789554770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkWoodTileMap_24
+      rect:
+        serializedVersion: 2
+        x: 791
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e8f56b9d2bbbad70800000000000000
+      internalID: 9055537280313587944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkWoodTileMap_25
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eefcd0d4ad1b82be0800000000000000
+      internalID: -1501754924574322706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkWoodTileMap_26
+      rect:
+        serializedVersion: 2
+        x: 857
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f659f8984698460a0800000000000000
+      internalID: -6889230465072392849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkWoodTileMap_27
+      rect:
+        serializedVersion: 2
+        x: 890
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 170ace6e558e22270800000000000000
+      internalID: 8224391325176078449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkWoodTileMap_28
+      rect:
+        serializedVersion: 2
+        x: 923
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c83ac06eeecf78990800000000000000
+      internalID: -7383654961058634868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkWoodTileMap_29
+      rect:
+        serializedVersion: 2
+        x: 956
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d05ff7d6b05191e20800000000000000
+      internalID: 3321709338988377357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkWoodTileMap_30
+      rect:
+        serializedVersion: 2
+        x: 989
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf2890c63e5bda1f0800000000000000
+      internalID: -1031968751223209220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkWoodTileMap_31
+      rect:
+        serializedVersion: 2
+        x: 1212
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 626c9c23331856e70800000000000000
+      internalID: 9107827878322095654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkWoodTileMap_32
+      rect:
+        serializedVersion: 2
+        x: 1245
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51ea3c06075974a30800000000000000
+      internalID: 4199489487438589461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkWoodTileMap_33
+      rect:
+        serializedVersion: 2
+        x: 1278
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48164fe077984fe90800000000000000
+      internalID: -6992813176954527356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkWoodTileMap_34
+      rect:
+        serializedVersion: 2
+        x: 1311
+        y: 0
+        width: 33
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 748376f975ff49440800000000000000
+      internalID: 4941855442933856327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      DarkWoodTileMap_0: 926456547786616343
+      DarkWoodTileMap_1: -3324173380562133014
+      DarkWoodTileMap_10: 5820020802050444143
+      DarkWoodTileMap_11: 5561354872154300122
+      DarkWoodTileMap_12: 9149376310855309221
+      DarkWoodTileMap_13: 7105816189984474134
+      DarkWoodTileMap_14: 5528738793257967522
+      DarkWoodTileMap_15: -1991761553617285397
+      DarkWoodTileMap_16: -2041328830349033393
+      DarkWoodTileMap_17: -2150474024131224021
+      DarkWoodTileMap_18: 2340347348109945658
+      DarkWoodTileMap_19: -5590037748458010354
+      DarkWoodTileMap_2: -4971856697274173889
+      DarkWoodTileMap_20: -2899509610156266892
+      DarkWoodTileMap_21: -1829669747358722804
+      DarkWoodTileMap_22: -5277785734693846235
+      DarkWoodTileMap_23: -4146612020789554770
+      DarkWoodTileMap_24: 9055537280313587944
+      DarkWoodTileMap_25: -1501754924574322706
+      DarkWoodTileMap_26: -6889230465072392849
+      DarkWoodTileMap_27: 8224391325176078449
+      DarkWoodTileMap_28: -7383654961058634868
+      DarkWoodTileMap_29: 3321709338988377357
+      DarkWoodTileMap_3: 4825947126882661588
+      DarkWoodTileMap_30: -1031968751223209220
+      DarkWoodTileMap_31: 9107827878322095654
+      DarkWoodTileMap_32: 4199489487438589461
+      DarkWoodTileMap_33: -6992813176954527356
+      DarkWoodTileMap_34: 4941855442933856327
+      DarkWoodTileMap_4: 1154148559500695111
+      DarkWoodTileMap_5: 6540409287311096575
+      DarkWoodTileMap_6: -5483131411998323416
+      DarkWoodTileMap_7: 4144444425897095248
+      DarkWoodTileMap_8: -4135988547308731999
+      DarkWoodTileMap_9: 7391855509056305857
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
