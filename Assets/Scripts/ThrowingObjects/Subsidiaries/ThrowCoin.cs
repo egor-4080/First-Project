@@ -1,4 +1,4 @@
-public class ThrowCoin : BaseComponent
+public class ThrowCoin : Poison
 {
 
 }

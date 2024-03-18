@@ -13,7 +13,7 @@ public class Throw : MonoBehaviour
 
     private Rigidbody2D ObjectRigitBody;
     private Collider2D throwingCollider;
-    private BaseComponent throwingObjectBaseComponent;
+    private Poison throwingObjectBaseComponent;
     private GameObject throwedObject;
 
     private bool isReload;
@@ -43,7 +43,7 @@ public class Throw : MonoBehaviour
             throwedObject.SetActive(true);
             throwedObject.transform.SetParent(null);
 
-            throwingObjectBaseComponent = throwedObject.GetComponent<BaseComponent>();
+            throwingObjectBaseComponent = throwedObject.GetComponent<Poison>();
             ObjectRigitBody = throwedObject.GetComponent<Rigidbody2D>();
             throwingCollider = throwedObject.GetComponent<Collider2D>();
 
@@ -59,7 +59,7 @@ public class Throw : MonoBehaviour
         }
     }
 
-    private IEnumerator GetMaxDrag(BaseComponent throwingObjectBaseComponent)
+    public IEnumerator GetMaxDrag(Poison throwingObjectBaseComponent)
     {
         for (int i = 0; i < 1000; i++)
         {
@@ -68,7 +68,7 @@ public class Throw : MonoBehaviour
             yield return wait;
         }
         throwingCollider.isTrigger = true;
-        throwingObjectBaseComponent.DoWhenObjectBreak();
+        throwingObjectBaseComponent.Initialization(true);
     }
 
     public void SetValues(int i, List<GameObject> throwingObjects, Vector3 direction)

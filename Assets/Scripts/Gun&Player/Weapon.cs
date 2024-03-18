@@ -1,5 +1,6 @@
 using UnityEngine;
 using Cinemachine;
+using Photon.Pun;
 
 [RequireComponent(typeof(CinemachineImpulseSource))]
 public abstract class Weapon : MonoBehaviour
@@ -20,10 +21,16 @@ public abstract class Weapon : MonoBehaviour
 
     public virtual void Fire(bool isFacing)
     {
+        OnEffect();
         impulseSource.GenerateImpulse();
+        fireAudio.Play();
+    }
+
+    [PunRPC]
+    private void OnEffect()
+    {
         fireEffect.SetActive(true);
         Invoke("OffEffect", 0.1f);
-        fireAudio.Play();
     }
     
     private void OffEffect()

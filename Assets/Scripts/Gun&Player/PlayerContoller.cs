@@ -51,6 +51,30 @@ public class PlayerContoller : Character
         }
     }
 
+    //Bonus!
+
+    //1
+    public void HealPlayer(float heal)
+    {
+        currentHealthPoints += heal;
+        if (currentHealthPoints > maxHealthPoints)
+        {
+            currentHealthPoints = maxHealthPoints;
+        }
+    }
+
+    //2
+
+    //3
+
+    //4
+
+    //5
+
+    //6
+
+    //EndBonus
+
     private void FindAllTakeObjectsAroundPlayer()
     {
         takingObjects = Physics2D.OverlapCircleAll(transform.position, 1);
@@ -59,7 +83,7 @@ public class PlayerContoller : Character
             foreach (var takingObject in takingObjects)
             {
                 currentTakeObject = takingObject.gameObject;
-                if (currentTakeObject.TryGetComponent(out BaseComponent couldThrow))
+                if (currentTakeObject.TryGetComponent(out Poison couldThrow))
                 {
                     takingObject.isTrigger = false;
                     takingObject.gameObject.SetActive(false);

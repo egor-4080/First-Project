@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 
 public abstract class Character : MonoBehaviour
 {
@@ -7,10 +9,10 @@ public abstract class Character : MonoBehaviour
     [SerializeField] protected float damage;
 
     private AudioSource takeDamageSound;
-    private Quaternion lookRotation;
+    protected float currentHealthPoints;
     protected Rigidbody2D rigitBody;
-    private float currentHealthPoints;
     private bool isAlive = true;
+    private float unFreezWait;
 
     //animations integers
     protected int TurnByX;
@@ -31,10 +33,6 @@ public abstract class Character : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent(out PlayerContoller player))
         {
-            /*lookRotation.SetLookRotation(collision.transform.position);
-            transform.rotation = lookRotation;
-            rigitBody.AddForce(transform.right * -1 * 2000);
-            transform.rotation = Quaternion.Euler(0, 0, 0);*/
             player.TakeDamage(damage);
         }
     }
@@ -50,6 +48,30 @@ public abstract class Character : MonoBehaviour
                 Destroy(gameObject);
                 isAlive = false;
             }
+        }
+    }
+
+    public void FreezCharacter()
+    {
+        speedForce = 0;
+        float unFreezWait;
+        if (TryGetComponent(out NavMeshAgent enemy))
+        {
+            unFreezWait = enemy.speed / 5;
+        }
+        else
+        {
+            unFreezWait = speedForce / 5;
+        }
+        StartCoroutine(UnFreezCharacter());
+    }
+
+    private IEnumerator UnFreezCharacter()
+    {
+        for (var i = 0f; i < speedForce; i += unFreezWait)
+        {
+            speedForce = i;
+            yield return unFreezWait;
         }
     }
 }

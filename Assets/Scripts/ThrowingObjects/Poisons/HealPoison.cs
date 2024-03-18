@@ -1,8 +1,14 @@
-using System.Collections.Generic;
-using System.Collections;
 using UnityEngine;
 
-public class HealPoison : BaseComponent
+public class HealPoison : Poison
 {
+    [SerializeField] private float healthPoints;
 
+    protected override void DoEffectWithBody(Collider2D body)
+    {
+        if (body.TryGetComponent(out PlayerContoller player))
+        {
+            player.HealPlayer(healthPoints);
+        }
+    }
 }

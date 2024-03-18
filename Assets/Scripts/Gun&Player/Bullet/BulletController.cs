@@ -35,7 +35,7 @@ public class BulletController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out BaseComponent throwObject)) { }
+        if (collision.TryGetComponent(out Poison throwObject)) { }
         else
         {
             if (collision.TryGetComponent(out RedBarrel redBarrel))
