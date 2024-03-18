@@ -5293,8 +5293,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f753f0ba4602d794fa969a1e066ca34b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  virtualCamera: {fileID: 0}
+  player: {fileID: 2968128211607249714, guid: f93dd2ae2c68aaf43873c176ef3faecb, type: 3}
+  MainCamera: {fileID: 7265708228255946126}
+  virtualCamera: {fileID: 4422182247848999842}
 --- !u!1 &1733065122 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1444232087762862766, guid: 1607b75a808cf0d4191a52f5b0d7a8ed, type: 3}
@@ -6011,6 +6012,10 @@ PrefabInstance:
     - target: {fileID: 611153959985041562, guid: aec44ce92995e9741aeabb939685e738, type: 3}
       propertyPath: m_Name
       value: DamagePoison
+      objectReference: {fileID: 0}
+    - target: {fileID: 982690499600701795, guid: aec44ce92995e9741aeabb939685e738, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3830013416097993853, guid: aec44ce92995e9741aeabb939685e738, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14766,6 +14771,7 @@ GameObject:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1960770320}
   - {fileID: 674181999}
   - {fileID: 1803108351}
   - {fileID: 452040411}
@@ -14776,4 +14782,3 @@ SceneRoots:
   - {fileID: 413884364}
   - {fileID: 766022347}
   - {fileID: 1943621195}
-  - {fileID: 1960770320}

@@ -51,6 +51,11 @@ public class PlayerContoller : Character
         }
     }
 
+    public void Initialization(Camera playerCamera)
+    {
+        cameraMain = playerCamera;
+    }
+
     //Bonus!
 
     //1
