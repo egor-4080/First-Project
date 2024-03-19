@@ -22,7 +22,7 @@ public class Throw : MonoBehaviour
     private void Start()
     {
         isReload = true;
-        wait = new WaitForSeconds(0.1f);
+        wait = new WaitForSeconds(0.07f);
     }
 
     public void StartCoroutines()
@@ -52,6 +52,7 @@ public class Throw : MonoBehaviour
 
             throwingObjects.RemoveAt(0);
 
+            throwingObjectBaseComponent = throwedObject.GetComponent<Poison>();
             StartCoroutine(GetMaxDrag(throwingObjectBaseComponent));
 
             yield return new WaitForSeconds(throwRate);
@@ -61,9 +62,8 @@ public class Throw : MonoBehaviour
 
     public IEnumerator GetMaxDrag(Poison throwingObjectBaseComponent)
     {
-        for (int i = 0; i < 1000; i++)
+        for (int i = 0; i < 10; i++)
         {
-            i *= 2;
             ObjectRigitBody.drag = i;
             yield return wait;
         }

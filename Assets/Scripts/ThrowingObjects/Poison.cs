@@ -12,6 +12,7 @@ public class Poison : MonoBehaviour
 
     protected bool isBreak;
     private float forceSpeed;
+    protected bool isDrunk;
 
     private void Awake()
     {
@@ -21,7 +22,7 @@ public class Poison : MonoBehaviour
 
     private void Start()
     {
-        forceSpeed = 15;
+        forceSpeed = 20;
     }
 
     public void Throw(Vector3 direction)
@@ -31,14 +32,19 @@ public class Poison : MonoBehaviour
 
     public void Initialization(bool isBreak)
     {
-        this.isBreak = isBreak;
+        if (this.isBreak != isBreak)
+        {
+            this.isBreak = true;
+            bodiesForEffect = Physics2D.OverlapCircleAll(transform.position, 2);
+            Instantiate(throwEffect, transform.position, Quaternion.Euler(0, 0, 0));
+            OnBreak(bodiesForEffect);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!isBreak)
+        if (!isBreak && !collision.gameObject.TryGetComponent(out PlayerContoller player))
         {
-            isBreak = true;
             bodiesForEffect = Physics2D.OverlapCircleAll(transform.position, 2);
             Instantiate(throwEffect, transform.position, Quaternion.Euler(0, 0, 0));
             OnBreak(bodiesForEffect);
@@ -47,8 +53,10 @@ public class Poison : MonoBehaviour
         {
             enemyController.TakeDamage(damage);
         }
-        StartCoroutine(GetMaxDrag());
         currentCollider.isTrigger = true;
+        StartCoroutine(GetMaxDrag());
+        isBreak = true;
+
     }
 
     private IEnumerator GetMaxDrag()
@@ -70,4 +78,5 @@ public class Poison : MonoBehaviour
     }
 
     protected virtual void DoEffectWithBody(Collider2D body) { }
+    public virtual void DoWhenUseMotion(PlayerContoller player) { }
 }

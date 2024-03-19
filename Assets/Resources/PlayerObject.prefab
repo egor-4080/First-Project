@@ -597,6 +597,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: b9f1c097-1ea5-4ca3-8530-ec1c7e7649fc
     m_ActionName: 'Player/TakeObjects[/Keyboard/e]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3473029539615053151}
+        m_TargetAssemblyTypeName: PlayerContoller, Assembly-CSharp
+        m_MethodName: OnUse
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f377cd3d-c095-4880-8fef-86b35de6a84a
+    m_ActionName: 'Player/Use[/Keyboard/q]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -617,6 +633,9 @@ MonoBehaviour:
   maxHealthPoints: 1000
   speedForce: 8
   damage: 10000
+  unFreezWait: 1
+  boost: 10
+  unSpeedWait: 5
   throwingObjects: []
   weaponSoket: {fileID: 7617828282208822911}
   weapon: {fileID: 8576726652158263741}

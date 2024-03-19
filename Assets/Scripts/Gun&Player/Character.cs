@@ -8,11 +8,15 @@ public abstract class Character : MonoBehaviour
     [SerializeField] protected float speedForce;
     [SerializeField] protected float damage;
 
+    //boosts values
+    [SerializeField] private float unFreezWait;
+    [SerializeField] private float boost;
+    [SerializeField] private float unSpeedWait;
+
     private AudioSource takeDamageSound;
     protected float currentHealthPoints;
     protected Rigidbody2D rigitBody;
     private bool isAlive = true;
-    private float unFreezWait;
 
     //animations integers
     protected int TurnByX;
@@ -51,10 +55,42 @@ public abstract class Character : MonoBehaviour
         }
     }
 
+    public void HealCharacter(float heal)
+    {
+        currentHealthPoints += heal;
+        if (currentHealthPoints > maxHealthPoints)
+        {
+            currentHealthPoints = maxHealthPoints;
+        }
+    }
+
+    public void SpeedEffect()
+    {
+        if (TryGetComponent(out NavMeshAgent enemy))
+        {
+            enemy.speed += boost;
+        }
+        else
+        {
+            speedForce += boost;
+        }
+        Invoke("OffSpeedEffect", unSpeedWait);
+    }
+
+    private void OffSpeedEffect()
+    {
+        if (TryGetComponent(out NavMeshAgent enemy))
+        {
+            enemy.speed -= boost;
+        }
+        else
+        {
+            speedForce -= boost;
+        }
+    }
+
     public void FreezCharacter()
     {
-        speedForce = 0;
-        float unFreezWait;
         if (TryGetComponent(out NavMeshAgent enemy))
         {
             unFreezWait = enemy.speed / 5;
@@ -63,10 +99,11 @@ public abstract class Character : MonoBehaviour
         {
             unFreezWait = speedForce / 5;
         }
-        StartCoroutine(UnFreezCharacter());
+        speedForce = 0;
+        StartCoroutine(FreezMotionCharacter());
     }
 
-    private IEnumerator UnFreezCharacter()
+    private IEnumerator FreezMotionCharacter()
     {
         for (var i = 0f; i < speedForce; i += unFreezWait)
         {

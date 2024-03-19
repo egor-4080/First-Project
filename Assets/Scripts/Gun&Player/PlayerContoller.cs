@@ -14,6 +14,7 @@ public class PlayerContoller : Character
     private bool fireActive;
     private bool isFacingRight;
 
+    private int currentPoison = 0;
     private int mathForIsFacing;
     private float angle;
 
@@ -25,11 +26,13 @@ public class PlayerContoller : Character
     private Throw throwAndTake;
     private Collider2D[] takingObjects;
     private GameObject currentTakeObject;
+    private PlayerContoller player;
 
     protected override void Awake()
     {
         base.Awake();
 
+        player = GetComponent<PlayerContoller>();
         throwAndTake = GetComponent<Throw>();
     }
 
@@ -55,30 +58,6 @@ public class PlayerContoller : Character
     {
         cameraMain = playerCamera;
     }
-
-    //Bonus!
-
-    //1
-    public void HealPlayer(float heal)
-    {
-        currentHealthPoints += heal;
-        if (currentHealthPoints > maxHealthPoints)
-        {
-            currentHealthPoints = maxHealthPoints;
-        }
-    }
-
-    //2
-
-    //3
-
-    //4
-
-    //5
-
-    //6
-
-    //EndBonus
 
     private void FindAllTakeObjectsAroundPlayer()
     {
@@ -136,6 +115,14 @@ public class PlayerContoller : Character
     public void OnTake(InputAction.CallbackContext context)
     {
         FindAllTakeObjectsAroundPlayer();
+    }
+
+    public void OnUse(InputAction.CallbackContext context)
+    {
+        GameObject poison = throwingObjects[currentPoison];
+        Poison poisonScript = poison.GetComponent<Poison>();
+        poisonScript.DoWhenUseMotion(player);
+        print(poison.name);
     }
 
     public void OnThrow(InputAction.CallbackContext context)

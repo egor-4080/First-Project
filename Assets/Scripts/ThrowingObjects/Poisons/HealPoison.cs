@@ -6,9 +6,9 @@ public class HealPoison : Poison
 
     protected override void DoEffectWithBody(Collider2D body)
     {
-        if (body.TryGetComponent(out PlayerContoller player))
+        if (body.TryGetComponent(out Character character))
         {
-            player.HealPlayer(healthPoints);
+            character.HealCharacter(healthPoints);
         }
     }
 }
