@@ -11,4 +11,15 @@ public class HealPoison : Poison
             character.HealCharacter(healthPoints);
         }
     }
+
+    public override void DoWhenUseMotion(PlayerContoller player)
+    {
+        base.DoWhenUseMotion(player);
+
+        if (!isDrunk)
+        {
+            player.HealCharacter(healthPoints);
+        }
+        isDrunk = true;
+    }
 }

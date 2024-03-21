@@ -11,4 +11,6 @@ public class DamagePoison : Poison
             character.TakeDamage(exploisonDamage);
         }
     }
+
+    public override void DoWhenUseMotion(PlayerContoller player) { }
 }

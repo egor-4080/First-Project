@@ -633,15 +633,14 @@ MonoBehaviour:
   maxHealthPoints: 1000
   speedForce: 8
   damage: 10000
-  unFreezWait: 1
-  boost: 10
-  unSpeedWait: 5
   throwingObjects: []
   weaponSoket: {fileID: 7617828282208822911}
   weapon: {fileID: 8576726652158263741}
   cameraMain: {fileID: 0}
   animator: {fileID: 2837504349361681906}
   throwStartPoint: {fileID: 3480541670479378087}
+  boost: 10
+  unSpeedWait: 5
 --- !u!114 &1817130386570383245
 MonoBehaviour:
   m_ObjectHideFlags: 0

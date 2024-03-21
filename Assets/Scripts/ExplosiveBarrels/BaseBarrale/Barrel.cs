@@ -53,7 +53,6 @@ public abstract class Barrel : MonoBehaviour
 
     public void Initializing(GameObject exploison)
     {
-        print(gameObject.name);
         this.exploison = exploison;
         GetExploison();
     }

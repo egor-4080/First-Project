@@ -11,6 +11,9 @@ public class PlayerContoller : Character
     [SerializeField] private Animator animator;
     [SerializeField] private Transform throwStartPoint;
 
+    [SerializeField] private float boost;
+    [SerializeField] private float unSpeedWait;
+
     private bool fireActive;
     private bool isFacingRight;
 
@@ -51,6 +54,31 @@ public class PlayerContoller : Character
         if (fireActive)
         {
             weapon.Fire(isFacingRight);
+        }
+    }
+
+    public void SpeedEffect()
+    {
+        if (TryGetComponent(out UnityEngine.AI.NavMeshAgent enemy))
+        {
+            enemy.speed += boost;
+        }
+        else
+        {
+            speedForce += boost;
+        }
+        Invoke("OffSpeedEffect", unSpeedWait);
+    }
+
+    private void OffSpeedEffect()
+    {
+        if (TryGetComponent(out UnityEngine.AI.NavMeshAgent enemy))
+        {
+            enemy.speed -= boost;
+        }
+        else
+        {
+            speedForce -= boost;
         }
     }
 
@@ -122,7 +150,6 @@ public class PlayerContoller : Character
         GameObject poison = throwingObjects[currentPoison];
         Poison poisonScript = poison.GetComponent<Poison>();
         poisonScript.DoWhenUseMotion(player);
-        print(poison.name);
     }
 
     public void OnThrow(InputAction.CallbackContext context)

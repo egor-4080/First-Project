@@ -8,7 +8,9 @@ public class Poison : MonoBehaviour
 
     protected Collider2D[] bodiesForEffect;
     private Collider2D currentCollider;
+    private AudioSource drinkAudio;
     private Rigidbody2D rigitBody;
+    private WaitForSeconds waitSound;
 
     protected bool isBreak;
     private float forceSpeed;
@@ -16,6 +18,7 @@ public class Poison : MonoBehaviour
 
     private void Awake()
     {
+        drinkAudio = GetComponent<AudioSource>();
         currentCollider = GetComponent<Collider2D>();
         rigitBody = GetComponent<Rigidbody2D>();
     }
@@ -23,6 +26,7 @@ public class Poison : MonoBehaviour
     private void Start()
     {
         forceSpeed = 20;
+        waitSound = new WaitForSeconds(1);
     }
 
     public void Throw(Vector3 direction)
@@ -43,7 +47,7 @@ public class Poison : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!isBreak && !collision.gameObject.TryGetComponent(out PlayerContoller player))
+        if (!isDrunk && !isBreak && !collision.gameObject.TryGetComponent(out PlayerContoller player))
         {
             bodiesForEffect = Physics2D.OverlapCircleAll(transform.position, 2);
             Instantiate(throwEffect, transform.position, Quaternion.Euler(0, 0, 0));
@@ -78,5 +82,16 @@ public class Poison : MonoBehaviour
     }
 
     protected virtual void DoEffectWithBody(Collider2D body) { }
-    public virtual void DoWhenUseMotion(PlayerContoller player) { }
+    public virtual void DoWhenUseMotion(PlayerContoller player)
+    {
+        gameObject.SetActive(true);
+        StartCoroutine(OffMusic());
+    }
+
+    private IEnumerator OffMusic()
+    {
+        drinkAudio.Play();
+        yield return waitSound;
+        gameObject.SetActive(false);
+    }
 }

@@ -4,14 +4,16 @@ public class SpeedPoison : Poison
 {
     protected override void DoEffectWithBody(Collider2D body)
     {
-        if (body.TryGetComponent(out Character character))
+        if (body.TryGetComponent(out PlayerContoller player))
         {
-            character.SpeedEffect();
+            player.SpeedEffect();
         }
     }
 
     public override void DoWhenUseMotion(PlayerContoller player)
     {
+        base.DoWhenUseMotion(player);
+
         if(!isDrunk)
         {
             player.SpeedEffect();

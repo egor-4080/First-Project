@@ -8,11 +8,6 @@ public abstract class Character : MonoBehaviour
     [SerializeField] protected float speedForce;
     [SerializeField] protected float damage;
 
-    //boosts values
-    [SerializeField] private float unFreezWait;
-    [SerializeField] private float boost;
-    [SerializeField] private float unSpeedWait;
-
     private AudioSource takeDamageSound;
     protected float currentHealthPoints;
     protected Rigidbody2D rigitBody;
@@ -64,32 +59,7 @@ public abstract class Character : MonoBehaviour
         }
     }
 
-    public void SpeedEffect()
-    {
-        if (TryGetComponent(out NavMeshAgent enemy))
-        {
-            enemy.speed += boost;
-        }
-        else
-        {
-            speedForce += boost;
-        }
-        Invoke("OffSpeedEffect", unSpeedWait);
-    }
-
-    private void OffSpeedEffect()
-    {
-        if (TryGetComponent(out NavMeshAgent enemy))
-        {
-            enemy.speed -= boost;
-        }
-        else
-        {
-            speedForce -= boost;
-        }
-    }
-
-    public void FreezCharacter()
+    public void FreezCharacter(float unFreezWait)
     {
         if (TryGetComponent(out NavMeshAgent enemy))
         {
@@ -100,10 +70,10 @@ public abstract class Character : MonoBehaviour
             unFreezWait = speedForce / 5;
         }
         speedForce = 0;
-        StartCoroutine(FreezMotionCharacter());
+        StartCoroutine(FreezMotionCharacter(unFreezWait));
     }
 
-    private IEnumerator FreezMotionCharacter()
+    private IEnumerator FreezMotionCharacter(float unFreezWait)
     {
         for (var i = 0f; i < speedForce; i += unFreezWait)
         {
