@@ -1,10 +1,12 @@
 using UnityEngine.AI;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class EnemyController : Character
 {
     private Transform player;
     private NavMeshAgent agent;
+    private List<Transform> players;
 
     private float startScaleX;
     private float startScaleY;
@@ -43,5 +45,10 @@ public class EnemyController : Character
             transform.localScale = new Vector3(setScale * startScaleX, startScaleY, 1);
             agent.SetDestination(player.position);
         }
+    }
+
+    void FindNearestPlayer()
+    {
+        this.players = PlayerSpawner.GetPlayers();
     }
 }

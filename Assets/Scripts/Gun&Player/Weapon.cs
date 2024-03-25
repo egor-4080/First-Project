@@ -3,6 +3,7 @@ using Cinemachine;
 using Photon.Pun;
 
 [RequireComponent(typeof(CinemachineImpulseSource))]
+[RequireComponent(typeof(PhotonView))]
 public abstract class Weapon : MonoBehaviour
 {
     [SerializeField] protected float damage;
@@ -12,11 +13,13 @@ public abstract class Weapon : MonoBehaviour
     
     protected CinemachineImpulseSource impulseSource;
     protected AudioSource fireAudio;
+    private PhotonView photonView;
 
     private void Awake()
     {
         impulseSource = GetComponent<CinemachineImpulseSource>();
         fireAudio = GetComponent<AudioSource>();
+        photonView = GetComponent<PhotonView>();
     }
 
     public virtual void Fire(bool isFacing)
@@ -24,10 +27,11 @@ public abstract class Weapon : MonoBehaviour
         OnEffect();
         impulseSource.GenerateImpulse();
         fireAudio.Play();
+        photonView.RPC(nameof(OnEffect), RpcTarget.Others);
     }
 
     [PunRPC]
-    private void OnEffect()
+    public void OnEffect()
     {
         fireEffect.SetActive(true);
         Invoke("OffEffect", 0.1f);

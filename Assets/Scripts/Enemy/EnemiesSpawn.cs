@@ -1,4 +1,5 @@
 using System.Collections;
+using Photon.Pun;
 using UnityEngine;
 
 public class EnemiesSpawn : MonoBehaviour
@@ -17,7 +18,7 @@ public class EnemiesSpawn : MonoBehaviour
 
     private IEnumerator WaitForSpawmEnemy()
     {
-        Instantiate(enemy[Random.Range(0, enemy.Length)], spawnPoints[Random.Range(0, spawnPoints.Length)]);
+        PhotonNetwork.Instantiate(enemy[Random.Range(0, enemy.Length)].name, spawnPoints[Random.Range(0, spawnPoints.Length)].position, Quaternion.identity);
         yield return wait;
         StartCoroutine(WaitForSpawmEnemy());
     }

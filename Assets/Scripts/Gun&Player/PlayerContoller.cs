@@ -147,9 +147,12 @@ public class PlayerContoller : Character
 
     public void OnUse(InputAction.CallbackContext context)
     {
-        GameObject poison = throwingObjects[currentPoison];
-        Poison poisonScript = poison.GetComponent<Poison>();
-        poisonScript.DoWhenUseMotion(player);
+        if (throwingObjects.Count != 0)
+        {
+            GameObject poison = throwingObjects[currentPoison];
+            Poison poisonScript = poison.GetComponent<Poison>();
+            poisonScript.DoWhenUseMotion(player);
+        }
     }
 
     public void OnThrow(InputAction.CallbackContext context)

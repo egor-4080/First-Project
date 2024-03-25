@@ -1,4 +1,5 @@
 using System.Collections;
+using Photon.Pun;
 using UnityEngine;
 
 public class Gun : Weapon
@@ -30,7 +31,7 @@ public class Gun : Weapon
     {
         isReloaded = false;
 
-        Instantiate(bullet, spawnPoint.transform.position, spawnPoint.transform.rotation)
+        PhotonNetwork.Instantiate(bullet.name, spawnPoint.transform.position, spawnPoint.transform.rotation)
             .GetComponent<BulletController>()
             .Initializing(damage, isFacingRight, exploison);
 

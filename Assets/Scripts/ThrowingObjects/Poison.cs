@@ -85,10 +85,10 @@ public class Poison : MonoBehaviour
     public virtual void DoWhenUseMotion(PlayerContoller player)
     {
         gameObject.SetActive(true);
-        StartCoroutine(OffMusic());
+        StartCoroutine(MusicEffect());
     }
 
-    private IEnumerator OffMusic()
+    private IEnumerator MusicEffect()
     {
         drinkAudio.Play();
         yield return waitSound;
