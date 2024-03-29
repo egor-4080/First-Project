@@ -11,6 +11,7 @@ public class Gun : Weapon
 
     private WaitForSeconds wait;
     private bool isReloaded;
+    private object[] parameters;
 
     private void Start()
     {
@@ -31,17 +32,20 @@ public class Gun : Weapon
     {
         isReloaded = false;
 
-        BulletController bullet = PhotonNetwork.Instantiate(bulletPrefab.name, spawnPoint.transform.position, spawnPoint.transform.rotation)
-            .GetComponent<BulletController>();
-        photonView.RPC(nameof(StartInitializing), RpcTarget.All, bullet, isFacingRight);
+        GameObject bulletPrefab = PhotonNetwork.Instantiate(this.bulletPrefab.name, spawnPoint.transform.position, spawnPoint.transform.rotation);
+        StartInitializing(bulletPrefab, isFacingRight);
+        /*parameters[0] = bulletPrefab;
+        parameters[1] = isFacingRight;
+        photonView.RPC(nameof(StartInitializing), RpcTarget.All, parameters);*/
 
         yield return wait;
         isReloaded = true;
     }
 
-    [PunRPC]
-    public void StartInitializing(BulletController bullet, bool isFacing)
+    //[PunRPC]
+    public void StartInitializing(GameObject bulletPrefab, bool isFacing)
     {
+        BulletController bullet = bulletPrefab.GetComponent<BulletController>();
         bullet.Initializing(damage, isFacing, exploison, owner);
     }
 }

@@ -43,7 +43,7 @@ public class BulletController : MonoBehaviour
         {
             if (collision.TryGetComponent(out RedBarrel redBarrel))
             {
-                redBarrel.Initializing(exploison);
+                redBarrel.Initializing();
             }
             if (collision.TryGetComponent(out EnemyController enemyController))
             {

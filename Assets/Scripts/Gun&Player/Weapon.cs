@@ -20,7 +20,7 @@ public abstract class Weapon : MonoBehaviour
         impulseSource = GetComponent<CinemachineImpulseSource>();
         owner = GetComponentInParent<Character>();
         fireAudio = GetComponent<AudioSource>();
-        photonView = GetComponentInParent<PhotonView>();
+        photonView = GetComponent<PhotonView>();
     }
 
     public virtual void Fire(bool isFacing)
