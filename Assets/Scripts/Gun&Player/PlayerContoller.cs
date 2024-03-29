@@ -31,6 +31,9 @@ public class PlayerContoller : Character
     private GameObject currentTakeObject;
     private PlayerContoller player;
 
+    private int tapCounter = 0;
+    private int currentObject = 0;
+
     protected override void Awake()
     {
         base.Awake();
@@ -155,12 +158,41 @@ public class PlayerContoller : Character
         }
     }
 
+    public void OnSelectPoison(InputAction.CallbackContext context)
+    {
+        tapCounter++;
+        if(tapCounter == 3)
+        {
+            var i = context.ReadValue<int>();
+            if (i > 0)
+            {
+                Mathf.Ceil(i);
+                currentObject++;
+                if(throwingObjects.Count - 1 < currentObject)
+                {
+                    currentObject = 0;
+                }
+            }
+            else
+            {
+                Mathf.Floor(i);
+                currentObject--;
+                if (currentObject < 0)
+                {
+                    currentObject = throwingObjects.Count;
+                }
+            }
+            print(i);
+            tapCounter = 0;
+        }
+    }
+
     public void OnThrow(InputAction.CallbackContext context)
     {
         if (isFacingRight) mathForIsFacing = 1;
         else mathForIsFacing = -1;
 
-        throwAndTake.SetValues(mathForIsFacing, throwingObjects, difference);
+        throwAndTake.SetValues(mathForIsFacing, throwingObjects, difference, currentObject);
         throwAndTake.StartCoroutines();
     }
 }

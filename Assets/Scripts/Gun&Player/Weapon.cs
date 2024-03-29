@@ -3,7 +3,6 @@ using Cinemachine;
 using Photon.Pun;
 
 [RequireComponent(typeof(CinemachineImpulseSource))]
-[RequireComponent(typeof(PhotonView))]
 public abstract class Weapon : MonoBehaviour
 {
     [SerializeField] protected float damage;
@@ -13,13 +12,15 @@ public abstract class Weapon : MonoBehaviour
     
     protected CinemachineImpulseSource impulseSource;
     protected AudioSource fireAudio;
-    private PhotonView photonView;
+    protected Character owner;
+    protected PhotonView photonView;
 
     private void Awake()
     {
         impulseSource = GetComponent<CinemachineImpulseSource>();
+        owner = GetComponentInParent<Character>();
         fireAudio = GetComponent<AudioSource>();
-        photonView = GetComponent<PhotonView>();
+        photonView = GetComponentInParent<PhotonView>();
     }
 
     public virtual void Fire(bool isFacing)

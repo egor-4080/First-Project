@@ -5,12 +5,12 @@ using System.Collections.Generic;
 
 public class PlayerSpawner : MonoBehaviourPunCallbacks
 {
-    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject playerPrefab;
     [SerializeField] private Camera MainCamera;
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
 
     private PlayerContoller playerScript;
-    private static List<Transform> players;
+    private static List<Transform> players = new();
 
     public static List<Transform> GetPlayers()
     {
@@ -21,7 +21,7 @@ public class PlayerSpawner : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.IsConnected == true)
         {
-            GameObject player = PhotonNetwork.Instantiate(this.player.name, transform.position, Quaternion.identity);
+            GameObject player = PhotonNetwork.Instantiate(playerPrefab.name, transform.position, Quaternion.identity);
             playerScript = player.GetComponent<PlayerContoller>();
             playerScript.Initialization(MainCamera);
             virtualCamera.Follow = player.transform;

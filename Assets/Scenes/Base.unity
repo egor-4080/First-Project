@@ -5293,7 +5293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f753f0ba4602d794fa969a1e066ca34b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 2968128211607249714, guid: f93dd2ae2c68aaf43873c176ef3faecb, type: 3}
+  playerPrefab: {fileID: 2968128211607249714, guid: f93dd2ae2c68aaf43873c176ef3faecb, type: 3}
   MainCamera: {fileID: 7265708228255946126}
   virtualCamera: {fileID: 4422182247848999842}
 --- !u!1001 &1723463920

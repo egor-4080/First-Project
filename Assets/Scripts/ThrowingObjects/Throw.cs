@@ -17,11 +17,13 @@ public class Throw : MonoBehaviour
     private GameObject throwedObject;
 
     private bool isReload;
+    private int currentObject;
     private Vector2 direction;
 
     private void Start()
     {
         isReload = true;
+        currentObject = 0;
         wait = new WaitForSeconds(0.07f);
     }
 
@@ -39,7 +41,7 @@ public class Throw : MonoBehaviour
         {
             isReload = false;
 
-            throwedObject = throwingObjects[0];
+            throwedObject = throwingObjects[currentObject];
             throwedObject.SetActive(true);
             throwedObject.transform.SetParent(null);
 
@@ -71,8 +73,9 @@ public class Throw : MonoBehaviour
         throwingObjectBaseComponent.Initialization(true);
     }
 
-    public void SetValues(int i, List<GameObject> throwingObjects, Vector3 direction)
+    public void SetValues(int i, List<GameObject> throwingObjects, Vector3 direction, int currentObject)
     {
+        this.currentObject = currentObject;
         this.direction = direction;
         this.throwingObjects = throwingObjects;
     }

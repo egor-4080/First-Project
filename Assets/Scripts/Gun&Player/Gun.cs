@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Gun : Weapon
 {
-    [SerializeField] private GameObject bullet;
+    [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private GameObject exploison;
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private float reloadSpeed;
@@ -31,11 +31,17 @@ public class Gun : Weapon
     {
         isReloaded = false;
 
-        PhotonNetwork.Instantiate(bullet.name, spawnPoint.transform.position, spawnPoint.transform.rotation)
-            .GetComponent<BulletController>()
-            .Initializing(damage, isFacingRight, exploison);
+        BulletController bullet = PhotonNetwork.Instantiate(bulletPrefab.name, spawnPoint.transform.position, spawnPoint.transform.rotation)
+            .GetComponent<BulletController>();
+        photonView.RPC(nameof(StartInitializing), RpcTarget.All, bullet, isFacingRight);
 
         yield return wait;
         isReloaded = true;
+    }
+
+    [PunRPC]
+    public void StartInitializing(BulletController bullet, bool isFacing)
+    {
+        bullet.Initializing(damage, isFacing, exploison, owner);
     }
 }
