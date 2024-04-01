@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: f0c68cd9138047b4d886e695df930dcf, type: 3}
       propertyPath: m_SortingOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: f0c68cd9138047b4d886e695df930dcf, type: 3}
       propertyPath: m_LocalScale.x
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
+  m_SynchronizeScale: 1
   m_UseLocal: 1
 --- !u!114 &-9116689004043816681
 MonoBehaviour:
@@ -232,7 +232,9 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 364130832523859970}
+  - {fileID: -9116689004043816681}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0

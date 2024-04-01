@@ -1326,6 +1326,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RedBarrel
       objectReference: {fileID: 0}
+    - target: {fileID: 3243128550422309948, guid: 2eb4780e36c49c2418d8b3475a19f4bd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5188075248586861836, guid: 2eb4780e36c49c2418d8b3475a19f4bd, type: 3}
       propertyPath: damage
       value: 500
@@ -2716,6 +2720,10 @@ PrefabInstance:
     - target: {fileID: 3243128550422309948, guid: 2eb4780e36c49c2418d8b3475a19f4bd, type: 3}
       propertyPath: m_Name
       value: RedBarrel (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3243128550422309948, guid: 2eb4780e36c49c2418d8b3475a19f4bd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

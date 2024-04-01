@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -30,6 +31,7 @@ public class PlayerContoller : Character
     private Collider2D[] takingObjects;
     private GameObject currentTakeObject;
     private PlayerContoller player;
+    private PhotonView photon;
 
     private int tapCounter = 0;
     private int currentObject = 0;
@@ -38,6 +40,7 @@ public class PlayerContoller : Character
     {
         base.Awake();
 
+        photon = GetComponent<PhotonView>();
         player = GetComponent<PlayerContoller>();
         throwAndTake = GetComponent<Throw>();
     }
@@ -46,6 +49,10 @@ public class PlayerContoller : Character
 
     private void Update()
     {
+        if(!photon.IsMine)
+        {
+            return;
+        }
         mouseInput = Mouse.current.position.ReadValue();
         mousePosition = cameraMain.ScreenToWorldPoint(mouseInput);
         mousePosition.z = 0;
@@ -124,6 +131,11 @@ public class PlayerContoller : Character
 
     private void FixedUpdate()
     {
+        if (!photon.IsMine)
+        {
+            return;
+        }
+
         rigitBody.velocity = direction * speedForce;
 
         TurnByX = (int)rigitBody.velocity.x;
@@ -145,11 +157,21 @@ public class PlayerContoller : Character
 
     public void OnTake(InputAction.CallbackContext context)
     {
+        if (!photon.IsMine)
+        {
+            return;
+        }
+
         FindAllTakeObjectsAroundPlayer();
     }
 
     public void OnUse(InputAction.CallbackContext context)
     {
+        if (!photon.IsMine)
+        {
+            return;
+        }
+
         if (throwingObjects.Count != 0)
         {
             GameObject poison = throwingObjects[currentPoison];

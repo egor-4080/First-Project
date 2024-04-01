@@ -1,5 +1,5 @@
-using System.Collections;
 using Photon.Pun;
+using System.Collections;
 using UnityEngine;
 
 public class Gun : Weapon
@@ -11,7 +11,6 @@ public class Gun : Weapon
 
     private WaitForSeconds wait;
     private bool isReloaded;
-    private object[] parameters;
 
     private void Start()
     {
@@ -34,15 +33,11 @@ public class Gun : Weapon
 
         GameObject bulletPrefab = PhotonNetwork.Instantiate(this.bulletPrefab.name, spawnPoint.transform.position, spawnPoint.transform.rotation);
         StartInitializing(bulletPrefab, isFacingRight);
-        /*parameters[0] = bulletPrefab;
-        parameters[1] = isFacingRight;
-        photonView.RPC(nameof(StartInitializing), RpcTarget.All, parameters);*/
 
         yield return wait;
         isReloaded = true;
     }
 
-    //[PunRPC]
     public void StartInitializing(GameObject bulletPrefab, bool isFacing)
     {
         BulletController bullet = bulletPrefab.GetComponent<BulletController>();

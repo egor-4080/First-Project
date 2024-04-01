@@ -7,6 +7,7 @@ public class MapLoader : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.AutomaticallySyncScene = false;
         PhotonNetwork.SendRate = 60;
+        PhotonNetwork.SerializationRate = 60;
         PhotonNetwork.LoadLevel("Base");
     }
 }

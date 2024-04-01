@@ -51,5 +51,7 @@ public class BulletController : MonoBehaviour
             }
             Destroy(gameObject);
         }
+
+        //collision.gameObject.SendMessageUpwards("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
     }
 }
