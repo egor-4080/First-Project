@@ -30,7 +30,7 @@ public class PlayerContoller : Character
     private Throw throwAndTake;
     private Collider2D[] takingObjects;
     private GameObject currentTakeObject;
-    private PlayerContoller player;
+    private Health player;
     private PhotonView photon;
 
     private int tapCounter = 0;
@@ -41,7 +41,7 @@ public class PlayerContoller : Character
         base.Awake();
 
         photon = GetComponent<PhotonView>();
-        player = GetComponent<PlayerContoller>();
+        player = GetComponent<Health>();
         throwAndTake = GetComponent<Throw>();
     }
 

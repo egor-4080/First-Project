@@ -1,4 +1,3 @@
-using Photon.Pun;
 using UnityEngine;
 
 public class BulletController : MonoBehaviour
@@ -38,7 +37,7 @@ public class BulletController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out Poison throwObject)) { }
+        /*if (collision.TryGetComponent(out Poison throwObject)) { }
         else
         {
             if (collision.TryGetComponent(out RedBarrel redBarrel))
@@ -47,11 +46,12 @@ public class BulletController : MonoBehaviour
             }
             if (collision.TryGetComponent(out EnemyController enemyController))
             {
-                enemyController.TakeDamage(damage);
+                //enemyController.TakeDamage(damage);
             }
             Destroy(gameObject);
-        }
+        }*/
 
-        //collision.gameObject.SendMessageUpwards("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
+        collision.gameObject.SendMessageUpwards("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
+        Destroy(gameObject);
     }
 }

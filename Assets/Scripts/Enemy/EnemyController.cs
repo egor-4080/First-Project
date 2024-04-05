@@ -7,6 +7,7 @@ public class EnemyController : Character
     private Transform player;
     private NavMeshAgent agent;
     private List<Transform> players;
+    private Animator animator;
 
     private float startScaleX;
     private float startScaleY;
@@ -16,14 +17,13 @@ public class EnemyController : Character
     {
         base.Awake();
 
+        animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
-        player = FindFirstObjectByType<PlayerContoller>().transform;
     }
 
-    protected override void Start()
+    private void Start()
     {
-        base.Start();
-
+        player = FindFirstObjectByType<PlayerContoller>().transform;
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         startScaleX = transform.localScale.x;
@@ -45,6 +45,12 @@ public class EnemyController : Character
             transform.localScale = new Vector3(setScale * startScaleX, startScaleY, 1);
             agent.SetDestination(player.position);
         }
+    }
+
+    public override void OnDeath()
+    {
+        animator.SetBool("isDeath", true);
+        enabled = false;
     }
 
     void FindNearestPlayer()

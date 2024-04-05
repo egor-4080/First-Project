@@ -8,9 +8,9 @@ public class DamagePoison : Poison
     {
         if (body.TryGetComponent(out Character character))
         {
-            character.TakeDamage(exploisonDamage);
+            //character.TakeDamage(exploisonDamage);
         }
     }
 
-    public override void DoWhenUseMotion(PlayerContoller player) { }
+    public override void DoWhenUseMotion(Health player) { }
 }

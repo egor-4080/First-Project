@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class SpeedPoison : Poison
 {
+    private PlayerContoller character;
+
     protected override void DoEffectWithBody(Collider2D body)
     {
         if (body.TryGetComponent(out PlayerContoller player))
@@ -10,13 +12,15 @@ public class SpeedPoison : Poison
         }
     }
 
-    public override void DoWhenUseMotion(PlayerContoller player)
+    public override void DoWhenUseMotion(Health player)
     {
         base.DoWhenUseMotion(player);
 
-        if(!isDrunk)
+        character = player.gameObject.GetComponent<PlayerContoller>();
+
+        if (!isDrunk)
         {
-            player.SpeedEffect();
+            character.SpeedEffect();
         }
         isDrunk = true;
     }

@@ -1,15 +1,14 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
 public abstract class Character : MonoBehaviour
 {
-    [SerializeField, Range(0, 5000)] protected float maxHealthPoints;
     [SerializeField] protected float speedForce;
     [SerializeField] protected float damage;
 
     private AudioSource takeDamageSound;
-    protected float currentHealthPoints;
     protected Rigidbody2D rigitBody;
     private bool isAlive = true;
 
@@ -23,39 +22,11 @@ public abstract class Character : MonoBehaviour
         takeDamageSound = GetComponent<AudioSource>();
     }
 
-    protected virtual void Start()
-    {
-        currentHealthPoints = maxHealthPoints;
-    }
-
     protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.TryGetComponent(out PlayerContoller player))
+        if (collision.gameObject.TryGetComponent(out Health playerHealth))
         {
-            player.TakeDamage(damage);
-        }
-    }
-
-    public void TakeDamage(float takenDamage)
-    {
-        if (isAlive)
-        {
-            takeDamageSound.Play();
-            currentHealthPoints -= takenDamage;
-            if (currentHealthPoints <= 0)
-            {
-                Destroy(gameObject);
-                isAlive = false;
-            }
-        }
-    }
-
-    public void HealCharacter(float heal)
-    {
-        currentHealthPoints += heal;
-        if (currentHealthPoints > maxHealthPoints)
-        {
-            currentHealthPoints = maxHealthPoints;
+            playerHealth.TakeDamage(damage);
         }
     }
 
@@ -80,5 +51,10 @@ public abstract class Character : MonoBehaviour
             speedForce = i;
             yield return unFreezWait;
         }
+    }
+
+    public virtual void OnDeath()
+    {
+
     }
 }

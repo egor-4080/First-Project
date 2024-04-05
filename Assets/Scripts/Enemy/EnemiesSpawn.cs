@@ -12,13 +12,13 @@ public class EnemiesSpawn : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(WaitForSpawmEnemy());
         wait = new WaitForSeconds(spawnTime);
+        StartCoroutine(WaitForSpawmEnemy());
     }
 
-    private IEnumerator WaitForSpawmEnemy()
+    public IEnumerator WaitForSpawmEnemy()
     {
-        PhotonNetwork.Instantiate(enemy[Random.Range(0, enemy.Length)].name, spawnPoints[Random.Range(0, spawnPoints.Length)].position, Quaternion.identity);
+        PhotonNetwork.Instantiate(enemy[Random.Range(0, enemy.Length)].name, spawnPoints[Random.Range(0, spawnPoints.Length)].position, Quaternion.Euler(0, 0, 0));
         yield return wait;
         StartCoroutine(WaitForSpawmEnemy());
     }

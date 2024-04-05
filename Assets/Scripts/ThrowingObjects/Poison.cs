@@ -55,7 +55,7 @@ public class Poison : MonoBehaviour
         }
         if (collision.gameObject.TryGetComponent(out EnemyController enemyController))
         {
-            enemyController.TakeDamage(damage);
+            //enemyController.TakeDamage(damage);
         }
         currentCollider.isTrigger = true;
         StartCoroutine(GetMaxDrag());
@@ -82,7 +82,7 @@ public class Poison : MonoBehaviour
     }
 
     protected virtual void DoEffectWithBody(Collider2D body) { }
-    public virtual void DoWhenUseMotion(PlayerContoller player)
+    public virtual void DoWhenUseMotion(Health player)
     {
         gameObject.SetActive(true);
         StartCoroutine(MusicEffect());

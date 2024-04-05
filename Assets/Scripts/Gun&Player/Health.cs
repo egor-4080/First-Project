@@ -9,11 +9,17 @@ public class Health : MonoBehaviour
 
     private AudioSource takeDamageSound;
     private float currentHealthPoints;
-    private bool isAlive = true;
+    public bool IsAlive { get; private set; }
+
+    private void Start()
+    {
+        currentHealthPoints = maxHealthPoints;
+    }
 
     public void TakeDamage(float takenDamage)
     {
-        if (isAlive)
+        print(gameObject.name);
+        if (IsAlive)
         {
             onDamge.Invoke();
             currentHealthPoints -= takenDamage;
@@ -24,9 +30,17 @@ public class Health : MonoBehaviour
             if (currentHealthPoints <= 0)
             {
                 onDeath.Invoke();
-                Destroy(gameObject);
-                isAlive = false;
+                IsAlive = false;
             }
+        }
+    }
+
+    public void HealCharacter(float heal)
+    {
+        currentHealthPoints += heal;
+        if (currentHealthPoints > maxHealthPoints)
+        {
+            currentHealthPoints = maxHealthPoints;
         }
     }
 }

@@ -6,13 +6,13 @@ public class HealPoison : Poison
 
     protected override void DoEffectWithBody(Collider2D body)
     {
-        if (body.TryGetComponent(out Character character))
+        if (body.TryGetComponent(out Health character))
         {
             character.HealCharacter(healthPoints);
         }
     }
 
-    public override void DoWhenUseMotion(PlayerContoller player)
+    public override void DoWhenUseMotion(Health player)
     {
         base.DoWhenUseMotion(player);
 

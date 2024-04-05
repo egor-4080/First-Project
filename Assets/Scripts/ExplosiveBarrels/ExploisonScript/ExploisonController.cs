@@ -20,7 +20,7 @@ public class ExploisonController : MonoBehaviour
         {
             if (blownedUpObject.TryGetComponent(out Character character))
             {
-                character.TakeDamage(damage);
+                //character.TakeDamage(damage);
             }
             if (blownedUpObject.TryGetComponent(out Barrel barrel))
             {
