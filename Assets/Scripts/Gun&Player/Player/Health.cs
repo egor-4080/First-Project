@@ -9,7 +9,7 @@ public class Health : MonoBehaviour
 
     private AudioSource takeDamageSound;
     private float currentHealthPoints;
-    public bool IsAlive { get; private set; }
+    public bool IsAlive { get; private set; } = true;
 
     private void Start()
     {
@@ -18,7 +18,6 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(float takenDamage)
     {
-        print(gameObject.name);
         if (IsAlive)
         {
             onDamge.Invoke();

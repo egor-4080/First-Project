@@ -70,6 +70,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 324f005457822af42a28656e68a52907, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5188075248586861836}
+    - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 324f005457822af42a28656e68a52907, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 733130449396714243}
   m_SourcePrefab: {fileID: -8435245712485981826, guid: 324f005457822af42a28656e68a52907, type: 3}
 --- !u!1 &3243128550422309948 stripped
 GameObject:
@@ -135,3 +138,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   exploisonPrefab: {fileID: 4630755996964659628, guid: 441d63fef9716cd439d5a7f236c1b7d2, type: 3}
+--- !u!114 &733130449396714243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3243128550422309948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a488209078146e147a49b22b371154e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealthPoints: 10
+  onDamge:
+    m_PersistentCalls:
+      m_Calls: []
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []

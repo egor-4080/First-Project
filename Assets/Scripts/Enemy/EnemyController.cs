@@ -50,7 +50,13 @@ public class EnemyController : Character
     public override void OnDeath()
     {
         animator.SetBool("isDeath", true);
+        agent.SetDestination(transform.position);
         enabled = false;
+    }
+
+    public override void OnHit()
+    {
+        animator.SetTrigger("Hit");
     }
 
     void FindNearestPlayer()

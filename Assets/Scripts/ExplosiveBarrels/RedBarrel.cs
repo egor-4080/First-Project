@@ -6,6 +6,6 @@ public class RedBarrel : Barrel
     {
         base.MakeExploisonEffect(exploison);
 
-        explosionController.GetDamageExploison();
+        explosionController.DamageExploison();
     }
 }

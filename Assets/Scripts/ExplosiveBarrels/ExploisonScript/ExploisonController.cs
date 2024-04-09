@@ -6,27 +6,17 @@ public class ExploisonController : MonoBehaviour
     [SerializeField] private float damage;
     [SerializeField] float destroyTime;
 
-    private Collider2D[] blownedUpObjects;
-
     void Start()
     {
         Destroy(gameObject, destroyTime);
     }
 
-    public void GetDamageExploison()
+    public void DamageExploison()
     {
-        blownedUpObjects = Physics2D.OverlapCircleAll(transform.position, explosionRadius);
+        Collider2D[] blownedUpObjects = Physics2D.OverlapCircleAll(transform.position, explosionRadius);
         foreach (var blownedUpObject in blownedUpObjects)
         {
-            if (blownedUpObject.TryGetComponent(out Character character))
-            {
-                //character.TakeDamage(damage);
-            }
-            if (blownedUpObject.TryGetComponent(out Barrel barrel))
-            {
-                barrel.Initializing();
-            }
+            blownedUpObject.SendMessageUpwards("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
         }
-        blownedUpObjects = null;
     }
 }
