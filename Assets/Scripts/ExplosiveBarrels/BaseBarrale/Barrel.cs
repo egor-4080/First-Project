@@ -7,7 +7,7 @@ public abstract class Barrel : MonoBehaviour
     protected ExploisonController explosionController;
     private GameObject exploison;
 
-    private void Exployed()
+    public void Exployed()
     {
         exploison = Instantiate(exploisonPrefab, transform.position, Quaternion.identity);
         MakeExploisonEffect(exploison);
@@ -17,10 +17,5 @@ public abstract class Barrel : MonoBehaviour
     {
         Destroy(gameObject);
         explosionController = exploison.GetComponent<ExploisonController>();
-    }
-
-    public void Initializing()
-    {
-        Exployed();
     }
 }
