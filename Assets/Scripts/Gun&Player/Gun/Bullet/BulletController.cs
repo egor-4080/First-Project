@@ -37,20 +37,6 @@ public class BulletController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        /*if (collision.TryGetComponent(out Poison throwObject)) { }
-        else
-        {
-            if (collision.TryGetComponent(out RedBarrel redBarrel))
-            {
-                redBarrel.Initializing();
-            }
-            if (collision.TryGetComponent(out EnemyController enemyController))
-            {
-                //enemyController.TakeDamage(damage);
-            }
-            Destroy(gameObject);
-        }*/
-
         collision.gameObject.SendMessageUpwards("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
         Destroy(gameObject);
     }

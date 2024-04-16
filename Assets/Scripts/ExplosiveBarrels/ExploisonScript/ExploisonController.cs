@@ -9,6 +9,7 @@ public class ExploisonController : MonoBehaviour
     void Start()
     {
         Destroy(gameObject, destroyTime);
+        DamageExploison();
     }
 
     public void DamageExploison()

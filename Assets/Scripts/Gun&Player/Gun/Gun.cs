@@ -12,6 +12,10 @@ public class Gun : Weapon
     private WaitForSeconds wait;
     private bool isReloaded;
 
+    //RPC
+    private bool isFacingRight;
+    private GameObject bulletGameObject;
+
     private void Start()
     {
         wait = new WaitForSeconds(reloadSpeed);
@@ -22,25 +26,35 @@ public class Gun : Weapon
     {
         if (isReloaded)
         {
-            StartCoroutine(SpawnBullet(isFacingRight));
             base.Fire(isFacingRight);
+            this.isFacingRight = isFacingRight;
+            StartCoroutine(SpawnBullet());
         }
     }
 
-    private IEnumerator SpawnBullet(bool isFacingRight)
+    private IEnumerator SpawnBullet()
     {
         isReloaded = false;
 
-        GameObject bulletPrefab = PhotonNetwork.Instantiate(this.bulletPrefab.name, spawnPoint.transform.position, spawnPoint.transform.rotation);
-        StartInitializing(bulletPrefab, isFacingRight);
+        GameObject bulletGameObject = PhotonNetwork.Instantiate(this.bulletPrefab.name, spawnPoint.transform.position, spawnPoint.transform.rotation);
+        this.bulletGameObject = bulletGameObject;
+
+        RunRPC();
 
         yield return wait;
         isReloaded = true;
     }
 
-    public void StartInitializing(GameObject bulletPrefab, bool isFacing)
+    private void RunRPC()
     {
-        BulletController bullet = bulletPrefab.GetComponent<BulletController>();
-        bullet.Initializing(damage, isFacing, exploison, owner);
+        photonView.RPC(nameof(StartInitializing), RpcTarget.Others);
+    }
+
+    [PunRPC]
+    public void StartInitializing()
+    {
+        print("AAA");
+        BulletController bullet = bulletGameObject.GetComponent<BulletController>();
+        bullet.Initializing(damage, isFacingRight, exploison, owner);
     }
 }
