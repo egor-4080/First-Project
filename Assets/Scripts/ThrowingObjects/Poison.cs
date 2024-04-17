@@ -58,19 +58,8 @@ public class Poison : MonoBehaviour
             //enemyController.TakeDamage(damage);
         }
         currentCollider.isTrigger = true;
-        StartCoroutine(GetMaxDrag());
         isBreak = true;
 
-    }
-
-    private IEnumerator GetMaxDrag()
-    {
-        for (int i = 0; i < 1000; i++)
-        {
-            i *= 2;
-            rigitBody.drag = i;
-            yield return 0.1f;
-        }
     }
 
     protected void OnBreak(Collider2D[] bodiesForEffect)

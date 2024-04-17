@@ -5,7 +5,6 @@ using UnityEngine;
 public class Throw : MonoBehaviour
 {
     [SerializeField] private Transform throwingTransformPosition;
-    [SerializeField] private List<GameObject> throwingObjects;
 
     [SerializeField] private float throwRate;
 
@@ -24,7 +23,7 @@ public class Throw : MonoBehaviour
     {
         isReload = true;
         currentObject = 0;
-        wait = new WaitForSeconds(0.07f);
+        wait = new WaitForSeconds(0.1f);
     }
 
     public void StartCoroutines()
@@ -37,46 +36,41 @@ public class Throw : MonoBehaviour
 
     private IEnumerator SpawnWithRate()
     {
-        if (throwingObjects.Count != 0)
-        {
-            isReload = false;
+        isReload = false;
 
-            throwedObject = throwingObjects[currentObject];
-            throwedObject.SetActive(true);
-            throwedObject.transform.SetParent(null);
+        throwedObject.SetActive(true);
+        throwedObject.transform.SetParent(null);
 
-            throwingObjectBaseComponent = throwedObject.GetComponent<Poison>();
-            ObjectRigitBody = throwedObject.GetComponent<Rigidbody2D>();
-            throwingCollider = throwedObject.GetComponent<Collider2D>();
+        throwingObjectBaseComponent = throwedObject.GetComponent<Poison>();
+        ObjectRigitBody = throwedObject.GetComponent<Rigidbody2D>();
+        throwingCollider = throwedObject.GetComponent<Collider2D>();
 
-            throwingObjectBaseComponent.Throw(direction);
-            throwingCollider.isTrigger = false;
+        throwingObjectBaseComponent.Throw(direction);
+        throwingCollider.isTrigger = false;
 
-            throwingObjects.RemoveAt(0);
+        //inventory.RemoveAt(0);
 
-            throwingObjectBaseComponent = throwedObject.GetComponent<Poison>();
-            StartCoroutine(GetMaxDrag(throwingObjectBaseComponent));
+        StartCoroutine(GetMaxDrag(throwingObjectBaseComponent));
 
-            yield return new WaitForSeconds(throwRate);
-            isReload = true;
-        }
+        yield return new WaitForSeconds(throwRate);
+        isReload = true;
+
     }
 
     public IEnumerator GetMaxDrag(Poison throwingObjectBaseComponent)
     {
-        for (int i = 0; i < 10; i++)
+        while(ObjectRigitBody.velocity != Vector2.zero)
         {
-            ObjectRigitBody.drag = i;
             yield return wait;
         }
         throwingCollider.isTrigger = true;
         throwingObjectBaseComponent.Initialization(true);
     }
 
-    public void SetValues(int i, List<GameObject> throwingObjects, Vector3 direction, int currentObject)
+    public void SetValues(GameObject throwedObject, Vector3 direction, int currentObject)
     {
         this.currentObject = currentObject;
         this.direction = direction;
-        this.throwingObjects = throwingObjects;
+        this.throwedObject = throwedObject;
     }
 }

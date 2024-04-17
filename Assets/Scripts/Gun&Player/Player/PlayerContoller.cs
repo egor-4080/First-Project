@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerContoller : Character
 {
-    [SerializeField] private List<GameObject> throwingObjects;
+    [SerializeField] private List<GameObject> inventory;
     [SerializeField] private Transform weaponSoket;
     [SerializeField] private Weapon weapon;
     [SerializeField] private Camera cameraMain;
@@ -18,8 +18,6 @@ public class PlayerContoller : Character
     private bool fireActive;
     private bool isFacingRight;
 
-    private int currentPoison = 0;
-    private int mathForIsFacing;
     private float angle;
 
     private Vector2 direction;
@@ -109,7 +107,7 @@ public class PlayerContoller : Character
                 {
                     takingObject.isTrigger = false;
                     takingObject.gameObject.SetActive(false);
-                    throwingObjects.Add(currentTakeObject);
+                    inventory.Add(currentTakeObject);
                     takingObject.transform.SetParent(throwStartPoint);
                     takingObject.transform.localPosition = Vector3.zero;
                 }
@@ -172,9 +170,9 @@ public class PlayerContoller : Character
             return;
         }
 
-        if (throwingObjects.Count != 0)
+        if (inventory.Count != 0)
         {
-            GameObject poison = throwingObjects[currentPoison];
+            GameObject poison = inventory[0];
             Poison poisonScript = poison.GetComponent<Poison>();
             poisonScript.DoWhenUseMotion(player);
         }
@@ -190,7 +188,7 @@ public class PlayerContoller : Character
             {
                 Mathf.Ceil(i);
                 currentObject++;
-                if(throwingObjects.Count - 1 < currentObject)
+                if(inventory.Count - 1 < currentObject)
                 {
                     currentObject = 0;
                 }
@@ -201,20 +199,20 @@ public class PlayerContoller : Character
                 currentObject--;
                 if (currentObject < 0)
                 {
-                    currentObject = throwingObjects.Count;
+                    currentObject = inventory.Count;
                 }
             }
-            print(i);
             tapCounter = 0;
         }
     }
 
     public void OnThrow(InputAction.CallbackContext context)
     {
-        if (isFacingRight) mathForIsFacing = 1;
-        else mathForIsFacing = -1;
-
-        throwAndTake.SetValues(mathForIsFacing, throwingObjects, difference, currentObject);
-        throwAndTake.StartCoroutines();
+        if (inventory.Count != 0)
+        {
+            throwAndTake.SetValues(inventory[0], difference, currentObject);
+            inventory.RemoveAt(0);
+            throwAndTake.StartCoroutines();
+        }
     }
 }
