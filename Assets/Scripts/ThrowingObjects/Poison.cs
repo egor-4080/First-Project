@@ -25,7 +25,7 @@ public class Poison : MonoBehaviour
 
     private void Start()
     {
-        forceSpeed = 20;
+        forceSpeed = 80;
         waitSound = new WaitForSeconds(1);
     }
 

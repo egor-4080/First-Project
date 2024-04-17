@@ -8,25 +8,18 @@ public class Throw : MonoBehaviour
 
     [SerializeField] private float throwRate;
 
-    private WaitForSeconds wait;
+    private WaitForSeconds wait = new WaitForSeconds(0.1f);
 
-    private Rigidbody2D ObjectRigitBody;
+    private Rigidbody2D objectRigitBody;
     private Collider2D throwingCollider;
     private Poison throwingObjectBaseComponent;
     private GameObject throwedObject;
 
-    private bool isReload;
-    private int currentObject;
+    private bool isReload = true;
+    private int currentObject = 0;
     private Vector2 direction;
 
-    private void Start()
-    {
-        isReload = true;
-        currentObject = 0;
-        wait = new WaitForSeconds(0.1f);
-    }
-
-    public void StartCoroutines()
+    public void ThrowObject()
     {
         if (isReload)
         {
@@ -42,24 +35,22 @@ public class Throw : MonoBehaviour
         throwedObject.transform.SetParent(null);
 
         throwingObjectBaseComponent = throwedObject.GetComponent<Poison>();
-        ObjectRigitBody = throwedObject.GetComponent<Rigidbody2D>();
+        objectRigitBody = throwedObject.GetComponent<Rigidbody2D>();
         throwingCollider = throwedObject.GetComponent<Collider2D>();
 
         throwingObjectBaseComponent.Throw(direction);
         throwingCollider.isTrigger = false;
 
-        //inventory.RemoveAt(0);
-
-        StartCoroutine(GetMaxDrag(throwingObjectBaseComponent));
+        StartCoroutine(WaitForGetTriggerObject(throwingObjectBaseComponent));
 
         yield return new WaitForSeconds(throwRate);
         isReload = true;
 
     }
 
-    public IEnumerator GetMaxDrag(Poison throwingObjectBaseComponent)
+    private IEnumerator WaitForGetTriggerObject(Poison throwingObjectBaseComponent)
     {
-        while(ObjectRigitBody.velocity != Vector2.zero)
+        while(objectRigitBody.velocity != Vector2.zero)
         {
             yield return wait;
         }
@@ -69,8 +60,8 @@ public class Throw : MonoBehaviour
 
     public void SetValues(GameObject throwedObject, Vector3 direction, int currentObject)
     {
-        this.currentObject = currentObject;
         this.direction = direction;
+        this.currentObject = currentObject;
         this.throwedObject = throwedObject;
     }
 }

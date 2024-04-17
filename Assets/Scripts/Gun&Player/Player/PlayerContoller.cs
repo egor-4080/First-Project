@@ -212,7 +212,7 @@ public class PlayerContoller : Character
         {
             throwAndTake.SetValues(inventory[0], difference, currentObject);
             inventory.RemoveAt(0);
-            throwAndTake.StartCoroutines();
+            throwAndTake.ThrowObject();
         }
     }
 }
