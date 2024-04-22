@@ -4,8 +4,9 @@ public class HealPoison : Poison
 {
     [SerializeField] private float healthPoints;
 
-    protected override void DoEffectWithBody(Collider2D body)
+    public override void DoEffectWithBody(Collider2D body)
     {
+        base.DoEffectWithBody(body);
         if (body.TryGetComponent(out Health character))
         {
             character.HealCharacter(healthPoints);

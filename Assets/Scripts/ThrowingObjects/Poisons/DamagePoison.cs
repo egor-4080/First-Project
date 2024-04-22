@@ -6,6 +6,7 @@ public class DamagePoison : Poison
 
     public override void DoEffectWithBody(Collider2D body)
     {
+        base.DoEffectWithBody(body);
         if (body.TryGetComponent(out Character character))
         {
             //character.TakeDamage(exploisonDamage);

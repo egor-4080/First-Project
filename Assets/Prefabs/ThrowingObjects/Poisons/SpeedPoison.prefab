@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1387097147549507037}
   - component: {fileID: 4571159891841947723}
   - component: {fileID: -8675983886168767914}
+  - component: {fileID: 7923052829431981909}
   - component: {fileID: 3379982966528476913}
   m_Layer: 0
   m_Name: SpeedPoison
@@ -175,8 +176,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e09f4a9c5280a0744bffbd1e8cfc2e1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
-  throwEffect: {fileID: 4630755996964659628, guid: 441d63fef9716cd439d5a7f236c1b7d2, type: 3}
+  effect: {fileID: 4630755996964659628, guid: 441d63fef9716cd439d5a7f236c1b7d2, type: 3}
+--- !u!114 &7923052829431981909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6761811661524390016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91e4410e36337b54d9fd2a10d3cf229a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  audioSource: {fileID: 0}
 --- !u!82 &3379982966528476913
 AudioSource:
   m_ObjectHideFlags: 0

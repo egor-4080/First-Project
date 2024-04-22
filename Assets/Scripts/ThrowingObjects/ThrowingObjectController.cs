@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ThrowingObjectController : MonoBehaviour
 {
-    [SerializeField] private float forceSpeed;
     [SerializeField] private float damage;
     [SerializeField] private AudioSource audioSource;
 
@@ -13,29 +12,32 @@ public class ThrowingObjectController : MonoBehaviour
     private Poison poison;
     private bool isPoison;
     protected bool isBreak;
+    private float forceSpeed;
 
     private void Awake()
     {
         objectsCollider = GetComponent<Collider2D>();
+        rigitBody = GetComponent<Rigidbody2D>();
     }
 
     private void Start()
     {
+        forceSpeed = 80;
         if(TryGetComponent(out poison))
         {
             isPoison = true;
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         rigitBody.drag = 20;
         objectsCollider.isTrigger = true;
-        if (isPoison)
+        if (isPoison && !collision.gameObject.TryGetComponent(out PlayerContoller player1))
         {
             OnBreak(poison.FindAllobjects());
         }
-        if (!collision.gameObject.TryGetComponent(out PlayerContoller player))
+        if (!collision.gameObject.TryGetComponent(out PlayerContoller player2))
         {
             isBreak = true;
         }

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6021387246216198227}
   - component: {fileID: 375119303562807753}
   - component: {fileID: 3262226974262197101}
+  - component: {fileID: -2793484218790207825}
   m_Layer: 0
   m_Name: FreezPoison
   m_TagString: Untagged
@@ -175,8 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e4b1e3f9ab20ea46b800e4038766de4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
-  throwEffect: {fileID: 0}
+  effect: {fileID: 4630755996964659628, guid: 441d63fef9716cd439d5a7f236c1b7d2, type: 3}
   unFreezWait: 5
 --- !u!82 &3262226974262197101
 AudioSource:
@@ -275,3 +275,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-2793484218790207825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5712407100406469024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91e4410e36337b54d9fd2a10d3cf229a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  audioSource: {fileID: 0}

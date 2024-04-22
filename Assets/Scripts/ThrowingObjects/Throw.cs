@@ -41,22 +41,10 @@ public class Throw : MonoBehaviour
         throwingObjectBaseComponent.Throw(direction);
         throwingCollider.isTrigger = false;
 
-        //StartCoroutine(WaitForGetTriggerObject(throwingObjectBaseComponent));
-
         yield return new WaitForSeconds(throwRate);
         isReload = true;
 
     }
-
-    /*private IEnumerator WaitForGetTriggerObject(Poison throwingObjectBaseComponent)
-    {
-        while(objectRigitBody.velocity != Vector2.zero)
-        {
-            yield return wait;
-        }
-        throwingCollider.isTrigger = true;
-        throwingObjectBaseComponent.Initialization(true);
-    }*/
 
     public void SetValues(GameObject throwedObject, Vector3 direction, int currentObject)
     {

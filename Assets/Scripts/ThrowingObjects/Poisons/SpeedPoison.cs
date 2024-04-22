@@ -4,8 +4,9 @@ public class SpeedPoison : Poison
 {
     private PlayerContoller character;
 
-    protected override void DoEffectWithBody(Collider2D body)
+    public override void DoEffectWithBody(Collider2D body)
     {
+        base.DoEffectWithBody(body);
         if (body.TryGetComponent(out PlayerContoller player))
         {
             player.SpeedEffect();
