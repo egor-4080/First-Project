@@ -2,6 +2,8 @@ using Cinemachine;
 using UnityEngine;
 using Photon.Pun;
 using System.Collections.Generic;
+using Photon.Realtime;
+using System.Linq;
 
 public class PlayerSpawner : MonoBehaviourPunCallbacks
 {
@@ -10,11 +12,14 @@ public class PlayerSpawner : MonoBehaviourPunCallbacks
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
 
     private PlayerContoller playerScript;
-    private static List<Transform> players = new();
+    public static List<Transform> players { get; private set; } = new();
 
-    public static List<Transform> GetPlayers()
+    public override void OnPlayerEnteredRoom(Player newPlayer)
     {
-        return players;
+        print("Player Conected");
+        players = FindObjectsByType<PlayerContoller>(FindObjectsSortMode.None)
+            .Select(i => i.GetComponent<Transform>())
+            .ToList();
     }
 
     private void Start()
@@ -25,7 +30,6 @@ public class PlayerSpawner : MonoBehaviourPunCallbacks
             playerScript = player.GetComponent<PlayerContoller>();
             playerScript.Initialization(MainCamera);
             virtualCamera.Follow = player.transform;
-            players.Add(player.transform);
         }
     }
 }

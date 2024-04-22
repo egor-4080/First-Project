@@ -1,6 +1,7 @@
 using UnityEngine.AI;
 using UnityEngine;
 using System.Collections.Generic;
+using Photon.Pun;
 
 public class EnemyController : Character
 {
@@ -23,7 +24,11 @@ public class EnemyController : Character
 
     private void Start()
     {
-        player = FindFirstObjectByType<PlayerContoller>().transform;
+        if (!PhotonNetwork.IsMasterClient)
+        {
+            enabled = false;
+            return;
+        }
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         startScaleX = transform.localScale.x;
@@ -61,6 +66,6 @@ public class EnemyController : Character
 
     void FindNearestPlayer()
     {
-        this.players = PlayerSpawner.GetPlayers();
+        this.players = PlayerSpawner.players;
     }
 }

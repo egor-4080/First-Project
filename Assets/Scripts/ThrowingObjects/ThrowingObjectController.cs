@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ThrowingObjectController : MonoBehaviour
@@ -23,7 +21,7 @@ public class ThrowingObjectController : MonoBehaviour
     private void Start()
     {
         forceSpeed = 80;
-        if(TryGetComponent(out poison))
+        if (TryGetComponent(out poison))
         {
             isPoison = true;
         }

@@ -25,7 +25,7 @@ public class PlayerContoller : Character
     private Vector3 mousePosition;
     private Vector3 mouseInput;
 
-    private Throw throwAndTake;
+    private Throw throwScript;
     private Collider2D[] takingObjects;
     private GameObject currentTakeObject;
     private Health player;
@@ -40,7 +40,7 @@ public class PlayerContoller : Character
 
         photon = GetComponent<PhotonView>();
         player = GetComponent<Health>();
-        throwAndTake = GetComponent<Throw>();
+        throwScript = GetComponent<Throw>();
     }
 
     protected override void OnCollisionEnter2D(Collision2D collision) { }
@@ -210,9 +210,9 @@ public class PlayerContoller : Character
     {
         if (inventory.Count != 0)
         {
-            throwAndTake.SetValues(inventory[0], difference, currentObject);
+            throwScript.SetValues(inventory[0], difference);
             inventory.RemoveAt(0);
-            throwAndTake.ThrowObject();
+            throwScript.ThrowObject();
         }
     }
 }

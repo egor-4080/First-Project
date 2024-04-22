@@ -12,6 +12,10 @@ public class EnemiesSpawn : MonoBehaviour
 
     private void Start()
     {
+        if(!PhotonNetwork.IsMasterClient)
+        {
+            return;
+        }
         wait = new WaitForSeconds(spawnTime);
         StartCoroutine(WaitForSpawmEnemy());
     }

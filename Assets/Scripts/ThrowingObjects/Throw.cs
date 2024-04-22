@@ -1,22 +1,16 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Throw : MonoBehaviour
 {
     [SerializeField] private Transform throwingTransformPosition;
-
     [SerializeField] private float throwRate;
 
-    private WaitForSeconds wait = new WaitForSeconds(0.1f);
-
-    private Rigidbody2D objectRigitBody;
     private Collider2D throwingCollider;
     private ThrowingObjectController throwingObjectBaseComponent;
     private GameObject throwedObject;
 
     private bool isReload = true;
-    private int currentObject = 0;
     private Vector2 direction;
 
     public void ThrowObject()
@@ -35,7 +29,6 @@ public class Throw : MonoBehaviour
         throwedObject.transform.SetParent(null);
 
         throwingObjectBaseComponent = throwedObject.GetComponent<ThrowingObjectController>();
-        objectRigitBody = throwedObject.GetComponent<Rigidbody2D>();
         throwingCollider = throwedObject.GetComponent<Collider2D>();
 
         throwingObjectBaseComponent.Throw(direction);
@@ -43,13 +36,11 @@ public class Throw : MonoBehaviour
 
         yield return new WaitForSeconds(throwRate);
         isReload = true;
-
     }
 
-    public void SetValues(GameObject throwedObject, Vector3 direction, int currentObject)
+    public void SetValues(GameObject throwedObject, Vector3 direction)
     {
         this.direction = direction;
-        this.currentObject = currentObject;
         this.throwedObject = throwedObject;
     }
 }
