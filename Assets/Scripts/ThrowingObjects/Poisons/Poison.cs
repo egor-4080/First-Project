@@ -34,7 +34,7 @@ public class Poison : MonoBehaviour
         rigitBody.velocity = direction * forceSpeed;
     }*/
 
-    public void Initialization(bool isBreak)
+    /*public void Initialization(bool isBreak)
     {
         if (this.isBreak != isBreak)
         {
@@ -62,15 +62,20 @@ public class Poison : MonoBehaviour
 
     }
 
+    public Collider2D[] FindAllobjects()
+    {
+         return Physics2D.OverlapCircleAll(transform.position, 2);
+    }
+
     protected void OnBreak(Collider2D[] bodiesForEffect)
     {
         foreach (var body in bodiesForEffect)
         {
             DoEffectWithBody(body);
         }
-    }
+    }*/
 
-    protected virtual void DoEffectWithBody(Collider2D body) { }
+    public virtual void DoEffectWithBody(Collider2D body) { }
     public virtual void DoWhenUseMotion(Health player)
     {
         gameObject.SetActive(true);

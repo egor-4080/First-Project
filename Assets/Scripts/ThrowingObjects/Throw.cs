@@ -48,7 +48,7 @@ public class Throw : MonoBehaviour
 
     }
 
-    private IEnumerator WaitForGetTriggerObject(Poison throwingObjectBaseComponent)
+    /*private IEnumerator WaitForGetTriggerObject(Poison throwingObjectBaseComponent)
     {
         while(objectRigitBody.velocity != Vector2.zero)
         {
@@ -56,7 +56,7 @@ public class Throw : MonoBehaviour
         }
         throwingCollider.isTrigger = true;
         throwingObjectBaseComponent.Initialization(true);
-    }
+    }*/
 
     public void SetValues(GameObject throwedObject, Vector3 direction, int currentObject)
     {
