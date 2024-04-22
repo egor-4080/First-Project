@@ -5,8 +5,6 @@ public class BulletController : MonoBehaviour
     [SerializeField] private float speed;
 
     private Rigidbody2D rigitbody;
-    private GameObject exploison;
-    private Character owner;
 
     private bool isFacing;
     private float damage;
@@ -27,10 +25,8 @@ public class BulletController : MonoBehaviour
         Destroy(gameObject, 2);
     }
 
-    public void Initializing(float damage, bool isFacing, GameObject exploison, Character owner)
+    public void Initializing(float damage, bool isFacing)
     {
-        this.owner = owner;
-        this.exploison = exploison;
         this.damage = damage;
         this.isFacing = isFacing;
     }

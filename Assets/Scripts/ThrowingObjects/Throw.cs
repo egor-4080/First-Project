@@ -12,7 +12,7 @@ public class Throw : MonoBehaviour
 
     private Rigidbody2D objectRigitBody;
     private Collider2D throwingCollider;
-    private Poison throwingObjectBaseComponent;
+    private ThrowingObjectController throwingObjectBaseComponent;
     private GameObject throwedObject;
 
     private bool isReload = true;
@@ -34,14 +34,14 @@ public class Throw : MonoBehaviour
         throwedObject.SetActive(true);
         throwedObject.transform.SetParent(null);
 
-        throwingObjectBaseComponent = throwedObject.GetComponent<Poison>();
+        throwingObjectBaseComponent = throwedObject.GetComponent<ThrowingObjectController>();
         objectRigitBody = throwedObject.GetComponent<Rigidbody2D>();
         throwingCollider = throwedObject.GetComponent<Collider2D>();
 
         throwingObjectBaseComponent.Throw(direction);
         throwingCollider.isTrigger = false;
 
-        StartCoroutine(WaitForGetTriggerObject(throwingObjectBaseComponent));
+        //StartCoroutine(WaitForGetTriggerObject(throwingObjectBaseComponent));
 
         yield return new WaitForSeconds(throwRate);
         isReload = true;

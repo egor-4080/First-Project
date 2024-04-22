@@ -29,10 +29,10 @@ public class Poison : MonoBehaviour
         waitSound = new WaitForSeconds(1);
     }
 
-    public void Throw(Vector3 direction)
+    /*public void Throw(Vector3 direction)
     {
         rigitBody.velocity = direction * forceSpeed;
-    }
+    }*/
 
     public void Initialization(bool isBreak)
     {

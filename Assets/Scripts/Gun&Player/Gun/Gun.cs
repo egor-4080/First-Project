@@ -5,16 +5,12 @@ using UnityEngine;
 public class Gun : Weapon
 {
     [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private GameObject exploison;
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private float reloadSpeed;
 
     private WaitForSeconds wait;
     private bool isReloaded;
-
-    //RPC
     private bool isFacingRight;
-    private GameObject bulletGameObject;
 
     private void Start()
     {
@@ -36,25 +32,23 @@ public class Gun : Weapon
     {
         isReloaded = false;
 
-        GameObject bulletGameObject = PhotonNetwork.Instantiate(this.bulletPrefab.name, spawnPoint.transform.position, spawnPoint.transform.rotation);
-        this.bulletGameObject = bulletGameObject;
+        GameObject bulletGameObject = PhotonNetwork.Instantiate(bulletPrefab.name, spawnPoint.transform.position, spawnPoint.transform.rotation);
 
-        RunRPC();
+        PhotonView photonView = bulletGameObject.GetComponent<PhotonView>();
+        int id = photonView.ViewID;
+
+        this.photonView.RPC(nameof(Bullet), RpcTarget.All, damage, isFacingRight, id);
 
         yield return wait;
         isReloaded = true;
     }
 
-    private void RunRPC()
-    {
-        photonView.RPC(nameof(StartInitializing), RpcTarget.Others);
-    }
-
     [PunRPC]
-    public void StartInitializing()
+    public void Bullet(float damage, bool isFacingRight, int id)
     {
-        print("AAA");
-        BulletController bullet = bulletGameObject.GetComponent<BulletController>();
-        bullet.Initializing(damage, isFacingRight, exploison, owner);
+        PhotonView photonBullet = PhotonView.Find(id);
+
+        BulletController bullet = photonBullet.GetComponent<BulletController>();
+        bullet.Initializing(damage, isFacingRight);
     }
 }

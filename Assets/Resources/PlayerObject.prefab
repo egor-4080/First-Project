@@ -292,7 +292,6 @@ MonoBehaviour:
   weight: 0
   fireEffect: {fileID: 778497014778557159}
   bulletPrefab: {fileID: 6454793202519278333, guid: 649175e7514a6fd4db5f7e183b92482c, type: 3}
-  exploison: {fileID: 4630755996964659628, guid: 441d63fef9716cd439d5a7f236c1b7d2, type: 3}
   spawnPoint: {fileID: 3480541670479378087}
   reloadSpeed: 0.25
 --- !u!114 &2098814646660643744
@@ -673,7 +672,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedForce: 8
   damage: 0
-  throwingObjects: []
+  inventory: []
   weaponSoket: {fileID: 7617828282208822911}
   weapon: {fileID: 8576726652158263741}
   cameraMain: {fileID: 0}
@@ -694,9 +693,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   throwingTransformPosition: {fileID: 3480541670479378087}
-  throwingObjects:
-  - {fileID: 0}
-  - {fileID: 0}
   throwRate: 1
 --- !u!114 &-5147035267485818951
 MonoBehaviour:
