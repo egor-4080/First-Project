@@ -2,6 +2,7 @@ using UnityEngine.AI;
 using UnityEngine;
 using System.Collections.Generic;
 using Photon.Pun;
+using System.Linq;
 
 public class EnemyController : Character
 {
@@ -24,6 +25,7 @@ public class EnemyController : Character
 
     private void Start()
     {
+        print(PhotonNetwork.IsMasterClient);
         if (!PhotonNetwork.IsMasterClient)
         {
             enabled = false;
@@ -37,6 +39,7 @@ public class EnemyController : Character
 
     private void Update()
     {
+        FindNearestPlayer();
         if (player != null)
         {
             if (transform.position.x - player.position.x > 0)
@@ -66,6 +69,18 @@ public class EnemyController : Character
 
     void FindNearestPlayer()
     {
-        this.players = PlayerSpawner.players;
+        float minimum = float.MaxValue;
+        Transform nearestPlayer = null;
+        players = PlayerSpawner.players;
+        foreach(Transform player in players)
+        {
+            float currentLength = (player.position - transform.position).magnitude;
+            if(minimum > currentLength)
+            {
+                minimum = currentLength;
+                nearestPlayer = player;
+            }
+        }
+        this.player = nearestPlayer;
     }
 }

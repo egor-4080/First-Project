@@ -9,6 +9,7 @@ public class EnemiesSpawn : MonoBehaviour
     [SerializeField] private float spawnTime;
 
     private WaitForSeconds wait;
+    private GameObject currentEnemy;
 
     private void Start()
     {
@@ -20,9 +21,10 @@ public class EnemiesSpawn : MonoBehaviour
         StartCoroutine(WaitForSpawmEnemy());
     }
 
-    public IEnumerator WaitForSpawmEnemy()
+    private IEnumerator WaitForSpawmEnemy()
     {
-        PhotonNetwork.Instantiate(enemy[Random.Range(0, enemy.Length)].name, spawnPoints[Random.Range(0, spawnPoints.Length)].position, Quaternion.Euler(0, 0, 0));
+        currentEnemy = enemy[Random.Range(0, enemy.Length)];
+        PhotonNetwork.Instantiate(currentEnemy.name, spawnPoints[Random.Range(0, spawnPoints.Length)].position, currentEnemy.transform.rotation);
         yield return wait;
         StartCoroutine(WaitForSpawmEnemy());
     }
