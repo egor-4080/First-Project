@@ -25,7 +25,6 @@ public class EnemyController : Character
 
     private void Start()
     {
-        print(PhotonNetwork.IsMasterClient);
         if (!PhotonNetwork.IsMasterClient)
         {
             enabled = false;
