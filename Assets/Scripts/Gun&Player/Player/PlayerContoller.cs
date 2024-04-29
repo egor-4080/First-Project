@@ -29,6 +29,7 @@ public class PlayerContoller : Character
     private Collider2D[] takingObjects;
     private GameObject currentTakeObject;
     private Health player;
+    private PhotonView takenObjectPhoton;
     private PhotonView photon;
 
     private int tapCounter = 0;
@@ -100,19 +101,31 @@ public class PlayerContoller : Character
         takingObjects = Physics2D.OverlapCircleAll(transform.position, 1);
         if (takingObjects != null)
         {
-            foreach (var takingObject in takingObjects)
+            foreach (Collider2D takingObject in takingObjects)
             {
                 currentTakeObject = takingObject.gameObject;
                 if (currentTakeObject.TryGetComponent(out Poison couldThrow))
                 {
-                    takingObject.isTrigger = false;
-                    takingObject.gameObject.SetActive(false);
+                    takenObjectPhoton = currentTakeObject.GetComponent<PhotonView>();
+                    int id = takenObjectPhoton.ViewID;
+                    
+                    photon.RPC(nameof(SetTakenObjectParameters), RpcTarget.All, id);
                     inventory.Add(currentTakeObject);
-                    takingObject.transform.SetParent(throwStartPoint);
-                    takingObject.transform.localPosition = Vector3.zero;
                 }
             }
         }
+    }
+
+    [PunRPC]
+    public void SetTakenObjectParameters(int id)
+    {
+        PhotonView photonObject = PhotonView.Find(id);
+        Collider2D takingObject = photonObject.gameObject.GetComponent<Collider2D>();
+
+        takingObject.isTrigger = false;
+        takingObject.gameObject.SetActive(false);
+        takingObject.transform.SetParent(throwStartPoint);
+        takingObject.transform.localPosition = Vector3.zero;
     }
 
     public virtual void RotateGun()

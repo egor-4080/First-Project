@@ -1,3 +1,4 @@
+using Photon.Pun;
 using UnityEngine;
 
 public class ThrowingObjectController : MonoBehaviour
@@ -59,7 +60,8 @@ public class ThrowingObjectController : MonoBehaviour
         }
     }
 
-    public void Throw(Vector3 direction)
+    [PunRPC]
+    public void Throw(Vector2 direction)
     {
         if (isBreak)
         {

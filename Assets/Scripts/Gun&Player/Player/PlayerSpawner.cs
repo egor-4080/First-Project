@@ -30,11 +30,6 @@ public class PlayerSpawner : MonoBehaviourPunCallbacks
         }
     }
 
-    private void Update()
-    {
-        print(players.Count);
-    }
-
     private void Start()
     {
         if (PhotonNetwork.IsConnected == true)
