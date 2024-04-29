@@ -16,10 +16,23 @@ public class PlayerSpawner : MonoBehaviourPunCallbacks
 
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
-        print("Player Conected");
-        players = FindObjectsByType<PlayerContoller>(FindObjectsSortMode.None)
-            .Select(i => i.GetComponent<Transform>())
-            .ToList();
+        Invoke(nameof(GetPlayers), 1);
+    }
+
+    private void GetPlayers()
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            print("Player Conected");
+            players = FindObjectsByType<PlayerContoller>(FindObjectsSortMode.None)
+                .Select(i => i.GetComponent<Transform>())
+                .ToList();
+        }
+    }
+
+    private void Update()
+    {
+        print(players.Count);
     }
 
     private void Start()
@@ -30,6 +43,7 @@ public class PlayerSpawner : MonoBehaviourPunCallbacks
             playerScript = player.GetComponent<PlayerContoller>();
             playerScript.Initialization(MainCamera);
             virtualCamera.Follow = player.transform;
+            players.Add(player.transform);
         }
     }
 }
