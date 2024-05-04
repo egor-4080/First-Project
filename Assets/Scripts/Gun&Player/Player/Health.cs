@@ -1,3 +1,4 @@
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,8 +9,14 @@ public class Health : MonoBehaviour
     [SerializeField] private UnityEvent onDeath;
 
     private AudioSource takeDamageSound;
+    private PhotonView photon;
     private float currentHealthPoints;
     public bool IsAlive { get; private set; } = true;
+
+    private void Awake()
+    {
+        photon = GetComponent<PhotonView>();
+    }
 
     private void Start()
     {
@@ -40,6 +47,14 @@ public class Health : MonoBehaviour
         if (currentHealthPoints > maxHealthPoints)
         {
             currentHealthPoints = maxHealthPoints;
+        }
+    }
+
+    private void DestroyForAnim()
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            PhotonNetwork.Destroy(photon);
         }
     }
 }

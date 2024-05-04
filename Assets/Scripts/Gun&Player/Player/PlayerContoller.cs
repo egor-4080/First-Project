@@ -31,6 +31,7 @@ public class PlayerContoller : Character
     private Health player;
     private PhotonView takenObjectPhoton;
     private PhotonView photon;
+    private Inventory inventoryClass;
 
     private int tapCounter = 0;
     private int currentObject = 0;
@@ -39,6 +40,7 @@ public class PlayerContoller : Character
     {
         base.Awake();
 
+        inventoryClass = GetComponent<Inventory>();
         photon = GetComponent<PhotonView>();
         player = GetComponent<Health>();
         throwScript = GetComponent<Throw>();
@@ -221,7 +223,7 @@ public class PlayerContoller : Character
 
     public void OnThrow(InputAction.CallbackContext context)
     {
-        if (inventory.Count != 0)
+        if (inventory.Count != 0 && throwScript.CouldThrow())
         {
             throwScript.SetValues(inventory[0], difference);
             inventory.RemoveAt(0);

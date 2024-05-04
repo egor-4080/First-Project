@@ -21,6 +21,11 @@ public class Throw : MonoBehaviour
         photon = GetComponent<PhotonView>();
     }
 
+    public bool CouldThrow()
+    {
+        return isReload;
+    }
+
     public void ThrowObject()
     {
         if (isReload)

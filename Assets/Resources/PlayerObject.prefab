@@ -907,11 +907,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a488209078146e147a49b22b371154e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealthPoints: 0
+  maxHealthPoints: 20
   onDamge:
     m_PersistentCalls:
+      m_Calls: []
+  onDeath:
+    m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2968128211607249714}
         m_TargetAssemblyTypeName: 
         m_MethodName: 
         m_Mode: 0
@@ -923,9 +926,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onDeath:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &5471314644817429636
 GameObject:
   m_ObjectHideFlags: 0
