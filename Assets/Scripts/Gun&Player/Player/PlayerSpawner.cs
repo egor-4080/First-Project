@@ -12,11 +12,28 @@ public class PlayerSpawner : MonoBehaviourPunCallbacks
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
 
     private PlayerContoller playerScript;
+    private PhotonView photon;
     public static List<Transform> players { get; private set; } = new();
 
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
         Invoke(nameof(GetPlayers), 1);
+    }
+
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+        print("Player disconnected");
+        if(photon.IsMine)
+        {
+            PhotonNetwork.Destroy(gameObject);
+        }
+        foreach (Transform player in players)
+        {
+            if(player.gameObject == null)
+            {
+                players.Remove(player);
+            }
+        }
     }
 
     private void GetPlayers()
@@ -35,6 +52,7 @@ public class PlayerSpawner : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsConnected == true)
         {
             GameObject player = PhotonNetwork.Instantiate(playerPrefab.name, transform.position, Quaternion.identity);
+            photon = player.GetComponent<PhotonView>();
             playerScript = player.GetComponent<PlayerContoller>();
             playerScript.Initialization(MainCamera);
             virtualCamera.Follow = player.transform;

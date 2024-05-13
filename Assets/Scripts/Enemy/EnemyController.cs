@@ -1,8 +1,7 @@
-using UnityEngine.AI;
-using UnityEngine;
-using System.Collections.Generic;
 using Photon.Pun;
-using System.Linq;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyController : Character
 {
@@ -71,13 +70,20 @@ public class EnemyController : Character
         float minimum = float.MaxValue;
         Transform nearestPlayer = null;
         players = PlayerSpawner.players;
-        foreach(Transform player in players)
+        foreach (Transform player in players)
         {
-            float currentLength = (player.position - transform.position).magnitude;
-            if(minimum > currentLength)
+            if (player.gameObject != null)
             {
-                minimum = currentLength;
-                nearestPlayer = player;
+                float currentLength = (player.position - transform.position).magnitude;
+                if (minimum > currentLength)
+                {
+                    minimum = currentLength;
+                    nearestPlayer = player;
+                }
+            }
+            else
+            {
+                return;
             }
         }
         this.player = nearestPlayer;
