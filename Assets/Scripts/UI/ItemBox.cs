@@ -1,18 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.UI;
+using TMPro;
 using UnityEngine;
 
 public class ItemBox : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private TMP_Text nameText;
+    [SerializeField] private Image image;
 
-    // Update is called once per frame
-    void Update()
+    private Item item;
+
+    public void Init(Item item)
     {
-        
+        this.item = item;
+        image.sprite = item._sprite;
+        nameText.text = item.nameOfItem;
     }
 }

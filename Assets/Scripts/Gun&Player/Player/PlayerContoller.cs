@@ -36,6 +36,11 @@ public class PlayerContoller : Character
     private int tapCounter = 0;
     private int currentObject = 0;
 
+    private void Start()
+    {
+        
+    }
+
     protected override void Awake()
     {
         base.Awake();
@@ -106,28 +111,12 @@ public class PlayerContoller : Character
             foreach (Collider2D takingObject in takingObjects)
             {
                 currentTakeObject = takingObject.gameObject;
-                if (currentTakeObject.TryGetComponent(out Poison couldThrow))
+                if (currentTakeObject.TryGetComponent(out Item couldThrow))
                 {
-                    takenObjectPhoton = currentTakeObject.GetComponent<PhotonView>();
-                    int id = takenObjectPhoton.ViewID;
-                    
-                    photon.RPC(nameof(SetTakenObjectParameters), RpcTarget.All, id);
-                    inventory.Add(currentTakeObject);
+                    inventoryClass.AddItem(couldThrow);
                 }
             }
         }
-    }
-
-    [PunRPC]
-    public void SetTakenObjectParameters(int id)
-    {
-        PhotonView photonObject = PhotonView.Find(id);
-        Collider2D takingObject = photonObject.gameObject.GetComponent<Collider2D>();
-
-        takingObject.isTrigger = false;
-        takingObject.gameObject.SetActive(false);
-        takingObject.transform.SetParent(throwStartPoint);
-        takingObject.transform.localPosition = Vector3.zero;
     }
 
     public virtual void RotateGun()

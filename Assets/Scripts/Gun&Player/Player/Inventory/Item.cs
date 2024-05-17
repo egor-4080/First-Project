@@ -4,5 +4,14 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    [SerializeField] private Sprite _sprite;
+    [SerializeField] public Sprite _sprite { get; private set; }
+    [SerializeField] public string nameOfItem {  get; private set; }
+    [SerializeField] private bool canUse;
+    public bool CanUse => canUse;
+
+    private void Start()
+    {
+        _sprite = GetComponent<SpriteRenderer>().sprite;
+        nameOfItem = gameObject.name;
+    }
 }

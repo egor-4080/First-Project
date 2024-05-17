@@ -24,13 +24,13 @@ public class EnemyController : Character
 
     private void Start()
     {
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
         if (!PhotonNetwork.IsMasterClient)
         {
             enabled = false;
             return;
         }
-        agent.updateRotation = false;
-        agent.updateUpAxis = false;
         startScaleX = transform.localScale.x;
         startScaleY = transform.localScale.y;
     }
