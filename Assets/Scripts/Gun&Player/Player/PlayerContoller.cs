@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerContoller : Character
 {
+    [SerializeField] private Texture2D cursor;
     [SerializeField] private List<GameObject> inventory;
     [SerializeField] private Transform weaponSoket;
     [SerializeField] private Weapon weapon;
@@ -29,17 +30,16 @@ public class PlayerContoller : Character
     private Collider2D[] takingObjects;
     private GameObject currentTakeObject;
     private Health player;
-    private PhotonView takenObjectPhoton;
     private PhotonView photon;
     private Inventory inventoryClass;
 
     private int tapCounter = 0;
     private int currentObject = 0;
 
-    private void Start()
+    /*private void Start()
     {
-        
-    }
+        Cursor.SetCursor(cursor, new Vector2(12.5f, 20), CursorMode.Auto);
+    }*/
 
     protected override void Awake()
     {

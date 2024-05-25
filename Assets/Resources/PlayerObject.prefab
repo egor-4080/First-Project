@@ -673,6 +673,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedForce: 8
   damage: 0
+  cursor: {fileID: 2800000, guid: c3714c7dd544c0c4dac6ce70d7a7e282, type: 3}
   inventory: []
   weaponSoket: {fileID: 7617828282208822911}
   weapon: {fileID: 8576726652158263741}
