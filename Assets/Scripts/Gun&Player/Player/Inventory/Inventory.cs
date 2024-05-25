@@ -9,12 +9,14 @@ public class Inventory : MonoBehaviour
     [SerializeField] private GameObject itemBox;
 
     private List<ItemBox> items = new();
+    private PlayerContoller owner;
     private Transform content;
     private PhotonView photon;
 
     private void Awake()
     {
         content = GameObject.FindGameObjectWithTag("Content").transform;
+        owner = GetComponent<PlayerContoller>();
         photon = GetComponent<PhotonView>();
     }
 
@@ -24,7 +26,7 @@ public class Inventory : MonoBehaviour
         int id = takenObjectPhoton.ViewID;
         ItemBox itemBox = Instantiate(this.itemBox, content)
             .GetComponent<ItemBox>();
-        itemBox.Init(item);
+        itemBox.Init(item, owner);
         items.Add(itemBox);
 
         photon.RPC(nameof(SetTakenObjectParameters), RpcTarget.All, id);

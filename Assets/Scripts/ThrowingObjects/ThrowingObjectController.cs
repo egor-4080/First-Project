@@ -63,6 +63,7 @@ public class ThrowingObjectController : MonoBehaviour
     [PunRPC]
     public void Throw(Vector2 direction)
     {
+        rigitBody.bodyType = RigidbodyType2D.Dynamic;
         if (isBreak)
         {
             objectsCollider.isTrigger = true;

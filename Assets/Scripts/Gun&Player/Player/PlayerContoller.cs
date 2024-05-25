@@ -32,14 +32,12 @@ public class PlayerContoller : Character
     private Health player;
     private PhotonView photon;
     private Inventory inventoryClass;
+    private Item equipedItem;
 
-    private int tapCounter = 0;
-    private int currentObject = 0;
-
-    /*private void Start()
+    private void Start()
     {
         Cursor.SetCursor(cursor, new Vector2(12.5f, 20), CursorMode.Auto);
-    }*/
+    }
 
     protected override void Awake()
     {
@@ -157,6 +155,16 @@ public class PlayerContoller : Character
         fireActive = context.ReadValueAsButton();
     }
 
+    public void SelectItem(Item item)
+    {
+        if (equipedItem != null)
+        {
+            equipedItem.gameObject.SetActive(false);
+        }
+        equipedItem = item;
+        equipedItem.gameObject.SetActive(true);
+    }
+
     public void OnTake(InputAction.CallbackContext context)
     {
         if (!photon.IsMine)
@@ -179,34 +187,6 @@ public class PlayerContoller : Character
             GameObject poison = inventory[0];
             Poison poisonScript = poison.GetComponent<Poison>();
             poisonScript.DoWhenUseMotion(player);
-        }
-    }
-
-    public void OnSelectPoison(InputAction.CallbackContext context)
-    {
-        tapCounter++;
-        if(tapCounter == 3)
-        {
-            var i = context.ReadValue<int>();
-            if (i > 0)
-            {
-                Mathf.Ceil(i);
-                currentObject++;
-                if(inventory.Count - 1 < currentObject)
-                {
-                    currentObject = 0;
-                }
-            }
-            else
-            {
-                Mathf.Floor(i);
-                currentObject--;
-                if (currentObject < 0)
-                {
-                    currentObject = inventory.Count;
-                }
-            }
-            tapCounter = 0;
         }
     }
 
