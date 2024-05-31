@@ -14,9 +14,11 @@ public class ItemBox : MonoBehaviour
 
     private Item item;
     private PlayerContoller owner;
+    private Inventory inventory;
 
     public void Init(Item item, PlayerContoller owner)
     {
+        inventory = owner.GetComponent<Inventory>();
         this.owner = owner;
         use.interactable = item.CanUse;
         this.item = item;
@@ -36,11 +38,12 @@ public class ItemBox : MonoBehaviour
 
     public void OnSelect()
     {
-        owner.SelectItem(item);
+        owner.SelectItem(item, this);
     }
 
     public void OnDrop()
     {
-
+        owner.DropFromInventory(item);
+        inventory.DeleteItem(this);
     }
 }

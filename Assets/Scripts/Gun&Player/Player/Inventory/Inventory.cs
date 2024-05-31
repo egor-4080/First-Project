@@ -44,13 +44,9 @@ public class Inventory : MonoBehaviour
         takingObject.transform.localPosition = Vector3.zero;
     }
 
-    /*public void OnThrow(InputAction.CallbackContext context)
+    public void DeleteItem(ItemBox itemBox)
     {
-        if (inventory.Count != 0 && throwScript.CouldThrow())
-        {
-            throwScript.SetValues(inventory[0], difference);
-            inventory.RemoveAt(0);
-            throwScript.ThrowObject();
-        }
-    }*/
+        items.Remove(itemBox);
+        Destroy(itemBox);
+    }
 }

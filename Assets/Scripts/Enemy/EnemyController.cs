@@ -72,7 +72,7 @@ public class EnemyController : Character
         players = PlayerSpawner.players;
         foreach (Transform player in players)
         {
-            if (player.gameObject != null)
+            if (player != null)
             {
                 float currentLength = (player.position - transform.position).magnitude;
                 if (minimum > currentLength)
@@ -80,10 +80,6 @@ public class EnemyController : Character
                     minimum = currentLength;
                     nearestPlayer = player;
                 }
-            }
-            else
-            {
-                return;
             }
         }
         this.player = nearestPlayer;

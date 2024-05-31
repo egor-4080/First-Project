@@ -26,12 +26,21 @@ public class Throw : MonoBehaviour
         return isReload;
     }
 
-    public void ThrowObject()
+    public void ThrowObject(GameObject throwedObject, Vector3 direction)
     {
         if (isReload)
         {
+            this.direction = direction;
+            this.throwedObject = throwedObject;
             StartCoroutine(SpawnWithRate());
         }
+    }
+    
+    public void DropObject(GameObject throwedObject)
+    {
+        this.direction = Vector2.zero;
+        this.throwedObject = throwedObject;
+        StartCoroutine(SpawnWithRate());
     }
 
     private IEnumerator SpawnWithRate()
@@ -46,7 +55,6 @@ public class Throw : MonoBehaviour
         photon.RPC(nameof(SetThrownObjectState), RpcTarget.All, id);
 
         ThrownPhoton.RPC(nameof(throwingObjectBaseComponent.Throw), RpcTarget.All, direction);
-        //throwingObjectBaseComponent.Throw(direction);
         throwingCollider.isTrigger = false;
 
         yield return new WaitForSeconds(throwRate);

@@ -6,7 +6,6 @@ using UnityEngine.InputSystem;
 public class PlayerContoller : Character
 {
     [SerializeField] private Texture2D cursor;
-    [SerializeField] private List<GameObject> inventory;
     [SerializeField] private Transform weaponSoket;
     [SerializeField] private Weapon weapon;
     [SerializeField] private Camera cameraMain;
@@ -33,6 +32,7 @@ public class PlayerContoller : Character
     private PhotonView photon;
     private Inventory inventoryClass;
     private Item equipedItem;
+    private ItemBox equipedItemBox;
 
     private void Start()
     {
@@ -155,14 +155,20 @@ public class PlayerContoller : Character
         fireActive = context.ReadValueAsButton();
     }
 
-    public void SelectItem(Item item)
+    public void SelectItem(Item item, ItemBox itemBox)
     {
-        if (equipedItem != null)
+        /*if (equipedItem != null)
         {
             equipedItem.gameObject.SetActive(false);
-        }
+        }*/
+        equipedItemBox = itemBox;
         equipedItem = item;
-        equipedItem.gameObject.SetActive(true);
+        //equipedItem.gameObject.SetActive(true);
+    }
+
+    public void DropFromInventory(Item item)
+    {
+        throwScript.DropObject(item.gameObject);
     }
 
     public void OnTake(InputAction.CallbackContext context)
@@ -182,21 +188,21 @@ public class PlayerContoller : Character
             return;
         }
 
-        if (inventory.Count != 0)
+        if (equipedItem != null)
         {
-            GameObject poison = inventory[0];
-            Poison poisonScript = poison.GetComponent<Poison>();
+            GameObject item = equipedItem.gameObject;
+            Poison poisonScript = item.GetComponent<Poison>();
             poisonScript.DoWhenUseMotion(player);
         }
     }
 
     public void OnThrow(InputAction.CallbackContext context)
     {
-        if (inventory.Count != 0 && throwScript.CouldThrow())
+        if (equipedItem != null)
         {
-            throwScript.SetValues(inventory[0], difference);
-            inventory.RemoveAt(0);
-            throwScript.ThrowObject();
+            throwScript.ThrowObject(equipedItem.gameObject, difference);
+            inventoryClass.DeleteItem(equipedItemBox);
+            equipedItem = null;
         }
     }
 }
