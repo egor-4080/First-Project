@@ -1,10 +1,12 @@
 using Photon.Pun;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
     [SerializeField] private float maxHealthPoints;
+    [SerializeField] private Slider healthSlider;
     [SerializeField] private UnityEvent onDamge;
     [SerializeField] private UnityEvent onDeath;
 
@@ -20,7 +22,22 @@ public class Health : MonoBehaviour
 
     private void Start()
     {
+        print(healthSlider);
+        if (healthSlider != null)
+        {
+            healthSlider.maxValue = maxHealthPoints;
+            healthSlider.value = healthSlider.maxValue;
+        }
         currentHealthPoints = maxHealthPoints;
+    }
+
+    private void UpdateHPBar()
+    {
+        if(healthSlider != null)
+        {
+            healthSlider.gameObject.SetActive(true);
+            healthSlider.value = currentHealthPoints;
+        }
     }
 
     public void TakeDamage(float takenDamage)
@@ -38,6 +55,7 @@ public class Health : MonoBehaviour
                 onDeath.Invoke();
                 IsAlive = false;
             }
+            UpdateHPBar();
         }
     }
 
@@ -48,6 +66,7 @@ public class Health : MonoBehaviour
         {
             currentHealthPoints = maxHealthPoints;
         }
+        UpdateHPBar();
     }
 
     private void DestroyForAnim()

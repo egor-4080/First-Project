@@ -47,6 +47,6 @@ public class Inventory : MonoBehaviour
     public void DeleteItem(ItemBox itemBox)
     {
         items.Remove(itemBox);
-        Destroy(itemBox);
+        Destroy(itemBox.gameObject);
     }
 }
