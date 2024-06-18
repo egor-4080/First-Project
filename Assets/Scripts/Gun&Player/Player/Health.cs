@@ -22,7 +22,6 @@ public class Health : MonoBehaviour
 
     private void Start()
     {
-        print(healthSlider);
         if (healthSlider != null)
         {
             healthSlider.maxValue = maxHealthPoints;

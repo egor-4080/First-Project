@@ -10,6 +10,7 @@ public class PlayerSpawner : MonoBehaviourPunCallbacks
     [SerializeField] private GameObject playerPrefab;
     [SerializeField] private Camera MainCamera;
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
+    [SerializeField] private MenuSwitcher menuSwitcher;
 
     private PlayerContoller playerScript;
     public static List<Transform> players { get; private set; } = new();
@@ -48,6 +49,7 @@ public class PlayerSpawner : MonoBehaviourPunCallbacks
         {
             GameObject player = PhotonNetwork.Instantiate(playerPrefab.name, transform.position, Quaternion.identity);
             playerScript = player.GetComponent<PlayerContoller>();
+            menuSwitcher.SetPlayerController(playerScript);
             playerScript.Initialization(MainCamera);
             virtualCamera.Follow = player.transform;
             players.Add(player.transform);

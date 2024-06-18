@@ -5212,7 +5212,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23a2a34af8522944da3d5b48399d709e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panels: []
+  panels:
+  - {fileID: 1549654681565856709}
 --- !u!1 &1675844541 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7725243509907971514, guid: 5ef4595f4e61e4f49b45be79cbfee624, type: 3}
@@ -5302,6 +5303,7 @@ MonoBehaviour:
   playerPrefab: {fileID: 2968128211607249714, guid: f93dd2ae2c68aaf43873c176ef3faecb, type: 3}
   MainCamera: {fileID: 7265708228255946126}
   virtualCamera: {fileID: 4422182247848999842}
+  menuSwitcher: {fileID: 1665673370}
 --- !u!1001 &1723463920
 PrefabInstance:
   m_ObjectHideFlags: 0

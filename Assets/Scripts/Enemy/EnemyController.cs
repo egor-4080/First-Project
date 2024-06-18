@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class EnemyController : Character
 {
+    [SerializeField] private GameObject hpBar;
+
     private Transform player;
     private NavMeshAgent agent;
     private List<Transform> players;
@@ -31,6 +33,7 @@ public class EnemyController : Character
             enabled = false;
             return;
         }
+        transform.rotation = Quaternion.identity;
         startScaleX = transform.localScale.x;
         startScaleY = transform.localScale.y;
     }
@@ -49,6 +52,7 @@ public class EnemyController : Character
                 setScale = 1;
             }
             transform.localScale = new Vector3(setScale * startScaleX, startScaleY, 1);
+            hpBar.transform.localScale = new Vector3(setScale * 1, 1, 1);
             agent.SetDestination(player.position);
         }
     }

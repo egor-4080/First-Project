@@ -11,12 +11,13 @@ public class PlayerContoller : Character
     [SerializeField] private Camera cameraMain;
     [SerializeField] private Animator animator;
     [SerializeField] private Transform throwStartPoint;
+    [SerializeField] private GameObject hpBar;
 
     [SerializeField] private float boost;
-    [SerializeField] private float unSpeedWait;
 
     private bool fireActive;
     private bool isFacingRight;
+    private bool isControl = true;
 
     private float angle;
 
@@ -53,7 +54,7 @@ public class PlayerContoller : Character
 
     private void Update()
     {
-        if(!photon.IsMine)
+        if(!photon.IsMine || !isControl)
         {
             return;
         }
@@ -63,6 +64,7 @@ public class PlayerContoller : Character
 
         isFacingRight = mousePosition.x > transform.position.x;
         transform.localScale = new Vector3(isFacingRight ? 1 : -1, 1, 1);
+        hpBar.transform.localScale = new Vector3(isFacingRight ? 1 : -1, 1, 1);
         RotateGun();
 
         if (fireActive)
@@ -73,32 +75,31 @@ public class PlayerContoller : Character
 
     public void SpeedEffect()
     {
-        if (TryGetComponent(out UnityEngine.AI.NavMeshAgent enemy))
-        {
-            enemy.speed += boost;
-        }
-        else
-        {
-            speedForce += boost;
-        }
-        Invoke("OffSpeedEffect", unSpeedWait);
+        speedForce += boost;
+        Invoke("OffSpeedEffect", 5);
     }
 
     private void OffSpeedEffect()
     {
-        if (TryGetComponent(out UnityEngine.AI.NavMeshAgent enemy))
-        {
-            enemy.speed -= boost;
-        }
-        else
-        {
-            speedForce -= boost;
-        }
+        speedForce -= boost;
     }
 
     public void Initialization(Camera playerCamera)
     {
         cameraMain = playerCamera;
+    }
+
+    public void SetControl(bool value)
+    {
+        isControl = value;
+        if (value)
+        {
+            Cursor.SetCursor(cursor, new Vector2(12.5f, 20), CursorMode.Auto);
+        }
+        else
+        {
+            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+        }
     }
 
     private void FindAllTakeObjectsAroundPlayer()
@@ -131,8 +132,9 @@ public class PlayerContoller : Character
 
     private void FixedUpdate()
     {
-        if (!photon.IsMine)
+        if (!photon.IsMine || !isControl)
         {
+            rigitBody.velocity = Vector2.zero;
             return;
         }
 
@@ -157,13 +159,8 @@ public class PlayerContoller : Character
 
     public void SelectItem(Item item, ItemBox itemBox)
     {
-        /*if (equipedItem != null)
-        {
-            equipedItem.gameObject.SetActive(false);
-        }*/
         equipedItemBox = itemBox;
         equipedItem = item;
-        //equipedItem.gameObject.SetActive(true);
     }
 
     public void DropFromInventory(Item item)
@@ -173,7 +170,7 @@ public class PlayerContoller : Character
 
     public void OnTake(InputAction.CallbackContext context)
     {
-        if (!photon.IsMine)
+        if (!photon.IsMine || !isControl)
         {
             return;
         }
@@ -183,7 +180,7 @@ public class PlayerContoller : Character
 
     public void OnUse(InputAction.CallbackContext context)
     {
-        if (!photon.IsMine)
+        if (!photon.IsMine || !isControl)
         {
             return;
         }
@@ -198,6 +195,11 @@ public class PlayerContoller : Character
 
     public void OnThrow(InputAction.CallbackContext context)
     {
+        if (!photon.IsMine || !isControl)
+        {
+            return;
+        }
+
         if (equipedItem != null)
         {
             throwScript.ThrowObject(equipedItem.gameObject, difference);
