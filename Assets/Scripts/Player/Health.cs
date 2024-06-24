@@ -10,6 +10,7 @@ public class Health : MonoBehaviour
     [SerializeField] private UnityEvent onDamge;
     [SerializeField] private UnityEvent onDeath;
 
+    private Rigidbody2D rigitBody;
     private AudioSource takeDamageSound;
     private PhotonView photon;
     private float currentHealthPoints;
@@ -22,6 +23,10 @@ public class Health : MonoBehaviour
 
     private void Start()
     {
+        if(TryGetComponent(out Rigidbody2D rigitBody))
+        {
+            this.rigitBody = rigitBody;
+        }
         if (healthSlider != null)
         {
             healthSlider.maxValue = maxHealthPoints;
@@ -54,7 +59,23 @@ public class Health : MonoBehaviour
                 onDeath.Invoke();
                 IsAlive = false;
             }
+            else
+            {
+                MakeContusion();
+            }
             UpdateHPBar();
+        }
+    }
+
+    private void MakeContusion()
+    {
+        if(rigitBody != null)
+        {
+            
+        }
+        else
+        {
+            return;
         }
     }
 

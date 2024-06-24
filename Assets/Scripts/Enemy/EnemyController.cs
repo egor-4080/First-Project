@@ -22,18 +22,19 @@ public class EnemyController : Character
 
         animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
+
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
     }
 
     private void Start()
     {
-        agent.updateRotation = false;
-        agent.updateUpAxis = false;
         if (!PhotonNetwork.IsMasterClient)
         {
             enabled = false;
             return;
         }
-        transform.rotation = Quaternion.identity;
+        //transform.rotation = Quaternion.identity;
         startScaleX = transform.localScale.x;
         startScaleY = transform.localScale.y;
     }

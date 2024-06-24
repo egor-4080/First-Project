@@ -179,6 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effect: {fileID: 4630755996964659628, guid: 441d63fef9716cd439d5a7f236c1b7d2, type: 3}
+  emptyPoison: {fileID: 8953539512388984065, guid: f6b96eadd0432664189174f2274fb413, type: 3}
   exploisonDamage: 1000
 --- !u!82 &-5515087365173267343
 AudioSource:

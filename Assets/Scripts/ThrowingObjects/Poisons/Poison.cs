@@ -4,14 +4,19 @@ using UnityEngine;
 public class Poison : MonoBehaviour
 {
     [SerializeField] private GameObject effect;
+    [SerializeField] protected Sprite emptyPoison;
 
     private AudioSource drinkAudio;
     private WaitForSeconds waitSound;
+    private Rigidbody2D rigidBody;
+    private SpriteRenderer spriteRenderer;
 
     protected bool isDrunk;
 
     private void Awake()
     {
+        rigidBody = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         drinkAudio = GetComponent<AudioSource>();
     }
 
@@ -31,6 +36,8 @@ public class Poison : MonoBehaviour
     }
     public virtual void DoWhenUseMotion(Health player)
     {
+        spriteRenderer.sprite = emptyPoison;
+        rigidBody.isKinematic = true;
         gameObject.SetActive(true);
         StartCoroutine(MusicEffect());
     }
@@ -40,5 +47,6 @@ public class Poison : MonoBehaviour
         drinkAudio.Play();
         yield return waitSound;
         gameObject.SetActive(false);
+        rigidBody.isKinematic = false;
     }
 }
