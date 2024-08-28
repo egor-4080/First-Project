@@ -34,7 +34,10 @@ public class ThrowingObjectController : MonoBehaviour
         objectsCollider.isTrigger = true;
         if (isPoison && !collision.gameObject.TryGetComponent(out PlayerContoller player1))
         {
-            OnBreak(poison.FindAllobjects());
+            if (!isBreak)
+            {
+                OnBreak(poison.FindAllobjects());
+            }
         }
         if (!collision.gameObject.TryGetComponent(out PlayerContoller player2))
         {
