@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Bullet
   - Content
+  - Inventory
   layers:
   - Default
   - TransparentFX

@@ -58,6 +58,14 @@ public class EnemyController : Character
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.TryGetComponent(out Health playerHealth) && collision.gameObject.TryGetComponent(out PlayerContoller player))
+        {
+            playerHealth.TakeDamage(damage);
+        }
+    }
+
     public override void OnDeath()
     {
         animator.SetBool("isDeath", true);

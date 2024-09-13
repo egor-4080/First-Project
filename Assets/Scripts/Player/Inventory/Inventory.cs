@@ -11,13 +11,20 @@ public class Inventory : MonoBehaviour
     private List<ItemBox> items = new();
     private PlayerContoller owner;
     private Transform content;
+    private Transform inventoryObject;
     private PhotonView photon;
 
     private void Awake()
     {
         content = GameObject.FindGameObjectWithTag("Content").transform;
+        inventoryObject = GameObject.FindGameObjectWithTag("Inventory").transform;
         owner = GetComponent<PlayerContoller>();
         photon = GetComponent<PhotonView>();
+    }
+
+    private void Start()
+    {
+        inventoryObject.gameObject.SetActive(false);
     }
 
     public void AddItem(Item item)

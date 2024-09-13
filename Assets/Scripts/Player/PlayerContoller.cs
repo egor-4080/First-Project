@@ -50,8 +50,6 @@ public class PlayerContoller : Character
         throwScript = GetComponent<Throw>();
     }
 
-    protected override void OnCollisionEnter2D(Collision2D collision) { }
-
     private void Update()
     {
         if(!photon.IsMine || !isControl)

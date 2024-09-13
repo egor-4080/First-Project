@@ -32,7 +32,12 @@ public class Poison : MonoBehaviour
 
     public virtual void DoEffectWithBody(Collider2D body)
     {
+        if(effect == null)
+        {
+            return;
+        }
         Instantiate(effect, transform.position, Quaternion.identity);
+        effect = null;
     }
     public virtual void DoWhenUseMotion(Health player)
     {

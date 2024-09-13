@@ -22,14 +22,6 @@ public abstract class Character : MonoBehaviour
         takeDamageSound = GetComponent<AudioSource>();
     }
 
-    protected virtual void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.TryGetComponent(out Health playerHealth))
-        {
-            playerHealth.TakeDamage(damage);
-        }
-    }
-
     public void FreezCharacter(float unFreezWait)
     {
         if (TryGetComponent(out NavMeshAgent enemy))

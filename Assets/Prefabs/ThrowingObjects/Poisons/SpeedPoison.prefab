@@ -308,7 +308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e09f4a9c5280a0744bffbd1e8cfc2e1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effect: {fileID: 4630755996964659628, guid: 441d63fef9716cd439d5a7f236c1b7d2, type: 3}
+  effect: {fileID: 7091269249479275836, guid: 374c501f84ec53f47947ec499c64cba9, type: 3}
   emptyPoison: {fileID: 8953539512388984065, guid: f6b96eadd0432664189174f2274fb413, type: 3}
 --- !u!114 &7923052829431981909
 MonoBehaviour:
