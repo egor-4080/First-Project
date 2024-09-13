@@ -13,13 +13,13 @@ public class HealPoison : Poison
         }
     }
 
-    public override void DoWhenUseMotion(Health player)
+    public override void DoWhenUseMotion(PlayerContoller player)
     {
         base.DoWhenUseMotion(player);
 
         if (!isDrunk)
         {
-            player.HealCharacter(healthPoints);
+            player.GetComponent<Health>().HealCharacter(healthPoints);
         }
         isDrunk = true;
     }

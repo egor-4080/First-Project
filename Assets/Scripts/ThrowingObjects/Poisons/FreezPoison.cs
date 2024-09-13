@@ -13,5 +13,5 @@ public class FreezPoison : Poison
         }
     }
 
-    public override void DoWhenUseMotion(Health player) { }
+    public override void DoWhenUseMotion(PlayerContoller player) { }
 }

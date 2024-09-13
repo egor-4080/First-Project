@@ -39,12 +39,16 @@ public class Poison : MonoBehaviour
         Instantiate(effect, transform.position, Quaternion.identity);
         effect = null;
     }
-    public virtual void DoWhenUseMotion(Health player)
+    public virtual void DoWhenUseMotion()
     {
         spriteRenderer.sprite = emptyPoison;
         rigidBody.isKinematic = true;
         gameObject.SetActive(true);
         StartCoroutine(MusicEffect());
+    }
+
+    public virtual void DoWhenUseMotion(PlayerContoller player)
+    {
     }
 
     private IEnumerator MusicEffect()

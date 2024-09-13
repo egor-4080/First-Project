@@ -20,10 +20,10 @@ public class ItemBox : MonoBehaviour
     {
         inventory = owner.GetComponent<Inventory>();
         this.owner = owner;
-        use.interactable = item.CanUse;
         this.item = item;
         image.sprite = item._sprite;
         nameText.text = item.nameOfItem;
+        use.gameObject.SetActive(item.CanUse);
     }
 
     public void OnClick()
@@ -33,7 +33,8 @@ public class ItemBox : MonoBehaviour
 
     public void OnUse()
     {
-
+        Poison poison = item.gameObject.GetComponent<Poison>();
+        poison.DoWhenUseMotion(owner);
     }
 
     public void OnSelect()

@@ -187,7 +187,7 @@ public class PlayerContoller : Character
         {
             GameObject item = equipedItem.gameObject;
             Poison poisonScript = item.GetComponent<Poison>();
-            poisonScript.DoWhenUseMotion(player);
+            poisonScript.DoWhenUseMotion(this);
         }
     }
 
