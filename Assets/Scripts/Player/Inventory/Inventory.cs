@@ -14,18 +14,29 @@ public class Inventory : MonoBehaviour
     private Transform inventoryObject;
     private PhotonView photon;
 
-    private void Awake()
+    private void Start()
     {
+        Init();
+    }
+
+    public void Init()
+    {
+        if (inventoryObject != null)
+        {
+            inventoryObject.gameObject.SetActive(true);
+        }
+        print(inventoryObject);
         content = GameObject.FindGameObjectWithTag("Content").transform;
         inventoryObject = GameObject.FindGameObjectWithTag("Inventory").transform;
         owner = GetComponent<PlayerContoller>();
         photon = GetComponent<PhotonView>();
-    }
-
-    private void Start()
-    {
         inventoryObject.gameObject.SetActive(false);
     }
+
+    /*private void Start()
+    {
+        inventoryObject.gameObject.SetActive(false);
+    }*/
 
     public void AddItem(Item item)
     {

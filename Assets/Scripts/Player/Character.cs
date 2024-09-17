@@ -47,7 +47,6 @@ public abstract class Character : MonoBehaviour
 
     public virtual void OnDeath()
     {
-
     }
 
     public virtual void OnHit()

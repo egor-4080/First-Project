@@ -1,9 +1,9 @@
 using Cinemachine;
-using UnityEngine;
 using Photon.Pun;
-using System.Collections.Generic;
 using Photon.Realtime;
+using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 public class PlayerSpawner : MonoBehaviourPunCallbacks
 {
@@ -13,6 +13,7 @@ public class PlayerSpawner : MonoBehaviourPunCallbacks
     [SerializeField] private MenuSwitcher menuSwitcher;
 
     private PlayerContoller playerScript;
+    private float deathTimer;
     public static List<Transform> players { get; private set; } = new();
 
     public override void OnPlayerEnteredRoom(Player newPlayer)
@@ -32,6 +33,12 @@ public class PlayerSpawner : MonoBehaviourPunCallbacks
         }
     }
 
+    public void PlayerRespawn()
+    {
+        deathTimer = deathTimer + 5;
+        Invoke(nameof(Respawn), deathTimer);
+    }
+
     private void GetPlayers()
     {
         if (PhotonNetwork.IsMasterClient)
@@ -47,12 +54,18 @@ public class PlayerSpawner : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.IsConnected == true)
         {
-            GameObject player = PhotonNetwork.Instantiate(playerPrefab.name, transform.position, Quaternion.identity);
-            playerScript = player.GetComponent<PlayerContoller>();
-            menuSwitcher.SetPlayerController(playerScript);
-            playerScript.Initialization(MainCamera);
-            virtualCamera.Follow = player.transform;
-            players.Add(player.transform);
+            Respawn();
         }
+    }
+
+    private void Respawn()
+    {
+        GameObject player = PhotonNetwork.Instantiate(playerPrefab.name, transform.position, Quaternion.identity);
+        playerScript = player.GetComponent<PlayerContoller>();
+        playerScript.Init(this);
+        menuSwitcher.SetPlayerController(playerScript);
+        playerScript.Initialization(MainCamera);
+        virtualCamera.Follow = player.transform;
+        players.Add(player.transform);
     }
 }

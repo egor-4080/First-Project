@@ -26,6 +26,7 @@ public class PlayerContoller : Character
     private Vector3 mousePosition;
     private Vector3 mouseInput;
 
+    private PlayerSpawner playerSpawner;
     private Throw throwScript;
     private Collider2D[] takingObjects;
     private GameObject currentTakeObject;
@@ -38,6 +39,7 @@ public class PlayerContoller : Character
     private void Start()
     {
         Cursor.SetCursor(cursor, new Vector2(12.5f, 20), CursorMode.Auto);
+        inventoryClass.Init();
     }
 
     protected override void Awake()
@@ -69,6 +71,11 @@ public class PlayerContoller : Character
         {
             weapon.Fire(isFacingRight);
         }
+    }
+
+    public void Init(PlayerSpawner playerSpawner)
+    {
+        this.playerSpawner = playerSpawner;
     }
 
     public void SpeedEffect()
@@ -164,6 +171,15 @@ public class PlayerContoller : Character
     public void DropFromInventory(Item item)
     {
         throwScript.DropObject(item.gameObject);
+    }
+
+    public override void OnDeath()
+    {
+        Destroy(weapon.gameObject);
+        animator.SetBool("IsDead", true);
+        SetControl(false);
+        playerSpawner.PlayerRespawn();
+        Destroy(gameObject, 5);
     }
 
     public void OnTake(InputAction.CallbackContext context)
