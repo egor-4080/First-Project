@@ -42,6 +42,11 @@ public class ThrowingObjectController : MonoBehaviour
         if (!collision.gameObject.TryGetComponent(out PlayerContoller player2))
         {
             isBreak = true;
+            if(isPoison)
+            {
+                SpriteRenderer sprite = GetComponent<SpriteRenderer>();
+                sprite.sprite = poison.GetEmptySprite();
+            }
         }
         //Damage
     }
@@ -57,9 +62,12 @@ public class ThrowingObjectController : MonoBehaviour
     protected void OnBreak(Collider2D[] bodiesForEffect)
     {
         damage = 0;
-        foreach (var body in bodiesForEffect)
+        if (!poison.IsDrunk())
         {
-            poison.DoEffectWithBody(body);
+            foreach (var body in bodiesForEffect)
+            {
+                poison.DoEffectWithBody(body);
+            }
         }
     }
 
@@ -78,6 +86,18 @@ public class ThrowingObjectController : MonoBehaviour
         else
         {
             rigitBody.velocity = direction * forceSpeed;
+        }
+    }
+
+    public bool IsBreak()
+    {
+        if(isBreak)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 }

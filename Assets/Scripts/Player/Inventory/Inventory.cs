@@ -11,26 +11,15 @@ public class Inventory : MonoBehaviour
     private List<ItemBox> items = new();
     private PlayerContoller owner;
     private Transform content;
-    private Transform inventoryObject;
     private PhotonView photon;
 
-    private void Start()
-    {
-        Init();
-    }
+    private bool canDelete = true;
 
-    public void Init()
+    public void Init(Transform content)
     {
-        if (inventoryObject != null)
-        {
-            inventoryObject.gameObject.SetActive(true);
-        }
-        print(inventoryObject);
-        content = GameObject.FindGameObjectWithTag("Content").transform;
-        inventoryObject = GameObject.FindGameObjectWithTag("Inventory").transform;
+        this.content = content;
         owner = GetComponent<PlayerContoller>();
         photon = GetComponent<PhotonView>();
-        inventoryObject.gameObject.SetActive(false);
     }
 
     /*private void Start()
@@ -64,7 +53,20 @@ public class Inventory : MonoBehaviour
 
     public void DeleteItem(ItemBox itemBox)
     {
-        items.Remove(itemBox);
-        Destroy(itemBox.gameObject);
+        if (canDelete)
+        {
+            items.Remove(itemBox);
+            Destroy(itemBox.gameObject);
+        }
+    }
+
+    public void OnPlayerDeath()
+    {
+        canDelete = false;
+        foreach (var item in items)
+        {
+            item.OnDrop();
+            Destroy(item.gameObject);
+        }
     }
 }

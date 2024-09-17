@@ -4,6 +4,7 @@ using UnityEngine;
 public class Poison : MonoBehaviour
 {
     [SerializeField] private GameObject effect;
+
     [SerializeField] protected Sprite emptyPoison;
 
     private AudioSource drinkAudio;
@@ -11,10 +12,13 @@ public class Poison : MonoBehaviour
     private Rigidbody2D rigidBody;
     private SpriteRenderer spriteRenderer;
 
+    protected ThrowingObjectController throwObjectScript;
+
     protected bool isDrunk;
 
     private void Awake()
     {
+        throwObjectScript = GetComponent<ThrowingObjectController>();
         rigidBody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         drinkAudio = GetComponent<AudioSource>();
@@ -39,6 +43,7 @@ public class Poison : MonoBehaviour
         Instantiate(effect, transform.position, Quaternion.identity);
         effect = null;
     }
+
     public virtual void DoWhenUseMotion()
     {
         spriteRenderer.sprite = emptyPoison;
@@ -51,6 +56,23 @@ public class Poison : MonoBehaviour
     {
     }
 
+    public bool IsDrunk()
+    {
+        if (isDrunk)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public Sprite GetEmptySprite()
+    {
+        return emptyPoison;
+    }
+    
     private IEnumerator MusicEffect()
     {
         drinkAudio.Play();

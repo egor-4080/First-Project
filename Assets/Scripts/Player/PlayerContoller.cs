@@ -39,7 +39,6 @@ public class PlayerContoller : Character
     private void Start()
     {
         Cursor.SetCursor(cursor, new Vector2(12.5f, 20), CursorMode.Auto);
-        inventoryClass.Init();
     }
 
     protected override void Awake()
@@ -73,11 +72,6 @@ public class PlayerContoller : Character
         }
     }
 
-    public void Init(PlayerSpawner playerSpawner)
-    {
-        this.playerSpawner = playerSpawner;
-    }
-
     public void SpeedEffect()
     {
         speedForce += boost;
@@ -89,9 +83,11 @@ public class PlayerContoller : Character
         speedForce -= boost;
     }
 
-    public void Initialization(Camera playerCamera)
+    public void Initialization(Camera playerCamera, PlayerSpawner playerSpawner, Transform content)
     {
         cameraMain = playerCamera;
+        this.playerSpawner = playerSpawner;
+        inventoryClass.Init(content);
     }
 
     public void SetControl(bool value)
@@ -175,6 +171,7 @@ public class PlayerContoller : Character
 
     public override void OnDeath()
     {
+        inventoryClass.OnPlayerDeath();
         Destroy(weapon.gameObject);
         animator.SetBool("IsDead", true);
         SetControl(false);

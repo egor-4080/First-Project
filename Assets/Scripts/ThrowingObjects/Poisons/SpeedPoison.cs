@@ -17,7 +17,7 @@ public class SpeedPoison : Poison
 
         //character = player.gameObject.GetComponent<PlayerContoller>();
 
-        if (!isDrunk)
+        if (!isDrunk && !throwObjectScript.IsBreak())
         {
             player.SpeedEffect();
         }

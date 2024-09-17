@@ -11,10 +11,19 @@ public class PlayerSpawner : MonoBehaviourPunCallbacks
     [SerializeField] private Camera MainCamera;
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
     [SerializeField] private MenuSwitcher menuSwitcher;
+    [SerializeField] private Transform content;
 
     private PlayerContoller playerScript;
     private float deathTimer;
     public static List<Transform> players { get; private set; } = new();
+
+    private void Start()
+    {
+        if (PhotonNetwork.IsConnected == true)
+        {
+            Respawn();
+        }
+    }
 
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
@@ -50,21 +59,12 @@ public class PlayerSpawner : MonoBehaviourPunCallbacks
         }
     }
 
-    private void Start()
-    {
-        if (PhotonNetwork.IsConnected == true)
-        {
-            Respawn();
-        }
-    }
-
     private void Respawn()
     {
         GameObject player = PhotonNetwork.Instantiate(playerPrefab.name, transform.position, Quaternion.identity);
         playerScript = player.GetComponent<PlayerContoller>();
-        playerScript.Init(this);
         menuSwitcher.SetPlayerController(playerScript);
-        playerScript.Initialization(MainCamera);
+        playerScript.Initialization(MainCamera, this, content);
         virtualCamera.Follow = player.transform;
         players.Add(player.transform);
     }

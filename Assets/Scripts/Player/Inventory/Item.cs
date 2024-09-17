@@ -8,11 +8,19 @@ public class Item : MonoBehaviour
     [SerializeField] public string nameOfItem {  get; private set; }
     [SerializeField] private bool canUse;
 
+    private SpriteRenderer spriteRenderer;
+
     public bool CanUse => canUse;
 
     private void Start()
     {
-        _sprite = GetComponent<SpriteRenderer>().sprite;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        _sprite = spriteRenderer.sprite;
         nameOfItem = gameObject.name;
+    }
+
+    public void ChangeSprite()
+    {
+        _sprite = spriteRenderer.sprite;
     }
 }

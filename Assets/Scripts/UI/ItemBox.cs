@@ -35,6 +35,8 @@ public class ItemBox : MonoBehaviour
     {
         Poison poison = item.gameObject.GetComponent<Poison>();
         poison.DoWhenUseMotion(owner);
+        item.ChangeSprite();
+        image.sprite = item._sprite;
     }
 
     public void OnSelect()
