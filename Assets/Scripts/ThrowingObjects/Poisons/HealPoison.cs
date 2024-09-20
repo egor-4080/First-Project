@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class HealPoison : Poison
+public class HealPoison : Potion
 {
     [SerializeField] private float healthPoints;
 

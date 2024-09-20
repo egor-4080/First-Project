@@ -18,12 +18,18 @@ public class ItemBox : MonoBehaviour
 
     public void Init(Item item, PlayerContoller owner)
     {
+        item.spriteChanged.AddListener(OnItemSpriteChanged);
         inventory = owner.GetComponent<Inventory>();
         this.owner = owner;
         this.item = item;
-        image.sprite = item._sprite;
-        nameText.text = item.nameOfItem;
+        image.sprite = item.Sprite;
+        nameText.text = item.NameOfItem;
         use.gameObject.SetActive(item.CanUse);
+    }
+
+    private void OnItemSpriteChanged()
+    {
+        image.sprite = item.Sprite;
     }
 
     public void OnClick()
@@ -33,10 +39,8 @@ public class ItemBox : MonoBehaviour
 
     public void OnUse()
     {
-        Poison poison = item.gameObject.GetComponent<Poison>();
+        Potion poison = item.gameObject.GetComponent<Potion>();
         poison.DoWhenUseMotion(owner);
-        item.ChangeSprite();
-        image.sprite = item._sprite;
     }
 
     public void OnSelect()

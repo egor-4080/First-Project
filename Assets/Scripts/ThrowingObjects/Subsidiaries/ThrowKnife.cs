@@ -1,4 +1,4 @@
-public class ThrowKnife : Poison
+public class ThrowKnife : Potion
 {
 
 }

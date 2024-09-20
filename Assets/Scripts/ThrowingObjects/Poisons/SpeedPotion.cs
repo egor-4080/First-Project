@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SpeedPoison : Poison
+public class SpeedPotion : Potion
 {
     public override void DoEffectWithBody(Collider2D body)
     {

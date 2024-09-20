@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class FreezPoison : Poison
+public class FreezPoison : Potion
 {
     [SerializeField] private float unFreezWait;
 

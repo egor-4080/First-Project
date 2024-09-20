@@ -1,12 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Item : MonoBehaviour
 {
-    [SerializeField] public Sprite _sprite { get; private set; }
-    [SerializeField] public string nameOfItem {  get; private set; }
+    [SerializeField] protected Sprite usedSprite;
+    [SerializeField] public Sprite Sprite
+    { 
+        get => Sprite;
+        private set
+        {
+            spriteChanged?.Invoke();
+            Sprite = value;
+            spriteRenderer.sprite = value;
+        }
+    }
+    [SerializeField] public string NameOfItem {  get; private set; }
     [SerializeField] private bool canUse;
+
+    public UnityEvent spriteChanged {  get; private set; }
 
     private SpriteRenderer spriteRenderer;
 
@@ -15,12 +28,17 @@ public class Item : MonoBehaviour
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        _sprite = spriteRenderer.sprite;
-        nameOfItem = gameObject.name;
+        Sprite = spriteRenderer.sprite;
+        NameOfItem = gameObject.name;
     }
 
-    public void ChangeSprite()
+    public void Used()
     {
-        _sprite = spriteRenderer.sprite;
+        ChangeSprite();
+    }
+
+    private void ChangeSprite()
+    {
+        Sprite = spriteRenderer.sprite;
     }
 }

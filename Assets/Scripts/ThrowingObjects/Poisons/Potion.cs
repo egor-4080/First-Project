@@ -1,16 +1,17 @@
+using Photon.Pun;
 using System.Collections;
 using UnityEngine;
 
-public class Poison : MonoBehaviour
+public class Potion : MonoBehaviour
 {
     [SerializeField] private GameObject effect;
 
-    [SerializeField] protected Sprite emptyPoison;
 
     private AudioSource drinkAudio;
     private WaitForSeconds waitSound;
     private Rigidbody2D rigidBody;
     private SpriteRenderer spriteRenderer;
+    private Item item;
 
     protected ThrowingObjectController throwObjectScript;
 
@@ -18,6 +19,7 @@ public class Poison : MonoBehaviour
 
     private void Awake()
     {
+        item = GetComponent<Item>();
         throwObjectScript = GetComponent<ThrowingObjectController>();
         rigidBody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -31,12 +33,12 @@ public class Poison : MonoBehaviour
 
     public Collider2D[] FindAllobjects()
     {
-         return Physics2D.OverlapCircleAll(transform.position, 2);
+        return Physics2D.OverlapCircleAll(transform.position, 2);
     }
 
     public virtual void DoEffectWithBody(Collider2D body)
     {
-        if(effect == null)
+        if (effect == null)
         {
             return;
         }
@@ -44,12 +46,13 @@ public class Poison : MonoBehaviour
         effect = null;
     }
 
+    [PunRPC]
     public virtual void DoWhenUseMotion()
     {
-        spriteRenderer.sprite = emptyPoison;
+        item.Used();
         rigidBody.isKinematic = true;
         gameObject.SetActive(true);
-        StartCoroutine(MusicEffect());
+        StartCoroutine(DrunkEffect());
     }
 
     public virtual void DoWhenUseMotion(PlayerContoller player)
@@ -68,12 +71,7 @@ public class Poison : MonoBehaviour
         }
     }
 
-    public Sprite GetEmptySprite()
-    {
-        return emptyPoison;
-    }
-    
-    private IEnumerator MusicEffect()
+    private IEnumerator DrunkEffect()
     {
         drinkAudio.Play();
         yield return waitSound;

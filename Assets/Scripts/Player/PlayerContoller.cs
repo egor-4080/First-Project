@@ -199,7 +199,7 @@ public class PlayerContoller : Character
         if (equipedItem != null)
         {
             GameObject item = equipedItem.gameObject;
-            Poison poisonScript = item.GetComponent<Poison>();
+            Potion poisonScript = item.GetComponent<Potion>();
             poisonScript.DoWhenUseMotion(this);
         }
     }

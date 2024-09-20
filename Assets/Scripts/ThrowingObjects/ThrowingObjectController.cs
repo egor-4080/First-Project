@@ -8,13 +8,15 @@ public class ThrowingObjectController : MonoBehaviour
 
     private Collider2D objectsCollider;
     private Rigidbody2D rigitBody;
-    private Poison poison;
+    private Potion poison;
+    private Item item;
     private bool isPoison;
     protected bool isBreak;
     private float forceSpeed;
 
     private void Awake()
     {
+        item = GetComponent<Item>();
         objectsCollider = GetComponent<Collider2D>();
         rigitBody = GetComponent<Rigidbody2D>();
     }
@@ -45,7 +47,7 @@ public class ThrowingObjectController : MonoBehaviour
             if(isPoison)
             {
                 SpriteRenderer sprite = GetComponent<SpriteRenderer>();
-                sprite.sprite = poison.GetEmptySprite();
+                item.Used();
             }
         }
         //Damage
