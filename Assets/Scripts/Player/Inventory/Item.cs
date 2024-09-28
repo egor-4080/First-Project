@@ -6,20 +6,29 @@ using UnityEngine.Events;
 public class Item : MonoBehaviour
 {
     [SerializeField] protected Sprite usedSprite;
-    [SerializeField] public Sprite Sprite
-    { 
-        get => Sprite;
-        private set
-        {
-            spriteChanged?.Invoke();
-            Sprite = value;
-            spriteRenderer.sprite = value;
-        }
-    }
-    [SerializeField] public string NameOfItem {  get; private set; }
+    [SerializeField] public string NameOfItem { get; private set; }
     [SerializeField] private bool canUse;
 
-    public UnityEvent spriteChanged {  get; private set; }
+    private Sprite sprite;
+    public Sprite Sprite
+    {
+        get
+        {
+            return sprite;
+        }
+
+        private set
+        {
+            //print("I worked");
+            spriteRenderer.sprite = value;
+            sprite = value;
+            spriteChanged?.Invoke();
+        }
+    }
+    
+
+    public UnityEvent spriteChanged {  get; private set; } = new UnityEvent();  
+    public UnityEvent used {  get; private set; } = new UnityEvent();
 
     private SpriteRenderer spriteRenderer;
 
@@ -34,11 +43,13 @@ public class Item : MonoBehaviour
 
     public void Used()
     {
+        canUse = false;
         ChangeSprite();
+        used?.Invoke();
     }
 
     private void ChangeSprite()
     {
-        Sprite = spriteRenderer.sprite;
+        Sprite = usedSprite;
     }
 }

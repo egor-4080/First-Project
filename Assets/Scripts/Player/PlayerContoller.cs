@@ -121,7 +121,7 @@ public class PlayerContoller : Character
 
     public virtual void RotateGun()
     {
-        difference = (mousePosition - weaponSoket.position).normalized;
+        difference = (mousePosition - weaponSoket.position);
         angle = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
 
         if (isFacingRight == false)

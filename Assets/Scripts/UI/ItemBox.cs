@@ -19,6 +19,7 @@ public class ItemBox : MonoBehaviour
     public void Init(Item item, PlayerContoller owner)
     {
         item.spriteChanged.AddListener(OnItemSpriteChanged);
+        item.used.AddListener(OnItemUsed);
         inventory = owner.GetComponent<Inventory>();
         this.owner = owner;
         this.item = item;
@@ -30,6 +31,11 @@ public class ItemBox : MonoBehaviour
     private void OnItemSpriteChanged()
     {
         image.sprite = item.Sprite;
+    }
+
+    private void OnItemUsed()
+    {
+        use.gameObject.SetActive(item.CanUse);
     }
 
     public void OnClick()
