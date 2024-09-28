@@ -1,6 +1,7 @@
 using Photon.Pun;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class PlayerContoller : Character
@@ -61,15 +62,31 @@ public class PlayerContoller : Character
         mousePosition = cameraMain.ScreenToWorldPoint(mouseInput);
         mousePosition.z = 0;
 
+        Ray ray = Camera.main.ScreenPointToRay(mouseInput);
+        RaycastHit2D hit =  Physics2D.Raycast(ray.origin, ray.direction * 100);
+        //print(hit?hit.collider.gameObject.name: "null");
+
         isFacingRight = mousePosition.x > transform.position.x;
         transform.localScale = new Vector3(isFacingRight ? 1 : -1, 1, 1);
         hpBar.transform.localScale = new Vector3(isFacingRight ? 1 : -1, 1, 1);
         RotateGun();
 
-        if (fireActive)
+        if (fireActive && IsMouseOverUI() == false)
         {
             weapon.Fire(isFacingRight);
         }
+    }
+
+    private bool IsMouseOverUI()
+    {
+        PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current)
+        {
+            position = Input.mousePosition
+        };
+
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+        return results.Count > 0;  // Возвращает true, если есть элемент UI под мышкой
     }
 
     public void SpeedEffect()
@@ -171,12 +188,20 @@ public class PlayerContoller : Character
 
     public override void OnDeath()
     {
-        inventoryClass.OnPlayerDeath();
         Destroy(weapon.gameObject);
-        animator.SetBool("IsDead", true);
-        SetControl(false);
-        playerSpawner.PlayerRespawn();
-        Destroy(gameObject, 5);
+        if (photon.IsMine)
+        {
+            animator.SetBool("IsDead", true);
+            SetControl(false);
+            playerSpawner.PlayerRespawn();
+            inventoryClass.OnPlayerDeath();
+            Invoke(nameof(DestroyDeadPlayer), 5);
+        }
+    }
+
+    private void DestroyDeadPlayer()
+    {
+        PhotonNetwork.Destroy(photon);
     }
 
     public void OnTake(InputAction.CallbackContext context)
