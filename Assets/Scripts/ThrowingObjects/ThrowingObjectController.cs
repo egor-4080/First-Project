@@ -50,7 +50,6 @@ public class ThrowingObjectController : MonoBehaviour
                 item.Used();
             }
         }
-        //Damage
     }
 
     public void Initialization(bool isBreak)
@@ -87,7 +86,7 @@ public class ThrowingObjectController : MonoBehaviour
         }
         else
         {
-            rigitBody.velocity = direction * forceSpeed;
+            rigitBody.velocity = direction * 20;
         }
     }
 

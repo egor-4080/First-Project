@@ -22,7 +22,7 @@ public class BulletController : MonoBehaviour
             speed = 1 * -speed;
         }
         rigitbody.velocity = transform.right * speed;
-        Destroy(gameObject, 2);
+        Destroy(gameObject, 0.28f);
     }
 
     public void Initializing(float damage, bool isFacing)

@@ -60,10 +60,11 @@ public class EnemyController : Character
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.TryGetComponent(out Health playerHealth) && collision.gameObject.TryGetComponent(out PlayerContoller player))
-        {
-            playerHealth.TakeDamage(damage);
-        }
+        //if (collision.gameObject.TryGetComponent(out Health playerHealth) && collision.gameObject.TryGetComponent(out PlayerContoller player))
+        //{
+        //    playerHealth.TakeDamage(damage);
+        //}
+        collision.gameObject.SendMessageUpwards("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
     }
 
     public override void OnDeath()
@@ -71,6 +72,7 @@ public class EnemyController : Character
         animator.SetBool("isDeath", true);
         agent.SetDestination(transform.position);
         enabled = false;
+        Destroy(this);
     }
 
     public override void OnHit()

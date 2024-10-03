@@ -150,11 +150,11 @@ public class PlayerContoller : Character
 
     private void FixedUpdate()
     {
-        if (!photon.IsMine || !isControl)
-        {
-            rigitBody.velocity = Vector2.zero;
-            return;
-        }
+        //if (!photon.IsMine || !isControl)
+        //{
+        //    rigitBody.velocity = Vector2.zero;
+        //    return;
+        //}
 
         rigitBody.velocity = direction * speedForce;
 
