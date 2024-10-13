@@ -67,5 +67,7 @@ public class PlayerSpawner : MonoBehaviourPunCallbacks
         playerScript.Initialization(MainCamera, this, content);
         virtualCamera.Follow = player.transform;
         players.Add(player.transform);
+        AudioManager audioManager = AudioManager.instance;
+        audioManager.OnNewAudiosAppeared();
     }
 }

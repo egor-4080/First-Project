@@ -1,9 +1,10 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public abstract class Character : MonoBehaviour
+public abstract class Character : MonoBehaviourPunCallbacks
 {
     [SerializeField] protected float speedForce;
     [SerializeField] protected float damage;

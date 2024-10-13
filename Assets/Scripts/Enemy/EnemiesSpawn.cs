@@ -1,8 +1,9 @@
 using System.Collections;
 using Photon.Pun;
+using Photon.Realtime;
 using UnityEngine;
 
-public class EnemiesSpawn : MonoBehaviour
+public class EnemiesSpawn : MonoBehaviourPunCallbacks
 {
     [SerializeField] private Transform[] spawnPoints;
     [SerializeField] private GameObject[] enemy;
@@ -13,7 +14,17 @@ public class EnemiesSpawn : MonoBehaviour
 
     private void Start()
     {
-        if(!PhotonNetwork.IsMasterClient)
+        FindMasterToSpawn();
+    }
+
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+        FindMasterToSpawn();
+    }
+
+    private void FindMasterToSpawn()
+    {
+        if (!PhotonNetwork.IsMasterClient)
         {
             return;
         }
@@ -24,7 +35,7 @@ public class EnemiesSpawn : MonoBehaviour
     private IEnumerator WaitForSpawmEnemy()
     {
         currentEnemy = enemy[Random.Range(0, enemy.Length)];
-        PhotonNetwork.Instantiate(currentEnemy.name, spawnPoints[Random.Range(0, spawnPoints.Length)].position, currentEnemy.transform.rotation);
+        PhotonNetwork.InstantiateRoomObject(currentEnemy.name, spawnPoints[Random.Range(0, spawnPoints.Length)].position, currentEnemy.transform.rotation);
         yield return wait;
         StartCoroutine(WaitForSpawmEnemy());
     }

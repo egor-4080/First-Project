@@ -1,4 +1,5 @@
 using Photon.Pun;
+using Photon.Realtime;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -29,12 +30,20 @@ public class EnemyController : Character
 
     private void Start()
     {
+        FindMasterToStartMoving();
+    }
+
+    public void FindMasterToStartMoving()
+    {
         if (!PhotonNetwork.IsMasterClient)
         {
             enabled = false;
             return;
         }
-        //transform.rotation = Quaternion.identity;
+        else
+        {
+            enabled = true;
+        }
         startScaleX = transform.localScale.x;
         startScaleY = transform.localScale.y;
     }
@@ -60,10 +69,6 @@ public class EnemyController : Character
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //if (collision.gameObject.TryGetComponent(out Health playerHealth) && collision.gameObject.TryGetComponent(out PlayerContoller player))
-        //{
-        //    playerHealth.TakeDamage(damage);
-        //}
         collision.gameObject.SendMessageUpwards("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
     }
 

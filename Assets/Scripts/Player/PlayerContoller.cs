@@ -71,7 +71,17 @@ public class PlayerContoller : Character
         hpBar.transform.localScale = new Vector3(isFacingRight ? 1 : -1, 1, 1);
         RotateGun();
 
-        if (fireActive && IsMouseOverUI() == false)
+        bool isMouseOverUI = IsMouseOverUI();
+
+        if(isMouseOverUI)
+        {
+            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+        }
+        else
+        {
+            Cursor.SetCursor(cursor, new Vector2(12.5f, 20), CursorMode.Auto);
+        }
+        if (fireActive && isMouseOverUI == false)
         {
             weapon.Fire(isFacingRight);
         }
