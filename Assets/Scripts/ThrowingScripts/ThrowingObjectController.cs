@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class ThrowingObjectController : MonoBehaviour
 {
-    [SerializeField] private float damage;
     [SerializeField] private AudioSource audioSource;
 
     private Collider2D objectsCollider;
@@ -12,7 +11,6 @@ public class ThrowingObjectController : MonoBehaviour
     private Item item;
     private bool isPoison;
     protected bool isBreak;
-    private float forceSpeed;
 
     private void Awake()
     {
@@ -23,7 +21,6 @@ public class ThrowingObjectController : MonoBehaviour
 
     private void Start()
     {
-        forceSpeed = 80;
         if (TryGetComponent(out poison))
         {
             isPoison = true;
@@ -62,7 +59,6 @@ public class ThrowingObjectController : MonoBehaviour
 
     protected void OnBreak(Collider2D[] bodiesForEffect)
     {
-        damage = 0;
         if (!poison.IsDrunk())
         {
             foreach (var body in bodiesForEffect)

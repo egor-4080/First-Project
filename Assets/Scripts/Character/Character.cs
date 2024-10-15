@@ -11,7 +11,6 @@ public abstract class Character : MonoBehaviourPunCallbacks
 
     private AudioSource takeDamageSound;
     protected Rigidbody2D rigitBody;
-    private bool isAlive = true;
 
     //animations integers
     protected int TurnByX;

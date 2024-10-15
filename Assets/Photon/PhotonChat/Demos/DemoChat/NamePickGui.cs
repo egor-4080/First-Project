@@ -44,7 +44,7 @@ namespace Photon.Chat.Demo
 
         public void StartChat()
         {
-            ChatGui chatNewComponent = FindObjectOfType<ChatGui>();
+            ChatGui chatNewComponent = FindFirstObjectByType<ChatGui>();
             chatNewComponent.UserName = this.idInput.text.Trim();
             chatNewComponent.Connect();
             this.enabled = false;
