@@ -11,7 +11,7 @@ public class Health : MonoBehaviour
     [SerializeField] private UnityEvent onDeath;
 
     private Rigidbody2D rigitBody;
-    private Collider2D collider;
+    private Collider2D objectCollider;
     private AudioSource takeDamageSound;
     private PhotonView photon;
     private float currentHealthPoints;
@@ -20,7 +20,7 @@ public class Health : MonoBehaviour
     private void Awake()
     {
         photon = GetComponent<PhotonView>();
-        collider = GetComponent<Collider2D>();
+        objectCollider = GetComponent<Collider2D>();
     }
 
     private void Start()
@@ -60,7 +60,7 @@ public class Health : MonoBehaviour
             {
                 onDeath.Invoke();
                 IsAlive = false;
-                collider.isTrigger = true;
+                objectCollider.isTrigger = true;
             }
             else
             {

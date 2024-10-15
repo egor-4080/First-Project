@@ -22,7 +22,7 @@ namespace Photon.Chat.Demo
 
         public void Start()
         {
-            this.chatNewComponent = FindObjectOfType<ChatGui>();
+            this.chatNewComponent = FindFirstObjectByType<ChatGui>();
 
 
             string prefsName = PlayerPrefs.GetString(UserNamePlayerPref);
