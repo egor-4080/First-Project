@@ -4,7 +4,5 @@ using UnityEngine;
 
 public class WavesManager : MonoBehaviour
 {
-    private bool hi;
-
-
+    private bool x;
 }

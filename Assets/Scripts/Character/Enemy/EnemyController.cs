@@ -21,6 +21,8 @@ public class EnemyController : Character
     {
         base.Awake();
 
+        InitSettings();
+
         animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
 
@@ -31,6 +33,13 @@ public class EnemyController : Character
     private void Start()
     {
         FindMasterToStartMoving();
+    }
+
+    private void InitSettings()
+    {
+        GetComponent<Health>().SetMaxHealth();
+        speedForce += Config.instance.config["speedForce"];
+        damage += Config.instance.config["damage"];
     }
 
     public void FindMasterToStartMoving()

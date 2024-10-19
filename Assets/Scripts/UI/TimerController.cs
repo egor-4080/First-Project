@@ -11,11 +11,12 @@ public class TimerController : MonoBehaviour
 
     public void StartTimer(float seconds)
     {
-
+        StartCoroutine(WaitTimer(seconds));
     }
 
-    private IEnumerator WaitTimer()
+    private IEnumerator WaitTimer(float seconds)
     {
-        yield return timerEnd;
+        yield return new WaitForSeconds(seconds);
+        timerEnd.Invoke();
     }
 }

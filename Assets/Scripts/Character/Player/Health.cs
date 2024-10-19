@@ -37,6 +37,11 @@ public class Health : MonoBehaviour
         currentHealthPoints = maxHealthPoints;
     }
 
+    public void SetMaxHealth()
+    {
+        maxHealthPoints += Config.instance.config["maxHealthPoints"];
+    }
+
     private void UpdateHPBar()
     {
         if(healthSlider != null)
