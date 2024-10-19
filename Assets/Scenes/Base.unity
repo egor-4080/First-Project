@@ -1149,6 +1149,11 @@ MonoBehaviour:
   - {fileID: 4936253070689236506, guid: 34f1544773e26bc49ae0125b0a61dca5, type: 3}
   spawnTime: 2
   countEnemy: 0
+  dictionaryName: EnemyDictionary
+  staticNames:
+  - speedForce
+  - damage
+  - maxHealthPoints
   speedInc: 0
   damageInc: 0
   healthInc: 0

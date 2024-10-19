@@ -37,9 +37,9 @@ public class EnemyController : Character
 
     private void InitSettings()
     {
-        GetComponent<Health>().SetMaxHealth();
-        speedForce += Config.instance.config["speedForce"];
-        damage += Config.instance.config["damage"];
+        var dictionary = Config.instance.config["EnemyDictionary"];
+        speedForce += dictionary["speedForce"];
+        damage += dictionary["damage"];
     }
 
     public void FindMasterToStartMoving()

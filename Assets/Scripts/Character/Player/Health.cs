@@ -37,9 +37,10 @@ public class Health : MonoBehaviour
         currentHealthPoints = maxHealthPoints;
     }
 
-    public void SetMaxHealth()
+    public void SetMaxHealth(string key)
     {
-        maxHealthPoints += Config.instance.config["maxHealthPoints"];
+        var dictionary = Config.instance.config[key];
+        maxHealthPoints += dictionary["maxHealthPoints"];
     }
 
     private void UpdateHPBar()

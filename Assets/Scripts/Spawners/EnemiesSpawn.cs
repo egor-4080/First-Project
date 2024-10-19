@@ -1,6 +1,8 @@
 using System.Collections;
+using System.Linq;
 using Photon.Pun;
 using Photon.Realtime;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemiesSpawn : MonoBehaviourPunCallbacks
@@ -9,6 +11,9 @@ public class EnemiesSpawn : MonoBehaviourPunCallbacks
     [SerializeField] private GameObject[] enemy;
     [SerializeField] private float spawnTime;
     [SerializeField] private int countEnemy;
+
+    [SerializeField] private string dictionaryName;
+    [SerializeField] private string[] staticNames;
 
     [SerializeField] private float speedInc;
     [SerializeField] private float damageInc;
@@ -20,19 +25,8 @@ public class EnemiesSpawn : MonoBehaviourPunCallbacks
 
     private void Start()
     {
+        Config.instance.SetNewDictionary(dictionaryName, staticNames);
         FindMasterToSpawn();
-        if (Config.instance.config.ContainsKey("damage") == false)
-        {
-            Config.instance.config.Add("damage", 0);
-        }
-        if (Config.instance.config.ContainsKey("speedForce") == false)
-        {
-            Config.instance.config.Add("speedForce", 0);
-        }
-        if (Config.instance.config.ContainsKey("maxHealthPoints") == false)
-        {
-            Config.instance.config.Add("maxHealthPoints", 0);
-        }
     }
 
     public override void OnPlayerLeftRoom(Player otherPlayer)
@@ -57,15 +51,22 @@ public class EnemiesSpawn : MonoBehaviourPunCallbacks
 
     private IEnumerator WaitForSpawmEnemy()
     {
+        var dictionary = Config.instance.config[dictionaryName];
         while (true)
         {
-            Config.instance.config["damage"] += damageInc;
-            Config.instance.config["speedForce"] += speedInc;
-            Config.instance.config["maxHealthPoints"] += healthInc;
+            print(1);
+            dictionary["damage"] += damageInc;
+            dictionary["speedForce"] += speedInc;
+            dictionary["maxHealthPoints"] += healthInc;
             for (int i = 0; i < countEnemy; i++)
             {
                 currentEnemy = enemy[Random.Range(0, enemy.Length)];
-                PhotonNetwork.InstantiateRoomObject(currentEnemy.name, spawnPoints[Random.Range(0, spawnPoints.Length)].position, currentEnemy.transform.rotation);
+
+                PhotonNetwork.InstantiateRoomObject(currentEnemy.name
+                    , spawnPoints[Random.Range(0, spawnPoints.Length)].position
+                    , currentEnemy.transform.rotation)
+                    .GetComponent<Health>().SetMaxHealth(dictionaryName);
+
                 yield return wait;
             }
         }
