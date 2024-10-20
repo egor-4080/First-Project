@@ -18,9 +18,7 @@ public class EnemiesSpawn : MonoBehaviourPunCallbacks
     [SerializeField] private float speedInc;
     [SerializeField] private float damageInc;
     [SerializeField] private float healthInc;
-    [SerializeField] private int countEnemyInc;
 
-    private WaitForSeconds wait;
     private GameObject currentEnemy;
 
     private void Start()
@@ -34,18 +32,12 @@ public class EnemiesSpawn : MonoBehaviourPunCallbacks
         FindMasterToSpawn();
     }
 
-    public void SpawnEnemy()
-    {
-
-    }
-
     private void FindMasterToSpawn()
     {
         if (!PhotonNetwork.IsMasterClient)
         {
             return;
         }
-        wait = new WaitForSeconds(spawnTime);
         StartCoroutine(WaitForSpawmEnemy());
     }
 
@@ -54,7 +46,7 @@ public class EnemiesSpawn : MonoBehaviourPunCallbacks
         var dictionary = Config.instance.config[dictionaryName];
         while (true)
         {
-            print(1);
+            countEnemy += 5;
             dictionary["damage"] += damageInc;
             dictionary["speedForce"] += speedInc;
             dictionary["maxHealthPoints"] += healthInc;
@@ -67,7 +59,7 @@ public class EnemiesSpawn : MonoBehaviourPunCallbacks
                     , currentEnemy.transform.rotation)
                     .GetComponent<Health>().SetMaxHealth(dictionaryName);
 
-                yield return wait;
+                yield return new WaitForSeconds(spawnTime);
             }
         }
     }
