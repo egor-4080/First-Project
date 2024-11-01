@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class Config : MonoBehaviour
 {
-    //public Dictionary<string, float> config2 { get; set; } = new();
-    public Dictionary<string, Dictionary<string, float> > config
-    {
-        get;
-        private set;
-    } = new();
+    [SerializeField] private List<string> noGunScenesNames;
+
+    public Dictionary<string, Dictionary<string, float> > configStats{ get; private set; } = new();
+    public List<string> noGunScenes { get; private set; } = new List<string>();
+
 
     public static Config instance {  get; private set; }
 
@@ -22,15 +21,25 @@ public class Config : MonoBehaviour
         }
         instance = this;
         DontDestroyOnLoad(gameObject);
+
+        SetScenesName();
     }
 
     public void SetNewDictionary(string dictionaryName, string[] names)
     {
-        config.Add(dictionaryName, new Dictionary<string, float>());
+        configStats.Add(dictionaryName, new Dictionary<string, float>());
         for(int i = 0; i < names.Length; i++)
         {
-            config[dictionaryName].Add(names[i], 0);
+            configStats[dictionaryName].Add(names[i], 0);
             //ƒобавил в определенный словарь значени€ (damge, speed, health)
+        }
+    }
+
+    private void SetScenesName()
+    {
+        foreach(string name in noGunScenesNames)
+        {
+            noGunScenes.Add(name);
         }
     }
 }

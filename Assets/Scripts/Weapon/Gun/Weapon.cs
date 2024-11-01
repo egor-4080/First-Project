@@ -12,13 +12,11 @@ public abstract class Weapon : MonoBehaviour
     
     protected CinemachineImpulseSource impulseSource;
     protected AudioSource fireAudio;
-    protected Character owner;
     protected PhotonView photonView;
 
     private void Awake()
     {
         impulseSource = GetComponent<CinemachineImpulseSource>();
-        owner = GetComponentInParent<Character>();
         fireAudio = GetComponent<AudioSource>();
         photonView = GetComponent<PhotonView>();
     }

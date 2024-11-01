@@ -49,6 +49,12 @@ MonoBehaviour:
   - SetTakenObjectParameters
   - SetThrownObjectState
   - DoWhenUseMotion
+  - SetWeapon
+  - GiveWeapon
+  - <SetWeapon>g__SetWeapon|28_0
+  - <SetWeapon>g__SetWeaponRPC|28_0
+  - SetWeaponRPC
+  - GetRespawnGun
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

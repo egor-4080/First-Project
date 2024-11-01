@@ -331,21 +331,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealthPoints: 300
   healthSlider: {fileID: 7301338965070661767}
-  onDamge:
+  onDamage:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: -258620457978598700}
-        m_TargetAssemblyTypeName: EnemyController, Assembly-CSharp
-        m_MethodName: OnHit
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onDeath:
     m_PersistentCalls:
       m_Calls:

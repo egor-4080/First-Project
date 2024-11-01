@@ -1,14 +1,14 @@
-using System.Collections;
-using System.Linq;
 using Photon.Pun;
 using Photon.Realtime;
-using Unity.VisualScripting;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemiesSpawn : MonoBehaviourPunCallbacks
 {
     [SerializeField] private Transform[] spawnPoints;
     [SerializeField] private GameObject[] enemy;
+    [SerializeField] private TimerController timer;
     [SerializeField] private float spawnTime;
     [SerializeField] private int countEnemy;
 
@@ -21,8 +21,14 @@ public class EnemiesSpawn : MonoBehaviourPunCallbacks
 
     private GameObject currentEnemy;
 
+    private int currentEnemies;
+    private bool isTimerActive;
+
+    public UnityEvent newxtWave { get; private set; } = new();
+
     private void Start()
     {
+        timer.timerEnd.AddListener(() => isTimerActive = false);
         Config.instance.SetNewDictionary(dictionaryName, staticNames);
         FindMasterToSpawn();
     }
@@ -38,15 +44,15 @@ public class EnemiesSpawn : MonoBehaviourPunCallbacks
         {
             return;
         }
-        StartCoroutine(WaitForSpawmEnemy());
+        StartCoroutine(StartWaves());
     }
 
-    private IEnumerator WaitForSpawmEnemy()
+    private IEnumerator StartWaves()
     {
-        var dictionary = Config.instance.config[dictionaryName];
+        var dictionary = Config.instance.configStats[dictionaryName];
         while (true)
         {
-            countEnemy += 5;
+            currentEnemies = countEnemy;
             dictionary["damage"] += damageInc;
             dictionary["speedForce"] += speedInc;
             dictionary["maxHealthPoints"] += healthInc;
@@ -54,12 +60,26 @@ public class EnemiesSpawn : MonoBehaviourPunCallbacks
             {
                 currentEnemy = enemy[Random.Range(0, enemy.Length)];
 
-                PhotonNetwork.InstantiateRoomObject(currentEnemy.name
+                GameObject enemyObject = PhotonNetwork.InstantiateRoomObject(currentEnemy.name
                     , spawnPoints[Random.Range(0, spawnPoints.Length)].position
-                    , currentEnemy.transform.rotation)
-                    .GetComponent<Health>().SetMaxHealth(dictionaryName);
+                    , currentEnemy.transform.rotation);
+                Health enemyHealth = enemyObject.GetComponent<Health>();
+                enemyHealth.SetMaxHealth(dictionaryName);
+
+                enemyHealth.OnDeath.AddListener(() => currentEnemies--);
 
                 yield return new WaitForSeconds(spawnTime);
+            }
+            countEnemy += 5;
+            while(currentEnemies != 0)
+            {
+                yield return null;
+            }
+            timer.StartTimer(10);
+            isTimerActive = true;
+            while(isTimerActive)
+            {
+                yield return null;
             }
         }
     }

@@ -35,9 +35,9 @@ public class EnemyController : Character
         FindMasterToStartMoving();
     }
 
-    private void InitSettings()
+    public void InitSettings()
     {
-        var dictionary = Config.instance.config["EnemyDictionary"];
+        var dictionary = Config.instance.configStats["EnemyDictionary"];
         speedForce += dictionary["speedForce"];
         damage += dictionary["damage"];
     }

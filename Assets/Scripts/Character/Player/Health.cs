@@ -7,8 +7,10 @@ public class Health : MonoBehaviour
 {
     [SerializeField] private float maxHealthPoints;
     [SerializeField] private Slider healthSlider;
-    [SerializeField] private UnityEvent onDamge;
+    [SerializeField] private UnityEvent onDamage;
     [SerializeField] private UnityEvent onDeath;
+
+    public UnityEvent OnDeath => onDeath;
 
     private Rigidbody2D rigitBody;
     private Collider2D objectCollider;
@@ -39,7 +41,7 @@ public class Health : MonoBehaviour
 
     public void SetMaxHealth(string key)
     {
-        var dictionary = Config.instance.config[key];
+        var dictionary = Config.instance.configStats[key];
         maxHealthPoints += dictionary["maxHealthPoints"];
     }
 
@@ -56,7 +58,7 @@ public class Health : MonoBehaviour
     {
         if (IsAlive)
         {
-            onDamge.Invoke();
+            onDamage.Invoke();
             currentHealthPoints -= takenDamage;
             if (takeDamageSound != null)
             {

@@ -8,7 +8,6 @@ public class PlayerContoller : Character
 {
     [SerializeField] private Texture2D cursor;
     [SerializeField] private Transform weaponSoket;
-    [SerializeField] private Weapon weapon;
     [SerializeField] private Camera cameraMain;
     [SerializeField] private Animator animator;
     [SerializeField] private Transform throwStartPoint;
@@ -36,6 +35,7 @@ public class PlayerContoller : Character
     private Inventory inventoryClass;
     private Item equipedItem;
     private ItemBox equipedItemBox;
+    private Weapon weapon;
 
     private void Start()
     {
@@ -83,8 +83,15 @@ public class PlayerContoller : Character
         }
         if (fireActive && isMouseOverUI == false)
         {
-            weapon.Fire(isFacingRight);
+            weapon?.Fire(isFacingRight);
         }
+    }
+
+    public void SetWeapon(Weapon weapon)
+    {
+        this.weapon = weapon;
+        weapon.transform.SetParent(weaponSoket);
+        weapon.transform.localPosition = Vector3.zero;
     }
 
     private bool IsMouseOverUI()
@@ -198,7 +205,7 @@ public class PlayerContoller : Character
 
     public override void OnDeath()
     {
-        Destroy(weapon.gameObject);
+        Destroy(weapon?.gameObject);
         if (photon.IsMine)
         {
             animator.SetBool("IsDead", true);
