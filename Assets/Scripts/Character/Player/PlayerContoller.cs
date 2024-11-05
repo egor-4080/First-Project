@@ -39,6 +39,7 @@ public class PlayerContoller : Character
 
     private void Start()
     {
+        if (!photonView.IsMine) return;
         Cursor.SetCursor(cursor, new Vector2(12.5f, 20), CursorMode.Auto);
     }
 
@@ -96,6 +97,8 @@ public class PlayerContoller : Character
 
     private bool IsMouseOverUI()
     {
+        if (!photonView.IsMine) return false;
+        
         PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current)
         {
             position = Input.mousePosition
@@ -103,7 +106,7 @@ public class PlayerContoller : Character
 
         List<RaycastResult> results = new List<RaycastResult>();
         EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
-        return results.Count > 0;  // Возвращает true, если есть элемент UI под мышкой
+        return results.Count > 0;  // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ true, пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ UI пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
     }
 
     public void SpeedEffect()
@@ -167,11 +170,12 @@ public class PlayerContoller : Character
 
     private void FixedUpdate()
     {
-        //if (!photon.IsMine || !isControl)
-        //{
-        //    rigitBody.velocity = Vector2.zero;
-        //    return;
-        //}
+        if (!photon.IsMine || !isControl)
+        {
+           rigitBody.velocity = Vector2.zero;
+            return;
+        }
+        
 
         rigitBody.velocity = direction * speedForce;
 
@@ -205,20 +209,21 @@ public class PlayerContoller : Character
 
     public override void OnDeath()
     {
-        Destroy(weapon?.gameObject);
-        if (photon.IsMine)
-        {
-            animator.SetBool("IsDead", true);
-            SetControl(false);
-            playerSpawner.PlayerRespawn();
-            inventoryClass.OnPlayerDeath();
-            Invoke(nameof(DestroyDeadPlayer), 5);
-        }
+        if (!photon.IsMine) return;
+        
+        if (weapon)
+            PhotonNetwork.Destroy(weapon.gameObject);
+            
+        animator.SetBool("IsDead", true);
+        SetControl(false);
+        playerSpawner.PlayerRespawn();
+        inventoryClass.OnPlayerDeath();
+        Invoke(nameof(DestroyDeadPlayer), 5);
     }
 
     private void DestroyDeadPlayer()
     {
-        PhotonNetwork.Destroy(photon);
+        PhotonNetwork.Destroy(gameObject);
     }
 
     public void OnTake(InputAction.CallbackContext context)

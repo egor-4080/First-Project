@@ -1,3 +1,4 @@
+using System;
 using Photon.Pun;
 using Photon.Realtime;
 using System.Collections;
@@ -9,6 +10,9 @@ public class WeaponManager : MonoBehaviourPunCallbacks
     [SerializeField] private Weapon startWeapon;
     [SerializeField] private Weapon[] weapons;
 
+    private Weapon currentWeapon;
+    private PlayerContoller ownerPlayerConrollter;
+
     private PhotonView managerPhotonView;
 
     private void Awake()
@@ -16,25 +20,45 @@ public class WeaponManager : MonoBehaviourPunCallbacks
         managerPhotonView = GetComponent<PhotonView>();
     }
 
-    public void GiveStartWeapon(int playerID)
+    private void Start()
+    {
+        currentWeapon = startWeapon;
+    }
+
+    public void SetOwnerPlayer(PlayerContoller ownerPlayer)
+    {
+        ownerPlayerConrollter = ownerPlayer;
+    }
+
+    public void GiveWeapon()
     {
         if (CanGiveGun())
         {
             return;
         }
-       
-        int idWeapon = PhotonNetwork.Instantiate(startWeapon.gameObject.name, Vector2.zero, Quaternion.identity)
-            .GetComponent<PhotonView>()
-            .ViewID;
-        managerPhotonView.RPC(nameof(GiveWeapon), RpcTarget.All, playerID, idWeapon);
+
+        var weapon =
+            PhotonNetwork.Instantiate(currentWeapon.gameObject.name, Vector2.zero, Quaternion.identity);
+        var weaponPhotonView = weapon.GetComponent<PhotonView>();
+        var idWeapon = weaponPhotonView.ViewID;
+
+        var playerId = ownerPlayerConrollter.GetComponent<PhotonView>().ViewID;
+        managerPhotonView.RPC(nameof(EquipWeapon), RpcTarget.AllBuffered, playerId, idWeapon);
     }
 
     [PunRPC]
-    private void GiveWeapon(int idPlayer, int idWeapon)
+    private void EquipWeapon(int idPlayer, int idWeapon)
     {
-        PlayerContoller player = PhotonView.Find(idPlayer).GetComponent<PlayerContoller>();
-        Weapon weapon = PhotonView.Find(idWeapon).GetComponent<Weapon>();
-
+        PhotonView playerView = PhotonView.Find(idPlayer);
+        PhotonView weaponView = PhotonView.Find(idWeapon);
+        
+        if (playerView == null || weaponView == null)
+        {
+            return;
+        }
+        
+        PlayerContoller player = playerView.GetComponent<PlayerContoller>();
+        Weapon weapon = weaponView.GetComponent<Weapon>();
         player.SetWeapon(weapon);
     }
 
@@ -48,6 +72,7 @@ public class WeaponManager : MonoBehaviourPunCallbacks
                 return true;
             }
         }
+
         return false;
     }
 }
