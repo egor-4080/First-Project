@@ -55,6 +55,7 @@ MonoBehaviour:
   - <SetWeapon>g__SetWeaponRPC|28_0
   - SetWeaponRPC
   - GetRespawnGun
+  - Test
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
