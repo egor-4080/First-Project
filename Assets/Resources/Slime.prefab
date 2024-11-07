@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 5567293857075164966}
   - component: {fileID: -255410761558055903}
   - component: {fileID: -816049011556650494}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slime
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -195,6 +195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedForce: 3.5
   damage: 0
+  hpBar: {fileID: 0}
 --- !u!95 &4034071149698935048
 Animator:
   serializedVersion: 7
@@ -383,7 +384,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealthPoints: 180
-  onDamge:
+  healthSlider: {fileID: 0}
+  onDamage:
     m_PersistentCalls:
       m_Calls: []
   onDeath:

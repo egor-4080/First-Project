@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: zombie
       objectReference: {fileID: 0}
+    - target: {fileID: -2253911629886400664, guid: b9fde7b5ec7e4284bb6d1b68d1ca2c88, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: b9fde7b5ec7e4284bb6d1b68d1ca2c88, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -184,6 +188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedForce: 3
   damage: 5
+  hpBar: {fileID: 0}
 --- !u!114 &-302183677592716421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,7 +202,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealthPoints: 180
-  onDamge:
+  healthSlider: {fileID: 0}
+  onDamage:
     m_PersistentCalls:
       m_Calls: []
   onDeath:

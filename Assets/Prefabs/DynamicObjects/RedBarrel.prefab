@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RedBarrel
       objectReference: {fileID: 0}
+    - target: {fileID: -2253911629886400664, guid: 324f005457822af42a28656e68a52907, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 324f005457822af42a28656e68a52907, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -151,7 +155,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealthPoints: 1
-  onDamge:
+  healthSlider: {fileID: 0}
+  onDamage:
     m_PersistentCalls:
       m_Calls: []
   onDeath:
