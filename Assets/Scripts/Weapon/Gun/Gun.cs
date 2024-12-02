@@ -1,18 +1,15 @@
 using Photon.Pun;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class Gun : Weapon
 {
-    [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private Transform spawnPoint;
-    [SerializeField] private float reloadSpeed;
-
     private WaitForSeconds wait;
     private bool isReloaded;
     private bool isFacingRight;
 
-    private void Start()
+    void Start()
     {
         wait = new WaitForSeconds(reloadSpeed);
         isReloaded = true;
@@ -32,23 +29,20 @@ public class Gun : Weapon
     {
         isReloaded = false;
 
-        GameObject bulletGameObject = PhotonNetwork.Instantiate(bulletPrefab.name, spawnPoint.transform.position, spawnPoint.transform.rotation);
-
-        PhotonView photonView = bulletGameObject.GetComponent<PhotonView>();
-        int id = photonView.ViewID;
-
-        this.photonView.RPC(nameof(Bullet), RpcTarget.All, damage, isFacingRight, id);
+        photonView.RPC(nameof(Bullet), RpcTarget.All, damage, isFacingRight);
 
         yield return wait;
         isReloaded = true;
     }
 
     [PunRPC]
-    public void Bullet(float damage, bool isFacingRight, int id)
+    public void Bullet(float damage, bool isFacingRight)
     {
-        PhotonView photonBullet = PhotonView.Find(id);
+        BulletController bulletController = objectPool.GetPooledObject();
+        bulletController.gameObject.SetActive(true);
 
-        BulletController bullet = photonBullet.GetComponent<BulletController>();
-        bullet.Initializing(damage, isFacingRight);
+        bulletController.transform.position = spawnPoint.position;
+        bulletController.transform.rotation = spawnPoint.rotation;
+        bulletController.Initializing(damage, isFacingRight);
     }
 }
