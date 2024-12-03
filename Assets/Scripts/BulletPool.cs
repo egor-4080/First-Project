@@ -15,8 +15,36 @@ public class BulletPool : MonoBehaviour
     {
         objectPool = new ObjectPool<BulletController>(
             createFunc: CreateBulletController,
-            defaultCapacity: 5
+            defaultCapacity: 5,
+            actionOnRelease: OnReleaseBullet
             );
+    }
+
+    public BulletController SpawnBullet(float damage, bool isFacingRight, Transform spawnPoint)
+    {
+        BulletController bullet = objectPool.Get();
+        StartCoroutine(ReleaseBulletOnTime(bullet));
+
+        bullet.transform.position = spawnPoint.position;
+        bullet.transform.rotation = spawnPoint.rotation;
+
+        int bulletID = bullet.GetComponent<PhotonView>().ViewID;
+        bullet.InitBulletPool(this);
+        photon.RPC(nameof(InitNetwork), RpcTarget.All, damage, isFacingRight, bulletID);
+        return bullet;
+    }
+    
+    public void ReleaseBullet(BulletController bullet)
+    {
+        objectPool.Release(bullet);
+    }
+
+    [PunRPC]
+    private void InitNetwork(int damage, bool isFacingRight, int bulletID)
+    {
+        BulletController bulletController = PhotonView.Find(bulletID).GetComponent<BulletController>();
+        bulletController.gameObject.SetActive(true);
+        bulletController.Initializing(damage, isFacingRight);
     }
 
     private BulletController CreateBulletController()
@@ -25,16 +53,23 @@ public class BulletPool : MonoBehaviour
             .GetComponent<BulletController>();
     }
 
-    public BulletController GetBullet()
-    {
-        BulletController bullet = objectPool.Get();
-        StartCoroutine(ReleaseBullet(bullet));
-        return bullet;
-    }
-
-    private IEnumerator ReleaseBullet(BulletController bullet)
+    private IEnumerator ReleaseBulletOnTime(BulletController bullet)
     {
         yield return new WaitForSeconds(0.28f);
-        objectPool.Release(bullet);
+        if(!bullet.gameObject.activeSelf)
+            objectPool.Release(bullet);
+    }
+
+    [PunRPC]
+    private void SetActiveToBullet(bool isActive, int bulletID)
+    {
+        BulletController bulletController = PhotonView.Find(bulletID).GetComponent<BulletController>();
+        bulletController.gameObject.SetActive(isActive);
+    }
+    
+    private void OnReleaseBullet(BulletController bullet)
+    {
+        int bulletID = bullet.GetComponent<PhotonView>().ViewID;
+        photon.RPC(nameof(SetActiveToBullet), RpcTarget.All, false, bulletID);
     }
 }

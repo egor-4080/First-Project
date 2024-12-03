@@ -16,13 +16,13 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField] private GameObject fireEffect;
 
     protected PhotonView photonView;
-    protected ObjectPool objectPool;
+    protected BulletPool objectPool;
     private CinemachineImpulseSource impulseSource;
     private AudioSource fireAudio;
 
     private void Awake()
     {
-        objectPool = GetComponent<ObjectPool>();
+        objectPool = FindFirstObjectByType<BulletPool>();
         impulseSource = GetComponent<CinemachineImpulseSource>();
         fireAudio = GetComponent<AudioSource>();
         photonView = GetComponent<PhotonView>();

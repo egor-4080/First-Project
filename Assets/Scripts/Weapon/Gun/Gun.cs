@@ -29,20 +29,9 @@ public class Gun : Weapon
     {
         isReloaded = false;
 
-        photonView.RPC(nameof(Bullet), RpcTarget.All, damage, isFacingRight);
+        BulletController bulletController = objectPool.SpawnBullet(damage, isFacingRight, spawnPoint);
 
         yield return wait;
         isReloaded = true;
-    }
-
-    [PunRPC]
-    public void Bullet(float damage, bool isFacingRight)
-    {
-        BulletController bulletController = objectPool.GetPooledObject();
-        bulletController.gameObject.SetActive(true);
-
-        bulletController.transform.position = spawnPoint.position;
-        bulletController.transform.rotation = spawnPoint.rotation;
-        bulletController.Initializing(damage, isFacingRight);
     }
 }

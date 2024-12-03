@@ -1,3 +1,4 @@
+using Photon.Pun;
 using UnityEngine;
 
 public class BulletController : MonoBehaviour
@@ -5,6 +6,8 @@ public class BulletController : MonoBehaviour
     [SerializeField] private float speed;
 
     private Rigidbody2D rigitbody;
+    private BulletPool bulletPool;
+    private PhotonView photon;
 
     private bool isFacing;
     private float damage;
@@ -12,11 +15,7 @@ public class BulletController : MonoBehaviour
     private void Awake()
     {
         rigitbody = GetComponent<Rigidbody2D>();
-    }
-
-    private void Start()
-    {
-        gameObject.SetActive(false);
+        photon = GetComponent<PhotonView>();
     }
 
     public void Initializing(float damage, bool isFacing)
@@ -24,8 +23,12 @@ public class BulletController : MonoBehaviour
         this.damage = damage;
         this.isFacing = isFacing;
 
-        Invoke(nameof(OffBullet), 0.28f);
         RotateBullet();
+    }
+
+    public void InitBulletPool(BulletPool bulletPool)
+    {
+        this.bulletPool = bulletPool;
     }
 
     private void RotateBullet()
@@ -36,17 +39,16 @@ public class BulletController : MonoBehaviour
             gameObject.transform.localScale = new Vector3(isFacing ? 1 : -1, 1, 1);
             speed = -speed;
         }
-        rigitbody.velocity = transform.right * speed;
-    }
 
-    private void OffBullet()
-    {
-        gameObject.SetActive(false);
+        rigitbody.velocity = transform.right * speed;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        collision.gameObject.SendMessageUpwards("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
-        gameObject.SetActive(false);
+        if (photon.IsMine)
+        {
+            collision.gameObject.SendMessageUpwards("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
+            bulletPool.ReleaseBullet(this);
+        }
     }
 }
