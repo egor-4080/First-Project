@@ -13,6 +13,7 @@ public class BulletPool : MonoBehaviour
 
     private void Awake()
     {
+        photon = GetComponent<PhotonView>();
         objectPool = new ObjectPool<BulletController>(
             createFunc: CreateBulletController,
             defaultCapacity: 5,
@@ -40,7 +41,7 @@ public class BulletPool : MonoBehaviour
     }
 
     [PunRPC]
-    private void InitNetwork(int damage, bool isFacingRight, int bulletID)
+    private void InitNetwork(float damage, bool isFacingRight, int bulletID)
     {
         BulletController bulletController = PhotonView.Find(bulletID).GetComponent<BulletController>();
         bulletController.gameObject.SetActive(true);
@@ -55,13 +56,13 @@ public class BulletPool : MonoBehaviour
 
     private IEnumerator ReleaseBulletOnTime(BulletController bullet)
     {
-        yield return new WaitForSeconds(0.28f);
-        if(!bullet.gameObject.activeSelf)
+        yield return new WaitForSeconds(1f); //0.28
+        if(bullet.gameObject.activeInHierarchy)
             objectPool.Release(bullet);
     }
 
     [PunRPC]
-    private void SetActiveToBullet(bool isActive, int bulletID)
+    private void SetActiveToBullet(bool isActive, int bulletID, string id )
     {
         BulletController bulletController = PhotonView.Find(bulletID).GetComponent<BulletController>();
         bulletController.gameObject.SetActive(isActive);
@@ -69,7 +70,8 @@ public class BulletPool : MonoBehaviour
     
     private void OnReleaseBullet(BulletController bullet)
     {
+        print("A");
         int bulletID = bullet.GetComponent<PhotonView>().ViewID;
-        photon.RPC(nameof(SetActiveToBullet), RpcTarget.All, false, bulletID);
+        photon.RPC(nameof(SetActiveToBullet), RpcTarget.All, false, bulletID, PhotonNetwork.LocalPlayer.UserId);
     }
 }
