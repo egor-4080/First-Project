@@ -1,3 +1,4 @@
+using System;
 using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
@@ -12,10 +13,14 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     [SerializeField] private GameObject readyButton;
     [SerializeField] private TMP_Text readyText;
     [SerializeField] private TMP_Text countText;
-
-    private Hashtable players = new Hashtable();
+    
     private PhotonView photon;
     private Player player;
+
+    private void Awake()
+    {
+        photon = GetComponent<PhotonView>();
+    }
 
     private void Start()
     {
@@ -32,13 +37,25 @@ public class LobbyManager : MonoBehaviourPunCallbacks
             startButton.SetActive(false);
         }
         player.SetCustomProperties(playerProperties);
+        Invoke(nameof(UpdateReadiesCount), 0.5f);
+    }
+
+    public override void OnPlayerEnteredRoom(Player newPlayer)
+    {
+        Invoke(nameof(UpdateReadiesCount), 0.5f);
     }
 
     public void StartGame()
     {
         (int readyPlayers, int countPlayers) = GetReadyPlayers();
         if (readyPlayers == countPlayers)
-            PhotonNetwork.LoadLevel("Base");
+            photon.RPC(nameof(LoadScene), RpcTarget.All);
+    }
+
+    [PunRPC]
+    private void LoadScene()
+    {
+        PhotonNetwork.LoadLevel("Base");
     }
 
     public void ChangeReady()
@@ -65,7 +82,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         int count = 0;
 
         foreach (var player in players)
-            if ((bool)player.CustomProperties["IsReady"])
+            if (player.CustomProperties["IsReady"] != null && (bool)player.CustomProperties["IsReady"] )
                 count++;
 
         return (count, players.Length);

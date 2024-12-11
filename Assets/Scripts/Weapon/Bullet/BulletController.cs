@@ -49,7 +49,6 @@ public class BulletController : MonoBehaviour
         {
             collision.gameObject.SendMessageUpwards("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
             bulletPool.ReleaseBullet(this);
-            
         }
     }
 }

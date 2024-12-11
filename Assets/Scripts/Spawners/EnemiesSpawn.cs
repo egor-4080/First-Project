@@ -70,7 +70,7 @@ public class EnemiesSpawn : MonoBehaviourPunCallbacks
 
                 yield return new WaitForSeconds(spawnTime);
             }
-            countEnemy += 5;
+            countEnemy += 2;
             while(currentEnemies != 0)
             {
                 yield return null;

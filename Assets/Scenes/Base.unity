@@ -1191,6 +1191,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1191608817}
   - component: {fileID: 1191608816}
+  - component: {fileID: 1191608818}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -1220,7 +1221,7 @@ MonoBehaviour:
   - {fileID: 4936253070689236506, guid: 34f1544773e26bc49ae0125b0a61dca5, type: 3}
   timer: {fileID: 2073230375}
   spawnTime: 2
-  countEnemy: 2
+  countEnemy: 3
   dictionaryName: EnemyDictionary
   staticNames:
   - speedForce
@@ -1245,6 +1246,28 @@ Transform:
   - {fileID: 103936912}
   m_Father: {fileID: 674181999}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1191608818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191608815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 6
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1243384225
 GameObject:
   m_ObjectHideFlags: 0

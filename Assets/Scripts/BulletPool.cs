@@ -56,7 +56,7 @@ public class BulletPool : MonoBehaviour
 
     private IEnumerator ReleaseBulletOnTime(BulletController bullet)
     {
-        yield return new WaitForSeconds(1f); //0.28
+        yield return new WaitForSeconds(0.28f);
         if(bullet.gameObject.activeInHierarchy)
             objectPool.Release(bullet);
     }
@@ -70,7 +70,6 @@ public class BulletPool : MonoBehaviour
     
     private void OnReleaseBullet(BulletController bullet)
     {
-        print("A");
         int bulletID = bullet.GetComponent<PhotonView>().ViewID;
         photon.RPC(nameof(SetActiveToBullet), RpcTarget.All, false, bulletID, PhotonNetwork.LocalPlayer.UserId);
     }

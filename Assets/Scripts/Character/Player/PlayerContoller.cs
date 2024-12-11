@@ -36,17 +36,20 @@ public class PlayerContoller : Character
     private Item equipedItem;
     private ItemBox equipedItemBox;
     private Weapon weapon;
+    private SpriteRenderer spriteSettings;
 
     private void Start()
     {
         if (!photonView.IsMine) return;
         Cursor.SetCursor(cursor, new Vector2(12.5f, 20), CursorMode.Auto);
+        spriteSettings.sortingOrder = 10;
     }
 
     protected override void Awake()
     {
         base.Awake();
 
+        spriteSettings = GetComponent<SpriteRenderer>();
         inventoryClass = GetComponent<Inventory>();
         photon = GetComponent<PhotonView>();
         player = GetComponent<Health>();

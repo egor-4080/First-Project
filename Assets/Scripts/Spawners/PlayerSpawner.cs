@@ -29,13 +29,7 @@ public class PlayerSpawner : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.IsConnected != true) return;
         Respawn();
-    }
-
-    public override void OnPlayerEnteredRoom(Player newPlayer)
-    {
-        if (!PhotonNetwork.IsMasterClient) return;
-
-        Invoke(nameof(GetPlayers), 1);
+        photon.RPC(nameof(GetPlayers), RpcTarget.MasterClient);
     }
 
     public override void OnPlayerLeftRoom(Player otherPlayer)
@@ -49,6 +43,7 @@ public class PlayerSpawner : MonoBehaviourPunCallbacks
         Invoke(nameof(Respawn), deathTimer);
     }
 
+    [PunRPC]
     private void GetPlayers()
     {
         if (PhotonNetwork.IsMasterClient)

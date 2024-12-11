@@ -13,11 +13,6 @@ public class TimerController : MonoBehaviour
 
     private bool isHide;
 
-    private void Start()
-    {
-
-    }
-
     public void StartTimer(float seconds)
     {
         timerAnimator.SetBool("isAppeared", true);
