@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 5327320210927062667}
   - component: {fileID: 5964569782288152339}
   - component: {fileID: -1362313910928480400}
-  - component: {fileID: 4034071149698935048}
   - component: {fileID: 53063475916696596}
   - component: {fileID: -258620457978598700}
   - component: {fileID: 2130950695854296865}
@@ -21,8 +20,9 @@ GameObject:
   - component: {fileID: -4183959633204968879}
   - component: {fileID: -7536753348055172052}
   - component: {fileID: -5231461867891961926}
+  - component: {fileID: -177702032911204811}
   m_Layer: 6
-  m_Name: RedSlime
+  m_Name: DarkWizard
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38,7 +38,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6528869823334294793}
@@ -87,8 +87,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 368543389579951487, guid: a0763c1a9c56f2f4d85a1533367170c4, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: -7499766822868083846, guid: a9c53b138fafb44488e781e434668ffb, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -183,28 +183,6 @@ NavMeshAgent:
   m_BaseOffset: 0.07
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!95 &4034071149698935048
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4936253070689236506}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d9992542667b1e1468722a840a7f0843, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!82 &53063475916696596
 AudioSource:
   m_ObjectHideFlags: 0
@@ -314,8 +292,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37230459c72b1f54ab18c5eec3b255ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedForce: 3.5
-  damage: 10
+  speedForce: 5
+  damage: 2
   hpBar: {fileID: 8487350388469687753}
 --- !u!114 &2130950695854296865
 MonoBehaviour:
@@ -421,16 +399,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowLayerWeightsInspector: 1
   ShowParameterInspector: 1
-  m_SynchronizeParameters:
-  - Type: 4
-    SynchronizeType: 0
-    Name: isDeath
-  - Type: 9
-    SynchronizeType: 0
-    Name: Hit
+  m_SynchronizeParameters: []
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
+--- !u!95 &-177702032911204811
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4936253070689236506}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c0966fc2bcddbc04d9a6337a62b435cd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &6991301658614009036
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -457,19 +451,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1499478657529014533, guid: c7478a81cde222b42b29f1c3cb8e6881, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1975118075678332620, guid: c7478a81cde222b42b29f1c3cb8e6881, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.633
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1975118075678332620, guid: c7478a81cde222b42b29f1c3cb8e6881, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3042980848466382520, guid: c7478a81cde222b42b29f1c3cb8e6881, type: 3}
-      propertyPath: m_PresetInfoIsWorld
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4295628456484547013, guid: c7478a81cde222b42b29f1c3cb8e6881, type: 3}
       propertyPath: m_Pivot.x
@@ -593,7 +583,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6247557609543745479, guid: c7478a81cde222b42b29f1c3cb8e6881, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.025999993
+      value: 0.17
       objectReference: {fileID: 0}
     - target: {fileID: 6562667638376306747, guid: c7478a81cde222b42b29f1c3cb8e6881, type: 3}
       propertyPath: m_Layer
