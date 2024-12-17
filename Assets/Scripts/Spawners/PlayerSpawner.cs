@@ -2,6 +2,7 @@ using Cinemachine;
 using Photon.Pun;
 using Photon.Realtime;
 using System.Collections.Generic;
+using ExitGames.Client.Photon;
 using System.Linq;
 using UnityEngine;
 
@@ -28,8 +29,11 @@ public class PlayerSpawner : MonoBehaviourPunCallbacks
     private void Start()
     {
         if (PhotonNetwork.IsConnected != true) return;
+        Player player = PhotonNetwork.LocalPlayer;
+        Hashtable playerProperties = new Hashtable();
+        playerProperties["Score"] = 0;
+        PhotonNetwork.LocalPlayer.SetCustomProperties(playerProperties);
         Respawn();
-        photon.RPC(nameof(GetPlayers), RpcTarget.MasterClient);
     }
 
     public override void OnPlayerLeftRoom(Player otherPlayer)
@@ -67,5 +71,6 @@ public class PlayerSpawner : MonoBehaviourPunCallbacks
         audioManager.OnNewAudiosAppeared();
         weaponManager.SetOwnerPlayer(playerScript);
         weaponManager.GiveWeapon();
+        photon.RPC(nameof(GetPlayers), RpcTarget.MasterClient);
     }
 }

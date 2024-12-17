@@ -78,7 +78,8 @@ public class EnemyController : Character
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        collision.gameObject.SendMessageUpwards("TakeDamage", damage,  SendMessageOptions.DontRequireReceiver);
+        collision.gameObject.SendMessageUpwards("IsHuman", false, SendMessageOptions.DontRequireReceiver);
+        collision.gameObject.SendMessageUpwards("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
     }
 
     public override void OnDeath()

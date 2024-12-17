@@ -17,6 +17,7 @@ public class ExploisonController : MonoBehaviour
         Collider2D[] blownedUpObjects = Physics2D.OverlapCircleAll(transform.position, explosionRadius);
         foreach (var blownedUpObject in blownedUpObjects)
         {
+            blownedUpObject.SendMessageUpwards("IsHuman", false, SendMessageOptions.DontRequireReceiver);
             blownedUpObject.SendMessageUpwards("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
         }
     }

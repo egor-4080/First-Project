@@ -47,6 +47,7 @@ public class BulletController : MonoBehaviour
     {
         if (photon.IsMine)
         {
+            collision.gameObject.SendMessageUpwards("IsHuman", true, SendMessageOptions.DontRequireReceiver);
             collision.gameObject.SendMessageUpwards("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
             bulletPool.ReleaseBullet(this);
         }
