@@ -70,8 +70,8 @@ public class Health : MonoBehaviour
         {
             player = PhotonNetwork.LocalPlayer;
             Hashtable playerProperties = player.CustomProperties;
-            int score = int.Parse(playerProperties["Score"].ToString()) + price;
-            playerProperties["Score"] = score.ToString();
+            int score = (int)playerProperties["Score"] + price;
+            playerProperties["Score"] = score;
             player.SetCustomProperties(playerProperties);
         }
         photon.RPC(nameof(NetworkDamage), RpcTarget.All, takenDamage);

@@ -64,6 +64,13 @@ MonoBehaviour:
   - GetPlayers
   - TakeDamage
   - NetworkDamage
+  - OnExployed
+  - Respawn
+  - ExployEffect
+  - ExployEffects
+  - RespawnEffects
+  - MakeData
+  - ChangeScore
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

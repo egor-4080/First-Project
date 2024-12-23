@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 3626916397498700004, guid: 324f005457822af42a28656e68a52907, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 324f005457822af42a28656e68a52907, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -26,11 +30,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 324f005457822af42a28656e68a52907, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.35
+      value: 4.55
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 324f005457822af42a28656e68a52907, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.858227
+      value: 7.88
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 324f005457822af42a28656e68a52907, type: 3}
       propertyPath: m_LocalPosition.z
@@ -74,9 +78,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 324f005457822af42a28656e68a52907, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5188075248586861836}
-    - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 324f005457822af42a28656e68a52907, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 733130449396714243}
     - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 324f005457822af42a28656e68a52907, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6609854387343722690}
@@ -145,39 +146,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   exploisonPrefab: {fileID: 4630755996964659628, guid: 441d63fef9716cd439d5a7f236c1b7d2, type: 3}
---- !u!114 &733130449396714243
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3243128550422309948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a488209078146e147a49b22b371154e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealthPoints: 1
-  healthSlider: {fileID: 0}
-  onDamage:
-    m_PersistentCalls:
-      m_Calls: []
-  onDeath:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5188075248586861836}
-        m_TargetAssemblyTypeName: Barrel, Assembly-CSharp
-        m_MethodName: Exployed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  price: 0
 --- !u!114 &6609854387343722690
 MonoBehaviour:
   m_ObjectHideFlags: 0

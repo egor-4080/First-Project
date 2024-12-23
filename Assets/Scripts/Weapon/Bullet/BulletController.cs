@@ -36,10 +36,9 @@ public class BulletController : MonoBehaviour
         float speed = this.speed;
         if (!isFacing)
         {
-            gameObject.transform.localScale = new Vector3(isFacing ? 1 : -1, 1, 1);
             speed = -speed;
         }
-
+        gameObject.transform.localScale = new Vector3(isFacing ? 1 : -1, 1, 1);
         rigitbody.velocity = transform.right * speed;
     }
 

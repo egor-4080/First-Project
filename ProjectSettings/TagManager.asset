@@ -9,6 +9,7 @@ TagManager:
   - Content
   - Inventory
   - Timer
+  - LeadersData
   layers:
   - Default
   - TransparentFX

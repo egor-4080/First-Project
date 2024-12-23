@@ -435,7 +435,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 312303959409214539, guid: c7478a81cde222b42b29f1c3cb8e6881, type: 3}
       propertyPath: m_Value
-      value: 0.633
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1440422138438819082, guid: c7478a81cde222b42b29f1c3cb8e6881, type: 3}
       propertyPath: m_Name
@@ -451,15 +451,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1499478657529014533, guid: c7478a81cde222b42b29f1c3cb8e6881, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1975118075678332620, guid: c7478a81cde222b42b29f1c3cb8e6881, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1975118075678332620, guid: c7478a81cde222b42b29f1c3cb8e6881, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4295628456484547013, guid: c7478a81cde222b42b29f1c3cb8e6881, type: 3}
       propertyPath: m_Pivot.x
