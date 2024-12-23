@@ -23,14 +23,60 @@ public class LeaderDataController : MonoBehaviourPunCallbacks
         Invoke(nameof(GetDatas), 0.1f);
     }
 
+    public PlayerData GetPlayerData(string name)
+    {
+        foreach (var data in playerDatas)
+        {
+            if (data.Name == name)
+            {
+                return data;
+            }
+        }
+
+        return null;
+    }
+
     public void ChangeBoard()
     {
+        SortDatas();
         photon.RPC(nameof(NetworkChange), RpcTarget.All);
     }
-    
+
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+        GetDatas();
+    }
+
+    private void SortDatas()
+    {
+        PlayerData temp;
+        for (int i = 0; i < playerDatas.Count - 1; i++)
+        {
+            for (int j = 0; j < playerDatas.Count - 1 - i; j++)
+            {
+                if (playerDatas[j].Score > playerDatas[j + 1].Score)
+                {
+                    temp = playerDatas[j];
+                    playerDatas[j] = playerDatas[j + 1];
+                    playerDatas[j + 1] = temp;
+                }
+            }
+        }
+        playerDatas.Reverse();
+    }
+
+    [PunRPC]
     private void NetworkChange()
     {
-        //Реализовать пузырьковой сортировкой
+        foreach (var data in playerDatas)
+        {
+            data.transform.SetParent(null);
+        }
+
+        foreach (var data in playerDatas)
+        {
+            data.transform.SetParent(transform);
+        }
     }
 
     private void GetDatas()
@@ -44,6 +90,8 @@ public class LeaderDataController : MonoBehaviourPunCallbacks
 
     private void MakeData()
     {
-        PhotonNetwork.Instantiate(prefab.name, Vector3.zero, Quaternion.identity);
+        PlayerData data = PhotonNetwork.Instantiate(prefab.name, Vector3.zero, Quaternion.identity)
+            .GetComponent<PlayerData>();
+        data.Init(PhotonNetwork.LocalPlayer.NickName);
     }
 }

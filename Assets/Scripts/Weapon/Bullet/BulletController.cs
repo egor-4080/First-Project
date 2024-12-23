@@ -5,6 +5,7 @@ public class BulletController : MonoBehaviour
 {
     [SerializeField] private float speed;
 
+    private PlayerContoller player;
     private Rigidbody2D rigitbody;
     private BulletPool bulletPool;
     private PhotonView photon;

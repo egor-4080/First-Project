@@ -4,6 +4,7 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using Photon.Realtime;
 using ExitGames.Client.Photon;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
@@ -21,11 +22,17 @@ public class Health : MonoBehaviour
     private PhotonView photon;
     private Player player;
     private float currentHealthPoints;
-    private bool isHittedByHuman;
+    private bool isHuman;
+    private LeaderDataController leaderBoard;
     public bool IsAlive { get; private set; } = true;
 
     private void Awake()
     {
+        string currentScene = SceneManager.GetActiveScene().name;
+        if (currentScene == "Base")
+        {
+            leaderBoard = GameObject.FindWithTag("LeadersData").GetComponent<LeaderDataController>();
+        }
         photon = GetComponent<PhotonView>();
         objectCollider = GetComponent<Collider2D>();
     }
@@ -52,7 +59,7 @@ public class Health : MonoBehaviour
 
     public void IsHuman(bool isHuman)
     {
-        isHittedByHuman = isHuman;
+        this.isHuman = isHuman;
     }
     
     private void UpdateHPBar()
@@ -66,13 +73,15 @@ public class Health : MonoBehaviour
     
     public void TakeDamage(float takenDamage)
     {
-        if (isHittedByHuman && currentHealthPoints - takenDamage <= 0)
+        if (IsAlive && isHuman && currentHealthPoints - takenDamage <= 0)
         {
             player = PhotonNetwork.LocalPlayer;
             Hashtable playerProperties = player.CustomProperties;
             int score = (int)playerProperties["Score"] + price;
             playerProperties["Score"] = score;
             player.SetCustomProperties(playerProperties);
+            PlayerData data = leaderBoard.GetPlayerData(player.NickName);
+            data.Scored.Invoke();
         }
         photon.RPC(nameof(NetworkDamage), RpcTarget.All, takenDamage);
     }

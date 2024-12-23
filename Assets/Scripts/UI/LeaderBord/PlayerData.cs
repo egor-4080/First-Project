@@ -22,37 +22,44 @@ public class PlayerData : MonoBehaviourPunCallbacks
 
     private void Awake()
     {
-        dataController = GetComponentInParent<LeaderDataController>();
         photon = GetComponent<PhotonView>();
         player = PhotonNetwork.LocalPlayer;
     }
 
     private void Start()
     {
-        Init();
         Scored.AddListener(OnScore);
         SetPosition();
     }
 
+    public void Init(string name)
+    {
+        Name = name;
+        Score = 0;
+        
+        photon.RPC(nameof(NetworkChange), RpcTarget.AllBuffered, Name, Score);
+    }
+
+    [PunRPC]
+    private void NetworkChange(string name, int score)
+    {
+        textName.text = name;
+        textScore.text = score.ToString();
+    }
+    
     private void SetPosition()
     {
         Transform canvasPosition = GameObject.FindWithTag("LeadersData").GetComponent<Transform>();
         transform.SetParent(canvasPosition);
         transform.localScale = new Vector3(1, 1, 1);
-    }
-
-    private void Init()
-    {
-        Name = PhotonNetwork.LocalPlayer.NickName;
-        Score = 0;
-
-        textName.text = Name;
-        textScore.text = Score.ToString();
+        dataController = GetComponentInParent<LeaderDataController>();
     }
     
     private void OnScore()
     {
+        print(player.CustomProperties["Score"]);
         Score = (int)player.CustomProperties["Score"];
+        photon.RPC(nameof(NetworkChange), RpcTarget.All, Name, Score);
         dataController.ChangeBoard();
     }
 }
