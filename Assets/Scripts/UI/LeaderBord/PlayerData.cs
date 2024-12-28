@@ -6,10 +6,10 @@ using Photon.Realtime;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class PlayerData : MonoBehaviourPunCallbacks
 {
-    public UnityEvent Scored { get; private set; } = new UnityEvent();
     public string Name { get; private set; }
     public int Score { get; private set; }
 
@@ -20,6 +20,8 @@ public class PlayerData : MonoBehaviourPunCallbacks
     private Player player;
     private PhotonView photon;
 
+    private float counterPosition;
+
     private void Awake()
     {
         photon = GetComponent<PhotonView>();
@@ -28,14 +30,15 @@ public class PlayerData : MonoBehaviourPunCallbacks
 
     private void Start()
     {
-        Scored.AddListener(OnScore);
         SetPosition();
     }
 
-    public void Init(string name)
+    public void Init(string name, LeaderDataController dataController, int counterPosition)
     {
         Name = name;
         Score = 0;
+        this.dataController = dataController;
+        this.counterPosition = counterPosition;
         
         photon.RPC(nameof(NetworkChange), RpcTarget.AllBuffered, Name, Score);
     }
@@ -52,14 +55,16 @@ public class PlayerData : MonoBehaviourPunCallbacks
         Transform canvasPosition = GameObject.FindWithTag("LeadersData").GetComponent<Transform>();
         transform.SetParent(canvasPosition);
         transform.localScale = new Vector3(1, 1, 1);
-        dataController = GetComponentInParent<LeaderDataController>();
+        
     }
-    
-    private void OnScore()
+
+    public override void OnPlayerPropertiesUpdate(Player targetPlayer, Hashtable changedProps)
     {
-        print(player.CustomProperties["Score"]);
-        Score = (int)player.CustomProperties["Score"];
-        photon.RPC(nameof(NetworkChange), RpcTarget.All, Name, Score);
-        dataController.ChangeBoard();
+        if (changedProps.ContainsKey("Score") && photon.IsMine && dataController)
+        {
+            Score = (int)player.CustomProperties["Score"];
+            photon.RPC(nameof(NetworkChange), RpcTarget.All, Name, Score);
+            dataController.ChangeBoard();
+        }
     }
 }

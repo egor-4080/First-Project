@@ -8,9 +8,11 @@ using UnityEngine;
 public class LeaderDataController : MonoBehaviourPunCallbacks
 {
     [SerializeField] private GameObject prefab;
-
-    private List<PlayerData> playerDatas;
+    [SerializeField] private List<PlayerData> playersDatas = new();
+    
     private PhotonView photon;
+
+    private int counerPosition = 0;
 
     private void Awake()
     {
@@ -25,7 +27,7 @@ public class LeaderDataController : MonoBehaviourPunCallbacks
 
     public PlayerData GetPlayerData(string name)
     {
-        foreach (var data in playerDatas)
+        foreach (var data in playersDatas)
         {
             if (data.Name == name)
             {
@@ -38,53 +40,62 @@ public class LeaderDataController : MonoBehaviourPunCallbacks
 
     public void ChangeBoard()
     {
-        SortDatas();
         photon.RPC(nameof(NetworkChange), RpcTarget.All);
     }
 
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
-        GetDatas();
+        foreach (var data in playersDatas)
+        {
+            if (!data)
+            {
+                PhotonNetwork.Destroy(data.gameObject);
+                break;
+            }
+        }
+        photon.RPC(nameof(GetDatas), RpcTarget.All);
     }
 
     private void SortDatas()
     {
         PlayerData temp;
-        for (int i = 0; i < playerDatas.Count - 1; i++)
+        for (int i = 0; i < playersDatas.Count - 1; i++)
         {
-            for (int j = 0; j < playerDatas.Count - 1 - i; j++)
+            for (int j = 0; j < playersDatas.Count - 1 - i; j++)
             {
-                if (playerDatas[j].Score > playerDatas[j + 1].Score)
+                if (playersDatas[j].Score > playersDatas[j + 1].Score)
                 {
-                    temp = playerDatas[j];
-                    playerDatas[j] = playerDatas[j + 1];
-                    playerDatas[j + 1] = temp;
+                    temp = playersDatas[j];
+                    playersDatas[j] = playersDatas[j + 1];
+                    playersDatas[j + 1] = temp;
                 }
             }
         }
-        playerDatas.Reverse();
+        playersDatas.Reverse();
     }
 
     [PunRPC]
     private void NetworkChange()
     {
-        foreach (var data in playerDatas)
+        SortDatas();
+        foreach (var data in playersDatas)
         {
             data.transform.SetParent(null);
         }
 
-        foreach (var data in playerDatas)
+        foreach (var data in playersDatas)
         {
             data.transform.SetParent(transform);
         }
     }
 
+    [PunRPC]
     private void GetDatas()
     {
-        playerDatas = new List<PlayerData>();
+        playersDatas.Clear();
         foreach(Transform child in transform)
         {
-            playerDatas.Add(child.GetComponent<PlayerData>());
+            playersDatas.Add(child.GetComponent<PlayerData>());
         }
     }
 
@@ -92,6 +103,13 @@ public class LeaderDataController : MonoBehaviourPunCallbacks
     {
         PlayerData data = PhotonNetwork.Instantiate(prefab.name, Vector3.zero, Quaternion.identity)
             .GetComponent<PlayerData>();
-        data.Init(PhotonNetwork.LocalPlayer.NickName);
+        data.Init(PhotonNetwork.LocalPlayer.NickName, this, counerPosition);
+        photon.RPC(nameof(ChangeCounter), RpcTarget.All);
+    }
+
+    [PunRPC]
+    private void ChangeCounter()
+    {
+        counerPosition -= 50;
     }
 }

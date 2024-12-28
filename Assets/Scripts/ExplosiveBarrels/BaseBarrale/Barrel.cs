@@ -9,8 +9,9 @@ public abstract class Barrel : MonoBehaviour
     public bool isActive { get; private set; } = true;
     
     [SerializeField] private GameObject exploisonPrefab;
+    [SerializeField] private GameObject barrel;
+    [SerializeField] private float respawnTime;
     
-    private float respawnTime = 2;
     private PhotonView photon;
 
     private void Awake()
@@ -40,13 +41,13 @@ public abstract class Barrel : MonoBehaviour
     public void ExployEffects()
     {
         isActive = false;
-        gameObject.SetActive(false);
+        barrel.SetActive(false);
     }
     
     [PunRPC]
     public void RespawnEffects()
     {
         isActive = true;
-        gameObject.SetActive(true);
+        barrel.SetActive(true);
     }
 }

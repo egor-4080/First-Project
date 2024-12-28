@@ -52,7 +52,6 @@ public class PlayerSpawner : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.IsMasterClient)
         {
-            print("Player Conected");
             players = FindObjectsByType<PlayerContoller>(FindObjectsSortMode.None)
                 .Select(i => i.GetComponent<Transform>())
                 .ToList();

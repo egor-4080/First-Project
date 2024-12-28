@@ -12,7 +12,6 @@ public class WeaponManager : MonoBehaviourPunCallbacks
 
     private Weapon currentWeapon;
     private PlayerContoller ownerPlayerConrollter;
-
     private PhotonView managerPhotonView;
 
     private void Awake()
