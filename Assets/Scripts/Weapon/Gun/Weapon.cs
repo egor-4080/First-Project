@@ -9,16 +9,16 @@ public abstract class Weapon : MonoBehaviour
 {
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] protected Transform spawnPoint;
-    [SerializeField] protected float reloadSpeed;
     [SerializeField] protected float damage;
     [SerializeField] protected float fireRate;
-    [SerializeField] protected float weight;
+    [SerializeField] protected float spreadAngle;
     [SerializeField] private GameObject fireEffect;
 
     protected PhotonView photonView;
     protected BulletPool objectPool;
     private CinemachineImpulseSource impulseSource;
     private AudioSource fireAudio;
+    private float lastFireTime;
 
     private void Awake()
     {
@@ -28,19 +28,27 @@ public abstract class Weapon : MonoBehaviour
         photonView = GetComponent<PhotonView>();
     }
 
-    public virtual void Fire(bool isFacing)
+    public void TryFire(bool isFacing)
     {
-        OnEffect();
+        if (Time.time > lastFireTime + fireRate)
+        {
+            lastFireTime = Time.time;
+            Fire(isFacing);
+        }
+    }
+
+    protected virtual void Fire(bool isFacing)
+    {
         impulseSource.GenerateImpulse();
-        fireAudio.Play();
-        photonView.RPC(nameof(OnEffect), RpcTarget.Others);
+        photonView.RPC(nameof(OnEffect), RpcTarget.All);
     }
 
     [PunRPC]
     public void OnEffect()
     {
+        fireAudio.Play();
         fireEffect.SetActive(true);
-        Invoke("OffEffect", 0.1f);
+        Invoke(nameof(OffEffect), 0.1f);
     }
     
     private void OffEffect()

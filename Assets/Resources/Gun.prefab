@@ -199,10 +199,10 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 1.5
+  MaxDistance: 15
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -235,7 +235,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -289,10 +289,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 6454793202519278333, guid: 649175e7514a6fd4db5f7e183b92482c, type: 3}
   spawnPoint: {fileID: 1195725903039949938}
-  reloadSpeed: 0.16
   damage: 40
   fireRate: 0
-  weight: 0
+  spreadAngle: 0
   fireEffect: {fileID: 3033326647720814642}
 --- !u!114 &4464528102951477621
 MonoBehaviour:

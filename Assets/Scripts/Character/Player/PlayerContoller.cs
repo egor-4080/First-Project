@@ -87,7 +87,7 @@ public class PlayerContoller : Character
         }
         if (fireActive && isMouseOverUI == false)
         {
-            weapon?.Fire(isFacingRight);
+            weapon?.TryFire(isFacingRight);
         }
     }
 

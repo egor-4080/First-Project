@@ -21,13 +21,13 @@ public class BulletPool : MonoBehaviour
             );
     }
 
-    public BulletController SpawnBullet(float damage, bool isFacingRight, Transform spawnPoint)
+    public BulletController SpawnBullet(float damage, bool isFacingRight, Transform spawnPoint, float spreadAngle = 0)
     {
         BulletController bullet = objectPool.Get();
         StartCoroutine(ReleaseBulletOnTime(bullet));
 
         bullet.transform.position = spawnPoint.position;
-        bullet.transform.rotation = spawnPoint.rotation;
+        bullet.transform.rotation = spawnPoint.rotation * Quaternion.Euler(0, 0, Random.Range(-spreadAngle / 2, spreadAngle / 2));
 
         int bulletID = bullet.GetComponent<PhotonView>().ViewID;
         bullet.InitBulletPool(this);
