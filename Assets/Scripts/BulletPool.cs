@@ -37,7 +37,10 @@ public class BulletPool : MonoBehaviour
     
     public void ReleaseBullet(BulletController bullet)
     {
-        objectPool.Release(bullet);
+        if (bullet.gameObject.activeSelf)
+        {
+            objectPool.Release(bullet);
+        }
     }
 
     [PunRPC]
