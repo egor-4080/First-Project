@@ -17,6 +17,7 @@ public class PlayerData : MonoBehaviourPunCallbacks
     [SerializeField] private TMP_Text textScore;
     
     private LeaderDataController dataController;
+    private Transform canvasPosition;
     private Player player;
     private PhotonView photon;
 
@@ -24,13 +25,11 @@ public class PlayerData : MonoBehaviourPunCallbacks
 
     private void Awake()
     {
+        canvasPosition = GameObject.FindWithTag("LeadersData").GetComponent<Transform>();
         photon = GetComponent<PhotonView>();
         player = PhotonNetwork.LocalPlayer;
-    }
-
-    private void Start()
-    {
-        SetPosition();
+        transform.SetParent(canvasPosition);
+        transform.localScale = Vector3.one;
     }
 
     public void Init(string name, LeaderDataController dataController, int counterPosition)
@@ -48,14 +47,6 @@ public class PlayerData : MonoBehaviourPunCallbacks
     {
         textName.text = name;
         textScore.text = score.ToString();
-    }
-    
-    private void SetPosition()
-    {
-        Transform canvasPosition = GameObject.FindWithTag("LeadersData").GetComponent<Transform>();
-        transform.SetParent(canvasPosition);
-        transform.localScale = new Vector3(1, 1, 1);
-        
     }
 
     public override void OnPlayerPropertiesUpdate(Player targetPlayer, Hashtable changedProps)

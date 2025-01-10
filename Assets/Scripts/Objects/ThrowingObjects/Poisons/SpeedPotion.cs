@@ -15,8 +15,6 @@ public class SpeedPotion : Potion
     {
         base.DoWhenUseMotion();
 
-        //character = player.gameObject.GetComponent<PlayerContoller>();
-
         if (!isDrunk && !throwObjectScript.IsBreak())
         {
             player.SpeedEffect();

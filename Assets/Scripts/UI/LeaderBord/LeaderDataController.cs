@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
@@ -58,34 +59,19 @@ public class LeaderDataController : MonoBehaviourPunCallbacks
 
     private void SortDatas()
     {
-        PlayerData temp;
-        for (int i = 0; i < playersDatas.Count - 1; i++)
-        {
-            for (int j = 0; j < playersDatas.Count - 1 - i; j++)
-            {
-                if (playersDatas[j].Score > playersDatas[j + 1].Score)
-                {
-                    temp = playersDatas[j];
-                    playersDatas[j] = playersDatas[j + 1];
-                    playersDatas[j + 1] = temp;
-                }
-            }
-        }
-        playersDatas.Reverse();
+        playersDatas = playersDatas.OrderByDescending(p => p.Score).ToList();
     }
 
     [PunRPC]
     private void NetworkChange()
     {
         SortDatas();
-        foreach (var data in playersDatas)
+        int counter = 0;
+        foreach (var playerData in playersDatas)
         {
-            data.transform.SetParent(null);
-        }
-
-        foreach (var data in playersDatas)
-        {
-            data.transform.SetParent(transform);
+            RectTransform dataTransform = playerData.GetComponent<RectTransform>();
+            dataTransform.anchoredPosition = new Vector3(0, counter);
+            counter -= 50;
         }
     }
 
@@ -97,6 +83,7 @@ public class LeaderDataController : MonoBehaviourPunCallbacks
         {
             playersDatas.Add(child.GetComponent<PlayerData>());
         }
+        NetworkChange();
     }
 
     private void MakeData()

@@ -6,11 +6,10 @@ public class Potion : MonoBehaviour
 {
     [SerializeField] private GameObject effect;
 
-
     private AudioSource drinkAudio;
     private WaitForSeconds waitSound;
     private Rigidbody2D rigidBody;
-    private SpriteRenderer spriteRenderer;
+    private Collider2D circle;
     private Item item;
 
     protected ThrowingObjectController throwObjectScript;
@@ -22,7 +21,6 @@ public class Potion : MonoBehaviour
         item = GetComponent<Item>();
         throwObjectScript = GetComponent<ThrowingObjectController>();
         rigidBody = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
         drinkAudio = GetComponent<AudioSource>();
     }
 

@@ -12,6 +12,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blue Exploisin Effect
       objectReference: {fileID: 0}
+    - target: {fileID: 1160356261127867848, guid: 660ac5f344c84eb4289e0c0040684374, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3626916397498700004, guid: 660ac5f344c84eb4289e0c0040684374, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: 660ac5f344c84eb4289e0c0040684374, type: 3}
       propertyPath: m_SortingOrder
       value: 30
@@ -82,4 +90,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 0.5
-  radius: 2
+  radius: 3

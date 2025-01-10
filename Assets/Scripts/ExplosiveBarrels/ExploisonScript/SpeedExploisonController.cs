@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SpeedExploison : MonoBehaviour
+public class SpeedExploisonController : MonoBehaviour
 {
     [SerializeField] private float timer;
     [SerializeField] private float radius;
