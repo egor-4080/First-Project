@@ -1298,6 +1298,67 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.75, y: 0.59375}
   m_EdgeRadius: 0
+--- !u!1001 &438589348
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -1023354229967709008, guid: 68559a8677625904e85d7a13d76bdc09, type: 3}
+      propertyPath: sceneViewId
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891936765624085985, guid: 68559a8677625904e85d7a13d76bdc09, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891936765624085985, guid: 68559a8677625904e85d7a13d76bdc09, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891936765624085985, guid: 68559a8677625904e85d7a13d76bdc09, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891936765624085985, guid: 68559a8677625904e85d7a13d76bdc09, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891936765624085985, guid: 68559a8677625904e85d7a13d76bdc09, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891936765624085985, guid: 68559a8677625904e85d7a13d76bdc09, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891936765624085985, guid: 68559a8677625904e85d7a13d76bdc09, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891936765624085985, guid: 68559a8677625904e85d7a13d76bdc09, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891936765624085985, guid: 68559a8677625904e85d7a13d76bdc09, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891936765624085985, guid: 68559a8677625904e85d7a13d76bdc09, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8121407072331981340, guid: 68559a8677625904e85d7a13d76bdc09, type: 3}
+      propertyPath: m_Name
+      value: HealPoison
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 68559a8677625904e85d7a13d76bdc09, type: 3}
 --- !u!1 &456815833
 GameObject:
   m_ObjectHideFlags: 0
@@ -10349,11 +10410,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2883047435446641272, guid: ab8400db244a7624ab16b3dc35aa2d97, type: 3}
       propertyPath: sceneViewId
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7469227583933432935, guid: ab8400db244a7624ab16b3dc35aa2d97, type: 3}
-      propertyPath: respawnTime
-      value: 7
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10654,10 +10711,6 @@ PrefabInstance:
     - target: {fileID: 2883047435446641272, guid: ab8400db244a7624ab16b3dc35aa2d97, type: 3}
       propertyPath: sceneViewId
       value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7469227583933432935, guid: ab8400db244a7624ab16b3dc35aa2d97, type: 3}
-      propertyPath: respawnTime
-      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16618,10 +16671,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4571159891841947723, guid: 414d81ebe1c8a6d43ac9a6216fcb52e8, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6761811661524390016, guid: 414d81ebe1c8a6d43ac9a6216fcb52e8, type: 3}
       propertyPath: m_Name
       value: SpeedPoison
@@ -17555,21 +17604,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -5693528791864918594, guid: aec44ce92995e9741aeabb939685e738, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 611153959985041562, guid: aec44ce92995e9741aeabb939685e738, type: 3}
       propertyPath: m_Name
       value: DamagePoison
       objectReference: {fileID: 0}
-    - target: {fileID: 982690499600701795, guid: aec44ce92995e9741aeabb939685e738, type: 3}
-      propertyPath: m_SortingOrder
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 1371153639825410917, guid: aec44ce92995e9741aeabb939685e738, type: 3}
       propertyPath: sceneViewId
-      value: 2
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 3830013416097993853, guid: aec44ce92995e9741aeabb939685e738, type: 3}
       propertyPath: m_LocalPosition.x
@@ -51796,10 +51837,6 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 7469227583933432935, guid: ab8400db244a7624ab16b3dc35aa2d97, type: 3}
-      propertyPath: respawnTime
-      value: 7
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -52568,4 +52605,5 @@ SceneRoots:
   - {fileID: 1385062766}
   - {fileID: 1943621195}
   - {fileID: 1723463920}
+  - {fileID: 438589348}
   - {fileID: 1907316417}

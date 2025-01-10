@@ -2,13 +2,9 @@ using UnityEngine;
 
 public class SpeedPotion : Potion
 {
-    public override void DoEffectWithBody(Collider2D body)
+    public override void DoEffectWithBody()
     {
-        base.DoEffectWithBody(body);
-        if (body.TryGetComponent(out PlayerContoller player))
-        {
-            player.SpeedEffect();
-        }
+        base.DoWhenUseMotion();
     }
 
     public override void DoWhenUseMotion(PlayerContoller player)

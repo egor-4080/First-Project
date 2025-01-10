@@ -14,7 +14,7 @@ public class Potion : MonoBehaviour
 
     protected ThrowingObjectController throwObjectScript;
 
-    protected bool isDrunk;
+    protected bool isDrunk = false;
 
     private void Awake()
     {
@@ -29,12 +29,7 @@ public class Potion : MonoBehaviour
         waitSound = new WaitForSeconds(1);
     }
 
-    public Collider2D[] FindAllobjects()
-    {
-        return Physics2D.OverlapCircleAll(transform.position, 2);
-    }
-
-    public virtual void DoEffectWithBody(Collider2D body)
+    public virtual void DoEffectWithBody()
     {
         if (effect == null)
         {

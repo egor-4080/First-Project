@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   exploisonPrefab: {fileID: 4630755996964659628, guid: 441d63fef9716cd439d5a7f236c1b7d2, type: 3}
   barrel: {fileID: 3701168703255617187}
-  respawnTime: 0
+  respawnTime: 7
 --- !u!114 &2883047435446641272
 MonoBehaviour:
   m_ObjectHideFlags: 0

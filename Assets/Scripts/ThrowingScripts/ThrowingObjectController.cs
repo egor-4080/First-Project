@@ -35,7 +35,7 @@ public class ThrowingObjectController : MonoBehaviour
         {
             if (!isBreak)
             {
-                OnBreak(poison.FindAllobjects());
+                OnBreak();
             }
         }
         if (!collision.gameObject.TryGetComponent(out PlayerContoller player2))
@@ -57,14 +57,11 @@ public class ThrowingObjectController : MonoBehaviour
         }
     }
 
-    protected void OnBreak(Collider2D[] bodiesForEffect)
+    protected void OnBreak()
     {
         if (!poison.IsDrunk())
         {
-            foreach (var body in bodiesForEffect)
-            {
-                poison.DoEffectWithBody(body);
-            }
+            poison.DoEffectWithBody();
         }
     }
 

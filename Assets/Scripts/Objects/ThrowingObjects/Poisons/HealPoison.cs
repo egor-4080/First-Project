@@ -4,15 +4,10 @@ public class HealPoison : Potion
 {
     [SerializeField] private float healthPoints;
 
-    public override void DoEffectWithBody(Collider2D body)
+    public override void DoEffectWithBody()
     {
-        base.DoEffectWithBody(body);
-        if (body.TryGetComponent(out Health character))
-        {
-            character.HealCharacter(healthPoints);
-        }
+        base.DoWhenUseMotion();
     }
-
     public override void DoWhenUseMotion(PlayerContoller player)
     {
         base.DoWhenUseMotion(player);

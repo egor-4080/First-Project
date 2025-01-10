@@ -19,7 +19,6 @@ public class Item : MonoBehaviour
 
         private set
         {
-            //print("I worked");
             spriteRenderer.sprite = value;
             sprite = value;
             spriteChanged?.Invoke();
