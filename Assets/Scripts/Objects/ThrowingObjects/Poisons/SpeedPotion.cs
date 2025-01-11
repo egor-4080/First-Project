@@ -4,7 +4,7 @@ public class SpeedPotion : Potion
 {
     public override void DoEffectWithBody()
     {
-        base.DoWhenUseMotion();
+        base.DoEffectWithBody();
     }
 
     public override void DoWhenUseMotion(PlayerContoller player)

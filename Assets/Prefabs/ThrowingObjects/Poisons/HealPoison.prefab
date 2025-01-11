@@ -782,7 +782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89415c7df65c67a409ef504365f171ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effect: {fileID: 4630755996964659628, guid: 441d63fef9716cd439d5a7f236c1b7d2, type: 3}
+  effect: {fileID: 1385397397625925527, guid: e77bb5c592c4cb14588cc5660e1a6660, type: 3}
   healthPoints: 250
 --- !u!114 &-6909675263014928936
 MonoBehaviour:
