@@ -59,4 +59,15 @@ public abstract class Weapon : MonoBehaviour
     {
         fireEffect.SetActive(false);
     }
+
+    public void GetFastShoot(float fastShootTime)
+    {
+        fireRate /= 2;
+        Invoke(nameof(OffFastShoot), fastShootTime);
+    }
+
+    private void OffFastShoot()
+    {
+        fireRate *= 2;
+    }
 }

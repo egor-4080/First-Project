@@ -1,10 +1,9 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-public class HealPoison : Potion
-{ 
-    [SerializeField] private float healthSelfPoints;
-
+public class FastShootPotion : Potion
+{
     public override void DoEffectWithBody()
     {
         base.DoEffectWithBody();
@@ -15,7 +14,7 @@ public class HealPoison : Potion
 
         if (!isDrunk)
         {
-            player.GetComponent<Health>().HealCharacter(healthSelfPoints);
+            //player.GetComponent<PotionBoosts>().
         }
         isDrunk = true;
     }
