@@ -62,12 +62,12 @@ public abstract class Weapon : MonoBehaviour
 
     public void GetFastShoot(float fastShootTime)
     {
-        fireRate /= 2;
+        fireRate *= 2;
         Invoke(nameof(OffFastShoot), fastShootTime);
     }
 
     private void OffFastShoot()
     {
-        fireRate *= 2;
+        fireRate /= 2;
     }
 }

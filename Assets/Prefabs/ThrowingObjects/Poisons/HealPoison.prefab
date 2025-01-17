@@ -783,7 +783,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effect: {fileID: 1385397397625925527, guid: e77bb5c592c4cb14588cc5660e1a6660, type: 3}
-  healthPoints: 250
+  healthSelfPoints: 75
 --- !u!114 &-6909675263014928936
 MonoBehaviour:
   m_ObjectHideFlags: 0

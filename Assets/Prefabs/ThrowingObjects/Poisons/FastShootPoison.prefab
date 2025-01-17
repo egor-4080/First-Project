@@ -512,7 +512,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 0.1
   m_LinearDrag: 12
-  m_AngularDrag: 3
+  m_AngularDrag: 10000
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -555,7 +555,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -728,8 +728,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54254d3e89e51b04eb3faa1b4092b9b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  usedSprite: {fileID: 0}
-  canUse: 0
+  usedSprite: {fileID: 8953539512388984065, guid: f6b96eadd0432664189174f2274fb413, type: 3}
+  canUse: 1
 --- !u!1 &8665063613492372084
 GameObject:
   m_ObjectHideFlags: 0

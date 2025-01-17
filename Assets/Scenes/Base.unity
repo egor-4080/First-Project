@@ -10710,7 +10710,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2883047435446641272, guid: ab8400db244a7624ab16b3dc35aa2d97, type: 3}
       propertyPath: sceneViewId
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16677,7 +16677,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8242511389352958599, guid: 414d81ebe1c8a6d43ac9a6216fcb52e8, type: 3}
       propertyPath: sceneViewId
-      value: 1
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -52198,6 +52198,10 @@ PrefabInstance:
     - target: {fileID: 2453370864429349898, guid: 886c2bc59751d364db35e24cc369757a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3666735666873886404, guid: 886c2bc59751d364db35e24cc369757a, type: 3}
+      propertyPath: sceneViewId
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5153540299942515557, guid: 886c2bc59751d364db35e24cc369757a, type: 3}
       propertyPath: m_Name

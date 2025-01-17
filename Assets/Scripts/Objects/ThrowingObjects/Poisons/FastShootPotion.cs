@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FastShootPotion : Potion
 {
+    [SerializeField] private float fastShootTime;
+    
     public override void DoEffectWithBody()
     {
         base.DoEffectWithBody();
@@ -14,7 +16,7 @@ public class FastShootPotion : Potion
 
         if (!isDrunk)
         {
-            //player.GetComponent<PotionBoosts>().
+            player.GetComponentInChildren<Weapon>().GetFastShoot(fastShootTime);
         }
         isDrunk = true;
     }

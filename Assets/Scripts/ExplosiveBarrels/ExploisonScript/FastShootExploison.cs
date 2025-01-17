@@ -24,7 +24,7 @@ public class FastShootExploison : MonoBehaviour
         Collider2D[] objects = Physics2D.OverlapCircleAll(transform.position, radius);
         foreach (Collider2D collider in objects)
         {
-            collider.SendMessageUpwards("GetFastShoot", shootBoostTime, SendMessageOptions.DontRequireReceiver);
+            collider.GetComponentInChildren<Weapon>();
         }
     }
 }
