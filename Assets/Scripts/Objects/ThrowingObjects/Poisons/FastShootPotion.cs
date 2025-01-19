@@ -16,7 +16,7 @@ public class FastShootPotion : Potion
 
         if (!isDrunk)
         {
-            player.GetComponentInChildren<Weapon>().GetFastShoot(fastShootTime);
+            player.GetComponentInChildren<Weapon>().SetFastShoot(fastShootTime);
         }
         isDrunk = true;
     }

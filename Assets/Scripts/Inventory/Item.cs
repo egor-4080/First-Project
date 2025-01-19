@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,6 +9,7 @@ public class Item : MonoBehaviour
     [SerializeField] protected Sprite usedSprite;
     [SerializeField] public string NameOfItem { get; private set; }
     [SerializeField] private bool canUse;
+    [SerializeField] private TMP_Text helpText;
 
     private Sprite sprite;
     public Sprite Sprite
@@ -50,5 +52,10 @@ public class Item : MonoBehaviour
     private void ChangeSprite()
     {
         Sprite = usedSprite;
+    }
+
+    public void TurnHelpText(bool value)
+    {
+        helpText.gameObject.SetActive(value);
     }
 }

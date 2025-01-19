@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -22,9 +23,9 @@ public class FastShootExploison : MonoBehaviour
     private void GetEffectArround()
     {
         Collider2D[] objects = Physics2D.OverlapCircleAll(transform.position, radius);
-        foreach (Collider2D collider in objects)
-        {
-            collider.GetComponentInChildren<Weapon>();
-        }
+        objects.ToList()
+            .Select(collider => collider.GetComponentInChildren<Weapon>())
+            .Where(weapon => weapon != null)
+            .ToList().ForEach(weapon => weapon.SetFastShoot(shootBoostTime));
     }
 }

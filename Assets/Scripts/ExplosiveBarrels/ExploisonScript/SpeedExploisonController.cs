@@ -1,4 +1,6 @@
+using Photon.Realtime;
 using UnityEngine;
+using System.Linq;
 
 public class SpeedExploisonController : MonoBehaviour
 {
@@ -16,12 +18,9 @@ public class SpeedExploisonController : MonoBehaviour
     private void GiveSpeedEffectToCharacters()
     {
         objects = Physics2D.OverlapCircleAll(transform.position, radius);
-        foreach (Collider2D collider in objects)
-        {
-            if (collider.gameObject.TryGetComponent(out PlayerContoller player))
-            {
-                player.SpeedEffect();
-            }
-        }
+        objects.ToList()
+            .Select(collider => collider.GetComponent<PlayerContoller>())
+            .Where(player => player != null)
+            .ToList().ForEach(player => player.SpeedEffect());
     }
 }

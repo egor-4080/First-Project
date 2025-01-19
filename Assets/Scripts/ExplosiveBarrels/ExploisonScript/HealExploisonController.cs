@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -22,10 +23,9 @@ public class HealExploisonController : MonoBehaviour
     private void GetEffectArround()
     {
         Collider2D[] objects = Physics2D.OverlapCircleAll(transform.position, radius);
-        foreach (Collider2D collider in objects)
-        {
-            collider.TryGetComponent(out Weapon weapon);
-            weapon.SendMessageUpwards("");
-        }
+        objects.ToList()
+            .Select(collider => collider.GetComponent<Health>())
+            .Where(health => health != null)
+            .ToList().ForEach(health => health.HealCharacter(healBoost));
     }
 }

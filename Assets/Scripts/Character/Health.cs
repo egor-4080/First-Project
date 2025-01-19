@@ -14,9 +14,9 @@ public class Health : MonoBehaviour
     [SerializeField] private UnityEvent onDeath;
     [SerializeField] private int price;
 
-    public UnityEvent OnDeath => onDeath;
+    public UnityEvent OnDeath => onDeath; 
 
-    private Rigidbody2D rigitBody;
+    private PlayerLifesController lifesController;
     private Collider2D objectCollider;
     private AudioSource takeDamageSound;
     private PhotonView photon;
@@ -33,16 +33,20 @@ public class Health : MonoBehaviour
 
     private void Start()
     {
-        if(TryGetComponent(out Rigidbody2D rigitBody))
-        {
-            this.rigitBody = rigitBody;
-        }
         if (healthSlider != null)
         {
             healthSlider.maxValue = maxHealthPoints;
             healthSlider.value = healthSlider.maxValue;
         }
         currentHealthPoints = maxHealthPoints;
+        if (TryGetComponent(out PlayerContoller player))
+        {
+            lifesController = FindFirstObjectByType<PlayerLifesController>();
+            if (lifesController != null)
+            {
+                lifesController.Init(this);      
+            }
+        }
     }
 
     public void SetMaxHealth(string key)

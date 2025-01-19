@@ -11,13 +11,14 @@ public class PlayerSpawner : MonoBehaviourPunCallbacks
     [SerializeField] private GameObject playerPrefab;
     [SerializeField] private Camera MainCamera;
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
+    [SerializeField] private PlayerLifesController playerLifes;
     [SerializeField] private MenuSwitcher menuSwitcher;
     [SerializeField] private Transform content;
     [SerializeField] private WeaponManager weaponManager;
 
     private PlayerContoller playerScript;
     private PhotonView photon;
-    private float deathTimer;
+    private float deathTimer = 5;
 
     public static List<Transform> players { get; private set; } = new();
 
@@ -43,7 +44,11 @@ public class PlayerSpawner : MonoBehaviourPunCallbacks
 
     public void PlayerRespawn()
     {
-        deathTimer = deathTimer + 5;
+        playerLifes.TakeLifeAway();
+        if (playerLifes.GetCurrentLifes() == 0)
+        {
+            //доделать
+        }
         Invoke(nameof(Respawn), deathTimer);
     }
 

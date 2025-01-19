@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Linq;
 
 public class ExploisonController : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class ExploisonController : MonoBehaviour
     public void DamageExploison()
     {
         Collider2D[] blownedUpObjects = Physics2D.OverlapCircleAll(transform.position, explosionRadius);
+        blownedUpObjects.ToList()
+            .Select(collider => collider.GetComponent<Health>())
+            .Where(health => health != null);
         foreach (var blownedUpObject in blownedUpObjects)
         {
             blownedUpObject.SendMessageUpwards("IsHuman", false, SendMessageOptions.DontRequireReceiver);

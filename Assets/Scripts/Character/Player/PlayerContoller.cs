@@ -18,6 +18,7 @@ public class PlayerContoller : Character
     private bool fireActive;
     private bool isFacingRight;
     private bool isControl = true;
+    private bool isDead;
 
     private float angle;
 
@@ -41,6 +42,7 @@ public class PlayerContoller : Character
     private void Start()
     {
         if (!photonView.IsMine) return;
+        isDead = false;
         Cursor.SetCursor(cursor, new Vector2(12.5f, 20), CursorMode.Auto);
         spriteSettings.sortingOrder = 10;
     }
@@ -173,7 +175,7 @@ public class PlayerContoller : Character
 
     private void FixedUpdate()
     {
-        if (!photon.IsMine || !isControl)
+        if (!photon.IsMine || isDead)
         {
            rigitBody.velocity = Vector2.zero;
             return;
@@ -216,7 +218,8 @@ public class PlayerContoller : Character
         
         if (weapon)
             PhotonNetwork.Destroy(weapon.gameObject);
-            
+
+        isDead = true;
         animator.SetBool("IsDead", true);
         SetControl(false);
         playerSpawner.PlayerRespawn();
