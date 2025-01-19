@@ -1,6 +1,4 @@
 using Photon.Pun;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -18,23 +16,24 @@ public class BulletPool : MonoBehaviour
             createFunc: CreateBulletController,
             defaultCapacity: 5,
             actionOnRelease: OnReleaseBullet
-            );
+        );
     }
 
     public BulletController SpawnBullet(float damage, bool isFacingRight, Transform spawnPoint, float spreadAngle = 0)
     {
         BulletController bullet = objectPool.Get();
-        StartCoroutine(ReleaseBulletOnTime(bullet));
+        //StartCoroutine(ReleaseBulletOnTime(bullet));
 
         bullet.transform.position = spawnPoint.position;
-        bullet.transform.rotation = spawnPoint.rotation * Quaternion.Euler(0, 0, Random.Range(-spreadAngle / 2, spreadAngle / 2));
+        bullet.transform.rotation =
+            spawnPoint.rotation * Quaternion.Euler(0, 0, Random.Range(-spreadAngle / 2, spreadAngle / 2));
 
         int bulletID = bullet.GetComponent<PhotonView>().ViewID;
         bullet.InitBulletPool(this);
         photon.RPC(nameof(InitNetwork), RpcTarget.All, damage, isFacingRight, bulletID);
         return bullet;
     }
-    
+
     public void ReleaseBullet(BulletController bullet)
     {
         if (bullet.gameObject.activeSelf)
@@ -57,20 +56,13 @@ public class BulletPool : MonoBehaviour
             .GetComponent<BulletController>();
     }
 
-    private IEnumerator ReleaseBulletOnTime(BulletController bullet)
-    {
-        yield return new WaitForSeconds(0.28f);
-        if(bullet.gameObject.activeInHierarchy)
-            objectPool.Release(bullet);
-    }
-
     [PunRPC]
-    private void SetActiveToBullet(bool isActive, int bulletID, string id )
+    private void SetActiveToBullet(bool isActive, int bulletID, string id)
     {
         BulletController bulletController = PhotonView.Find(bulletID).GetComponent<BulletController>();
         bulletController.gameObject.SetActive(isActive);
     }
-    
+
     private void OnReleaseBullet(BulletController bullet)
     {
         int bulletID = bullet.GetComponent<PhotonView>().ViewID;

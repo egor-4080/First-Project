@@ -1,22 +1,39 @@
+using System.Collections;
 using Photon.Pun;
 using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
     [SerializeField] private float speed;
+    private BulletPool bulletPool;
+    private float damage;
+
+    private bool isFacing;
+    private PhotonView photon;
 
     private PlayerContoller player;
     private Rigidbody2D rigitbody;
-    private BulletPool bulletPool;
-    private PhotonView photon;
-
-    private bool isFacing;
-    private float damage;
 
     private void Awake()
     {
         rigitbody = GetComponent<Rigidbody2D>();
         photon = GetComponent<PhotonView>();
+    }
+
+    private void Start()
+    {
+        StartCoroutine(nameof(WaitForDespawn));
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (photon.IsMine)
+        {
+            StopCoroutine(nameof(WaitForDespawn));
+            collision.gameObject.SendMessageUpwards("IsHuman", true, SendMessageOptions.DontRequireReceiver);
+            collision.gameObject.SendMessageUpwards("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
+            bulletPool.ReleaseBullet(this);
+        }
     }
 
     public void Initializing(float damage, bool isFacing)
@@ -39,17 +56,14 @@ public class BulletController : MonoBehaviour
         {
             speed = -speed;
         }
+
         gameObject.transform.localScale = new Vector3(isFacing ? 1 : -1, 1, 1);
         rigitbody.velocity = transform.right * speed;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private IEnumerator WaitForDespawn()
     {
-        if (photon.IsMine)
-        {
-            collision.gameObject.SendMessageUpwards("IsHuman", true, SendMessageOptions.DontRequireReceiver);
-            collision.gameObject.SendMessageUpwards("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
-            bulletPool.ReleaseBullet(this);
-        }
+        yield return new WaitForSeconds(0.28f);
+        bulletPool.ReleaseBullet(this);
     }
 }
