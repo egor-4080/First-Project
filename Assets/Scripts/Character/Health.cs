@@ -1,10 +1,9 @@
+using ExitGames.Client.Photon;
 using Photon.Pun;
+using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
-using Photon.Realtime;
-using ExitGames.Client.Photon;
-using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
@@ -13,16 +12,16 @@ public class Health : MonoBehaviour
     [SerializeField] private UnityEvent onDamage;
     [SerializeField] private UnityEvent onDeath;
     [SerializeField] private int price;
-
-    public UnityEvent OnDeath => onDeath; 
+    private float currentHealthPoints;
+    private bool isHuman;
 
     private PlayerLifesController lifesController;
     private Collider2D objectCollider;
-    private AudioSource takeDamageSound;
     private PhotonView photon;
     private Player player;
-    private float currentHealthPoints;
-    private bool isHuman;
+    private AudioSource takeDamageSound;
+
+    public UnityEvent OnDeath => onDeath;
     public bool IsAlive { get; private set; } = true;
 
     private void Awake()
@@ -38,13 +37,14 @@ public class Health : MonoBehaviour
             healthSlider.maxValue = maxHealthPoints;
             healthSlider.value = healthSlider.maxValue;
         }
+
         currentHealthPoints = maxHealthPoints;
         if (TryGetComponent(out PlayerContoller player))
         {
             lifesController = FindFirstObjectByType<PlayerLifesController>();
             if (lifesController != null)
             {
-                lifesController.Init(this);      
+                lifesController.Init(this);
             }
         }
     }
@@ -59,16 +59,16 @@ public class Health : MonoBehaviour
     {
         this.isHuman = isHuman;
     }
-    
+
     private void UpdateHPBar()
     {
-        if(healthSlider != null)
+        if (healthSlider != null)
         {
             healthSlider.gameObject.SetActive(true);
             healthSlider.value = currentHealthPoints;
         }
     }
-    
+
     public void TakeDamage(float takenDamage)
     {
         if (IsAlive && isHuman && currentHealthPoints - takenDamage <= 0)
@@ -79,9 +79,10 @@ public class Health : MonoBehaviour
             playerProperties["Score"] = score;
             player.SetCustomProperties(playerProperties);
         }
+
         photon.RPC(nameof(NetworkDamage), RpcTarget.All, takenDamage);
     }
-    
+
     [PunRPC]
     public void NetworkDamage(float takenDamage)
     {
@@ -93,13 +94,19 @@ public class Health : MonoBehaviour
             {
                 takeDamageSound.Play();
             }
+
             if (currentHealthPoints <= 0)
             {
                 onDeath.Invoke();
+                healthSlider.gameObject.SetActive(false);
+                GetComponent<Collider2D>().isTrigger = true;
                 IsAlive = false;
                 objectCollider.isTrigger = true;
             }
-            UpdateHPBar();
+            else
+            {
+                UpdateHPBar();
+            }
         }
     }
 
@@ -110,6 +117,7 @@ public class Health : MonoBehaviour
         {
             currentHealthPoints = maxHealthPoints;
         }
+
         UpdateHPBar();
     }
 
