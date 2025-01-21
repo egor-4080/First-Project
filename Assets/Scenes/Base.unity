@@ -2293,7 +2293,7 @@ MonoBehaviour:
   timer: {fileID: 2073230375}
   coinManager: {fileID: 0}
   spawnTime: 2
-  countEnemy: 3
+  countEnemy: 1
   dictionaryName: EnemyDictionary
   staticNames:
   - speedForce
