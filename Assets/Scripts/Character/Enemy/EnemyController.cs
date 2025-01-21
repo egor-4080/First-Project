@@ -1,21 +1,20 @@
-using Photon.Pun;
-using Photon.Realtime;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyController : Character
 {
     [SerializeField] private GameObject hpBar;
+    private NavMeshAgent agent;
+    private Animator animator;
 
     private Transform player;
-    private NavMeshAgent agent;
     private List<Transform> players;
-    private Animator animator;
+    private int setScale;
 
     private float startScaleX;
     private float startScaleY;
-    private int setScale;
 
     protected override void Awake()
     {
@@ -33,6 +32,26 @@ public class EnemyController : Character
     private void Start()
     {
         FindMasterToStartMoving();
+    }
+
+    private void Update()
+    {
+        FindNearestPlayer();
+        if (player != null)
+        {
+            if (transform.position.x - player.position.x > 0)
+            {
+                setScale = -1;
+            }
+            else
+            {
+                setScale = 1;
+            }
+
+            transform.localScale = new Vector3(setScale * startScaleX, startScaleY, 1);
+            hpBar.transform.localScale = new Vector3(setScale * 1, 1, 1);
+            agent.SetDestination(player.position);
+        }
     }
 
     public void InitSettings()
@@ -53,33 +72,9 @@ public class EnemyController : Character
         {
             enabled = true;
         }
+
         startScaleX = transform.localScale.x;
         startScaleY = transform.localScale.y;
-    }
-
-    private void Update()
-    {
-        FindNearestPlayer();
-        if (player != null)
-        {
-            if (transform.position.x - player.position.x > 0)
-            {
-                setScale = -1;
-            }
-            else
-            {
-                setScale = 1;
-            }
-            transform.localScale = new Vector3(setScale * startScaleX, startScaleY, 1);
-            hpBar.transform.localScale = new Vector3(setScale * 1, 1, 1);
-            agent.SetDestination(player.position);
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        collision.gameObject.SendMessageUpwards("IsHuman", false, SendMessageOptions.DontRequireReceiver);
-        collision.gameObject.SendMessageUpwards("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
     }
 
     public override void OnDeath()
@@ -112,6 +107,7 @@ public class EnemyController : Character
                 }
             }
         }
+
         this.player = nearestPlayer;
     }
 }
