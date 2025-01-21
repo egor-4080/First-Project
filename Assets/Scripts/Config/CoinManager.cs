@@ -4,9 +4,9 @@ public class CoinManager : MonoBehaviour
 {
     private float currentMoney; //должен взять деньги из базы данных
 
-    public void TakeMoney(float tookedMoney)
+    public void AddMoney(float addedMoney)
     {
-        currentMoney += tookedMoney;
+        currentMoney += addedMoney;
     }
 
     public bool CanBuySmth(float price)
@@ -14,6 +14,7 @@ public class CoinManager : MonoBehaviour
         if (currentMoney - price < 0)
             return false;
         else
-            return true;
+            currentMoney -= price;
+        return true;
     }
 }

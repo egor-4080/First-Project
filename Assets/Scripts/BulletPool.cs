@@ -57,7 +57,7 @@ public class BulletPool : MonoBehaviour
     }
 
     [PunRPC]
-    private void SetActiveToBullet(bool isActive, int bulletID, string id)
+    private void SetActiveToBullet(bool isActive, int bulletID)
     {
         BulletController bulletController = PhotonView.Find(bulletID).GetComponent<BulletController>();
         bulletController.gameObject.SetActive(isActive);
@@ -66,6 +66,6 @@ public class BulletPool : MonoBehaviour
     private void OnReleaseBullet(BulletController bullet)
     {
         int bulletID = bullet.GetComponent<PhotonView>().ViewID;
-        photon.RPC(nameof(SetActiveToBullet), RpcTarget.All, false, bulletID, PhotonNetwork.LocalPlayer.UserId);
+        photon.RPC(nameof(SetActiveToBullet), RpcTarget.All, false, bulletID);
     }
 }
