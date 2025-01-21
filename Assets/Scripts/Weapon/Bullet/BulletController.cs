@@ -20,7 +20,7 @@ public class BulletController : MonoBehaviour
         photon = GetComponent<PhotonView>();
     }
 
-    private void Start()
+    public void OnEnable()
     {
         StartCoroutine(nameof(WaitForDespawn));
     }

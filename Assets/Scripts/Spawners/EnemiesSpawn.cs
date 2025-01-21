@@ -1,6 +1,6 @@
+using System.Collections;
 using Photon.Pun;
 using Photon.Realtime;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,6 +9,7 @@ public class EnemiesSpawn : MonoBehaviourPunCallbacks
     [SerializeField] private Transform[] spawnPoints;
     [SerializeField] private GameObject[] enemy;
     [SerializeField] private TimerController timer;
+    [SerializeField] private CoinManager coinManager;
     [SerializeField] private float spawnTime;
     [SerializeField] private int countEnemy;
 
@@ -19,9 +20,9 @@ public class EnemiesSpawn : MonoBehaviourPunCallbacks
     [SerializeField] private float damageInc;
     [SerializeField] private float healthInc;
 
-    private GameObject currentEnemy;
-
     private int currentEnemies;
+
+    private GameObject currentEnemy;
     private bool isTimerActive;
 
     public UnityEvent newxtWave { get; private set; } = new();
@@ -44,6 +45,7 @@ public class EnemiesSpawn : MonoBehaviourPunCallbacks
         {
             return;
         }
+
         StartCoroutine(StartWaves());
     }
 
@@ -70,14 +72,16 @@ public class EnemiesSpawn : MonoBehaviourPunCallbacks
 
                 yield return new WaitForSeconds(spawnTime);
             }
+
             countEnemy += 2;
-            while(currentEnemies != 0)
+            while (currentEnemies != 0)
             {
                 yield return null;
             }
+
             timer.StartTimer(10);
             isTimerActive = true;
-            while(isTimerActive)
+            while (isTimerActive)
             {
                 yield return null;
             }
