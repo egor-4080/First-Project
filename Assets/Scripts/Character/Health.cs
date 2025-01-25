@@ -1,9 +1,9 @@
-using ExitGames.Client.Photon;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class Health : MonoBehaviour
 {
@@ -12,6 +12,7 @@ public class Health : MonoBehaviour
     [SerializeField] private UnityEvent onDamage;
     [SerializeField] private UnityEvent onDeath;
     [SerializeField] private int price;
+
     private float currentHealthPoints;
     private bool isHuman;
 
@@ -39,7 +40,7 @@ public class Health : MonoBehaviour
         }
 
         currentHealthPoints = maxHealthPoints;
-        if (TryGetComponent(out PlayerContoller player))
+        if (GetComponent<PlayerContoller>() != null)
         {
             lifesController = FindFirstObjectByType<PlayerLifesController>();
             if (lifesController != null)
