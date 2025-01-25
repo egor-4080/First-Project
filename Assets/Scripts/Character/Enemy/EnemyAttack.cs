@@ -6,9 +6,14 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] private float damage;
     [SerializeField] private float coolDown;
     [SerializeField] private float radius;
-    [SerializeField] private LayerMask layer;
-
     private bool canAttack = true;
+
+    private LayerMask layer;
+
+    private void Awake()
+    {
+        layer = LayerMask.NameToLayer("Player");
+    }
 
     private void FixedUpdate()
     {
@@ -24,7 +29,6 @@ public class EnemyAttack : MonoBehaviour
 
     private void OnSquareGetOnTrigger(Collider2D other)
     {
-        print("a");
         other.gameObject.SendMessageUpwards("IsHuman", false, SendMessageOptions.DontRequireReceiver);
         other.gameObject.SendMessageUpwards("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
         StartCoroutine(nameof(WaitForNextAttack));
