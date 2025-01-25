@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 5567293857075164966}
   - component: {fileID: -255410761558055903}
   m_Layer: 6
-  m_Name: Zombie
+  m_Name: zombie
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -342,9 +342,6 @@ MonoBehaviour:
   damage: 10
   coolDown: 1
   radius: 0.6
-  layer:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!114 &-816049011556650494
 MonoBehaviour:
   m_ObjectHideFlags: 0

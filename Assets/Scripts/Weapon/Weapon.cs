@@ -14,6 +14,7 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField] protected float spreadAngle;
     [SerializeField] private GameObject fireEffect;
     [SerializeField] private bool needEffect;
+
     private AudioSource fireAudio;
     private CinemachineImpulseSource impulseSource;
     private float lastFireTime;
@@ -27,6 +28,11 @@ public abstract class Weapon : MonoBehaviour
         impulseSource = GetComponent<CinemachineImpulseSource>();
         fireAudio = GetComponent<AudioSource>();
         photonView = GetComponent<PhotonView>();
+    }
+
+    protected virtual void Start()
+    {
+        AudioManager.instance.AddNewAudio(fireAudio, fireAudio.volume);
     }
 
     public void TryFire(bool isFacing)

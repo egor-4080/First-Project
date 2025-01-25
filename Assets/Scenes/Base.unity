@@ -17776,7 +17776,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5111295134071250609, guid: 9bd172e8dfc2b3d47b355e6a3e819d76, type: 3}
       propertyPath: m_Name
-      value: Slider
+      value: AudioSlider
       objectReference: {fileID: 0}
     - target: {fileID: 6432535735199894193, guid: 9bd172e8dfc2b3d47b355e6a3e819d76, type: 3}
       propertyPath: m_AnchorMax.x

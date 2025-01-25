@@ -236,8 +236,8 @@ GameObject:
   - component: {fileID: 3414055449785499152}
   - component: {fileID: 7355076889806809939}
   m_Layer: 5
-  m_Name: Slider
-  m_TagString: Untagged
+  m_Name: AudioSlider
+  m_TagString: AudioSlider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -277,7 +277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: -1
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
