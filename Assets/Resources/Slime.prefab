@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 5327320210927062667}
   - component: {fileID: 5964569782288152339}
   - component: {fileID: -1362313910928480400}
-  - component: {fileID: 4034071149698935048}
   - component: {fileID: 53063475916696596}
   - component: {fileID: -258620457978598700}
+  - component: {fileID: 4034071149698935048}
   - component: {fileID: -8108932768536596790}
   - component: {fileID: 5567293857075164966}
   - component: {fileID: -255410761558055903}
@@ -182,28 +182,6 @@ NavMeshAgent:
   m_BaseOffset: 0.07
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!95 &4034071149698935048
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4936253070689236506}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d9992542667b1e1468722a840a7f0843, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!82 &53063475916696596
 AudioSource:
   m_ObjectHideFlags: 0
@@ -316,6 +294,28 @@ MonoBehaviour:
   speedForce: 4.5
   damage: 3
   hpBar: {fileID: 2517093699779232682}
+--- !u!95 &4034071149698935048
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4936253070689236506}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d9992542667b1e1468722a840a7f0843, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &-8108932768536596790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -388,7 +388,19 @@ MonoBehaviour:
   healthSlider: {fileID: 0}
   onDamage:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onDeath:
     m_PersistentCalls:
       m_Calls:
@@ -419,6 +431,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1440422138438819082, guid: c7478a81cde222b42b29f1c3cb8e6881, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3042980848466382520, guid: c7478a81cde222b42b29f1c3cb8e6881, type: 3}
+      propertyPath: m_PresetInfoIsWorld
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4295628456484547013, guid: c7478a81cde222b42b29f1c3cb8e6881, type: 3}
