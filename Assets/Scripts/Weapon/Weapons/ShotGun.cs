@@ -15,6 +15,7 @@ public class ShotGun : Weapon
         animator = GetComponent<Animator>();
     }
 
+
     protected override void Fire(bool isFacing)
     {
         base.Fire(isFacing);

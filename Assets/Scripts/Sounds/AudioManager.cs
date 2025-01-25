@@ -1,17 +1,14 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
+    public static AudioManager instance;
     Dictionary<AudioSource, float> audioValues = new Dictionary<AudioSource, float>();
 
     private float currentValue = 1;
-
-    public static AudioManager instance;
 
     private void Awake()
     {
@@ -29,7 +26,7 @@ public class AudioManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mod)
     {
-        Slider slider = FindFirstObjectByType<Slider>();
+        Slider slider = GameObject.FindWithTag("AudioSlider").GetComponent<Slider>();
         slider.onValueChanged.AddListener(AudioChanger);
     }
 
@@ -52,12 +49,17 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void AddNewAudio(AudioSource newAudio, float value)
+    {
+        audioValues.Add(newAudio, value);
+    }
+
     public void AudioChanger(float value)
     {
         currentValue = value;
         foreach (var audio in audioValues)
         {
-            if(audio.Key != null)
+            if (audio.Key != null)
             {
                 audio.Key.volume = audio.Value * currentValue;
             }
