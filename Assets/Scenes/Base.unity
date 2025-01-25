@@ -2289,9 +2289,9 @@ MonoBehaviour:
   - {fileID: 49254304}
   - {fileID: 1317832163}
   enemy:
-  - {fileID: 4936253070689236506, guid: 34f1544773e26bc49ae0125b0a61dca5, type: 3}
+  - {fileID: 4936253070689236506, guid: 4abd8e97f175d6943ac09604623aeaeb, type: 3}
   timer: {fileID: 2073230375}
-  coinManager: {fileID: 0}
+  coinManager: {fileID: 794121377}
   spawnTime: 2
   countEnemy: 1
   dictionaryName: EnemyDictionary

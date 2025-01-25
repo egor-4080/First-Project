@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ZonmbieAnimator
+  m_Controller: {fileID: 9100000, guid: d9992542667b1e1468722a840a7f0843, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: b1ca8c3d460481b4d856c3a1eff122c2, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: b1ca8c3d460481b4d856c3a1eff122c2, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 6b0b387a91935a84db7cfa4b8424d3ef, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: cfe4f6e43ccde1e47a3d91c4a89d3aca, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 99c799b5d0d5b0a45aa7a132d425e644, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: f994219a1bd7bd64eaed283b9837b4f5, type: 2}
