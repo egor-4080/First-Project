@@ -439,7 +439,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 150}
-  m_SizeDelta: {x: 300, y: 80}
+  m_SizeDelta: {x: 300, y: 125.06}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &230944666
 MonoBehaviour:
@@ -517,8 +517,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -6305188915240213195, guid: 9288aa9155c32d74f97bfa469c0ad912, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -8506,6 +8506,7 @@ MonoBehaviour:
   playerPrefab: {fileID: 2968128211607249714, guid: f93dd2ae2c68aaf43873c176ef3faecb, type: 3}
   MainCamera: {fileID: 7265708228255946126}
   virtualCamera: {fileID: 4422182247848999842}
+  playerLifes: {fileID: 0}
   menuSwitcher: {fileID: 1665673370}
   content: {fileID: 2577365391714658566}
   weaponManager: {fileID: 737249829}
@@ -40176,7 +40177,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 150}
-  m_SizeDelta: {x: 300, y: 80}
+  m_SizeDelta: {x: 300, y: 125.059}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1975842340
 MonoBehaviour:
@@ -40254,8 +40255,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -6305188915240213195, guid: 9288aa9155c32d74f97bfa469c0ad912, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4

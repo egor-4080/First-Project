@@ -3,6 +3,8 @@ using Photon.Pun;
 using UnityEngine;
 
 [RequireComponent(typeof(CinemachineImpulseSource))]
+[RequireComponent(typeof(PhotonView))]
+[RequireComponent(typeof(AudioSource))]
 public abstract class Weapon : MonoBehaviour
 {
     [SerializeField] private GameObject bulletPrefab;
