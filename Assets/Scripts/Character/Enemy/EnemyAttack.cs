@@ -1,4 +1,5 @@
 using System.Collections;
+using Photon.Pun;
 using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
@@ -7,12 +8,20 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] private float coolDown;
     [SerializeField] private float radius;
     [SerializeField] private LayerMask layer;
-
     private bool canAttack = true;
+
+    private PhotonView photon;
+    private float saveDamage;
 
     private void Awake()
     {
+        photon = GetComponent<PhotonView>();
         LocalInit();
+    }
+
+    private void Start()
+    {
+        saveDamage = damage;
     }
 
     private void FixedUpdate()
@@ -24,6 +33,24 @@ public class EnemyAttack : MonoBehaviour
         foreach (var player in players)
         {
             OnSquareGetOnTrigger(player);
+        }
+    }
+
+    public void ChangeDamage(float damage)
+    {
+        photon.RPC(nameof(NetworkChange), RpcTarget.All, damage);
+    }
+
+    [PunRPC]
+    public void NetworkChange(float damage)
+    {
+        if (damage == -1)
+        {
+            this.damage = saveDamage;
+        }
+        else
+        {
+            this.damage = damage;
         }
     }
 
