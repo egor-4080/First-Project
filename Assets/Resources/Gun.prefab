@@ -289,7 +289,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 6454793202519278333, guid: 649175e7514a6fd4db5f7e183b92482c, type: 3}
   spawnPoint: {fileID: 1195725903039949938}
-  damage: 40
+  damage: 20
   fireRate: 0.2
   spreadAngle: 0
   fireEffect: {fileID: 3033326647720814642}
