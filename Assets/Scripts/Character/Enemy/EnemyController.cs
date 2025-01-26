@@ -20,13 +20,13 @@ public class EnemyController : Character
     {
         base.Awake();
 
-        InitSettings();
-
         animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
 
         agent.updateRotation = false;
         agent.updateUpAxis = false;
+
+        InitSettings();
     }
 
     private void Start()
@@ -58,7 +58,7 @@ public class EnemyController : Character
     {
         var dictionary = Config.instance.configStats["EnemyDictionary"];
         speedForce += dictionary["speedForce"];
-        damage += dictionary["damage"];
+        agent.speed = speedForce;
     }
 
     public void FindMasterToStartMoving()

@@ -310,7 +310,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedForce: 12
-  damage: 0
   cursor: {fileID: 2800000, guid: c3714c7dd544c0c4dac6ce70d7a7e282, type: 3}
   weaponSoket: {fileID: 7617828282208822911}
   cameraMain: {fileID: 0}

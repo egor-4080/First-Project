@@ -6,13 +6,13 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] private float damage;
     [SerializeField] private float coolDown;
     [SerializeField] private float radius;
-    private bool canAttack = true;
+    [SerializeField] private LayerMask layer;
 
-    private LayerMask layer;
+    private bool canAttack = true;
 
     private void Awake()
     {
-        layer = LayerMask.NameToLayer("Player");
+        LocalInit();
     }
 
     private void FixedUpdate()
@@ -25,6 +25,12 @@ public class EnemyAttack : MonoBehaviour
         {
             OnSquareGetOnTrigger(player);
         }
+    }
+
+    private void LocalInit()
+    {
+        var dictionary = Config.instance.configStats["EnemyDictionary"];
+        damage += dictionary["damage"];
     }
 
     private void OnSquareGetOnTrigger(Collider2D other)

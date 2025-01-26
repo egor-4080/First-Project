@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: -8108932768536596790}
   - component: {fileID: 5567293857075164966}
   - component: {fileID: -255410761558055903}
+  - component: {fileID: 4903567521952010204}
   m_Layer: 6
   m_Name: zombie
   m_TagString: Enemy
@@ -180,12 +181,12 @@ NavMeshAgent:
   m_GameObject: {fileID: 4936253070689236506}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.1
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 10
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_Radius: 0.9
+  m_Speed: 4
+  m_Acceleration: 25
+  avoidancePriority: 15
+  m_AngularSpeed: 360
+  m_StoppingDistance: 0.9
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -324,8 +325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37230459c72b1f54ab18c5eec3b255ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedForce: 3
-  damage: 15
+  speedForce: 4
   hpBar: {fileID: 2517093699779232682}
 --- !u!114 &3585381410908049036
 MonoBehaviour:
@@ -339,9 +339,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90680c866d206c5498e18d2bb913b6ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
-  coolDown: 1
+  damage: 30
+  coolDown: 1.3
   radius: 0.6
+  layer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!114 &-816049011556650494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -354,7 +357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a488209078146e147a49b22b371154e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealthPoints: 180
+  maxHealthPoints: 250
   healthSlider: {fileID: 3635586106989489892}
   onDamage:
     m_PersistentCalls:
@@ -386,7 +389,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  price: 0
+  price: 15
 --- !u!114 &-8108932768536596790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,6 +411,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 5567293857075164966}
   - {fileID: -255410761558055903}
+  - {fileID: 4903567521952010204}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -443,6 +447,30 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 1
   m_UseLocal: 1
+--- !u!114 &4903567521952010204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4936253070689236506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 0
+    Name: isDeath
+  - Type: 9
+    SynchronizeType: 0
+    Name: Hit
+  m_SynchronizeLayers:
+  - SynchronizeType: 0
+    LayerIndex: 0
 --- !u!1001 &3900597243052092079
 PrefabInstance:
   m_ObjectHideFlags: 0

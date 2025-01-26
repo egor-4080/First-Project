@@ -320,8 +320,6 @@ GameObject:
   - component: {fileID: 8552286212021416953}
   - component: {fileID: 7083801198640269220}
   - component: {fileID: 1633446887503757143}
-  - component: {fileID: 7483980345500914536}
-  - component: {fileID: 7429201811588413507}
   m_Layer: 0
   m_Name: TX Props Altar
   m_TagString: Untagged
@@ -446,38 +444,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 1.1}
   m_Radius: 1.25
---- !u!114 &7483980345500914536
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8002627036998865085}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 0
-  m_Area: 0
-  m_IgnoreFromBuild: 0
-  m_AffectedAgents: ffffffff
---- !u!114 &7429201811588413507
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8002627036998865085}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 0
-  m_Area: 0
-  m_IgnoreFromBuild: 1
-  m_AffectedAgents: ffffffff
 --- !u!1001 &720382431089456118
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -820,7 +786,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: TX Props Barrel
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8118250131329075645, guid: b4fcef9f1e4788a428fb4e0fb584eb89, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -1286,35 +1253,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: TX Props Barrel (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8118250131329075645, guid: b4fcef9f1e4788a428fb4e0fb584eb89, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 9061287248415280389, guid: b4fcef9f1e4788a428fb4e0fb584eb89, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4436851091999811240}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4fcef9f1e4788a428fb4e0fb584eb89, type: 3}
---- !u!1 &564722419564270588 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9061287248415280389, guid: b4fcef9f1e4788a428fb4e0fb584eb89, type: 3}
-  m_PrefabInstance: {fileID: 8797329638037790457}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &4436851091999811240
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 564722419564270588}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 0
-  m_Area: 0
-  m_IgnoreFromBuild: 0
-  m_AffectedAgents: ffffffff
 --- !u!4 &1107930056561687757 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8464036345542894132, guid: b4fcef9f1e4788a428fb4e0fb584eb89, type: 3}
