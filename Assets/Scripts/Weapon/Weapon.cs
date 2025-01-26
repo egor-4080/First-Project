@@ -20,7 +20,7 @@ public abstract class Weapon : MonoBehaviour
     private float lastFireTime;
     protected BulletPool objectPool;
 
-    protected PhotonView photonView;
+    private PhotonView photonView;
 
     protected virtual void Awake()
     {
