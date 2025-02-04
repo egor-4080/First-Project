@@ -1,55 +1,71 @@
 using System.Collections;
+using Photon.Pun;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class BlackOut : MonoBehaviour
 {
-    [SerializeField] private Rooms roooms;
+    [SerializeField] private UnityEvent OnBlackOutEnded;
 
     private Image image;
+    private PhotonView photon;
 
     private void Awake()
     {
         image = GetComponent<Image>();
+        photon = GetComponent<PhotonView>();
     }
 
     private void Start()
     {
-        if (SceneManager.GetActiveScene().name == "Menu") return;
         StartCoroutine(nameof(SetDayBreak));
     }
 
     public void StartSettingBlackOut()
     {
+        print(photon);
+        if (photon != null)
+            photon.RPC(nameof(StartNetworkBlackOut), RpcTarget.All);
+        else
+            StartCoroutine(nameof(SetBlackOut));
+    }
+
+    [PunRPC]
+    public void StartNetworkBlackOut()
+    {
         StartCoroutine(nameof(SetBlackOut));
     }
-
-    private IEnumerator SetBlackOut()
-    {
-        float a = 0;
-
-        while (a < 1)
-        {
-            a += Time.deltaTime;
-            image.color = new Color(0, 0, 0, a);
-            yield return null;
-        }
-
-        roooms.QuickGame();
-    }
-
+    
     private IEnumerator SetDayBreak()
     {
-        float a = 1;
-
-        while (a > 0)
+        const float TIME = 1;
+        float time = TIME;
+        while (time > 0)
         {
-            a -= Time.deltaTime;
-            image.color = new Color(0, 0, 0, a);
+            time -= Time.deltaTime;
+            image.color = new Color(0, 0, 0, time);
+            yield return null;
+        }
+    }
+    
+    private IEnumerator SetBlackOut()
+    {
+        const float TIME = 0;
+        float time = TIME;
+        while (time < 1)
+        {
+            time += Time.deltaTime;
+            image.color = new Color(0, 0, 0, time);
             yield return null;
         }
 
-        Destroy(gameObject);
+        if (PhotonNetwork.IsMasterClient || !photon)
+        {
+            OnBlackOutEnded?.Invoke();
+        }
     }
 }
