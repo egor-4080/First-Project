@@ -10,6 +10,7 @@ public class EnemiesSpawn : MonoBehaviourPunCallbacks
     [SerializeField] private GameObject[] enemy;
     [SerializeField] private TimerController timer;
     [SerializeField] private CoinManager coinManager;
+    [SerializeField] private GodMode godMode;
     [SerializeField] private float spawnTime;
     [SerializeField] private int countEnemy;
 
@@ -49,6 +50,14 @@ public class EnemiesSpawn : MonoBehaviourPunCallbacks
         StartCoroutine(StartWaves());
     }
 
+    private void OnGodMode(EnemyAttack enemyAttack)
+    {
+        if (godMode.setter)
+        {
+            enemyAttack.ChangeDamage(0);
+        }
+    }
+
     private IEnumerator StartWaves()
     {
         var dictionary = Config.instance.configStats[dictionaryName];
@@ -67,7 +76,8 @@ public class EnemiesSpawn : MonoBehaviourPunCallbacks
                     , currentEnemy.transform.rotation);
                 Health enemyHealth = enemyObject.GetComponent<Health>();
                 enemyHealth.SetMaxHealth(dictionaryName);
-
+                
+                OnGodMode(enemyObject.GetComponent<EnemyAttack>());
                 enemyHealth.OnDeath.AddListener(() => currentEnemies--);
 
                 yield return new WaitForSeconds(spawnTime);

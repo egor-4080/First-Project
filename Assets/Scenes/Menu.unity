@@ -837,6 +837,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2053811242591261678, guid: d925a6db89c9d6f49b319c186746063b, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2768104442039958290, guid: d925a6db89c9d6f49b319c186746063b, type: 3}
       propertyPath: sceneViewId
       value: 1

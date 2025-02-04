@@ -2828,6 +2828,7 @@ MonoBehaviour:
   - {fileID: 4936253070689236506, guid: 4abd8e97f175d6943ac09604623aeaeb, type: 3}
   timer: {fileID: 2073230375}
   coinManager: {fileID: 794121377}
+  godMode: {fileID: 1111980192}
   spawnTime: 2
   countEnemy: 1
   dictionaryName: EnemyDictionary
@@ -2836,7 +2837,7 @@ MonoBehaviour:
   - damage
   - maxHealthPoints
   speedInc: 0.1
-  damageInc: 1
+  damageInc: 0
   healthInc: 40
 --- !u!4 &1191608817
 Transform:
@@ -18645,6 +18646,14 @@ PrefabInstance:
     - target: {fileID: 168155086168153873, guid: d925a6db89c9d6f49b319c186746063b, type: 3}
       propertyPath: m_Name
       value: BlackOut
+      objectReference: {fileID: 0}
+    - target: {fileID: 168155086168153873, guid: d925a6db89c9d6f49b319c186746063b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2053811242591261678, guid: d925a6db89c9d6f49b319c186746063b, type: 3}
+      propertyPath: m_Color.a
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2768104442039958290, guid: d925a6db89c9d6f49b319c186746063b, type: 3}
       propertyPath: sceneViewId

@@ -1,11 +1,13 @@
+using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GodMode : MonoBehaviour
 {
+    public bool setter { get; private set; } = false;
+    
     private Image image;
-    private bool setter;
 
     private void Awake()
     {

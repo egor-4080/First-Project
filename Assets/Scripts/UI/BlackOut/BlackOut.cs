@@ -22,6 +22,7 @@ public class BlackOut : MonoBehaviour
 
     private void Start()
     {
+        image.color = new Color(0, 0, 0, 1);
         StartCoroutine(nameof(SetDayBreak));
     }
 
