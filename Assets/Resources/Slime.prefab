@@ -379,7 +379,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  price: 8
+  scorePrice: 12
+  coinPrice: 12
 --- !u!114 &-8108932768536596790
 MonoBehaviour:
   m_ObjectHideFlags: 0

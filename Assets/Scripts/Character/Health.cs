@@ -2,6 +2,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 
@@ -11,7 +12,8 @@ public class Health : MonoBehaviour
     [SerializeField] private Slider healthSlider;
     [SerializeField] private UnityEvent onDamage;
     [SerializeField] private UnityEvent onDeath;
-    [SerializeField] private int price;
+    [SerializeField] private int scorePrice;
+    [SerializeField] private int coinPrice;
 
     private float currentHealthPoints;
     private bool isHuman;
@@ -74,14 +76,25 @@ public class Health : MonoBehaviour
     {
         if (IsAlive && isHuman && currentHealthPoints - takenDamage <= 0)
         {
-            player = PhotonNetwork.LocalPlayer;
-            Hashtable playerProperties = player.CustomProperties;
-            int score = (int)playerProperties["Score"] + price;
-            playerProperties["Score"] = score;
-            player.SetCustomProperties(playerProperties);
+            ChangeMoney();
+            ChangeScore();
         }
 
         photon.RPC(nameof(NetworkDamage), RpcTarget.All, takenDamage);
+    }
+
+    private void ChangeScore()
+    {
+        player = PhotonNetwork.LocalPlayer;
+        Hashtable playerProperties = player.CustomProperties;
+        int score = (int)playerProperties["Score"] + scorePrice;
+        playerProperties["Score"] = score;
+        player.SetCustomProperties(playerProperties);
+    }
+
+    private void ChangeMoney()
+    {
+        CoinManager.Instanse.AddMoney(coinPrice);
     }
 
     [PunRPC]

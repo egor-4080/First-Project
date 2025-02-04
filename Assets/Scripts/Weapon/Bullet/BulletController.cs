@@ -22,7 +22,10 @@ public class BulletController : MonoBehaviour
 
     public void OnEnable()
     {
-        StartCoroutine(nameof(WaitForDespawn));
+        if (photon.IsMine)
+        {
+            StartCoroutine(nameof(WaitForDespawn));
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
