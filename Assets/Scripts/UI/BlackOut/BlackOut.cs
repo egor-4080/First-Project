@@ -28,7 +28,6 @@ public class BlackOut : MonoBehaviour
 
     public void StartSettingBlackOut()
     {
-        print(photon);
         if (photon != null)
             photon.RPC(nameof(StartNetworkBlackOut), RpcTarget.All);
         else
