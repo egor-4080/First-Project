@@ -185,7 +185,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3787769444816976813
 CanvasRenderer:
@@ -235,6 +235,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3414055449785499152}
   - component: {fileID: 7355076889806809939}
+  - component: {fileID: 4230881478281777100}
   m_Layer: 5
   m_Name: AudioSlider
   m_TagString: AudioSlider
@@ -311,7 +312,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.5
+  m_Value: 0.2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -327,6 +328,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4230881478281777100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5111295134071250609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8348c58127f755d4486f43c7e2418f06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5122726316550312379
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,8 +373,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -20, y: 0}
+  m_AnchoredPosition: {x: -0.19949341, y: 0}
+  m_SizeDelta: {x: -19.6011, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &8189977088656117966
 GameObject:
@@ -397,5 +410,5 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
   m_AnchoredPosition: {x: -5, y: 0}
-  m_SizeDelta: {x: -20, y: 0}
+  m_SizeDelta: {x: -20, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
