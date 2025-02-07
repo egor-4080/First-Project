@@ -11,6 +11,7 @@ TagManager:
   - Timer
   - LeadersData
   - AudioSlider
+  - NetworkData
   layers:
   - Default
   - TransparentFX
