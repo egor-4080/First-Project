@@ -2537,7 +2537,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1757710071}
-  - component: {fileID: 1757710070}
   - component: {fileID: 1757710069}
   m_Layer: 0
   m_Name: NetworkData
@@ -2594,21 +2593,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 0
---- !u!114 &1757710070
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1757710068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27cc9583941d56b44843c5c3c83f50d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pvCache: {fileID: 0}
-  networkTogle: {fileID: 0}
-  isOn: 0
 --- !u!224 &1757710071
 RectTransform:
   m_ObjectHideFlags: 0

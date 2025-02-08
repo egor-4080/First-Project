@@ -19,7 +19,10 @@ public class Lobby : MonoBehaviourPunCallbacks
 
     public override void OnConnectedToMaster()
     {
-        PhotonNetwork.JoinLobby();
+        if (!PhotonNetwork.OfflineMode)
+        {
+            PhotonNetwork.JoinLobby();
+        }
     }
 
     public override void OnJoinedLobby()

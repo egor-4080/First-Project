@@ -10,7 +10,8 @@ public class CoinManager : MonoBehaviour
     [SerializeField] private TMP_Text coinText;
 
     public static CoinManager Instanse;
-    
+
+    private AudioSource audio;
     private float currentMoney;
 
     private void Awake()
@@ -25,6 +26,13 @@ public class CoinManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        audio = GetComponent<AudioSource>();
+    }
+
+    public void PlayAudio()
+    {
+        audio.Play();
     }
 
     public void AddMoney(float addedMoney)
@@ -32,7 +40,7 @@ public class CoinManager : MonoBehaviour
         ChangeMoney(addedMoney);
     }
 
-    public bool CanBuy(float price)
+    public bool TryBuy(float price)
     {
         if (currentMoney - price < 0)
             return false;

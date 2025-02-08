@@ -11,11 +11,14 @@ public class WeaponManager : MonoBehaviourPunCallbacks
     [SerializeField] private Weapon[] weapons;
 
     private Weapon currentWeapon;
+    private GameObject equipedWeapon;
     private PlayerContoller ownerPlayerConrollter;
     private PhotonView managerPhotonView;
+    private AudioSource audioSource;
 
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         managerPhotonView = GetComponent<PhotonView>();
     }
 
@@ -38,11 +41,39 @@ public class WeaponManager : MonoBehaviourPunCallbacks
 
         var weapon =
             PhotonNetwork.Instantiate(currentWeapon.gameObject.name, Vector2.zero, Quaternion.identity);
+        equipedWeapon = weapon;
         var weaponPhotonView = weapon.GetComponent<PhotonView>();
         var idWeapon = weaponPhotonView.ViewID;
+        CreateSwapWeaponSound();
 
         var playerId = ownerPlayerConrollter.GetComponent<PhotonView>().ViewID;
         managerPhotonView.RPC(nameof(EquipWeapon), RpcTarget.AllBuffered, playerId, idWeapon);
+    }
+    
+    public void GiveWeapon(GameObject newWeapon)
+    {
+        if (CanGiveGun())
+        {
+            return;
+        }
+        Destroy(equipedWeapon.gameObject);
+        equipedWeapon = null;
+
+        var weapon =
+            PhotonNetwork.Instantiate(newWeapon.name, Vector2.zero, Quaternion.identity);
+        equipedWeapon = weapon;
+        currentWeapon = weapon.GetComponent<Weapon>();
+        var weaponPhotonView = weapon.GetComponent<PhotonView>();
+        var idWeapon = weaponPhotonView.ViewID;
+        CreateSwapWeaponSound();
+
+        var playerId = ownerPlayerConrollter.GetComponent<PhotonView>().ViewID;
+        managerPhotonView.RPC(nameof(EquipWeapon), RpcTarget.AllBuffered, playerId, idWeapon);
+    }
+
+    public void CreateSwapWeaponSound()
+    {
+        audioSource.Play();
     }
 
     [PunRPC]

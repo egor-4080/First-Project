@@ -10,7 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9e7add56c6dd1d43b24a1917ffd0710, type: 3}
-  m_Name: PistolItem
+  m_Name: Gun
   m_EditorClassIdentifier: 
-  prefab: {fileID: 3127447402875230206, guid: 190027e6bee1bc94cb72beacdd66d159, type: 3}
-  price: 10
+  prefab: {fileID: 3127447402875230206, guid: 4e7ad7be4d20e2a4097a9b2eb3823fca, type: 3}
+  weapon: {fileID: 0}
+  price: 200

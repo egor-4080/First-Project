@@ -60,6 +60,8 @@ public class PlayerContoller : Character
 
     private void Update()
     {
+        bool isMouseOverUI = IsMouseOverUI();
+        
         if(!photon.IsMine || !isControl)
         {
             return;
@@ -76,8 +78,7 @@ public class PlayerContoller : Character
         transform.localScale = new Vector3(isFacingRight ? 1 : -1, 1, 1);
         hpBar.transform.localScale = new Vector3(isFacingRight ? 1 : -1, 1, 1);
         RotateGun();
-
-        bool isMouseOverUI = IsMouseOverUI();
+        
 
         if(isMouseOverUI)
         {

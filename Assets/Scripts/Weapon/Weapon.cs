@@ -33,6 +33,7 @@ public abstract class Weapon : MonoBehaviour
     protected virtual void Start()
     {
         AudioManager.instance.AddNewAudio(fireAudio, fireAudio.volume);
+        transform.rotation = new Quaternion(0, 0, 0, 0);
     }
 
     public void TryFire(bool isFacing)
