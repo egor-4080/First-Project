@@ -61,7 +61,7 @@ public class BulletController : MonoBehaviour
         }
 
         gameObject.transform.localScale = new Vector3(isFacing ? 1 : -1, 1, 1);
-        rigitbody.velocity = transform.right * speed;
+        rigitbody.linearVelocity = transform.right * speed;
     }
 
     private IEnumerator WaitForDespawn()
