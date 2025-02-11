@@ -52,23 +52,8 @@ public class WeaponManager : MonoBehaviourPunCallbacks
     
     public void GiveWeapon(GameObject newWeapon)
     {
-        if (CanGiveGun())
-        {
-            return;
-        }
-        Destroy(equipedWeapon.gameObject);
-        equipedWeapon = null;
-
-        var weapon =
-            PhotonNetwork.Instantiate(newWeapon.name, Vector2.zero, Quaternion.identity);
-        equipedWeapon = weapon;
-        currentWeapon = weapon.GetComponent<Weapon>();
-        var weaponPhotonView = weapon.GetComponent<PhotonView>();
-        var idWeapon = weaponPhotonView.ViewID;
-        CreateSwapWeaponSound();
-
-        var playerId = ownerPlayerConrollter.GetComponent<PhotonView>().ViewID;
-        managerPhotonView.RPC(nameof(EquipWeapon), RpcTarget.AllBuffered, playerId, idWeapon);
+        currentWeapon = newWeapon.GetComponent<Weapon>();
+        GiveWeapon();
     }
 
     public void CreateSwapWeaponSound()

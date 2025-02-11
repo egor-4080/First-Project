@@ -96,6 +96,11 @@ public class PlayerContoller : Character
 
     public void SetWeapon(Weapon weapon)
     {
+        if (this.weapon != null && photon.IsMine)
+        {
+            PhotonNetwork.Destroy(this.weapon.gameObject);
+        }
+
         this.weapon = weapon;
         weapon.transform.SetParent(weaponSoket);
         weapon.transform.localPosition = Vector3.zero;
