@@ -72,9 +72,9 @@ public class PlayerSpawner : MonoBehaviourPunCallbacks
         virtualCamera.Follow = player.transform;
         players.Add(player.transform);
         AudioManager audioManager = AudioManager.instance;
-        audioManager.OnNewAudiosAppeared();
         weaponManager.SetOwnerPlayer(playerScript);
         weaponManager.GiveWeapon();
         photon.RPC(nameof(GetPlayers), RpcTarget.MasterClient);
+        audioManager.OnNewAudiosAppeared();
     }
 }

@@ -52,6 +52,7 @@ public class WeaponManager : MonoBehaviourPunCallbacks
     
     public void GiveWeapon(GameObject newWeapon)
     {
+        AudioManager.instance.OnNewAudiosAppeared();
         currentWeapon = newWeapon.GetComponent<Weapon>();
         GiveWeapon();
     }

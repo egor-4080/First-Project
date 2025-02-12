@@ -32,7 +32,6 @@ public abstract class Weapon : MonoBehaviour
 
     protected virtual void Start()
     {
-        AudioManager.instance.AddNewAudio(fireAudio, fireAudio.volume);
         transform.rotation = new Quaternion(0, 0, 0, 0);
     }
 
@@ -48,6 +47,7 @@ public abstract class Weapon : MonoBehaviour
     protected virtual void Fire(bool isFacing)
     {
         impulseSource.GenerateImpulse();
+        fireAudio.Play();
         if (needEffect)
         {
             photonView.RPC(nameof(OnEffect), RpcTarget.All);
@@ -57,7 +57,6 @@ public abstract class Weapon : MonoBehaviour
     [PunRPC]
     public void OnEffect()
     {
-        fireAudio.Play();
         fireEffect.SetActive(true);
         Invoke(nameof(OffEffect), 0.1f);
     }
