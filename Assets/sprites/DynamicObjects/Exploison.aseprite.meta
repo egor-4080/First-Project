@@ -105,6 +105,7 @@ ScriptedImporter:
     pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 0
@@ -126,6 +127,7 @@ ScriptedImporter:
     pivot: {x: 0.67391306, y: 0.6666667}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 203
@@ -146,6 +148,7 @@ ScriptedImporter:
     pivot: {x: 0.6086957, y: 0.6202532}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 102
@@ -166,6 +169,7 @@ ScriptedImporter:
     pivot: {x: 0.5777778, y: 0.43243244}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -186,6 +190,7 @@ ScriptedImporter:
     pivot: {x: 0.5777778, y: 0.4148936}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -206,6 +211,7 @@ ScriptedImporter:
     pivot: {x: 0.5913978, y: 0.34408602}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 102
@@ -226,6 +232,7 @@ ScriptedImporter:
     pivot: {x: 0.5913978, y: 0.26829267}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 102
@@ -250,48 +257,54 @@ ScriptedImporter:
     layerType: 0
     blendMode: 0
     cells:
-    - name: Exploison_Frame_0
+    - name: Frame_0
       frameIndex: 0
+      additiveSortOrder: 0
       cellRect:
         x: 33
         y: 38
         width: 46
         height: 39
       spriteId: 658379c3fb5e4c94eab1e4ac313ac518
-    - name: Exploison_Frame_1
+    - name: Frame_1
       frameIndex: 1
+      additiveSortOrder: 0
       cellRect:
         x: 8
         y: 15
         width: 92
         height: 79
       spriteId: 783ab44f929433e4c8f31bec2271e7e4
-    - name: Exploison_Frame_2
+    - name: Frame_2
       frameIndex: 2
+      additiveSortOrder: 0
       cellRect:
         x: 12
         y: 16
         width: 90
         height: 111
       spriteId: 4dc20157a9ee2ac40b4f0ae6b35ff848
-    - name: Exploison_Frame_3
+    - name: Frame_3
       frameIndex: 3
+      additiveSortOrder: 0
       cellRect:
         x: 12
         y: 25
         width: 90
         height: 94
       spriteId: e936e1bb9845b954fa21410ebde9a95a
-    - name: Exploison_Frame_4
+    - name: Frame_4
       frameIndex: 4
+      additiveSortOrder: 0
       cellRect:
         x: 9
         y: 32
         width: 93
         height: 93
       spriteId: d60eb93e271def24a903b004cb6245b3
-    - name: Exploison_Frame_5
+    - name: Frame_5
       frameIndex: 5
+      additiveSortOrder: 0
       cellRect:
         x: 9
         y: 42

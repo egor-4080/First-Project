@@ -183,15 +183,15 @@ public class PlayerContoller : Character
     {
         if (!photon.IsMine || isDead)
         {
-           rigitBody.velocity = Vector2.zero;
+           rigitBody.linearVelocity = Vector2.zero;
             return;
         }
         
 
-        rigitBody.velocity = direction * speedForce;
+        rigitBody.linearVelocity = direction * speedForce;
 
-        TurnByX = (int)rigitBody.velocity.x;
-        TurnByY = (int)rigitBody.velocity.y;
+        TurnByX = (int)rigitBody.linearVelocity.x;
+        TurnByY = (int)rigitBody.linearVelocity.y;
 
         animator.SetInteger("TurnX", TurnByX);
         animator.SetInteger("TurnY", TurnByY);

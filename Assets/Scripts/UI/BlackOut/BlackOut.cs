@@ -1,10 +1,7 @@
 using System.Collections;
 using Photon.Pun;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class BlackOut : MonoBehaviour

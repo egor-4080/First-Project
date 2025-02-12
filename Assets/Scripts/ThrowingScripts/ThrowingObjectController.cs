@@ -29,7 +29,7 @@ public class ThrowingObjectController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        rigitBody.drag = 20;
+        rigitBody.linearDamping = 20;
         objectsCollider.isTrigger = true;
         if (isPoison && !collision.gameObject.TryGetComponent(out PlayerContoller player1))
         {
@@ -79,7 +79,7 @@ public class ThrowingObjectController : MonoBehaviour
         }
         else
         {
-            rigitBody.velocity = direction * 20;
+            rigitBody.linearVelocity = direction * 20;
         }
     }
 
