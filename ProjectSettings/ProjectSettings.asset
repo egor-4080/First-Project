@@ -141,7 +141,8 @@ PlayerSettings:
   visionOSBundleVersion: 1.0
   tvOSBundleVersion: 1.0
   bundleVersion: 1.0
-  preloadedAssets: []
+  preloadedAssets:
+  - {fileID: 11400000, guid: 1a9887a268af1804690eb64c13450ce3, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -624,8 +625,8 @@ PlayerSettings:
     PS4: PHOTON_UNITY_NETWORKING;PUN_2_0_OR_NEWER;PUN_2_OR_NEWER;PUN_2_19_OR_NEWER
     PS5: PHOTON_UNITY_NETWORKING;PUN_2_0_OR_NEWER;PUN_2_OR_NEWER;PUN_2_19_OR_NEWER
     QNX: PHOTON_UNITY_NETWORKING;PUN_2_0_OR_NEWER;PUN_2_OR_NEWER;PUN_2_19_OR_NEWER
-    Standalone: PHOTON_UNITY_NETWORKING;PUN_2_0_OR_NEWER;PUN_2_OR_NEWER;PUN_2_19_OR_NEWER;PLUGIN_YG_2;RU_YG2;TMP_YG2;Authorization_yg;RewardedAdv_yg;Localization_yg;Leaderboards_yg;Review_yg;InterstitialAdv_yg;NJSON_YG2;Storage_yg
-    WebGL: PHOTON_UNITY_NETWORKING;PUN_2_0_OR_NEWER;PUN_2_OR_NEWER;PUN_2_19_OR_NEWER;PLUGIN_YG_2;Authorization_yg;AutoTranslateLangs_yg;EnvirData_yg;InterstitialAdv_yg;Leaderboards_yg;Localization_yg;QuitGameEvent_yg;Review_yg;RewardedAdv_yg;Storage_yg;TMP_YG2;YG_PLUGIN_YANDEX_GAME;RU_YG2;NJSON_YG2;NJSON_STORAGE_YG2;YandexGamesPlatform_yg
+    Standalone: PHOTON_UNITY_NETWORKING;PUN_2_0_OR_NEWER;PUN_2_OR_NEWER;PUN_2_19_OR_NEWER;PLUGIN_YG_2;RU_YG2;TMP_YG2;Authorization_yg;RewardedAdv_yg;Localization_yg;Leaderboards_yg;Review_yg;InterstitialAdv_yg;NJSON_YG2;Storage_yg;EnvirData_yg;QuitGameEvent_yg;Metrica_yg;YandexGamesPlatform_yg
+    WebGL: PHOTON_UNITY_NETWORKING;PUN_2_0_OR_NEWER;PUN_2_OR_NEWER;PUN_2_19_OR_NEWER;PLUGIN_YG_2;Authorization_yg;AutoTranslateLangs_yg;EnvirData_yg;InterstitialAdv_yg;Leaderboards_yg;Localization_yg;QuitGameEvent_yg;Review_yg;RewardedAdv_yg;Storage_yg;TMP_YG2;YG_PLUGIN_YANDEX_GAME;RU_YG2;NJSON_YG2;NJSON_STORAGE_YG2;Metrica_yg;YandexGamesPlatform_yg
     Windows Store Apps: PHOTON_UNITY_NETWORKING;PUN_2_0_OR_NEWER;PUN_2_OR_NEWER;PUN_2_19_OR_NEWER
     XboxOne: PHOTON_UNITY_NETWORKING;PUN_2_0_OR_NEWER;PUN_2_OR_NEWER;PUN_2_19_OR_NEWER
     iPhone: PHOTON_UNITY_NETWORKING;PUN_2_0_OR_NEWER;PUN_2_OR_NEWER;PUN_2_19_OR_NEWER

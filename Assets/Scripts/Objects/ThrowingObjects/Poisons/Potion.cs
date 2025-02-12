@@ -44,7 +44,7 @@ public class Potion : MonoBehaviour
     public virtual void DoWhenUseMotion()
     {
         item.Used();
-        rigidBody.isKinematic = true;
+        rigidBody.bodyType = RigidbodyType2D.Kinematic;
         gameObject.SetActive(true);
         StartCoroutine(DrunkEffect());
     }
@@ -70,6 +70,6 @@ public class Potion : MonoBehaviour
         drinkAudio.Play();
         yield return waitSound;
         gameObject.SetActive(false);
-        rigidBody.isKinematic = false;
+        rigidBody.bodyType = RigidbodyType2D.Dynamic;
     }
 }

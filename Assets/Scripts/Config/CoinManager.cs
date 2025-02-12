@@ -11,7 +11,7 @@ public class CoinManager : MonoBehaviour
 
     public static CoinManager Instanse;
 
-    private AudioSource audio;
+    private AudioSource audioSours;
     private float currentMoney;
 
     private void Awake()
@@ -27,12 +27,12 @@ public class CoinManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        audio = GetComponent<AudioSource>();
+        audioSours = GetComponent<AudioSource>();
     }
 
     public void PlayAudio()
     {
-        audio.Play();
+        audioSours.Play();
     }
 
     public void AddMoney(float addedMoney)
