@@ -52,6 +52,10 @@ public class EnemiesSpawn : MonoBehaviourPunCallbacks
 
     private void OnGodMode(EnemyAttack enemyAttack)
     {
+        if (enemyAttack == null)
+        {
+            enemyAttack = enemyAttack.gameObject.GetComponentInChildren<EnemyAttack>();
+        }
         if (godMode.setter)
         {
             enemyAttack.ChangeDamage(0);

@@ -16,6 +16,10 @@ public class EnemyAttack : MonoBehaviour
     private void Awake()
     {
         photon = GetComponent<PhotonView>();
+        if (photon == null)
+        {
+            photon = GetComponentInParent<PhotonView>();
+        }
         LocalInit();
     }
 
