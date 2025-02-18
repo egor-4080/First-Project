@@ -7,7 +7,6 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public abstract class Weapon : MonoBehaviour
 {
-    [SerializeField] private GameObject bulletPrefab;
     [SerializeField] protected Transform spawnPoint;
     [SerializeField] protected float damage;
     [SerializeField] protected float fireRate;

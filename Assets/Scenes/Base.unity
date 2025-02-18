@@ -3868,10 +3868,10 @@ MonoBehaviour:
   - {fileID: 49254304}
   - {fileID: 1317832163}
   enemy:
+  - {fileID: 4936253070689236506, guid: 672815d4a0f85754aac3b1d757907ad4, type: 3}
+  - {fileID: 4936253070689236506, guid: 4abd8e97f175d6943ac09604623aeaeb, type: 3}
   - {fileID: 4936253070689236506, guid: 34f1544773e26bc49ae0125b0a61dca5, type: 3}
   - {fileID: 4936253070689236506, guid: 5bc013ecec46f2c47a0da05e70106ae5, type: 3}
-  - {fileID: 4936253070689236506, guid: 4abd8e97f175d6943ac09604623aeaeb, type: 3}
-  - {fileID: 4936253070689236506, guid: 672815d4a0f85754aac3b1d757907ad4, type: 3}
   timer: {fileID: 2073230375}
   coinManager: {fileID: 794121377}
   godMode: {fileID: 1111980192}
@@ -13940,7 +13940,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3be9956e53613524fb7cc56040aa7fd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startWeapon: {fileID: 6328660390103685992, guid: 4e7ad7be4d20e2a4097a9b2eb3823fca, type: 3}
+  startWeapon: {fileID: 5244114328268040446, guid: 7646a100c173f894d9ca69faba3ffb10, type: 3}
   weapons: []
 --- !u!114 &1458860124
 MonoBehaviour:

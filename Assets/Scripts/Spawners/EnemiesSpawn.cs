@@ -52,10 +52,6 @@ public class EnemiesSpawn : MonoBehaviourPunCallbacks
 
     private void OnGodMode(EnemyAttack enemyAttack)
     {
-        if (enemyAttack == null)
-        {
-            enemyAttack = enemyAttack.gameObject.GetComponentInChildren<EnemyAttack>();
-        }
         if (godMode.setter)
         {
             enemyAttack.ChangeDamage(0);
@@ -80,8 +76,15 @@ public class EnemiesSpawn : MonoBehaviourPunCallbacks
                     , currentEnemy.transform.rotation);
                 Health enemyHealth = enemyObject.GetComponent<Health>();
                 enemyHealth.SetMaxHealth(dictionaryName);
-                
-                OnGodMode(enemyObject.GetComponent<EnemyAttack>());
+
+                if (enemyObject.GetComponent<EnemyAttack>() != null)
+                {
+                    OnGodMode(enemyObject.GetComponent<EnemyAttack>());
+                }
+                else
+                {
+                    OnGodMode(enemyObject.GetComponentInChildren<EnemyAttack>());
+                }
                 enemyHealth.OnDeath.AddListener(() => currentEnemies--);
 
                 yield return new WaitForSeconds(spawnTime);

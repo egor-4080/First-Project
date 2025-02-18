@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
@@ -29,6 +30,7 @@ public class Health : MonoBehaviour
 
     private void Awake()
     {
+        takeDamageSound = GetComponent<AudioSource>();
         photon = GetComponent<PhotonView>();
         objectCollider = GetComponent<Collider2D>();
     }
@@ -81,6 +83,12 @@ public class Health : MonoBehaviour
         }
 
         photon.RPC(nameof(NetworkDamage), RpcTarget.All, takenDamage);
+    }
+
+    public void TakeDamage(Dictionary<string, object> damageData)
+    {
+        IsHuman((bool)damageData["isHuman"]);
+        TakeDamage((float)damageData["damage"]);
     }
 
     private void ChangeScore()
