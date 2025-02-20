@@ -3868,10 +3868,7 @@ MonoBehaviour:
   - {fileID: 49254304}
   - {fileID: 1317832163}
   enemy:
-  - {fileID: 4936253070689236506, guid: 672815d4a0f85754aac3b1d757907ad4, type: 3}
   - {fileID: 4936253070689236506, guid: 4abd8e97f175d6943ac09604623aeaeb, type: 3}
-  - {fileID: 4936253070689236506, guid: 34f1544773e26bc49ae0125b0a61dca5, type: 3}
-  - {fileID: 4936253070689236506, guid: 5bc013ecec46f2c47a0da05e70106ae5, type: 3}
   timer: {fileID: 2073230375}
   coinManager: {fileID: 794121377}
   godMode: {fileID: 1111980192}
