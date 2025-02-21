@@ -23,7 +23,7 @@ public class LeaderDataController : MonoBehaviourPunCallbacks
     private void Start()
     {
         MakeData();
-        Invoke(nameof(GetDatas), 0.1f);
+        Invoke(nameof(WaitForGetDatas), 0.1f);
     }
 
     public PlayerData GetPlayerData(string name)
@@ -83,7 +83,13 @@ public class LeaderDataController : MonoBehaviourPunCallbacks
         {
             playersDatas.Add(child.GetComponent<PlayerData>());
         }
+        //Не вызываются метод
         NetworkChange();
+    }
+
+    private void WaitForGetDatas()
+    {
+        photon.RPC(nameof(GetDatas), RpcTarget.All);
     }
 
     private void MakeData()

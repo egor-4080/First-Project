@@ -27,11 +27,13 @@ public class Config : MonoBehaviour
 
     public void SetNewDictionary(string dictionaryName, string[] names)
     {
+        if(configStats.ContainsKey(dictionaryName))
+            return;
         configStats.Add(dictionaryName, new Dictionary<string, float>());
         for(int i = 0; i < names.Length; i++)
         {
             configStats[dictionaryName].Add(names[i], 0);
-            //Добавил в определенный словарь значения (damge, speed, health)
+            //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ (damge, speed, health)
         }
     }
 

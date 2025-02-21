@@ -1,4 +1,5 @@
 Authorization v1.0
+AutoTranslateLangs v1.001
 EnvirData v1.002
 InterstitialAdv v1.001
 Leaderboards v1.0
@@ -7,4 +8,3 @@ Metrica v1.01
 QuitGameEvent v1.001
 Review v1.0
 RewardedAdv v1.001
-Storage v1.01

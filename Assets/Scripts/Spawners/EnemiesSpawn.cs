@@ -32,6 +32,7 @@ public class EnemiesSpawn : MonoBehaviourPunCallbacks
     {
         timer.timerEnd.AddListener(() => isTimerActive = false);
         Config.instance.SetNewDictionary(dictionaryName, staticNames);
+        
         FindMasterToSpawn();
     }
 
@@ -61,6 +62,10 @@ public class EnemiesSpawn : MonoBehaviourPunCallbacks
     private IEnumerator StartWaves()
     {
         var dictionary = Config.instance.configStats[dictionaryName];
+        dictionary["damage"] = 0;
+        dictionary["speedForce"] = 0;
+        dictionary["maxHealthPoints"] = 0;
+        
         while (true)
         {
             currentEnemies = countEnemy;
