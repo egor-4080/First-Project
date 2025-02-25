@@ -1,3 +1,4 @@
+using System;
 using Photon.Pun;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,6 +20,7 @@ public class PlayerContoller : Character
     private bool isFacingRight;
     private bool isControl = true;
     private bool isDead;
+    private bool isMouseOverUI;
 
     private float angle;
 
@@ -79,15 +81,6 @@ public class PlayerContoller : Character
         hpBar.transform.localScale = new Vector3(isFacingRight ? 1 : -1, 1, 1);
         RotateGun();
         
-
-        if(isMouseOverUI)
-        {
-            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
-        }
-        else
-        {
-            Cursor.SetCursor(cursor, new Vector2(12.5f, 20), CursorMode.Auto);
-        }
         if (fireActive && isMouseOverUI == false)
         {
             weapon?.TryFire(isFacingRight);
@@ -105,7 +98,7 @@ public class PlayerContoller : Character
         weapon.transform.SetParent(weaponSoket);
         weapon.transform.localPosition = Vector3.zero;
     }
-
+    
     private bool IsMouseOverUI()
     {
         if (!photonView.IsMine) return false;

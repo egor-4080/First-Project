@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8c7358e1d6aeed3478d95d19fd5f5b74
+guid: 4315ebc6773085e40a43c7d94cf55c0f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4741238998031728956
-    second: DarkWizard2_0
+      213: 7501208484256458600
+    second: AdReward_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,13 +46,13 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
-  spritePivot: {x: 0.49999997, y: 0.5}
-  spritePixelsToUnits: 256
-  spriteBorder: {x: 0, y: 68, z: 0, w: 0}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -84,7 +84,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WebGL
+    buildTarget: Win64
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -109,27 +109,40 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DarkWizard2_0
+      name: AdReward_0
       rect:
         serializedVersion: 2
-        x: 82
-        y: 67
-        width: 88
-        height: 121
+        x: 0
+        y: 15
+        width: 64
+        height: 34
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c3109e0afb34cc140800000000000000
-      internalID: 4741238998031728956
+      spriteID: 867a0429f55a91860800000000000000
+      internalID: 7501208484256458600
       vertices: []
       indices: 
       edges: []
@@ -138,8 +151,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    spriteID: 
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -148,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      DarkWizard2_0: 4741238998031728956
+      AdReward_0: 7501208484256458600
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

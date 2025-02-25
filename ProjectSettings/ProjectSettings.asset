@@ -106,7 +106,7 @@ PlayerSettings:
   xboxEnableFitness: 0
   visibleInBackground: 1
   allowFullscreenSwitch: 1
-  fullscreenMode: 3
+  fullscreenMode: 1
   xboxSpeechDB: 0
   xboxEnableHeadOrientation: 0
   xboxEnableGuest: 0
@@ -624,7 +624,7 @@ PlayerSettings:
     PS4: PHOTON_UNITY_NETWORKING;PUN_2_0_OR_NEWER;PUN_2_OR_NEWER;PUN_2_19_OR_NEWER
     PS5: PHOTON_UNITY_NETWORKING;PUN_2_0_OR_NEWER;PUN_2_OR_NEWER;PUN_2_19_OR_NEWER
     QNX: PHOTON_UNITY_NETWORKING;PUN_2_0_OR_NEWER;PUN_2_OR_NEWER;PUN_2_19_OR_NEWER
-    Standalone: PHOTON_UNITY_NETWORKING;PUN_2_0_OR_NEWER;PUN_2_OR_NEWER;PUN_2_19_OR_NEWER;PLUGIN_YG_2;RU_YG2;TMP_YG2;Authorization_yg;RewardedAdv_yg;Leaderboards_yg;Review_yg;InterstitialAdv_yg;NJSON_YG2;EnvirData_yg;QuitGameEvent_yg;Metrica_yg;YandexGamesPlatform_yg;Localization_yg;AutoTranslateLangs_yg;NJSON_STORAGE_YG2
+    Standalone: PHOTON_UNITY_NETWORKING;PUN_2_0_OR_NEWER;PUN_2_OR_NEWER;PUN_2_19_OR_NEWER;PLUGIN_YG_2;RU_YG2;TMP_YG2;Authorization_yg;RewardedAdv_yg;Leaderboards_yg;Review_yg;InterstitialAdv_yg;NJSON_YG2;EnvirData_yg;QuitGameEvent_yg;Metrica_yg;Localization_yg;AutoTranslateLangs_yg;NJSON_STORAGE_YG2;YandexGamesPlatform_yg
     WebGL: PHOTON_UNITY_NETWORKING;PUN_2_0_OR_NEWER;PUN_2_OR_NEWER;PUN_2_19_OR_NEWER;PLUGIN_YG_2;Authorization_yg;AutoTranslateLangs_yg;EnvirData_yg;InterstitialAdv_yg;Leaderboards_yg;Localization_yg;QuitGameEvent_yg;Review_yg;RewardedAdv_yg;Storage_yg;TMP_YG2;YG_PLUGIN_YANDEX_GAME;RU_YG2;NJSON_YG2;NJSON_STORAGE_YG2;Metrica_yg;YandexGamesPlatform_yg
     Windows Store Apps: PHOTON_UNITY_NETWORKING;PUN_2_0_OR_NEWER;PUN_2_OR_NEWER;PUN_2_19_OR_NEWER
     XboxOne: PHOTON_UNITY_NETWORKING;PUN_2_0_OR_NEWER;PUN_2_OR_NEWER;PUN_2_19_OR_NEWER
