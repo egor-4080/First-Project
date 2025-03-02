@@ -10,9 +10,7 @@ public class FindServers : MonoBehaviourPunCallbacks
 {
     [SerializeField] private GameObject roomPrefab;
     
-    private List<RoomInfo> rooms = new();
-    private List<GameObject> currentRooms = new List<GameObject>();
-    private bool isStarted = false;
+    private Dictionary<string, GameObject> rooms = new();
 
     private ScrollBarController scrollBarController;
 
@@ -21,42 +19,27 @@ public class FindServers : MonoBehaviourPunCallbacks
         scrollBarController = GetComponent<ScrollBarController>();
     }
 
-    private void Start()
-    {
-        StartCoroutine(UpdateContent());
-    }
-
-    public void StopSearching()
-    {
-        isStarted = true;
-    }
-
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
-        rooms = roomList;
-    }
-
-    private IEnumerator UpdateContent()
-    {
-        while (!isStarted)
+        foreach (var room in roomList)
         {
-            foreach (var currentRoom in currentRooms)
+            if (!rooms.ContainsKey(room.Name) && !room.RemovedFromList)
             {
-                Destroy(currentRoom.gameObject);
-            }
-            currentRooms.Clear();
-
-            foreach (var room in rooms)
-            {
-                print(rooms.Count);
-                if (room.RemovedFromList)
-                    continue;
-                GameObject roomObject = Instantiate(roomPrefab, transform);
-                currentRooms.Add(roomObject);
+                GameObject newRoom = Instantiate(roomPrefab, transform);
+                rooms.Add(room.Name, newRoom);
+                PrefabInit();
+                continue;
             }
             
-            scrollBarController.SetHeightContent(currentRooms.Count);
-            yield return new WaitForSeconds(3f);
+            if (room.RemovedFromList && rooms.ContainsKey(room.Name))
+            {
+                rooms.Remove(room.Name, out GameObject deactiveRoom);
+                Destroy(deactiveRoom);
+                continue;
+            }
+            scrollBarController.SetHeightContent(rooms.Count);
+            
+            Debug.Log($"Update rooms info:{room.Name}");
         }
     }
     
