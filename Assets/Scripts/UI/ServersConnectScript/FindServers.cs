@@ -27,7 +27,7 @@ public class FindServers : MonoBehaviourPunCallbacks
             {
                 GameObject newRoom = Instantiate(roomPrefab, transform);
                 rooms.Add(room.Name, newRoom);
-                PrefabInit();
+                PrefabInit(room);
                 continue;
             }
             
@@ -43,8 +43,7 @@ public class FindServers : MonoBehaviourPunCallbacks
         }
     }
     
-    private void PrefabInit()
+    private void PrefabInit(RoomInfo room)
     {
-        
     }
 }
