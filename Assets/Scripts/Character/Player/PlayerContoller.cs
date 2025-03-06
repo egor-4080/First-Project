@@ -109,7 +109,7 @@ public class PlayerContoller : Character
         };
 
         List<RaycastResult> results = new List<RaycastResult>();
-        EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+        EventSystem.current?.RaycastAll(eventDataCurrentPosition, results);
         return results.Count > 0;  // ���������� true, ���� ���� ������� UI ��� ������
     }
 

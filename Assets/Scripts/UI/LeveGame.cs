@@ -16,6 +16,7 @@ public class LeveGame : MonoBehaviourPunCallbacks
 
     public void OnLeaveTheGame()
     {
+        PhotonNetwork.LeaveLobby();
         PhotonNetwork.Disconnect();
     }
 

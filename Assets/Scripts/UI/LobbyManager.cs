@@ -49,7 +49,10 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     {
         (int readyPlayers, int countPlayers) = GetReadyPlayers();
         if (readyPlayers == countPlayers)
+        {
+            PhotonNetwork.CurrentRoom.IsOpen = false;
             photon.RPC(nameof(LoadScene), RpcTarget.All);
+        }
     }
 
     [PunRPC]
