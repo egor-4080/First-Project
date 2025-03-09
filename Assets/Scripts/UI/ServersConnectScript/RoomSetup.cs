@@ -8,7 +8,7 @@ public class RoomSetup : MonoBehaviour
     public void CreateRoom(int maxPlayers, string password)
     {
         Hashtable room = new Hashtable();
-        if (password != null)
+        if (password != "")
         {
             room.Add("password", password);
         }
