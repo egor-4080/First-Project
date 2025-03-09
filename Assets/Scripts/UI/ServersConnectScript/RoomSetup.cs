@@ -5,9 +5,8 @@ using UnityEngine;
 
 public class RoomSetup : MonoBehaviour
 {
-    public void CreateRoom(int maxPlayers)
+    public void CreateRoom(int maxPlayers, string password)
     {
-        string password = null;
         Hashtable room = new Hashtable();
         if (password != null)
         {
