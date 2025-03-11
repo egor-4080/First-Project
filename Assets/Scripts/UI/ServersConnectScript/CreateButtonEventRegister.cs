@@ -1,11 +1,12 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class CreateButtonEventRegister : MonoBehaviour
 {
-    [SerializeField] private RoomSetup roomSetup;
+    [SerializeField] private RoomManager roomManager;
     [SerializeField] private TMP_InputField passwordInput;
     [SerializeField] private TMP_Dropdown maxPlayersInput;
 
@@ -18,7 +19,7 @@ public class CreateButtonEventRegister : MonoBehaviour
 
     private void CreateRoom()
     {
-        roomSetup.CreateRoom(int.Parse(maxPlayersInput.options[maxPlayersInput.value].text), passwordInput.text);
+        roomManager.CreateRoom(int.Parse(maxPlayersInput.options[maxPlayersInput.value].text), passwordInput.text);
     }
 
     private void OnEnable()

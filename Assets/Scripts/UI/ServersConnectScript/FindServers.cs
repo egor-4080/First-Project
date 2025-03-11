@@ -45,5 +45,6 @@ public class FindServers : MonoBehaviourPunCallbacks
     
     private void PrefabInit(RoomInfo room)
     {
+        
     }
 }
