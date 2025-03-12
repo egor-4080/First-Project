@@ -8,6 +8,10 @@ public class CopyPassword : MonoBehaviour
 
     public void CopyPasswordToBuffer()
     {
-        GUIUtility.systemCopyBuffer = password.text;
+        //GUIUtility.systemCopyBuffer = password.text;
+        TextEditor textEditor = new TextEditor();
+        textEditor.text = password.text;
+        textEditor.SelectAll();
+        textEditor.Copy();
     }
 }

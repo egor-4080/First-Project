@@ -3,11 +3,17 @@ using System.Linq;
 using ExitGames.Client.Photon;
 using Photon.Pun;
 using Photon.Realtime;
+using TMPro;
 using Unity.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RoomManager : MonoBehaviourPunCallbacks
 {
+    [SerializeField] private TMP_InputField connectPassword;
+    [SerializeField] private TMP_InputField connectID;
+    [SerializeField] private Button connectButton;
+    
     private List<RoomInfo> currentRooms = new();
     
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
@@ -15,7 +21,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
         currentRooms = roomList;
     }
     
-    public void CreateRoom(int maxPlayers, string password)
+    public void CreateRoom(int maxPlayers, string password = "")
     {
         Hashtable room = new Hashtable();
         if (password != "")
@@ -50,24 +56,37 @@ public class RoomManager : MonoBehaviourPunCallbacks
         }
     }
 
-    public void JoinRoom(string roomName, string password = "")
+    public void FindFreeRoom()
     {
-        RoomInfo foundRoom = currentRooms.FirstOrDefault(x => x.Name == roomName && x.RemovedFromList == false);
+        var currentRooms = this.currentRooms
+            .Where(x => x.RemovedFromList == false && x.PlayerCount != x.MaxPlayers).ToList();
+        if (currentRooms.Count != 0)
+            PhotonNetwork.JoinRandomRoom();
+        else
+            CreateRoom(4);
+    }
+
+    public void JoinRoom()
+    {
+        RoomInfo foundRoom = currentRooms.FirstOrDefault(x => x.Name == connectID.text && x.RemovedFromList == false);
         if (foundRoom == null)
         {
             //Выкинуть ошибку
+            connectButton.interactable = true;
             return;
         }
         if (foundRoom.MaxPlayers == foundRoom.PlayerCount)
         {
             //Выкинуть ошибку
+            connectButton.interactable = true;
             return;
         }
 
         Hashtable customProperties = foundRoom.CustomProperties;
-        if (customProperties.ContainsKey("password") && customProperties["password"].ToString() != password)
+        if (customProperties.ContainsKey("password") && customProperties["password"].ToString() != connectPassword.text)
         {
             //Выкинуть ошибку
+            connectButton.interactable = true;
             return;
         }
         
