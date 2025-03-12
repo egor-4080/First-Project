@@ -3,6 +3,7 @@ using System.Linq;
 using ExitGames.Client.Photon;
 using Photon.Pun;
 using Photon.Realtime;
+using Unity.Collections;
 using UnityEngine;
 
 public class RoomManager : MonoBehaviourPunCallbacks
@@ -29,7 +30,24 @@ public class RoomManager : MonoBehaviourPunCallbacks
             CustomRoomProperties = room,
         };
 
-        PhotonNetwork.CreateRoom(null, options);
+        PhotonNetwork.CreateRoom(GiveRoomID(), options);
+    }
+
+    private string GiveRoomID()
+    {
+        List<int> names = currentRooms.Where(x => x.RemovedFromList == false)
+            .Select(x => int.Parse(x.Name)).ToList();
+        
+        int preID = names.Count;
+        while (true)
+        {
+            if (!names.Contains(preID))
+            {
+                Debug.Log($"Room has been created with ID: {preID}");
+                return preID.ToString();
+            }
+            preID++;
+        }
     }
 
     public void JoinRoom(string roomName, string password = "")
@@ -52,7 +70,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
             //Выкинуть ошибку
             return;
         }
-
+        
         PhotonNetwork.JoinRoom(foundRoom.Name);
     }
 }
