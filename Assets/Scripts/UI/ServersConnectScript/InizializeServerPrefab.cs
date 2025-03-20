@@ -1,15 +1,26 @@
+using ExitGames.Client.Photon;
+using Photon.Realtime;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class InizializeServerPrefab : MonoBehaviour
-{
-    [SerializeField] private TMP_Text name;
+{ 
+    [SerializeField] private TMP_Text roomName;
     [SerializeField] private TMP_Text players;
     [SerializeField] private TMP_Text isLocked;
-    [SerializeField] private TMP_Text ping;
 
-    public void Init(string name, int players, int maxPlayers, bool isLocked, float ping)
+    public void Init(RoomInfo roomInfo)
     {
-        
+        Hashtable roomProperties = roomInfo.CustomProperties;
+        //name.text = roomProperties["name"].ToString();
+        roomName.text = "player";
+        UpdatePlayersCount(roomInfo);
+        isLocked.text = roomProperties.ContainsKey("password") ? "Locked" : "Unlocked";
+    }
+
+    public void UpdatePlayersCount(RoomInfo roomInfo)
+    {
+        players.text = roomInfo.PlayerCount.ToString() + "/" + roomInfo.MaxPlayers.ToString();
     }
 }

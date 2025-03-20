@@ -2,15 +2,16 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using ExitGames.Client.Photon.StructWrapping;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
 
 public class FindServers : MonoBehaviourPunCallbacks
 {
-    [SerializeField] private GameObject roomPrefab;
+    [SerializeField] private InizializeServerPrefab roomPrefab;
     
-    private Dictionary<string, GameObject> rooms = new();
+    private Dictionary<string, InizializeServerPrefab> rooms = new();
 
     private ScrollBarController scrollBarController;
 
@@ -25,26 +26,25 @@ public class FindServers : MonoBehaviourPunCallbacks
         {
             if (!rooms.ContainsKey(room.Name) && !room.RemovedFromList)
             {
-                GameObject newRoom = Instantiate(roomPrefab, transform);
+                InizializeServerPrefab newRoom = Instantiate(roomPrefab, transform);
                 rooms.Add(room.Name, newRoom);
-                PrefabInit(room);
+                newRoom.Init(room);
+                scrollBarController.SetHeightContent(rooms.Count);
                 continue;
             }
             
             if (room.RemovedFromList && rooms.ContainsKey(room.Name))
             {
-                rooms.Remove(room.Name, out GameObject deactiveRoom);
-                Destroy(deactiveRoom);
+                rooms.Remove(room.Name, out InizializeServerPrefab deactiveRoom);
+                Destroy(deactiveRoom.gameObject);
+                scrollBarController.SetHeightContent(rooms.Count);
                 continue;
             }
             scrollBarController.SetHeightContent(rooms.Count);
+            InizializeServerPrefab serverScript = rooms[room.Name];
+            serverScript.UpdatePlayersCount(room);
             
             Debug.Log($"Update rooms info:{room.Name}");
         }
-    }
-    
-    private void PrefabInit(RoomInfo room)
-    {
-        
     }
 }

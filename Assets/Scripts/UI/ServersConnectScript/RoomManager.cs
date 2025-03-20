@@ -35,8 +35,13 @@ public class RoomManager : MonoBehaviourPunCallbacks
             MaxPlayers = maxPlayers,
             CustomRoomProperties = room,
         };
-
+        
         PhotonNetwork.CreateRoom(GiveRoomID(), options);
+    }
+
+    public override void OnCreateRoomFailed(short returnCode, string message)
+    {
+        
     }
 
     private string GiveRoomID()
@@ -59,9 +64,10 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public void FindFreeRoom()
     {
         var currentRooms = this.currentRooms
-            .Where(x => x.RemovedFromList == false && x.PlayerCount != x.MaxPlayers).ToList();
-        if (currentRooms.Count != 0)
-            PhotonNetwork.JoinRandomRoom();
+            .FirstOrDefault(x => x.RemovedFromList == false && x.PlayerCount != x.MaxPlayers &&
+                                 x.CustomProperties.ContainsKey("password") == false);
+        if (currentRooms != null)
+            PhotonNetwork.JoinRoom(currentRooms.Name);
         else
             CreateRoom(4);
     }

@@ -963,7 +963,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffd0660d316821643897853a376646fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomPrefab: {fileID: 3485273243998097290, guid: ba86cb752df5f6c4892cb4a5ded8d39e, type: 3}
+  roomPrefab: {fileID: 4510153021781246242, guid: ba86cb752df5f6c4892cb4a5ded8d39e, type: 3}
 --- !u!114 &145463844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1943,7 +1943,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2121327490}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.6299046
+  m_Size: 0.6299567
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -9942,35 +9942,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4172553995973465676, guid: b44f188a61c161649a053aea6832beb3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5842989242458479859, guid: b44f188a61c161649a053aea6832beb3, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5842989242458479859, guid: b44f188a61c161649a053aea6832beb3, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5842989242458479859, guid: b44f188a61c161649a053aea6832beb3, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5842989242458479859, guid: b44f188a61c161649a053aea6832beb3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -54.119667
       objectReference: {fileID: 0}
     - target: {fileID: 8763556289488700056, guid: b44f188a61c161649a053aea6832beb3, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8763556289488700056, guid: b44f188a61c161649a053aea6832beb3, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8763556289488700056, guid: b44f188a61c161649a053aea6832beb3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -72
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
