@@ -19,7 +19,6 @@ public class ScrollBarController : MonoBehaviour
 
     public void SetHeightContent(float count)
     {
-        print(count);
         rectTransform.sizeDelta = new Vector2(weidth, startHeight);;
         float plusNumber = startHeight;
         for (int i = 0; i < count; i += caseCount)

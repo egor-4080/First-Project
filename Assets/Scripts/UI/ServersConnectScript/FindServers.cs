@@ -22,8 +22,10 @@ public class FindServers : MonoBehaviourPunCallbacks
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
+        roomList.Select(room => room.IsOpen).ToList();
         foreach (var room in roomList)
         {
+            Debug.Log(room.CustomProperties.ContainsKey("name"));
             if (!rooms.ContainsKey(room.Name) && !room.RemovedFromList)
             {
                 InizializeServerPrefab newRoom = Instantiate(roomPrefab, transform);

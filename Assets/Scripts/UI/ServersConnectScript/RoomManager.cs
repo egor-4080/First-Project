@@ -18,7 +18,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
     
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
-        currentRooms = roomList;
+        currentRooms = roomList.Where(room => room.RemovedFromList == false).ToList();
     }
     
     public void CreateRoom(int maxPlayers, string password = "")
@@ -34,6 +34,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
         {
             MaxPlayers = maxPlayers,
             CustomRoomProperties = room,
+            CustomRoomPropertiesForLobby = new [] {"name", "password"}
         };
         
         PhotonNetwork.CreateRoom(GiveRoomID(), options);
@@ -46,7 +47,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     private string GiveRoomID()
     {
-        List<int> names = currentRooms.Where(x => x.RemovedFromList == false)
+        List<int> names = currentRooms
             .Select(x => int.Parse(x.Name)).ToList();
         
         int preID = names.Count;
@@ -63,18 +64,22 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     public void FindFreeRoom()
     {
-        var currentRooms = this.currentRooms
-            .FirstOrDefault(x => x.RemovedFromList == false && x.PlayerCount != x.MaxPlayers &&
-                                 x.CustomProperties.ContainsKey("password") == false);
-        if (currentRooms != null)
-            PhotonNetwork.JoinRoom(currentRooms.Name);
+        var currentFreeRoom = currentRooms
+            .FirstOrDefault(x=> x.PlayerCount != x.MaxPlayers && x.CustomProperties.ContainsKey("password") == false);
+        if (currentFreeRoom != null)
+            PhotonNetwork.JoinRoom(currentFreeRoom.Name);
         else
             CreateRoom(4);
     }
 
     public void JoinRoom()
     {
-        RoomInfo foundRoom = currentRooms.FirstOrDefault(x => x.Name == connectID.text && x.RemovedFromList == false);
+        JoinRoom(connectID.text);
+    }
+
+    public void JoinRoom(string roomID)
+    {
+        RoomInfo foundRoom = currentRooms.FirstOrDefault(x => x.Name == roomID);
         if (foundRoom == null)
         {
             //Выкинуть ошибку

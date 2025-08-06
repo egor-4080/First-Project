@@ -26,7 +26,8 @@ public class AudioManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mod)
     {
-        Slider slider = GameObject.FindWithTag("AudioSlider").GetComponent<Slider>();
+        Slider slider = FindFirstObjectByType<AudioSliderStart>(FindObjectsInactive.Include)
+            .GetComponent<Slider>();
         slider.onValueChanged.AddListener(AudioChanger);
     }
 
@@ -39,7 +40,7 @@ public class AudioManager : MonoBehaviour
 
     private void FindAllAudio()
     {
-        AudioSource[] audios = FindObjectsByType<AudioSource>(FindObjectsSortMode.None);
+        AudioSource[] audios = FindObjectsByType<AudioSource>(FindObjectsInactive.Include, FindObjectsSortMode.None);
         foreach (AudioSource audio in audios)
         {
             if (!audioValues.ContainsKey(audio))

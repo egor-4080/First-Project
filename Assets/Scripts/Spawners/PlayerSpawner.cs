@@ -15,10 +15,13 @@ public class PlayerSpawner : MonoBehaviourPunCallbacks
     [SerializeField] private MenuSwitcher menuSwitcher;
     [SerializeField] private Transform content;
     [SerializeField] private WeaponManager weaponManager;
+    [SerializeField] private Animator[] animColors;
 
+    private Dictionary<string, bool> playersColor = new Dictionary<string, bool>();
     private PlayerContoller playerScript;
     private PhotonView photon;
     private float deathTimer = 5;
+    private int colorCount;
 
     public static List<Transform> players { get; private set; } = new();
 
@@ -34,6 +37,8 @@ public class PlayerSpawner : MonoBehaviourPunCallbacks
         Hashtable playerProperties = new Hashtable();
         playerProperties["Score"] = 0;
         PhotonNetwork.LocalPlayer.SetCustomProperties(playerProperties);
+        if (PhotonNetwork.IsMasterClient) photon.RPC(nameof(SetColorDictionary), RpcTarget.All);
+        photon.RPC(nameof(SetPlayerColor), RpcTarget.AllBuffered);
         Respawn();
     }
 
@@ -63,6 +68,15 @@ public class PlayerSpawner : MonoBehaviourPunCallbacks
         }
     }
 
+    [PunRPC]
+    public void SetColorDictionary()
+    {
+        playersColor.Add("Red", false);
+        playersColor.Add("Blue", false);
+        playersColor.Add("Green", false);
+        playersColor.Add("Yellow", false);
+    }
+
     private void Respawn()
     {
         GameObject player = PhotonNetwork.Instantiate(playerPrefab.name, transform.position, Quaternion.identity);
@@ -76,5 +90,22 @@ public class PlayerSpawner : MonoBehaviourPunCallbacks
         weaponManager.GiveWeapon();
         photon.RPC(nameof(GetPlayers), RpcTarget.MasterClient);
         audioManager.OnNewAudiosAppeared();
+    }
+
+    [PunRPC]
+    public void SetPlayerColor()
+    {
+        string keyColor = "";
+        var isUseColor = false;
+        foreach (var colorPair in playersColor)
+        {
+            isUseColor = colorPair.Value;
+            if (isUseColor == false)
+            {
+                keyColor = colorPair.Key;
+                break;
+            }
+        }
+        playersColor[keyColor] = true; 
     }
 }

@@ -1,8 +1,12 @@
+using System;
 using System.Collections;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.Events;
+using YG;
+using YG.Utils.LB;
+using Random = UnityEngine.Random;
 
 public class EnemiesSpawn : MonoBehaviourPunCallbacks
 {
@@ -24,13 +28,20 @@ public class EnemiesSpawn : MonoBehaviourPunCallbacks
     private int currentEnemies;
 
     private GameObject currentEnemy;
+    private PhotonView photon;
     private bool isTimerActive;
 
     public UnityEvent newxtWave { get; private set; } = new();
 
+    private void Awake()
+    {
+        photon = GetComponent<PhotonView>();
+    }
+
     private void Start()
     {
         timer.timerEnd.AddListener(() => isTimerActive = false);
+        YG2.onGetLeaderboard += OnGetLeaderBoard;
         Config.instance.SetNewDictionary(dictionaryName, staticNames);
         
         FindMasterToSpawn();
@@ -57,6 +68,19 @@ public class EnemiesSpawn : MonoBehaviourPunCallbacks
         {
             enemyAttack.ChangeDamage(0);
         }
+    }
+
+    private void OnGetLeaderBoard(LBData data)
+    {
+        Player player = PhotonNetwork.LocalPlayer;
+        int currentScore = data.currentPlayer.score + (int)player.CustomProperties["Score"];
+        YG2.SetLeaderboard("LeaderBoard", currentScore);
+    }
+
+    [PunRPC]
+    private void GetLeaderBoard()
+    {
+        YG2.GetLeaderboard("LeaderBoard");
     }
 
     private IEnumerator StartWaves()
@@ -100,6 +124,8 @@ public class EnemiesSpawn : MonoBehaviourPunCallbacks
             {
                 yield return null;
             }
+            
+            photon.RPC(nameof(GetLeaderBoard), RpcTarget.All);
         }
     }
 }

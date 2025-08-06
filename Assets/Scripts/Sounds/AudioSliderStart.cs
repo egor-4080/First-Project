@@ -7,11 +7,5 @@ using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class AudioSliderStart : MonoBehaviour
-{ 
-    [SerializeField] private GameObject settingsPanel;
-    
-    private void Start()
-    {
-        settingsPanel.SetActive(false);
-    }
+{
 }
