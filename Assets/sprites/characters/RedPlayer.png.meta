@@ -1,0 +1,1469 @@
+fileFormatVersion: 2
+guid: 66d614c0eb5e2ba45ab03f0d14bc132e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3818393354303293454
+    second: RedPlayer_0
+  - first:
+      213: -6043221942087093610
+    second: RedPlayer_1
+  - first:
+      213: 7368235543290197157
+    second: RedPlayer_2
+  - first:
+      213: -7161745479010698381
+    second: RedPlayer_3
+  - first:
+      213: 4553143700000857586
+    second: RedPlayer_4
+  - first:
+      213: -9065198835352781739
+    second: RedPlayer_5
+  - first:
+      213: 8916495974695069075
+    second: RedPlayer_6
+  - first:
+      213: 4096027936373406633
+    second: RedPlayer_7
+  - first:
+      213: -6700635397214459642
+    second: RedPlayer_8
+  - first:
+      213: 1629081183354025452
+    second: RedPlayer_9
+  - first:
+      213: 3739693741686073931
+    second: RedPlayer_10
+  - first:
+      213: 7405696164464661211
+    second: RedPlayer_11
+  - first:
+      213: 137966863769808324
+    second: RedPlayer_12
+  - first:
+      213: -2213881888943247875
+    second: RedPlayer_13
+  - first:
+      213: -3142761957428112072
+    second: RedPlayer_14
+  - first:
+      213: -2773477356025115360
+    second: RedPlayer_15
+  - first:
+      213: 8754428960886364156
+    second: RedPlayer_16
+  - first:
+      213: 1789534834033186158
+    second: RedPlayer_17
+  - first:
+      213: -8518822543597502091
+    second: RedPlayer_18
+  - first:
+      213: -6917157376118372835
+    second: RedPlayer_19
+  - first:
+      213: 6762204412560225884
+    second: RedPlayer_20
+  - first:
+      213: -1083520823594854366
+    second: RedPlayer_21
+  - first:
+      213: -176466572091453186
+    second: RedPlayer_22
+  - first:
+      213: 6992819197451215539
+    second: RedPlayer_23
+  - first:
+      213: 8374914893501420377
+    second: RedPlayer_24
+  - first:
+      213: 8922474549080504734
+    second: RedPlayer_25
+  - first:
+      213: 8283029101029701009
+    second: RedPlayer_26
+  - first:
+      213: -4298951795032084289
+    second: RedPlayer_27
+  - first:
+      213: -1029123868362535184
+    second: RedPlayer_28
+  - first:
+      213: -4133385094859485130
+    second: RedPlayer_29
+  - first:
+      213: 8546700860413585816
+    second: RedPlayer_30
+  - first:
+      213: 7140367133183782941
+    second: RedPlayer_31
+  - first:
+      213: 6743931983577080412
+    second: RedPlayer_32
+  - first:
+      213: -6512676122824355709
+    second: RedPlayer_33
+  - first:
+      213: -7572726024928649542
+    second: RedPlayer_34
+  - first:
+      213: -8046815673970114524
+    second: RedPlayer_35
+  - first:
+      213: 1411368434485271020
+    second: RedPlayer_36
+  - first:
+      213: 6625023086798603245
+    second: RedPlayer_37
+  - first:
+      213: -8250880097376024853
+    second: RedPlayer_38
+  - first:
+      213: -1727015281978440487
+    second: RedPlayer_39
+  - first:
+      213: -187609549694697949
+    second: RedPlayer_40
+  - first:
+      213: 4665722806597992592
+    second: RedPlayer_41
+  - first:
+      213: -8300507379526469679
+    second: RedPlayer_42
+  - first:
+      213: -3922273104920519197
+    second: RedPlayer_43
+  - first:
+      213: -5338190089189663426
+    second: RedPlayer_44
+  - first:
+      213: -3329685013321052667
+    second: RedPlayer_45
+  - first:
+      213: -9206975956721346904
+    second: RedPlayer_46
+  - first:
+      213: -1070225221539242424
+    second: RedPlayer_47
+  - first:
+      213: -8219428199036104099
+    second: RedPlayer_48
+  - first:
+      213: -7783856942425415894
+    second: RedPlayer_49
+  - first:
+      213: 972700231708091731
+    second: RedPlayer_50
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Win64
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: RedPlayer_0
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 436
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f73a089977520bc0800000000000000
+      internalID: -3818393354303293454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_1
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 436
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6927d0b79a9222ca0800000000000000
+      internalID: -6043221942087093610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_2
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 436
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a43833203b314660800000000000000
+      internalID: 7368235543290197157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_3
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 436
+        width: 15
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37bbecf6e6e5c9c90800000000000000
+      internalID: -7161745479010698381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_4
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 436
+        width: 15
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fddbd15214003f30800000000000000
+      internalID: 4553143700000857586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_5
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 436
+        width: 15
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55c338050b1f13280800000000000000
+      internalID: -9065198835352781739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_6
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 388
+        width: 17
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39566ece8d1cdbb70800000000000000
+      internalID: 8916495974695069075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_7
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 388
+        width: 17
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9abfc99d4b308d830800000000000000
+      internalID: 4096027936373406633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_8
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 388
+        width: 17
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 609af939b9f8203a0800000000000000
+      internalID: -6700635397214459642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_9
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 388
+        width: 17
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce5f61c74b8ab9610800000000000000
+      internalID: 1629081183354025452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_10
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 388
+        width: 17
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4a23f1f4af06e330800000000000000
+      internalID: 3739693741686073931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_11
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 388
+        width: 17
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd2936dac6156c660800000000000000
+      internalID: 7405696164464661211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_12
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 340
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cd26c1b1282ae100800000000000000
+      internalID: 137966863769808324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_13
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 340
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfdedd2d626b641e0800000000000000
+      internalID: -2213881888943247875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_14
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 340
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 835d2e996aaa264d0800000000000000
+      internalID: -3142761957428112072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_15
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 340
+        width: 15
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02d88890a01a289d0800000000000000
+      internalID: -2773477356025115360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_16
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 340
+        width: 15
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf71609c1cafd7970800000000000000
+      internalID: 8754428960886364156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_17
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 340
+        width: 15
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e655cbf3374b5d810800000000000000
+      internalID: 1789534834033186158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_18
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 292
+        width: 15
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5710840080017c980800000000000000
+      internalID: -8518822543597502091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_19
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 292
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d16cdfcd3025100a0800000000000000
+      internalID: -6917157376118372835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_20
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 292
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c563b35e51d28dd50800000000000000
+      internalID: 6762204412560225884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_21
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 292
+        width: 15
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 228d3ea3d8f86f0f0800000000000000
+      internalID: -1083520823594854366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_22
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 292
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef012cf66901d8df0800000000000000
+      internalID: -176466572091453186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_23
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 292
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b2ac92b20c7b0160800000000000000
+      internalID: 6992819197451215539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_24
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 244
+        width: 17
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 953d74339bca93470800000000000000
+      internalID: 8374914893501420377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_25
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 244
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e99386f345ff2db70800000000000000
+      internalID: 8922474549080504734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_26
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 244
+        width: 17
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 195391ff41b33f270800000000000000
+      internalID: 8283029101029701009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_27
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 244
+        width: 17
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb0b5968e1e0754c0800000000000000
+      internalID: -4298951795032084289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_28
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 244
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fe00645b41d7b1f0800000000000000
+      internalID: -1029123868362535184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_29
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 244
+        width: 17
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6309105e72443a6c0800000000000000
+      internalID: -4133385094859485130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_30
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 196
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8992a72762bfb9670800000000000000
+      internalID: 8546700860413585816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_31
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 196
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d103b4b831ea71360800000000000000
+      internalID: 7140367133183782941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_32
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 196
+        width: 15
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c52e18e7862479d50800000000000000
+      internalID: 6743931983577080412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_33
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 196
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 380d2e962935e95a0800000000000000
+      internalID: -6512676122824355709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_34
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 196
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abe95c66dc548e690800000000000000
+      internalID: -7572726024928649542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_35
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 196
+        width: 15
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42047f347c7f35090800000000000000
+      internalID: -8046815673970114524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_36
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 148
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce991b80d10369310800000000000000
+      internalID: 1411368434485271020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_37
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 143
+        width: 22
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de38465856fc0fb50800000000000000
+      internalID: 6625023086798603245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_38
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 147
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be6cf87344cfe7d80800000000000000
+      internalID: -8250880097376024853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_39
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 148
+        width: 15
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d4010c40c86808e0800000000000000
+      internalID: -1727015281978440487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_40
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 100
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32ef9f9cb1a756df0800000000000000
+      internalID: -187609549694697949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_41
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 98
+        width: 36
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09046bb2c2affb040800000000000000
+      internalID: 4665722806597992592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_42
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 100
+        width: 22
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d7f0db248caecc80800000000000000
+      internalID: -8300507379526469679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_43
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 100
+        width: 17
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3edd42564694199c0800000000000000
+      internalID: -3922273104920519197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_44
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 52
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3dd6569560fae5b0800000000000000
+      internalID: -5338190089189663426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_45
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 52
+        width: 24
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50e8e0f2f159ac1d0800000000000000
+      internalID: -3329685013321052667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_46
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 52
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a6df04e5204a3080800000000000000
+      internalID: -9206975956721346904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_47
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 52
+        width: 15
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84e5d70d4dbc521f0800000000000000
+      internalID: -1070225221539242424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_48
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 4
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d52df93f999beed80800000000000000
+      internalID: -8219428199036104099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_49
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 4
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2f564cf95f2af390800000000000000
+      internalID: -7783856942425415894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPlayer_50
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 4
+        width: 23
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 355a6e705b9bf7d00800000000000000
+      internalID: 972700231708091731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      RedPlayer_0: -3818393354303293454
+      RedPlayer_1: -6043221942087093610
+      RedPlayer_10: 3739693741686073931
+      RedPlayer_11: 7405696164464661211
+      RedPlayer_12: 137966863769808324
+      RedPlayer_13: -2213881888943247875
+      RedPlayer_14: -3142761957428112072
+      RedPlayer_15: -2773477356025115360
+      RedPlayer_16: 8754428960886364156
+      RedPlayer_17: 1789534834033186158
+      RedPlayer_18: -8518822543597502091
+      RedPlayer_19: -6917157376118372835
+      RedPlayer_2: 7368235543290197157
+      RedPlayer_20: 6762204412560225884
+      RedPlayer_21: -1083520823594854366
+      RedPlayer_22: -176466572091453186
+      RedPlayer_23: 6992819197451215539
+      RedPlayer_24: 8374914893501420377
+      RedPlayer_25: 8922474549080504734
+      RedPlayer_26: 8283029101029701009
+      RedPlayer_27: -4298951795032084289
+      RedPlayer_28: -1029123868362535184
+      RedPlayer_29: -4133385094859485130
+      RedPlayer_3: -7161745479010698381
+      RedPlayer_30: 8546700860413585816
+      RedPlayer_31: 7140367133183782941
+      RedPlayer_32: 6743931983577080412
+      RedPlayer_33: -6512676122824355709
+      RedPlayer_34: -7572726024928649542
+      RedPlayer_35: -8046815673970114524
+      RedPlayer_36: 1411368434485271020
+      RedPlayer_37: 6625023086798603245
+      RedPlayer_38: -8250880097376024853
+      RedPlayer_39: -1727015281978440487
+      RedPlayer_4: 4553143700000857586
+      RedPlayer_40: -187609549694697949
+      RedPlayer_41: 4665722806597992592
+      RedPlayer_42: -8300507379526469679
+      RedPlayer_43: -3922273104920519197
+      RedPlayer_44: -5338190089189663426
+      RedPlayer_45: -3329685013321052667
+      RedPlayer_46: -9206975956721346904
+      RedPlayer_47: -1070225221539242424
+      RedPlayer_48: -8219428199036104099
+      RedPlayer_49: -7783856942425415894
+      RedPlayer_5: -9065198835352781739
+      RedPlayer_50: 972700231708091731
+      RedPlayer_6: 8916495974695069075
+      RedPlayer_7: 4096027936373406633
+      RedPlayer_8: -6700635397214459642
+      RedPlayer_9: 1629081183354025452
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
