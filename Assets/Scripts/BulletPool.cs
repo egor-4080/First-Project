@@ -23,7 +23,7 @@ public class BulletPool : MonoBehaviour
     {
         BulletController bullet = objectPool.Get();
         //StartCoroutine(ReleaseBulletOnTime(bullet));
-
+        
         bullet.transform.position = spawnPoint.position;
         bullet.transform.rotation =
             spawnPoint.rotation * Quaternion.Euler(0, 0, Random.Range(-spreadAngle / 2, spreadAngle / 2));
